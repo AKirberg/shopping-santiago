@@ -4,11 +4,30 @@
     "name": "Costanera Center",
     "commune": "Providencia",
     "mapsQuery": "Costanera Center Santiago",
-    "type": ["tourist", "variety", "metro", "fashion", "food", "quick"],
+    "type": [
+      "tourist",
+      "variety",
+      "metro",
+      "fashion",
+      "food",
+      "quick"
+    ],
     "description": "Uno de los malls mas reconocibles para turistas, con mucha variedad, conexion conveniente y una mezcla practica de compras, comida y paseo urbano.",
-    "bestFor": ["Primera visita", "Compras rapidas", "Turistas sin auto"],
-    "notIdealFor": ["Quienes buscan tranquilidad en hora punta"],
-    "categories": ["ropa", "tecnologia", "comida", "turismo", "regalos"],
+    "bestFor": [
+      "Primera visita",
+      "Compras rapidas",
+      "Turistas sin auto"
+    ],
+    "notIdealFor": [
+      "Quienes buscan tranquilidad en hora punta"
+    ],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "turismo",
+      "regalos"
+    ],
     "transport": {
       "metro": "Cercano a estacion Tobalaba.",
       "uber": true,
@@ -21,20 +40,43 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Sky Costanera"],
-    "tips": ["Ideal si estas alojando en Providencia o Las Condes."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Sky Costanera"
+    ],
+    "tips": [
+      "Ideal si estas alojando en Providencia o Las Condes."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/costanera-center.jpg"
   },
   {
     "id": "parque-arauco",
     "name": "Parque Arauco",
     "commune": "Las Condes",
     "mapsQuery": "Parque Arauco Las Condes Santiago",
-    "type": ["premium", "fashion", "family", "food", "tourist"],
+    "type": [
+      "premium",
+      "fashion",
+      "family",
+      "food",
+      "tourist"
+    ],
     "description": "Una experiencia de compra completa y mas pausada, con buena oferta gastronomica, marcas reconocidas y espacios comodos para combinar compras y paseo.",
-    "bestFor": ["Marcas premium", "Comer bien", "Familias"],
-    "notIdealFor": ["Visitas muy cortas sin transporte flexible"],
-    "categories": ["ropa", "lujo", "comida", "regalos", "deporte"],
+    "bestFor": [
+      "Marcas premium",
+      "Comer bien",
+      "Familias"
+    ],
+    "notIdealFor": [
+      "Visitas muy cortas sin transporte flexible"
+    ],
+    "categories": [
+      "ropa",
+      "lujo",
+      "comida",
+      "regalos",
+      "deporte"
+    ],
     "transport": {
       "metro": "Requiere combinar metro con caminata, bus o viaje corto en taxi/Uber.",
       "uber": true,
@@ -47,20 +89,43 @@
     "premium": true,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Parque Araucano", "Distrito de restaurantes de Las Condes"],
-    "tips": ["Buen punto para una tarde de compras con comida incluida."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Parque Araucano",
+      "Distrito de restaurantes de Las Condes"
+    ],
+    "tips": [
+      "Buen punto para una tarde de compras con comida incluida."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/parque-arauco.jpg"
   },
   {
     "id": "alto-las-condes",
     "name": "Alto Las Condes",
     "commune": "Las Condes",
     "mapsQuery": "Alto Las Condes Santiago",
-    "type": ["family", "variety", "food", "parking"],
+    "type": [
+      "family",
+      "variety",
+      "food",
+      "parking"
+    ],
     "description": "Mall amplio y comodo para compras planificadas, familias y quienes se mueven en auto por el sector oriente.",
-    "bestFor": ["Familias", "Dia de lluvia", "Compras tranquilas"],
-    "notIdealFor": ["Turistas que dependen solo de metro"],
-    "categories": ["ropa", "tecnologia", "comida", "deporte", "supermercado/farmacia"],
+    "bestFor": [
+      "Familias",
+      "Dia de lluvia",
+      "Compras tranquilas"
+    ],
+    "notIdealFor": [
+      "Turistas que dependen solo de metro"
+    ],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "deporte",
+      "supermercado/farmacia"
+    ],
     "transport": {
       "metro": "No es la opcion mas directa en metro; conviene combinar con taxi/Uber o auto.",
       "uber": true,
@@ -73,20 +138,41 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Sector cordillera de Las Condes"],
-    "tips": ["Conveniente si estas alojando hacia Las Condes alto o vas en auto."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Sector cordillera de Las Condes"
+    ],
+    "tips": [
+      "Conveniente si estas alojando hacia Las Condes alto o vas en auto."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/alto-las-condes.png"
   },
   {
     "id": "casacostanera",
     "name": "Casacostanera",
     "commune": "Vitacura",
     "mapsQuery": "Casacostanera Vitacura Santiago",
-    "type": ["premium", "boutique", "food", "calm"],
+    "type": [
+      "premium",
+      "boutique",
+      "food",
+      "calm"
+    ],
     "description": "Formato boutique y sofisticado, pensado para una experiencia mas tranquila, con foco en moda, diseno, lifestyle y gastronomia.",
-    "bestFor": ["Experiencia premium", "Compras boutique", "Paseo en Vitacura"],
-    "notIdealFor": ["Quienes buscan maxima variedad en poco tiempo"],
-    "categories": ["lujo", "ropa", "comida", "regalos"],
+    "bestFor": [
+      "Experiencia premium",
+      "Compras boutique",
+      "Paseo en Vitacura"
+    ],
+    "notIdealFor": [
+      "Quienes buscan maxima variedad en poco tiempo"
+    ],
+    "categories": [
+      "lujo",
+      "ropa",
+      "comida",
+      "regalos"
+    ],
     "transport": {
       "metro": "Conviene llegar en taxi/Uber o auto desde estaciones cercanas.",
       "uber": true,
@@ -99,20 +185,42 @@
     "premium": true,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Nueva Costanera", "Alonso de Cordova"],
-    "tips": ["Muy buena escala si buscas un circuito premium en Vitacura."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Nueva Costanera",
+      "Alonso de Cordova"
+    ],
+    "tips": [
+      "Muy buena escala si buscas un circuito premium en Vitacura."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/casacostanera.jpg"
   },
   {
     "id": "mall-sport",
     "name": "Mall Sport",
     "commune": "Las Condes",
     "mapsQuery": "Mall Sport Las Condes Santiago",
-    "type": ["sport", "family", "experience", "parking"],
+    "type": [
+      "sport",
+      "family",
+      "experience",
+      "parking"
+    ],
     "description": "Centro enfocado en deporte, actividades y tiendas especializadas. Funciona bien para familias y compras de outdoor, zapatillas o equipamiento.",
-    "bestFor": ["Deporte", "Familias con ninos", "Experiencias activas"],
-    "notIdealFor": ["Quienes buscan moda general o lujo"],
-    "categories": ["deporte", "zapatillas", "ropa", "comida"],
+    "bestFor": [
+      "Deporte",
+      "Familias con ninos",
+      "Experiencias activas"
+    ],
+    "notIdealFor": [
+      "Quienes buscan moda general o lujo"
+    ],
+    "categories": [
+      "deporte",
+      "zapatillas",
+      "ropa",
+      "comida"
+    ],
     "transport": {
       "metro": "Conviene combinar con taxi/Uber o llegar en auto.",
       "uber": true,
@@ -125,20 +233,41 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Sector oriente de Las Condes"],
-    "tips": ["Buena alternativa para cortar una ruta familiar con algo mas entretenido."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Sector oriente de Las Condes"
+    ],
+    "tips": [
+      "Buena alternativa para cortar una ruta familiar con algo mas entretenido."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/mall-sport.jpg"
   },
   {
     "id": "open-kennedy",
     "name": "Open Kennedy",
     "commune": "Las Condes",
     "mapsQuery": "Open Kennedy Las Condes Santiago",
-    "type": ["quick", "food", "services", "parking"],
+    "type": [
+      "quick",
+      "food",
+      "services",
+      "parking"
+    ],
     "description": "Formato practico para compras especificas, comida o servicios en el eje Kennedy, especialmente si estas moviendote por Las Condes.",
-    "bestFor": ["Compras rapidas", "Servicios", "Parada conveniente"],
-    "notIdealFor": ["Turistas que quieren una gran experiencia de mall"],
-    "categories": ["comida", "supermercado/farmacia", "regalos", "ropa"],
+    "bestFor": [
+      "Compras rapidas",
+      "Servicios",
+      "Parada conveniente"
+    ],
+    "notIdealFor": [
+      "Turistas que quieren una gran experiencia de mall"
+    ],
+    "categories": [
+      "comida",
+      "supermercado/farmacia",
+      "regalos",
+      "ropa"
+    ],
     "transport": {
       "metro": "Mejor con taxi/Uber o auto.",
       "uber": true,
@@ -151,20 +280,41 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Eje Kennedy"],
-    "tips": ["Util si ya estas en la zona y tienes poco tiempo."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Eje Kennedy"
+    ],
+    "tips": [
+      "Util si ya estas en la zona y tienes poco tiempo."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/open-kennedy.webp"
   },
   {
     "id": "easton-outlet-mall",
     "name": "Easton Outlet Mall",
     "commune": "Quilicura",
     "mapsQuery": "Easton Outlet Mall Quilicura Santiago",
-    "type": ["outlet", "discount", "fashion", "parking"],
+    "type": [
+      "outlet",
+      "discount",
+      "fashion",
+      "parking"
+    ],
     "description": "Opcion de outlet para dedicar varias horas a buscar oportunidades, especialmente si el objetivo principal es precio.",
-    "bestFor": ["Descuentos", "Outlet day", "Compras con auto"],
-    "notIdealFor": ["Visitas muy cortas o sin transporte flexible"],
-    "categories": ["outlet", "ropa", "zapatillas", "deporte"],
+    "bestFor": [
+      "Descuentos",
+      "Outlet day",
+      "Compras con auto"
+    ],
+    "notIdealFor": [
+      "Visitas muy cortas o sin transporte flexible"
+    ],
+    "categories": [
+      "outlet",
+      "ropa",
+      "zapatillas",
+      "deporte"
+    ],
     "transport": {
       "metro": "No es la opcion mas directa en metro; conviene planificar taxi/Uber o auto.",
       "uber": true,
@@ -178,19 +328,39 @@
     "outlet": true,
     "foodExperience": false,
     "nearbyAttractions": [],
-    "tips": ["Conviene ir con lista de marcas y revisar politicas de cambio por tienda."],
-    "checkOfficialHours": true
+    "tips": [
+      "Conviene ir con lista de marcas y revisar politicas de cambio por tienda."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/easton-outlet-mall.jpg"
   },
   {
     "id": "arauco-premium-outlet-buenaventura",
     "name": "Arauco Premium Outlet Buenaventura",
     "commune": "Quilicura",
     "mapsQuery": "Arauco Premium Outlet Buenaventura Quilicura Santiago",
-    "type": ["outlet", "discount", "fashion", "parking"],
+    "type": [
+      "outlet",
+      "discount",
+      "fashion",
+      "parking"
+    ],
     "description": "Ruta clasica para quienes priorizan descuentos y quieren comparar varias tiendas en formato outlet.",
-    "bestFor": ["Outlet", "Mejor precio", "Compras planificadas"],
-    "notIdealFor": ["Experiencia premium o paseo gastronomico"],
-    "categories": ["outlet", "ropa", "zapatillas", "deporte", "regalos"],
+    "bestFor": [
+      "Outlet",
+      "Mejor precio",
+      "Compras planificadas"
+    ],
+    "notIdealFor": [
+      "Experiencia premium o paseo gastronomico"
+    ],
+    "categories": [
+      "outlet",
+      "ropa",
+      "zapatillas",
+      "deporte",
+      "regalos"
+    ],
     "transport": {
       "metro": "Conviene taxi/Uber o auto; revisar alternativas antes de salir.",
       "uber": true,
@@ -204,19 +374,39 @@
     "outlet": true,
     "foodExperience": false,
     "nearbyAttractions": [],
-    "tips": ["Combina bien con Easton si quieres dedicar un dia a outlets."],
-    "checkOfficialHours": true
+    "tips": [
+      "Combina bien con Easton si quieres dedicar un dia a outlets."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/arauco-premium-outlet-buenaventura.jpg"
   },
   {
     "id": "mallplaza-egana",
     "name": "Mallplaza Egana",
     "commune": "La Reina",
     "mapsQuery": "Mallplaza Egana La Reina Santiago",
-    "type": ["metro", "family", "variety", "food"],
+    "type": [
+      "metro",
+      "family",
+      "variety",
+      "food"
+    ],
     "description": "Mall practico y bien conectado para compras variadas, comida y una salida comoda si estas hacia Nunoa, La Reina o Providencia oriente.",
-    "bestFor": ["Conexion en metro", "Familias", "Compras de medio dia"],
-    "notIdealFor": ["Quienes buscan lujo o outlet"],
-    "categories": ["ropa", "tecnologia", "comida", "supermercado/farmacia", "regalos"],
+    "bestFor": [
+      "Conexion en metro",
+      "Familias",
+      "Compras de medio dia"
+    ],
+    "notIdealFor": [
+      "Quienes buscan lujo o outlet"
+    ],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "supermercado/farmacia",
+      "regalos"
+    ],
     "transport": {
       "metro": "Cercano a estacion Plaza Egana.",
       "uber": true,
@@ -229,20 +419,42 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Plaza Egana"],
-    "tips": ["Buena alternativa si quieres evitar sectores mas turisticos."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Plaza Egana"
+    ],
+    "tips": [
+      "Buena alternativa si quieres evitar sectores mas turisticos."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/mallplaza-egana.jpg"
   },
   {
     "id": "florida-center",
     "name": "Florida Center",
     "commune": "La Florida",
     "mapsQuery": "Florida Center La Florida Santiago",
-    "type": ["metro", "family", "variety", "services"],
+    "type": [
+      "metro",
+      "family",
+      "variety",
+      "services"
+    ],
     "description": "Mall amplio del sector suroriente, util para compras variadas, servicios y visitas familiares con buena conexion urbana.",
-    "bestFor": ["Familias", "Variedad", "Compras practicas"],
-    "notIdealFor": ["Turistas alojados lejos con poco tiempo"],
-    "categories": ["ropa", "tecnologia", "comida", "supermercado/farmacia", "regalos"],
+    "bestFor": [
+      "Familias",
+      "Variedad",
+      "Compras practicas"
+    ],
+    "notIdealFor": [
+      "Turistas alojados lejos con poco tiempo"
+    ],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "supermercado/farmacia",
+      "regalos"
+    ],
     "transport": {
       "metro": "Cercano a estacion Mirador.",
       "uber": true,
@@ -256,19 +468,39 @@
     "outlet": false,
     "foodExperience": true,
     "nearbyAttractions": [],
-    "tips": ["Conveniente si estas alojando o visitando La Florida."],
-    "checkOfficialHours": true
+    "tips": [
+      "Conveniente si estas alojando o visitando La Florida."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/florida-center.jpg"
   },
   {
     "id": "mallplaza-vespucio",
     "name": "Mallplaza Vespucio",
     "commune": "La Florida",
     "mapsQuery": "Mallplaza Vespucio La Florida Santiago",
-    "type": ["metro", "family", "variety", "food"],
+    "type": [
+      "metro",
+      "family",
+      "variety",
+      "food"
+    ],
     "description": "Gran mall del sector suroriente, con alta variedad y buena conectividad para compras familiares o de dia completo.",
-    "bestFor": ["Variedad", "Familias", "Compras de dia completo"],
-    "notIdealFor": ["Experiencia boutique o premium"],
-    "categories": ["ropa", "tecnologia", "comida", "deporte", "supermercado/farmacia"],
+    "bestFor": [
+      "Variedad",
+      "Familias",
+      "Compras de dia completo"
+    ],
+    "notIdealFor": [
+      "Experiencia boutique o premium"
+    ],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "deporte",
+      "supermercado/farmacia"
+    ],
     "transport": {
       "metro": "Cercano a estacion Bellavista de La Florida.",
       "uber": true,
@@ -282,19 +514,41 @@
     "outlet": false,
     "foodExperience": true,
     "nearbyAttractions": [],
-    "tips": ["Buena opcion si tu ruta esta en el suroriente de Santiago."],
-    "checkOfficialHours": true
+    "tips": [
+      "Buena opcion si tu ruta esta en el suroriente de Santiago."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/mallplaza-vespucio.jpg"
   },
   {
     "id": "mallplaza-norte",
     "name": "Mallplaza Norte",
     "commune": "Independencia",
     "mapsQuery": "Mallplaza Norte Independencia Santiago",
-    "type": ["metro", "family", "variety", "food", "tourist"],
+    "type": [
+      "metro",
+      "family",
+      "variety",
+      "food",
+      "tourist"
+    ],
     "description": "Uno de los malls mas grandes de Santiago, bien conectado por metro y con oferta completa de tiendas, gastronomia y servicios para un dia de compras.",
-    "bestFor": ["Primer dia en Santiago", "Familias", "Turistas sin auto"],
-    "notIdealFor": ["Quienes buscan marcas premium o boutique"],
-    "categories": ["ropa", "tecnologia", "comida", "deporte", "regalos", "supermercado/farmacia"],
+    "bestFor": [
+      "Primer dia en Santiago",
+      "Familias",
+      "Turistas sin auto"
+    ],
+    "notIdealFor": [
+      "Quienes buscan marcas premium o boutique"
+    ],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "deporte",
+      "regalos",
+      "supermercado/farmacia"
+    ],
     "transport": {
       "metro": "Muy bien conectado, cerca de estacion Dorsal.",
       "uber": true,
@@ -307,20 +561,43 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Barrio Patronato", "Cementerio General"],
-    "tips": ["Una de las mejores opciones si llegas al centro o norte de la ciudad.", "Facil de combinar con una visita al barrio Patronato para ropa al por mayor."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Barrio Patronato",
+      "Cementerio General"
+    ],
+    "tips": [
+      "Una de las mejores opciones si llegas al centro o norte de la ciudad.",
+      "Facil de combinar con una visita al barrio Patronato para ropa al por mayor."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/mallplaza-norte.jpg"
   },
   {
     "id": "apumanque",
     "name": "Apumanque",
     "commune": "Las Condes",
     "mapsQuery": "Apumanque Las Condes Santiago",
-    "type": ["boutique", "fashion", "quick", "metro"],
+    "type": [
+      "boutique",
+      "fashion",
+      "quick",
+      "metro"
+    ],
     "description": "Centro comercial clasico del sector oriente, con tiendas de moda, servicios y un formato mas compacto que los grandes malls. Ubicado en pleno eje Apoquindo.",
-    "bestFor": ["Compras especificas", "Formato compacto", "Sector oriente"],
-    "notIdealFor": ["Quienes buscan gran variedad o gastronomia de destino"],
-    "categories": ["ropa", "moda", "servicios", "comida"],
+    "bestFor": [
+      "Compras especificas",
+      "Formato compacto",
+      "Sector oriente"
+    ],
+    "notIdealFor": [
+      "Quienes buscan gran variedad o gastronomia de destino"
+    ],
+    "categories": [
+      "ropa",
+      "moda",
+      "servicios",
+      "comida"
+    ],
     "transport": {
       "metro": "Muy cercano a estacion El Golf.",
       "uber": true,
@@ -333,20 +610,43 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Eje Apoquindo", "El Golf"],
-    "tips": ["Buen complemento si ya estas en la zona de El Golf o Isidora Goyenechea."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Eje Apoquindo",
+      "El Golf"
+    ],
+    "tips": [
+      "Buen complemento si ya estas en la zona de El Golf o Isidora Goyenechea."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/apumanque.webp"
   },
   {
     "id": "portal-la-dehesa",
     "name": "Portal La Dehesa",
     "commune": "Lo Barnechea",
     "mapsQuery": "Portal La Dehesa Lo Barnechea Santiago",
-    "type": ["family", "food", "parking", "calm"],
+    "type": [
+      "family",
+      "food",
+      "parking",
+      "calm"
+    ],
     "description": "Mall comodo del sector alto oriente, pensado para familias con auto. Buen ambiente para compras tranquilas, comida y paseo sin el bullicio del centro.",
-    "bestFor": ["Familias con auto", "Compras tranquilas", "Sector alto oriente"],
-    "notIdealFor": ["Turistas que dependen del metro"],
-    "categories": ["ropa", "comida", "supermercado/farmacia", "regalos", "deporte"],
+    "bestFor": [
+      "Familias con auto",
+      "Compras tranquilas",
+      "Sector alto oriente"
+    ],
+    "notIdealFor": [
+      "Turistas que dependen del metro"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "supermercado/farmacia",
+      "regalos",
+      "deporte"
+    ],
     "transport": {
       "metro": "Sin acceso directo en metro; conviene ir en auto o taxi/Uber.",
       "uber": true,
@@ -359,20 +659,45 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Camino El Alba", "Sector cordillera Lo Barnechea"],
-    "tips": ["Ideal si estas alojando en La Dehesa o el sector alto de Las Condes."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Camino El Alba",
+      "Sector cordillera Lo Barnechea"
+    ],
+    "tips": [
+      "Ideal si estas alojando en La Dehesa o el sector alto de Las Condes."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/portal-la-dehesa.jpg"
   },
   {
     "id": "mallplaza-oeste",
     "name": "Mallplaza Oeste",
     "commune": "Pudahuel",
     "mapsQuery": "Mallplaza Oeste Pudahuel Santiago",
-    "type": ["family", "variety", "food", "parking", "quick"],
+    "type": [
+      "family",
+      "variety",
+      "food",
+      "parking",
+      "quick"
+    ],
     "description": "Gran mall del sector poniente, muy bien ubicado para turistas que salen o llegan al aeropuerto. Excelente para ultimas compras antes del vuelo o para compras practicas recien aterrizando.",
-    "bestFor": ["Antes o despues del vuelo", "Familias", "Compras de camino al aeropuerto"],
-    "notIdealFor": ["Quienes buscan lujo o boutique"],
-    "categories": ["ropa", "tecnologia", "comida", "deporte", "supermercado/farmacia", "regalos"],
+    "bestFor": [
+      "Antes o despues del vuelo",
+      "Familias",
+      "Compras de camino al aeropuerto"
+    ],
+    "notIdealFor": [
+      "Quienes buscan lujo o boutique"
+    ],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "deporte",
+      "supermercado/farmacia",
+      "regalos"
+    ],
     "transport": {
       "metro": "Cercano a estacion Pudahuel, Linea 5.",
       "uber": true,
@@ -385,20 +710,42 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Aeropuerto Internacional Arturo Merino Benitez (SCL)"],
-    "tips": ["Muy conveniente si tienes tiempo libre antes de tu vuelo.", "Considera el traslado al aeropuerto desde ahi: unos 15-20 minutos en Uber segun el trafico."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Aeropuerto Internacional Arturo Merino Benitez (SCL)"
+    ],
+    "tips": [
+      "Muy conveniente si tienes tiempo libre antes de tu vuelo.",
+      "Considera el traslado al aeropuerto desde ahi: unos 15-20 minutos en Uber segun el trafico."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/mallplaza-oeste.jpg"
   },
   {
     "id": "feria-artesanal-los-dominicos",
     "name": "Feria Artesanal Los Dominicos",
     "commune": "Las Condes",
     "mapsQuery": "Feria Artesanal Los Dominicos Las Condes Santiago",
-    "type": ["tourist", "artesania", "souvenirs", "calm"],
+    "type": [
+      "tourist",
+      "artesania",
+      "souvenirs",
+      "calm"
+    ],
     "description": "Mercado artesanal al aire libre dentro de un convento colonial, unico en Santiago. Ideal para comprar artesania chilena, souvenirs autenticos y regalos de calidad. Una experiencia muy diferente a un mall convencional.",
-    "bestFor": ["Souvenirs autenticos", "Artesania chilena", "Experiencia unica"],
-    "notIdealFor": ["Quienes buscan marcas o tecnologia"],
-    "categories": ["artesania", "regalos", "turismo", "comida"],
+    "bestFor": [
+      "Souvenirs autenticos",
+      "Artesania chilena",
+      "Experiencia unica"
+    ],
+    "notIdealFor": [
+      "Quienes buscan marcas o tecnologia"
+    ],
+    "categories": [
+      "artesania",
+      "regalos",
+      "turismo",
+      "comida"
+    ],
     "transport": {
       "metro": "Conviene taxi/Uber desde estacion El Golf o Bilbao.",
       "uber": true,
@@ -411,20 +758,47 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Convento Santo Domingo de Los Dominicos", "Camino a Farellones"],
-    "tips": ["Es el mejor lugar de Santiago para comprar artesania chilena de calidad.", "Cierra los lunes; confirma horarios oficiales.", "El entorno del convento vale la visita por si solo."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Convento Santo Domingo de Los Dominicos",
+      "Camino a Farellones"
+    ],
+    "tips": [
+      "Es el mejor lugar de Santiago para comprar artesania chilena de calidad.",
+      "Cierra los lunes; confirma horarios oficiales.",
+      "El entorno del convento vale la visita por si solo."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/feria-artesanal-los-dominicos.jpg"
   },
   {
     "id": "arauco-maipu",
     "name": "Arauco Maipu",
     "commune": "Maipu",
     "mapsQuery": "Arauco Maipu Santiago",
-    "type": ["family", "variety", "food", "metro", "parking"],
+    "type": [
+      "family",
+      "variety",
+      "food",
+      "metro",
+      "parking"
+    ],
     "description": "Gran mall del sector poniente, referente de compras para familias en Maipu y Cerrillos. Mucha variedad de tiendas, gastronomia y servicios para un dia completo.",
-    "bestFor": ["Familias", "Variedad", "Sector poniente"],
-    "notIdealFor": ["Turistas alojados en el sector oriente sin tiempo"],
-    "categories": ["ropa", "tecnologia", "comida", "deporte", "supermercado/farmacia", "regalos"],
+    "bestFor": [
+      "Familias",
+      "Variedad",
+      "Sector poniente"
+    ],
+    "notIdealFor": [
+      "Turistas alojados en el sector oriente sin tiempo"
+    ],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "deporte",
+      "supermercado/farmacia",
+      "regalos"
+    ],
     "transport": {
       "metro": "Cercano a estacion Las Parcelas, Linea 5.",
       "uber": true,
@@ -437,20 +811,43 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Plaza de Maipu"],
-    "tips": ["Conveniente si estas alojando o visitando el sector poniente de Santiago."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Plaza de Maipu"
+    ],
+    "tips": [
+      "Conveniente si estas alojando o visitando el sector poniente de Santiago."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/arauco-maipu.jpg"
   },
   {
     "id": "mut-mercado-urbano-tobalaba",
     "name": "MUT Mercado Urbano Tobalaba",
     "commune": "Las Condes",
     "mapsQuery": "MUT Mercado Urbano Tobalaba Santiago",
-    "type": ["tourist", "food", "boutique", "metro", "calm"],
+    "type": [
+      "tourist",
+      "food",
+      "boutique",
+      "metro",
+      "calm"
+    ],
     "description": "Concepto urbano moderno entre mall y mercado, con foco en gastronomia, marcas locales, diseno y lifestyle. Un espacio mas curado y relajado que los grandes malls, muy popular entre jovenes y turistas que buscan algo distinto.",
-    "bestFor": ["Gastronomia variada", "Diseno y marcas locales", "Ambiente moderno"],
-    "notIdealFor": ["Quienes buscan grandes cadenas o compras masivas"],
-    "categories": ["comida", "ropa", "diseno", "regalos", "turismo"],
+    "bestFor": [
+      "Gastronomia variada",
+      "Diseno y marcas locales",
+      "Ambiente moderno"
+    ],
+    "notIdealFor": [
+      "Quienes buscan grandes cadenas o compras masivas"
+    ],
+    "categories": [
+      "comida",
+      "ropa",
+      "diseno",
+      "regalos",
+      "turismo"
+    ],
     "transport": {
       "metro": "Muy cercano a estacion Tobalaba.",
       "uber": true,
@@ -463,20 +860,44 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Costanera Center", "Sector Tobalaba"],
-    "tips": ["Excelente para comer bien en un ambiente distinto al mall clasico.", "Combina bien con Costanera Center al estar en la misma zona."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Costanera Center",
+      "Sector Tobalaba"
+    ],
+    "tips": [
+      "Excelente para comer bien en un ambiente distinto al mall clasico.",
+      "Combina bien con Costanera Center al estar en la misma zona."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.webp"
   },
   {
     "id": "portal-nunoa",
     "name": "Portal Nunoa",
     "commune": "Nunoa",
     "mapsQuery": "Portal Nunoa Santiago",
-    "type": ["metro", "quick", "food", "services", "calm"],
+    "type": [
+      "metro",
+      "quick",
+      "food",
+      "services",
+      "calm"
+    ],
     "description": "Mall de barrio en pleno Nunoa, practico y sin aglomeraciones. Buena opcion para compras rapidas, comida o servicios si estas por el sector de Plaza Nunoa o Irarrazaval.",
-    "bestFor": ["Compras rapidas", "Sector Nunoa", "Sin aglomeraciones"],
-    "notIdealFor": ["Quienes buscan gran variedad o experiencia de mall grande"],
-    "categories": ["comida", "ropa", "servicios", "supermercado/farmacia"],
+    "bestFor": [
+      "Compras rapidas",
+      "Sector Nunoa",
+      "Sin aglomeraciones"
+    ],
+    "notIdealFor": [
+      "Quienes buscan gran variedad o experiencia de mall grande"
+    ],
+    "categories": [
+      "comida",
+      "ropa",
+      "servicios",
+      "supermercado/farmacia"
+    ],
     "transport": {
       "metro": "Cercano a estacion Irarrazaval.",
       "uber": true,
@@ -489,8 +910,14 @@
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": ["Plaza Nunoa", "Barrio Italia"],
-    "tips": ["Combina bien con una visita al Barrio Italia, a pocos minutos en Uber."],
-    "checkOfficialHours": true
+    "nearbyAttractions": [
+      "Plaza Nunoa",
+      "Barrio Italia"
+    ],
+    "tips": [
+      "Combina bien con una visita al Barrio Italia, a pocos minutos en Uber."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/portal-nunoa.webp"
   }
 ]

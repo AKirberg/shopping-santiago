@@ -12,23 +12,37 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
       onClick={e => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div className="mx-auto my-8 max-w-3xl overflow-hidden rounded-2xl bg-white shadow-soft">
-        <div
-          className="relative p-6 text-white"
-          style={{ background: "linear-gradient(135deg,#1f3144 0%,#12615b 70%,#e36b45 100%)" }}
-        >
+        <div className="relative">
+          {mall.imageUrl ? (
+            <div className="relative h-52 w-full overflow-hidden sm:h-64">
+              <img
+                src={mall.imageUrl}
+                alt={mall.name}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" />
+            </div>
+          ) : (
+            <div
+              className="relative h-40"
+              style={{ background: "linear-gradient(135deg,#1f3144 0%,#12615b 70%,#e36b45 100%)" }}
+            />
+          )}
           <button
-            className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-ink/40 text-white backdrop-blur-sm transition hover:bg-ink/60"
             onClick={onClose}
             aria-label="Cerrar"
           >
             <X size={17} />
           </button>
-          <p className="text-xs font-extrabold uppercase tracking-widest text-white/55">{mall.commune}</p>
-          <h2 className="mt-2 font-display text-3xl font-extrabold">{mall.name}</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {mall.type.map(tag => (
-              <span key={tag} className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold capitalize">{tag}</span>
-            ))}
+          <div className="absolute bottom-0 left-0 right-0 p-6">
+            <p className="text-xs font-extrabold uppercase tracking-widest text-white/60">{mall.commune}</p>
+            <h2 className="mt-1 font-display text-3xl font-extrabold text-white drop-shadow">{mall.name}</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {mall.type.map(tag => (
+                <span key={tag} className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold capitalize backdrop-blur-sm">{tag}</span>
+              ))}
+            </div>
           </div>
         </div>
 

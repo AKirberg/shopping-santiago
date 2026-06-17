@@ -21,30 +21,38 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
     <article className={`group flex h-full flex-col overflow-hidden rounded-2xl border bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft ${
       tooLong ? "border-coral/30" : "border-ink/8"
     }`}>
-      <div className={`h-1 ${accentColor(mall)}`} />
-
-      <div className="flex flex-1 flex-col p-5">
-        <div className="flex items-start justify-between gap-2">
-          <span className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{mall.commune}</span>
-          <div className="flex items-center gap-1.5">
-            {tooLong && (
-              <span className="flex items-center gap-1 rounded-full bg-coral/10 px-2 py-0.5 text-xs font-extrabold text-coral">
-                <AlertTriangle size={10} /> Tiempo justo
-              </span>
-            )}
-            <span className="flex shrink-0 items-center gap-1 rounded-full bg-ink/6 px-2 py-1 text-xs font-extrabold text-ink/65">
-              <Star size={10} fill="currentColor" /> {mall.touristScore}
-            </span>
+      <button onClick={() => onSelect(mall)} className="relative block h-44 w-full overflow-hidden bg-ink/8">
+        {mall.imageUrl ? (
+          <img
+            src={mall.imageUrl}
+            alt={mall.name}
+            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <div className={`h-full w-full ${accentColor(mall)} opacity-20`} />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+        <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
+            <h3 className="mt-0.5 font-display text-xl font-extrabold leading-tight text-white drop-shadow">
+              {mall.name}
+            </h3>
           </div>
+          <span className="flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm">
+            <Star size={10} fill="currentColor" /> {mall.touristScore}
+          </span>
         </div>
+        {tooLong && (
+          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-coral px-2 py-1 text-xs font-extrabold text-white shadow">
+            <AlertTriangle size={10} /> Tiempo justo
+          </div>
+        )}
+      </button>
 
-        <button onClick={() => onSelect(mall)} className="mt-1.5 text-left group/title">
-          <h3 className="font-display text-xl font-extrabold leading-tight text-ink transition group-hover/title:text-leaf">
-            {mall.name}
-          </h3>
-        </button>
-
-        <div className="mt-2.5 flex flex-wrap gap-1.5">
+      <div className="flex flex-1 flex-col p-4">
+        <div className="flex flex-wrap gap-1.5">
           {mall.type.slice(0, 3).map(tag => (
             <span key={tag} className="tag capitalize">{tag}</span>
           ))}
