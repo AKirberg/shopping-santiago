@@ -1,12 +1,6 @@
 import { ArrowRight, Clock, Compass, MapPinned } from "lucide-react";
 import { defaultLocale, locales } from "../i18n/locales";
 
-const stats = [
-  { icon: Compass, value: "11", label: "malls", color: "text-coral" },
-  { icon: MapPinned, value: "6", label: "rutas", color: "text-leaf" },
-  { icon: Clock, value: "3h", label: "modo rápido", color: "text-gold" }
-];
-
 const intentChips = [
   ["Quiero ropa", "ropa"],
   ["Busco outlet", "outlet"],
@@ -16,8 +10,14 @@ const intentChips = [
   ["Solo 3 horas", "quick"]
 ];
 
-function Hero({ onIntent }) {
+function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
   const copy = locales[defaultLocale].hero;
+
+  const stats = [
+    { icon: Compass, value: String(mallCount), label: "malls", color: "text-coral" },
+    { icon: MapPinned, value: String(routeCount), label: "rutas", color: "text-leaf" },
+    { icon: Clock, value: "3h", label: "modo rápido", color: "text-gold" }
+  ];
 
   return (
     <section id="inicio" className="relative overflow-hidden bg-ink text-white">
