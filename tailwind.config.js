@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "system-ui", "sans-serif"],
         display: ["Georgia", "ui-serif", "serif"]
       },
       colors: {
@@ -16,7 +16,12 @@ export default {
         night: "#1f3144"
       },
       boxShadow: {
-        soft: "0 18px 55px rgba(31, 49, 68, 0.12)"
+        soft: "0 16px 48px rgba(23, 33, 29, 0.10)",
+        card: "0 2px 12px rgba(23, 33, 29, 0.07)"
+      },
+      borderOpacity: {
+        8: "0.08",
+        12: "0.12"
       }
     }
   },

@@ -36,7 +36,7 @@ select {
 }
 
 .tag {
-  @apply inline-flex items-center rounded-full border border-ink/10 bg-white/75 px-3 py-1 text-xs font-bold text-ink/75;
+  @apply inline-flex items-center rounded-full border border-ink/10 bg-white/75 px-3 py-1 text-xs font-bold text-ink/65;
 }
 
 .control {
@@ -44,13 +44,21 @@ select {
 }
 
 .icon-button {
-  @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 bg-white text-ink transition hover:-translate-y-0.5 hover:border-leaf/40 hover:text-leaf hover:shadow-soft;
+  @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 bg-white text-ink transition hover:border-leaf/40 hover:text-leaf;
 }
 
 .primary-button {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf;
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-white transition hover:bg-leaf;
 }
 
 .secondary-button {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/10 bg-white px-5 py-3 text-sm font-extrabold text-ink transition hover:-translate-y-0.5 hover:border-leaf/30 hover:text-leaf hover:shadow-soft;
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-3 text-sm font-extrabold text-ink transition hover:border-leaf/40 hover:text-leaf;
+}
+
+.quiz-pill {
+  @apply rounded-full border border-ink/10 bg-white px-3 py-1.5 text-xs font-bold text-ink/60 transition hover:border-ink/30 hover:text-ink;
+}
+
+.quiz-pill-active {
+  @apply rounded-full border border-ink bg-ink px-3 py-1.5 text-xs font-bold text-white;
 }
