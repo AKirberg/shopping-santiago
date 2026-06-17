@@ -76,29 +76,6 @@ function App() {
         <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
         <QuickIntentButtons onIntent={applyIntent} />
 
-        <section id="tipos" className="section-shell">
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-            <div>
-              <p className="eyebrow">Compra con contexto</p>
-              <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight sm:text-5xl">
-                Que tipo de compra buscas?
-              </h2>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {["Outlet y descuentos", "Premium y boutique", "Familiar y comodo", "Rapido cerca del hotel"].map(
-                (item) => (
-                  <div key={item} className="rounded-[2rem] border border-ink/10 bg-white p-5 shadow-sm">
-                    <p className="text-lg font-extrabold">{item}</p>
-                    <p className="mt-2 text-sm leading-6 text-ink/65">
-                      Filtra malls y rutas segun el ritmo del viaje, no solo por nombre.
-                    </p>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-        </section>
-
         <section className="bg-mist/70" id="destacados">
           <div className="section-shell">
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">

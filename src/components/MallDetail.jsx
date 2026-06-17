@@ -1,17 +1,21 @@
-import { Car, CheckCircle2, Clock, MapPin, Route, TrainFront, X } from "lucide-react";
+import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, TrainFront, X } from "lucide-react";
 
 function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRoute }) {
   const relatedRoute = routes.find(r => r.stops.some(s => s.mallId === mall.id));
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
 
   return (
     <div
       className="fixed inset-0 z-50 overflow-y-auto bg-ink/40 p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+      onClick={e => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div className="mx-auto my-8 max-w-3xl overflow-hidden rounded-2xl bg-white shadow-soft">
-        <div className="relative bg-ink p-6 text-white" style={{ background: "linear-gradient(135deg,#1f3144 0%,#12615b 70%,#e36b45 100%)" }}>
+        <div
+          className="relative p-6 text-white"
+          style={{ background: "linear-gradient(135deg,#1f3144 0%,#12615b 70%,#e36b45 100%)" }}
+        >
           <button
             className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition hover:bg-white/20"
             onClick={onClose}
@@ -31,7 +35,7 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
         <div className="grid gap-6 p-6 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
             <p className="text-sm leading-7 text-ink/68">{mall.description}</p>
-            <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            <div className="mt-5 grid gap-5 sm:grid-cols-2">
               <InfoList title="Mejor para" items={mall.bestFor} positive />
               <InfoList title="No ideal para" items={mall.notIdealFor} />
               <InfoList title="Tips turistas" items={mall.tips} positive />
@@ -47,30 +51,37 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
                 <span className="flex items-center gap-3"><Clock size={16} className="shrink-0 text-leaf" />{mall.recommendedTime}</span>
                 <span className="flex items-center gap-3"><MapPin size={16} className="shrink-0 text-leaf" />{mall.priceLevel}</span>
               </div>
-
               <div className="mt-4 grid grid-cols-2 gap-2">
                 <Badge label="Familiar" active={mall.familyFriendly} />
                 <Badge label="Outlet" active={mall.outlet} />
                 <Badge label="Premium" active={mall.premium} />
                 <Badge label="Comida" active={mall.foodExperience} />
               </div>
-
-              <p className="mt-4 rounded-xl border border-ink/8 bg-white p-3.5 text-xs font-medium leading-5 text-ink/50">
-                Confirma horarios oficiales antes de ir.
-              </p>
             </div>
 
             <div className="mt-4 grid gap-2.5">
-              <button onClick={onCompare} className="primary-button">
-                <CheckCircle2 size={16} />
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="primary-button justify-center bg-leaf hover:bg-leaf/85"
+              >
+                <ExternalLink size={15} /> Ver en Google Maps
+              </a>
+              <button onClick={onCompare} className="secondary-button justify-center">
+                <CheckCircle2 size={15} />
                 {isComparing ? "Quitar de comparar" : "Agregar a comparar"}
               </button>
               {relatedRoute && (
-                <button onClick={onRelatedRoute} className="secondary-button">
-                  <Route size={16} /> Ver ruta relacionada
+                <button onClick={onRelatedRoute} className="secondary-button justify-center">
+                  <Route size={15} /> Ver ruta relacionada
                 </button>
               )}
             </div>
+
+            <p className="mt-4 rounded-xl border border-ink/8 bg-[#f8faf6] p-3.5 text-xs font-medium leading-5 text-ink/45">
+              Confirma horarios oficiales antes de ir.
+            </p>
           </aside>
         </div>
       </div>
