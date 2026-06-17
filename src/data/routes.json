@@ -1,0 +1,110 @@
+[
+  {
+    "id": "primera-vez-santiago",
+    "title": "Primera vez en Santiago",
+    "summary": "Una ruta simple para combinar compras, vista urbana y comida en una zona facil de ubicar para visitantes.",
+    "duration": "3-5 horas",
+    "bestFor": ["Turistas", "Primera visita", "Compras + paseo"],
+    "stops": [
+      {
+        "mallId": "costanera-center",
+        "note": "Empieza con compras variadas y deja tiempo para subir a Sky Costanera si quieres sumar una vista panoramica."
+      }
+    ],
+    "tips": ["Funciona muy bien si estas alojando en Providencia o Las Condes."]
+  },
+  {
+    "id": "compras-premium",
+    "title": "Compras premium",
+    "summary": "Circuito para quienes buscan marcas, gastronomia y una experiencia mas sofisticada en el sector oriente.",
+    "duration": "4-7 horas",
+    "bestFor": ["Premium", "Moda", "Gastronomia"],
+    "stops": [
+      {
+        "mallId": "parque-arauco",
+        "note": "Base principal para moda, comida y una experiencia completa."
+      },
+      {
+        "mallId": "casacostanera",
+        "note": "Escala boutique para combinar con Nueva Costanera o Alonso de Cordova."
+      }
+    ],
+    "tips": ["Conviene usar taxi/Uber entre puntos si tienes poco tiempo."]
+  },
+  {
+    "id": "outlet-day",
+    "title": "Outlet Day",
+    "summary": "Dia orientado a descuentos, ideal para ir con lista de compras y transporte planificado.",
+    "duration": "5-8 horas",
+    "bestFor": ["Descuentos", "Outlet", "Compras planificadas"],
+    "stops": [
+      {
+        "mallId": "easton-outlet-mall",
+        "note": "Comienza comparando marcas y tallas sin apuro."
+      },
+      {
+        "mallId": "arauco-premium-outlet-buenaventura",
+        "note": "Complementa la busqueda de precios y revisa politicas de cambio por tienda."
+      }
+    ],
+    "tips": ["Considera taxi/Uber o auto, y confirma horarios oficiales antes de salir."]
+  },
+  {
+    "id": "familia-con-ninos",
+    "title": "Familia con niños",
+    "summary": "Ruta comoda para mezclar compras, comida y una experiencia mas activa para niños.",
+    "duration": "4-6 horas",
+    "bestFor": ["Familias", "Niños", "Compras + actividad"],
+    "stops": [
+      {
+        "mallId": "parque-arauco",
+        "note": "Buena base para compras, comida y paseo."
+      },
+      {
+        "mallId": "mall-sport",
+        "note": "Agrega foco deportivo y actividades para cambiar el ritmo del dia."
+      }
+    ],
+    "tips": ["Evita horas punta si vas en auto por el sector oriente."]
+  },
+  {
+    "id": "dia-de-lluvia",
+    "title": "Dia de lluvia",
+    "summary": "Opciones cubiertas para resolver compras, comida y paseo sin depender del clima.",
+    "duration": "3-5 horas",
+    "bestFor": ["Lluvia", "Familias", "Compras comodas"],
+    "stops": [
+      {
+        "mallId": "costanera-center",
+        "note": "Practico si priorizas metro y ubicacion central."
+      },
+      {
+        "mallId": "alto-las-condes",
+        "note": "Comodo si estas en el sector oriente y vas en auto o taxi/Uber."
+      }
+    ],
+    "tips": ["Elige segun tu zona de alojamiento para no perder tiempo en traslados."]
+  },
+  {
+    "id": "compras-rapidas-cerca-de-hotel",
+    "title": "Compras rapidas cerca de hotel",
+    "summary": "Una ruta flexible para resolver compras en pocas horas segun donde estes alojando.",
+    "duration": "1-3 horas",
+    "bestFor": ["Poco tiempo", "Hoteles", "Compras practicas"],
+    "stops": [
+      {
+        "mallId": "costanera-center",
+        "note": "Providencia o Las Condes: opcion directa y facil de explicar."
+      },
+      {
+        "mallId": "open-kennedy",
+        "note": "Las Condes: util si estas cerca del eje Kennedy."
+      },
+      {
+        "mallId": "casacostanera",
+        "note": "Vitacura: escala breve para compras boutique o comida."
+      }
+    ],
+    "tips": ["Prioriza el mall mas cercano si solo tienes 3 horas o menos."]
+  }
+]

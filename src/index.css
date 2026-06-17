@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #17211d;
+  background: #f8faf6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16;
+}
+
+.eyebrow {
+  @apply text-xs font-extrabold uppercase tracking-[0.18em] text-coral;
+}
+
+.tag {
+  @apply inline-flex items-center rounded-full border border-ink/10 bg-white/75 px-3 py-1 text-xs font-bold text-ink/75;
+}
+
+.control {
+  @apply w-full rounded-2xl border border-ink/10 bg-white px-4 py-3 text-sm font-semibold text-ink shadow-sm outline-none transition focus:border-leaf focus:ring-4 focus:ring-leaf/10;
+}
+
+.icon-button {
+  @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 bg-white text-ink transition hover:-translate-y-0.5 hover:border-leaf/40 hover:text-leaf hover:shadow-soft;
+}
+
+.primary-button {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-leaf;
+}
+
+.secondary-button {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/10 bg-white px-5 py-3 text-sm font-extrabold text-ink transition hover:-translate-y-0.5 hover:border-leaf/30 hover:text-leaf hover:shadow-soft;
+}
