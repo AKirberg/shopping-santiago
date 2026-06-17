@@ -442,6 +442,32 @@
     "checkOfficialHours": true
   },
   {
+    "id": "mut-mercado-urbano-tobalaba",
+    "name": "MUT Mercado Urbano Tobalaba",
+    "commune": "Las Condes",
+    "mapsQuery": "MUT Mercado Urbano Tobalaba Santiago",
+    "type": ["tourist", "food", "boutique", "metro", "calm"],
+    "description": "Concepto urbano moderno entre mall y mercado, con foco en gastronomia, marcas locales, diseno y lifestyle. Un espacio mas curado y relajado que los grandes malls, muy popular entre jovenes y turistas que buscan algo distinto.",
+    "bestFor": ["Gastronomia variada", "Diseno y marcas locales", "Ambiente moderno"],
+    "notIdealFor": ["Quienes buscan grandes cadenas o compras masivas"],
+    "categories": ["comida", "ropa", "diseno", "regalos", "turismo"],
+    "transport": {
+      "metro": "Muy cercano a estacion Tobalaba.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-3 horas",
+    "priceLevel": "medio-alto",
+    "touristScore": 8,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "nearbyAttractions": ["Costanera Center", "Sector Tobalaba"],
+    "tips": ["Excelente para comer bien en un ambiente distinto al mall clasico.", "Combina bien con Costanera Center al estar en la misma zona."],
+    "checkOfficialHours": true
+  },
+  {
     "id": "portal-nunoa",
     "name": "Portal Nunoa",
     "commune": "Nunoa",
