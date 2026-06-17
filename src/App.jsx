@@ -4,6 +4,7 @@ import routes from "./data/routes.json";
 import { matchesMallFilters } from "./utils/scoring";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import FlightTimer from "./components/FlightTimer";
 import QuickIntentButtons from "./components/QuickIntentButtons";
 import MallGrid from "./components/MallGrid";
 import MallFilters from "./components/MallFilters";
@@ -27,18 +28,31 @@ const defaultFilters = {
   tourist: false
 };
 
+function computeAvailableHours(flightTimeStr) {
+  if (!flightTimeStr) return null;
+  const [h, m] = flightTimeStr.split(":").map(Number);
+  const now = new Date();
+  const flightMin = h * 60 + m;
+  const nowMin = now.getHours() * 60 + now.getMinutes();
+  const buffer = 90;
+  return (flightMin - nowMin - buffer) / 60;
+}
+
 function App() {
   const [filters, setFilters] = useState(defaultFilters);
   const [selectedMall, setSelectedMall] = useState(null);
   const [compareIds, setCompareIds] = useState(["costanera-center", "parque-arauco"]);
+  const [flightTime, setFlightTime] = useState("");
+
+  const availableHours = useMemo(() => computeAvailableHours(flightTime), [flightTime]);
 
   const filteredMalls = useMemo(
-    () => malls.filter((mall) => matchesMallFilters(mall, filters)),
+    () => malls.filter(mall => matchesMallFilters(mall, filters)),
     [filters]
   );
 
   const featuredMalls = useMemo(
-    () => malls.filter((mall) => mall.touristScore >= 8 || mall.premium || mall.outlet).slice(0, 6),
+    () => malls.filter(mall => mall.touristScore >= 8 || mall.premium || mall.outlet).slice(0, 6),
     []
   );
 
@@ -55,14 +69,13 @@ function App() {
   }
 
   function toggleCompare(id) {
-    setCompareIds((current) => {
-      if (current.includes(id)) return current.filter((item) => item !== id);
-      return [...current, id].slice(-3);
-    });
+    setCompareIds(current =>
+      current.includes(id) ? current.filter(i => i !== id) : [...current, id].slice(-3)
+    );
   }
 
   function showRelatedRoute(mallId) {
-    const route = routes.find((item) => item.stops.some((stop) => stop.mallId === mallId));
+    const route = routes.find(r => r.stops.some(s => s.mallId === mallId));
     if (route) {
       setSelectedMall(null);
       setTimeout(() => document.getElementById(`route-${route.id}`)?.scrollIntoView({ behavior: "smooth" }), 50);
@@ -75,6 +88,11 @@ function App() {
       <main>
         <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
         <QuickIntentButtons onIntent={applyIntent} />
+        <FlightTimer
+          flightTime={flightTime}
+          setFlightTime={setFlightTime}
+          availableHours={availableHours}
+        />
 
         <section className="bg-mist/70" id="destacados">
           <div className="section-shell">
@@ -90,11 +108,12 @@ function App() {
               compareIds={compareIds}
               onCompare={toggleCompare}
               onSelect={setSelectedMall}
+              availableHours={availableHours}
             />
           </div>
         </section>
 
-        <RecommendationQuiz malls={malls} onSelect={setSelectedMall} />
+        <RecommendationQuiz malls={malls} onSelect={setSelectedMall} availableHours={availableHours} />
         <RoutesSection routes={routes} malls={malls} />
 
         <section id="malls" className="section-shell">
@@ -102,9 +121,6 @@ function App() {
             <div>
               <p className="eyebrow">Busca y filtra</p>
               <h2 className="mt-3 font-display text-4xl font-extrabold">Explora malls y outlets</h2>
-              <p className="mt-4 max-w-2xl text-ink/65">
-                Usa filtros simples para transformar un listado en una decision de viaje.
-              </p>
             </div>
             <MallFilters filters={filters} setFilters={setFilters} malls={malls} />
           </div>
@@ -113,6 +129,7 @@ function App() {
             compareIds={compareIds}
             onCompare={toggleCompare}
             onSelect={setSelectedMall}
+            availableHours={availableHours}
           />
         </section>
 
