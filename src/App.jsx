@@ -73,7 +73,7 @@ function App() {
     <div className="min-h-screen bg-[#f8faf6] text-ink">
       <Header />
       <main>
-        <Hero onIntent={applyIntent} />
+        <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
         <QuickIntentButtons onIntent={applyIntent} />
 
         <section id="tipos" className="section-shell">

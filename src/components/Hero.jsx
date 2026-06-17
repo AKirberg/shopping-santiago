@@ -1,7 +1,7 @@
 import { ArrowRight, Clock, Compass, MapPinned } from "lucide-react";
 import { defaultLocale, locales } from "../i18n/locales";
 
-function Hero({ onIntent }) {
+function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
   const copy = locales[defaultLocale].hero;
 
   return (
@@ -30,12 +30,12 @@ function Hero({ onIntent }) {
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-[1.5rem] bg-white p-5 text-ink">
                 <Compass className="text-coral" />
-                <p className="mt-5 text-3xl font-extrabold">11</p>
-                <p className="text-sm font-bold text-ink/55">malls iniciales</p>
+                <p className="mt-5 text-3xl font-extrabold">{mallCount}</p>
+                <p className="text-sm font-bold text-ink/55">malls cargados</p>
               </div>
               <div className="rounded-[1.5rem] bg-white p-5 text-ink">
                 <MapPinned className="text-leaf" />
-                <p className="mt-5 text-3xl font-extrabold">6</p>
+                <p className="mt-5 text-3xl font-extrabold">{routeCount}</p>
                 <p className="text-sm font-bold text-ink/55">rutas editables</p>
               </div>
               <div className="rounded-[1.5rem] bg-white p-5 text-ink">
