@@ -7,7 +7,7 @@ function Hero({ onIntent }) {
   return (
     <section id="inicio" className="relative overflow-hidden bg-ink text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(227,107,69,0.28),transparent_32%),linear-gradient(135deg,rgba(18,97,91,0.85),rgba(31,49,68,0.35))]" />
-      <div className="section-shell relative grid min-h-[calc(100vh-76px)] gap-10 py-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:py-16">
+      <div className="section-shell relative grid min-h-[640px] gap-10 py-10 sm:min-h-[680px] sm:py-12 lg:min-h-[700px] lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:py-14 xl:min-h-[720px]">
         <div>
           <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/65">{copy.eyebrow}</p>
           <h1 className="mt-5 max-w-4xl font-display text-6xl font-extrabold leading-[0.95] sm:text-7xl lg:text-8xl">
