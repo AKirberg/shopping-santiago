@@ -47,7 +47,7 @@
       "Ideal si estas alojando en Providencia o Las Condes."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/costanera-center.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -98,7 +98,7 @@
       "Buen punto para una tarde de compras con comida incluida."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/parque-arauco.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -147,7 +147,7 @@
       "Conveniente si estas alojando hacia Las Condes alto o vas en auto."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/alto-las-condes.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -244,7 +244,7 @@
       "Buena alternativa para cortar una ruta familiar con algo mas entretenido."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/mall-sport.jpg",
     "foodLevel": "patio"
   },
   {
@@ -290,7 +290,7 @@
       "Conviene ir con lista de marcas y revisar politicas de cambio por tienda."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/easton-outlet-mall.jpg",
     "foodLevel": "patio"
   },
   {
@@ -337,7 +337,7 @@
       "Combina bien con Easton si quieres dedicar un dia a outlets."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/arauco-premium-outlet-buenaventura.jpg",
     "foodLevel": "patio"
   },
   {
@@ -386,7 +386,7 @@
       "Buena alternativa si quieres evitar sectores mas turisticos."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/mallplaza-egana.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -433,7 +433,7 @@
       "Conveniente si estas alojando o visitando La Florida."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/florida-center.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -480,7 +480,7 @@
       "Buena opcion si tu ruta esta en el suroriente de Santiago."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/mallplaza-vespucio.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -533,7 +533,7 @@
       "Facil de combinar con una visita al barrio Patronato para ropa al por mayor."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/mallplaza-norte.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -582,7 +582,7 @@
       "Buen complemento si ya estas en la zona de El Golf o Isidora Goyenechea."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/apumanque.jpg",
     "foodLevel": "patio"
   },
   {
@@ -632,7 +632,7 @@
       "Ideal si estas alojando en La Dehesa o el sector alto de Las Condes."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/portal-la-dehesa.jpg",
     "foodLevel": "patio"
   },
   {
@@ -684,7 +684,7 @@
       "Considera el traslado al aeropuerto desde ahi: unos 15-20 minutos en Uber segun el trafico."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
+    "imageUrl": "/images/malls/mallplaza-oeste.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -783,7 +783,7 @@
       "Conectado con Parque Arauco principal, ideal para combinar la visita."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/parque-arauco-oriente.jpg"
   },
   {
     "id": "mallplaza-los-dominicos",
@@ -833,7 +833,7 @@
       "Menos aglomerado que los grandes malls del sector, buena opcion para dias de semana."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/mallplaza-los-dominicos.jpg"
   },
   {
     "id": "vivo-los-trapenses",
@@ -882,7 +882,7 @@
       "Util si estas de paso por Lo Barnechea o alojando en la zona."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/vivo-los-trapenses.jpg"
   },
   {
     "id": "paseo-quilin",
@@ -931,7 +931,7 @@
       "Buena opcion de paso si te mueves por la linea 4."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/paseo-quilin.jpg"
   },
   {
     "id": "mallplaza-tobalaba",
@@ -982,7 +982,7 @@
       "Ideal para combinar con Costanera Center al estar en la misma zona del metro."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/mallplaza-tobalaba.jpg"
   },
   {
     "id": "espacio-urbano-puente-alto",
@@ -1127,7 +1127,7 @@
       "Buen recurso local, no especialmente orientado a turistas."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/espacio-urbano-gran-avenida.jpg"
   },
   {
     "id": "vivo-outlet-maipu",
@@ -1225,7 +1225,7 @@
       "Practico si estas en Maipu y necesitas resolver compras rapidas."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/midmall-maipu.jpg"
   },
   {
     "id": "mallplaza-alameda",
@@ -1279,7 +1279,7 @@
       "Buena opcion para turistas alojados en el centro. La Moneda queda a pocos minutos caminando."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/mallplaza-alameda.jpg"
   },
   {
     "id": "mall-arauco-estacion",
@@ -1430,7 +1430,7 @@
       "El barrio tiene vida propia fuera del mall, vale la pena explorar los alrededores."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/mall-barrio-independencia.jpg"
   },
   {
     "id": "mall-arauco-quilicura",
@@ -1479,7 +1479,7 @@
       "Si tienes un vuelo con tiempo y quieres hacer compras, queda cerca del aeropuerto."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/mall-arauco-quilicura.jpg"
   },
   {
     "id": "espacio-urbano-las-rejas",
@@ -1575,7 +1575,7 @@
       "Demasiado lejos del centro turistico para recomendarlo como destino de compras."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null
+    "imageUrl": "/images/malls/paseo-san-bernardo.jpg"
   },
   {
     "id": "mut-mercado-urbano-tobalaba",
