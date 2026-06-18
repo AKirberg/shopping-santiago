@@ -47,7 +47,7 @@
       "Ideal si estas alojando en Providencia o Las Condes."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/costanera-center.jpg",
+    "imageUrl": null,
     "foodLevel": "gastronomico"
   },
   {
@@ -98,7 +98,7 @@
       "Buen punto para una tarde de compras con comida incluida."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/parque-arauco.jpg",
+    "imageUrl": null,
     "foodLevel": "gastronomico"
   },
   {
@@ -147,7 +147,7 @@
       "Conveniente si estas alojando hacia Las Condes alto o vas en auto."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/alto-las-condes.png",
+    "imageUrl": null,
     "foodLevel": "gastronomico"
   },
   {
@@ -244,7 +244,7 @@
       "Buena alternativa para cortar una ruta familiar con algo mas entretenido."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mall-sport.jpg",
+    "imageUrl": null,
     "foodLevel": "patio"
   },
   {
@@ -292,7 +292,7 @@
       "Util si ya estas en la zona y tienes poco tiempo."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/open-kennedy.webp",
+    "imageUrl": null,
     "foodLevel": "patio"
   },
   {
@@ -338,7 +338,7 @@
       "Conviene ir con lista de marcas y revisar politicas de cambio por tienda."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/easton-outlet-mall.jpg",
+    "imageUrl": null,
     "foodLevel": "patio"
   },
   {
@@ -385,7 +385,7 @@
       "Combina bien con Easton si quieres dedicar un dia a outlets."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/arauco-premium-outlet-buenaventura.jpg",
+    "imageUrl": null,
     "foodLevel": "patio"
   },
   {
@@ -434,7 +434,7 @@
       "Buena alternativa si quieres evitar sectores mas turisticos."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-egana.jpg",
+    "imageUrl": null,
     "foodLevel": "gastronomico"
   },
   {
@@ -481,7 +481,7 @@
       "Conveniente si estas alojando o visitando La Florida."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/florida-center.jpg",
+    "imageUrl": null,
     "foodLevel": "gastronomico"
   },
   {
@@ -528,7 +528,7 @@
       "Buena opcion si tu ruta esta en el suroriente de Santiago."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-vespucio.jpg",
+    "imageUrl": null,
     "foodLevel": "gastronomico"
   },
   {
@@ -581,7 +581,7 @@
       "Facil de combinar con una visita al barrio Patronato para ropa al por mayor."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-norte.jpg",
+    "imageUrl": null,
     "foodLevel": "gastronomico"
   },
   {
@@ -630,7 +630,7 @@
       "Buen complemento si ya estas en la zona de El Golf o Isidora Goyenechea."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/apumanque.webp",
+    "imageUrl": null,
     "foodLevel": "patio"
   },
   {
@@ -680,7 +680,7 @@
       "Ideal si estas alojando en La Dehesa o el sector alto de Las Condes."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/portal-la-dehesa.jpg",
+    "imageUrl": null,
     "foodLevel": "patio"
   },
   {
@@ -732,7 +732,7 @@
       "Considera el traslado al aeropuerto desde ahi: unos 15-20 minutos en Uber segun el trafico."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-oeste.jpg",
+    "imageUrl": null,
     "foodLevel": "gastronomico"
   },
   {
@@ -783,7 +783,7 @@
       "El entorno del convento vale la visita por si solo."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/feria-artesanal-los-dominicos.jpg",
+    "imageUrl": null,
     "foodLevel": "patio"
   },
   {
@@ -834,7 +834,7 @@
       "Conveniente si estas alojando o visitando el sector poniente de Santiago."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/arauco-maipu.jpg",
+    "imageUrl": "/images/malls/arauco-maipu.webp",
     "foodLevel": "gastronomico"
   },
   {
@@ -886,7 +886,7 @@
       "Combina bien con Costanera Center al estar en la misma zona."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.webp",
+    "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg",
     "foodLevel": "gastronomico"
   },
   {
@@ -936,7 +936,7 @@
       "Combina bien con una visita al Barrio Italia, a pocos minutos en Uber."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/portal-nunoa.webp",
+    "imageUrl": null,
     "foodLevel": "patio"
   }
 ]
