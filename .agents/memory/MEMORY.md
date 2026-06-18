@@ -1,1 +1,2 @@
 - [Food gastronomy levels](food-gastronomy.md) — malls have foodLevel:"gastronomico"|"patio"; filter "gastronomico" is separate from "food" toggle.
+- [Mall list canon](mall-list.md) — 32 malls as of June 2026; see file for IDs and communes.

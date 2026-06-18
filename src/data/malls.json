@@ -248,54 +248,6 @@
     "foodLevel": "patio"
   },
   {
-    "id": "open-kennedy",
-    "name": "Open Kennedy",
-    "commune": "Las Condes",
-    "mapsQuery": "Open Kennedy Las Condes Santiago",
-    "type": [
-      "quick",
-      "food",
-      "services",
-      "parking"
-    ],
-    "description": "Formato practico para compras especificas, comida o servicios en el eje Kennedy, especialmente si estas moviendote por Las Condes.",
-    "bestFor": [
-      "Compras rapidas",
-      "Servicios",
-      "Parada conveniente"
-    ],
-    "notIdealFor": [
-      "Turistas que quieren una gran experiencia de mall"
-    ],
-    "categories": [
-      "comida",
-      "supermercado/farmacia",
-      "regalos",
-      "ropa"
-    ],
-    "transport": {
-      "metro": "Mejor con taxi/Uber o auto.",
-      "uber": true,
-      "parking": true
-    },
-    "recommendedTime": "1-2 horas",
-    "priceLevel": "medio",
-    "touristScore": 6,
-    "familyFriendly": true,
-    "premium": false,
-    "outlet": false,
-    "foodExperience": true,
-    "nearbyAttractions": [
-      "Eje Kennedy"
-    ],
-    "tips": [
-      "Util si ya estas en la zona y tienes poco tiempo."
-    ],
-    "checkOfficialHours": true,
-    "imageUrl": null,
-    "foodLevel": "patio"
-  },
-  {
     "id": "easton-outlet-mall",
     "name": "Easton Outlet Mall",
     "commune": "Quilicura",
@@ -736,59 +688,8 @@
     "foodLevel": "gastronomico"
   },
   {
-    "id": "feria-artesanal-los-dominicos",
-    "name": "Feria Artesanal Los Dominicos",
-    "commune": "Las Condes",
-    "mapsQuery": "Feria Artesanal Los Dominicos Las Condes Santiago",
-    "type": [
-      "tourist",
-      "artesania",
-      "souvenirs",
-      "calm"
-    ],
-    "description": "Mercado artesanal al aire libre dentro de un convento colonial, unico en Santiago. Ideal para comprar artesania chilena, souvenirs autenticos y regalos de calidad. Una experiencia muy diferente a un mall convencional.",
-    "bestFor": [
-      "Souvenirs autenticos",
-      "Artesania chilena",
-      "Experiencia unica"
-    ],
-    "notIdealFor": [
-      "Quienes buscan marcas o tecnologia"
-    ],
-    "categories": [
-      "artesania",
-      "regalos",
-      "turismo",
-      "comida"
-    ],
-    "transport": {
-      "metro": "Conviene taxi/Uber desde estacion El Golf o Bilbao.",
-      "uber": true,
-      "parking": true
-    },
-    "recommendedTime": "1-3 horas",
-    "priceLevel": "bajo-medio",
-    "touristScore": 9,
-    "familyFriendly": true,
-    "premium": false,
-    "outlet": false,
-    "foodExperience": true,
-    "nearbyAttractions": [
-      "Convento Santo Domingo de Los Dominicos",
-      "Camino a Farellones"
-    ],
-    "tips": [
-      "Es el mejor lugar de Santiago para comprar artesania chilena de calidad.",
-      "Cierra los lunes; confirma horarios oficiales.",
-      "El entorno del convento vale la visita por si solo."
-    ],
-    "checkOfficialHours": true,
-    "imageUrl": null,
-    "foodLevel": "patio"
-  },
-  {
     "id": "arauco-maipu",
-    "name": "Arauco Maipu",
+    "name": "Mall Arauco Maipú",
     "commune": "Maipu",
     "mapsQuery": "Arauco Maipu Santiago",
     "type": [
@@ -838,105 +739,842 @@
     "foodLevel": "gastronomico"
   },
   {
-    "id": "mut-mercado-urbano-tobalaba",
-    "name": "MUT Mercado Urbano Tobalaba",
+    "id": "parque-arauco-oriente",
+    "name": "Parque Arauco Oriente",
     "commune": "Las Condes",
-    "mapsQuery": "MUT Mercado Urbano Tobalaba Santiago",
+    "mapsQuery": "Parque Arauco Oriente Las Condes Santiago",
     "type": [
-      "tourist",
-      "food",
-      "boutique",
-      "metro",
-      "calm"
+      "premium",
+      "fashion",
+      "variety"
     ],
-    "description": "Concepto urbano moderno entre mall y mercado, con foco en gastronomia, marcas locales, diseno y lifestyle. Un espacio mas curado y relajado que los grandes malls, muy popular entre jovenes y turistas que buscan algo distinto.",
+    "description": "Sector oriente y expansion de Parque Arauco, con enfasis en moda premium, marcas internacionales y un ambiente mas tranquilo para compras sin aglomeracion.",
     "bestFor": [
-      "Gastronomia variada",
-      "Diseno y marcas locales",
-      "Ambiente moderno"
+      "Moda y marcas premium",
+      "Ambiente mas tranquilo",
+      "Complementar visita a Parque Arauco"
     ],
     "notIdealFor": [
-      "Quienes buscan grandes cadenas o compras masivas"
+      "Quienes buscan gran variedad de categorias",
+      "Presupuesto ajustado"
     ],
     "categories": [
-      "comida",
       "ropa",
-      "diseno",
-      "regalos",
-      "turismo"
+      "lujo",
+      "moda"
     ],
     "transport": {
-      "metro": "Muy cercano a estacion Tobalaba.",
-      "uber": true,
-      "parking": true
-    },
-    "recommendedTime": "1-3 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 8,
-    "familyFriendly": true,
-    "premium": false,
-    "outlet": false,
-    "foodExperience": true,
-    "nearbyAttractions": [
-      "Costanera Center",
-      "Sector Tobalaba"
-    ],
-    "tips": [
-      "Excelente para comer bien en un ambiente distinto al mall clasico.",
-      "Combina bien con Costanera Center al estar en la misma zona."
-    ],
-    "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg",
-    "foodLevel": "gastronomico"
-  },
-  {
-    "id": "portal-nunoa",
-    "name": "Portal Nunoa",
-    "commune": "Nunoa",
-    "mapsQuery": "Portal Nunoa Santiago",
-    "type": [
-      "metro",
-      "quick",
-      "food",
-      "services",
-      "calm"
-    ],
-    "description": "Mall de barrio en pleno Nunoa, practico y sin aglomeraciones. Buena opcion para compras rapidas, comida o servicios si estas por el sector de Plaza Nunoa o Irarrazaval.",
-    "bestFor": [
-      "Compras rapidas",
-      "Sector Nunoa",
-      "Sin aglomeraciones"
-    ],
-    "notIdealFor": [
-      "Quienes buscan gran variedad o experiencia de mall grande"
-    ],
-    "categories": [
-      "comida",
-      "ropa",
-      "servicios",
-      "supermercado/farmacia"
-    ],
-    "transport": {
-      "metro": "Cercano a estacion Irarrazaval.",
+      "metro": "Acceso via bus desde Tobalaba o El Golf.",
       "uber": true,
       "parking": true
     },
     "recommendedTime": "1-2 horas",
+    "priceLevel": "alto",
+    "touristScore": 7,
+    "familyFriendly": false,
+    "premium": true,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Parque Arauco"
+    ],
+    "tips": [
+      "Conectado con Parque Arauco principal, ideal para combinar la visita."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "mallplaza-los-dominicos",
+    "name": "Mallplaza Los Dominicos",
+    "commune": "Las Condes",
+    "mapsQuery": "Mallplaza Los Dominicos Las Condes Santiago",
+    "type": [
+      "variety",
+      "fashion",
+      "food",
+      "metro"
+    ],
+    "description": "Mall de tamano mediano en la zona alta de Las Condes, cercano al barrio Los Dominicos. Buena oferta de tiendas, gastronomia y servicios para residentes y visitantes de la zona oriente.",
+    "bestFor": [
+      "Sector Los Dominicos",
+      "Compras variadas",
+      "Visita en familia"
+    ],
+    "notIdealFor": [
+      "Quienes buscan mall de gran formato",
+      "Turistas alojados en el centro"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "servicios",
+      "tecnologia"
+    ],
+    "transport": {
+      "metro": "Bus desde estaciones Las Condes o Escuela Militar.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "2-3 horas",
+    "priceLevel": "medio-alto",
+    "touristScore": 5,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "gastronomico",
+    "nearbyAttractions": [
+      "Barrio Los Dominicos",
+      "Zona alta Las Condes"
+    ],
+    "tips": [
+      "Menos aglomerado que los grandes malls del sector, buena opcion para dias de semana."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "vivo-los-trapenses",
+    "name": "Vivo Los Trapenses",
+    "commune": "Lo Barnechea",
+    "mapsQuery": "Vivo Los Trapenses Lo Barnechea Santiago",
+    "type": [
+      "variety",
+      "quick",
+      "calm"
+    ],
+    "description": "Centro comercial de barrio en Lo Barnechea, pensado para residentes de la zona alta. Oferta practica de supermercado, servicios, comida y algunas tiendas de vestuario.",
+    "bestFor": [
+      "Residentes de Lo Barnechea",
+      "Compras rapidas de la zona",
+      "Servicios cotidianos"
+    ],
+    "notIdealFor": [
+      "Turistas",
+      "Quienes buscan gran variedad o marcas premium"
+    ],
+    "categories": [
+      "supermercado",
+      "servicios",
+      "comida",
+      "ropa"
+    ],
+    "transport": {
+      "metro": "Sin acceso directo al metro. Se llega en auto o bus.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-2 horas",
+    "priceLevel": "medio-alto",
+    "touristScore": 3,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Camino Las Vertientes",
+      "Zona cordillerana"
+    ],
+    "tips": [
+      "Util si estas de paso por Lo Barnechea o alojando en la zona."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "paseo-quilin",
+    "name": "Paseo Quilín",
+    "commune": "Macul",
+    "mapsQuery": "Paseo Quilin Macul Santiago",
+    "type": [
+      "variety",
+      "metro",
+      "quick",
+      "food"
+    ],
+    "description": "Mall de tamano mediano en la comuna de Macul, con buena conectividad por metro linea 4. Practico para compras de barrio, servicios y comida rapida para quienes se mueven por el sector sur-oriente.",
+    "bestFor": [
+      "Sector Quilin",
+      "Conexion metro L4",
+      "Compras practicas"
+    ],
+    "notIdealFor": [
+      "Turistas sin auto ni metro L4",
+      "Quienes buscan marcas internacionales"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "servicios",
+      "supermercado"
+    ],
+    "transport": {
+      "metro": "Cercano a estacion Quilin, Linea 4.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-2 horas",
+    "priceLevel": "medio",
+    "touristScore": 3,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Sector Macul"
+    ],
+    "tips": [
+      "Buena opcion de paso si te mueves por la linea 4."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "mallplaza-tobalaba",
+    "name": "Mallplaza Tobalaba",
+    "commune": "Providencia",
+    "mapsQuery": "Mallplaza Tobalaba Providencia Santiago",
+    "type": [
+      "tourist",
+      "variety",
+      "metro",
+      "food",
+      "fashion"
+    ],
+    "description": "Mall moderno en pleno sector Tobalaba-Providencia, con excelente conexion al metro y cercania a Costanera Center. Ofrece una propuesta equilibrada de moda, gastronomia y entretenimiento en una de las zonas mas dinamicas de Santiago.",
+    "bestFor": [
+      "Turistas en Providencia o Las Condes",
+      "Conexion con Costanera Center",
+      "Buena gastronomia"
+    ],
+    "notIdealFor": [
+      "Quienes buscan outlet o precios bajos"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "tecnologia",
+      "entretenimiento"
+    ],
+    "transport": {
+      "metro": "Muy cercano a estacion Tobalaba, Linea 1.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "2-3 horas",
+    "priceLevel": "medio",
+    "touristScore": 7,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "gastronomico",
+    "nearbyAttractions": [
+      "Costanera Center",
+      "Sky Costanera",
+      "Sector El Golf"
+    ],
+    "tips": [
+      "Ideal para combinar con Costanera Center al estar en la misma zona del metro."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "espacio-urbano-puente-alto",
+    "name": "Espacio Urbano Puente Alto",
+    "commune": "Puente Alto",
+    "mapsQuery": "Espacio Urbano Puente Alto Santiago",
+    "type": [
+      "variety",
+      "metro",
+      "quick"
+    ],
+    "description": "Centro comercial de formato practico en Puente Alto, con acceso al metro linea 4. Enfocado en servicios, supermercado y compras cotidianas para la poblacion del sector sur de Santiago.",
+    "bestFor": [
+      "Residentes de Puente Alto",
+      "Compras cotidianas",
+      "Conexion metro L4"
+    ],
+    "notIdealFor": [
+      "Turistas",
+      "Quienes buscan experiencia de mall grande"
+    ],
+    "categories": [
+      "supermercado",
+      "servicios",
+      "ropa",
+      "comida"
+    ],
+    "transport": {
+      "metro": "Acceso desde terminal de Linea 4, estacion Puente Alto.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-2 horas",
+    "priceLevel": "medio",
+    "touristScore": 2,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": false,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Centro de Puente Alto"
+    ],
+    "tips": [
+      "Util solo si te quedas por Puente Alto o sus alrededores."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "mall-arauco-el-bosque",
+    "name": "Mall Arauco El Bosque",
+    "commune": "El Bosque",
+    "mapsQuery": "Arauco El Bosque Santiago",
+    "type": [
+      "variety",
+      "food",
+      "fashion"
+    ],
+    "description": "Mall de formato mediano en la comuna de El Bosque, al sur de Santiago. Oferta completa de vestuario, gastronomia y servicios para los vecinos del sector sur de la ciudad.",
+    "bestFor": [
+      "Residentes del sur de Santiago",
+      "Compras de barrio",
+      "Sector El Bosque"
+    ],
+    "notIdealFor": [
+      "Turistas del centro o sector oriente",
+      "Quienes buscan marcas premium"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "servicios",
+      "deporte"
+    ],
+    "transport": {
+      "metro": "Sin metro directo. Se accede en auto, bus o Uber.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "2-3 horas",
+    "priceLevel": "medio",
+    "touristScore": 3,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Sector El Bosque"
+    ],
+    "tips": [
+      "Practico para quienes se mueven por el sector sur sin auto."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "espacio-urbano-gran-avenida",
+    "name": "Espacio Urbano Gran Avenida",
+    "commune": "San Miguel",
+    "mapsQuery": "Espacio Urbano Gran Avenida San Miguel Santiago",
+    "type": [
+      "variety",
+      "quick",
+      "metro"
+    ],
+    "description": "Centro comercial urbano sobre Gran Avenida en San Miguel, con acceso conveniente desde la linea 2 del metro. Practico para compras rapidas de servicios, supermercado y vestuario en el eje sur de la ciudad.",
+    "bestFor": [
+      "Residentes de San Miguel",
+      "Compras rapidas en Gran Avenida",
+      "Acceso desde metro L2"
+    ],
+    "notIdealFor": [
+      "Turistas",
+      "Quienes buscan mall de gran formato"
+    ],
+    "categories": [
+      "supermercado",
+      "servicios",
+      "ropa",
+      "comida"
+    ],
+    "transport": {
+      "metro": "Cercano a estaciones de Linea 2 por Gran Avenida.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-2 horas",
+    "priceLevel": "medio",
+    "touristScore": 2,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": false,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Gran Avenida",
+      "Sector San Miguel"
+    ],
+    "tips": [
+      "Buen recurso local, no especialmente orientado a turistas."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "vivo-outlet-maipu",
+    "name": "Vivo Outlet Maipú",
+    "commune": "Maipú",
+    "mapsQuery": "Vivo Outlet Maipu Santiago",
+    "type": [
+      "outlet",
+      "variety",
+      "fashion"
+    ],
+    "description": "Centro de outlet en Maipu con marcas nacionales e internacionales a precios rebajados. Buena alternativa para quienes buscan moda y zapatillas con descuento en el sector poniente de Santiago.",
+    "bestFor": [
+      "Cazadores de ofertas",
+      "Ropa y zapatillas rebajadas",
+      "Sector poniente de Santiago"
+    ],
+    "notIdealFor": [
+      "Quienes buscan marcas premium de temporada",
+      "Sin acceso a auto o transporte al sector"
+    ],
+    "categories": [
+      "outlet",
+      "ropa",
+      "zapatillas",
+      "deporte"
+    ],
+    "transport": {
+      "metro": "Sin metro directo. Se recomienda bus o auto.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "2-3 horas",
+    "priceLevel": "bajo",
+    "touristScore": 4,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": true,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Arauco Maipu",
+      "Sector Maipu"
+    ],
+    "tips": [
+      "Combina bien con Arauco Maipu si tienes auto y quieres aprovechar el sector."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "midmall-maipu",
+    "name": "MidMall Maipú",
+    "commune": "Maipú",
+    "mapsQuery": "MidMall Maipu Santiago",
+    "type": [
+      "variety",
+      "food",
+      "quick"
+    ],
+    "description": "Mall de tamano intermedio en Maipu, orientado a compras practicas con supermercado, patio de comidas y tiendas de vestuario y servicios para los vecinos de la zona poniente.",
+    "bestFor": [
+      "Residentes de Maipu",
+      "Compras de barrio",
+      "Patio de comidas"
+    ],
+    "notIdealFor": [
+      "Turistas",
+      "Quienes buscan gran variedad o mall de formato mayor"
+    ],
+    "categories": [
+      "supermercado",
+      "ropa",
+      "servicios",
+      "comida"
+    ],
+    "transport": {
+      "metro": "Sin metro directo. Bus o auto.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-2 horas",
+    "priceLevel": "medio",
+    "touristScore": 2,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Arauco Maipu",
+      "Vivo Outlet Maipu"
+    ],
+    "tips": [
+      "Practico si estas en Maipu y necesitas resolver compras rapidas."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "mallplaza-alameda",
+    "name": "Mallplaza Alameda",
+    "commune": "Santiago",
+    "mapsQuery": "Mallplaza Alameda Santiago Centro",
+    "type": [
+      "variety",
+      "metro",
+      "food",
+      "tourist",
+      "fashion"
+    ],
+    "description": "Mall de gran formato en el corazon de Santiago Centro, sobre la Alameda Bernardo O Higgins. Excelente conectividad por metro con variada oferta de tiendas, gastronomia y entretenimiento en el eje central de la ciudad.",
+    "bestFor": [
+      "Turistas en Santiago Centro",
+      "Acceso desde cualquier punto via metro",
+      "Compras variadas"
+    ],
+    "notIdealFor": [
+      "Quienes buscan malls premium o tranquilos",
+      "Dias de semana en hora punta"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "tecnologia",
+      "entretenimiento",
+      "zapatillas"
+    ],
+    "transport": {
+      "metro": "Acceso desde multiples estaciones de Linea 1, Linea 2 y Linea 3.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "2-4 horas",
+    "priceLevel": "medio",
+    "touristScore": 6,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "gastronomico",
+    "nearbyAttractions": [
+      "La Moneda",
+      "Barrio Lastarria",
+      "Centro Historico",
+      "Plaza de Armas"
+    ],
+    "tips": [
+      "Buena opcion para turistas alojados en el centro. La Moneda queda a pocos minutos caminando."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "mall-arauco-estacion",
+    "name": "Mall Arauco Estación",
+    "commune": "Santiago",
+    "mapsQuery": "Mall Arauco Estacion Central Santiago",
+    "type": [
+      "variety",
+      "metro",
+      "food",
+      "tourist"
+    ],
+    "description": "Mall Arauco contiguo a la Estacion Central de Santiago, principal hub de buses y trenes del pais. Muy conveniente para quienes llegan o parten desde el terminal, con oferta completa de tiendas, comida y servicios.",
+    "bestFor": [
+      "Paso por Estacion Central",
+      "Turistas en transito",
+      "Compras antes de tomar bus o tren"
+    ],
+    "notIdealFor": [
+      "Quienes buscan ambiente tranquilo",
+      "Malls premium o de lujo"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "tecnologia",
+      "servicios",
+      "regalos"
+    ],
+    "transport": {
+      "metro": "Contiguo a Estacion Central, Linea 1.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-3 horas",
     "priceLevel": "medio",
     "touristScore": 5,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
+    "foodLevel": "patio",
     "nearbyAttractions": [
-      "Plaza Nunoa",
-      "Barrio Italia"
+      "Estacion Central",
+      "Barrio Yungay",
+      "Plaza Brasil"
     ],
     "tips": [
-      "Combina bien con una visita al Barrio Italia, a pocos minutos en Uber."
+      "Muy practico si estas partiendo o llegando a la Estacion Central."
     ],
     "checkOfficialHours": true,
-    "imageUrl": null,
-    "foodLevel": "patio"
+    "imageUrl": null
+  },
+  {
+    "id": "vivo-imperio",
+    "name": "Vivo Imperio",
+    "commune": "San Bernardo",
+    "mapsQuery": "Vivo Imperio San Bernardo Santiago",
+    "type": [
+      "variety",
+      "food",
+      "quick"
+    ],
+    "description": "Centro comercial Vivo en San Bernardo, al sur de Santiago. Oferta practica de tiendas de vestuario, supermercado, patio de comidas y servicios para los vecinos del sector sur de la region metropolitana.",
+    "bestFor": [
+      "Residentes de San Bernardo",
+      "Compras practicas del sector sur",
+      "Patio de comidas"
+    ],
+    "notIdealFor": [
+      "Turistas",
+      "Quienes buscan marcas internacionales o premium"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "supermercado",
+      "servicios"
+    ],
+    "transport": {
+      "metro": "Sin metro directo. Acceso en bus o auto.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-2 horas",
+    "priceLevel": "medio",
+    "touristScore": 2,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Centro de San Bernardo"
+    ],
+    "tips": [
+      "Orientado a residentes del sector, no es un destino de compras para turistas."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "mall-barrio-independencia",
+    "name": "Mall Barrio Independencia",
+    "commune": "Independencia",
+    "mapsQuery": "Mall Barrio Independencia Santiago",
+    "type": [
+      "variety",
+      "metro",
+      "food",
+      "tourist"
+    ],
+    "description": "Mall moderno en Independencia, un barrio con identidad propia al norte del centro. Ofrece buena variedad de tiendas, opciones de comida y entretenimiento en una zona cada vez mas popular entre jovenes y visitantes.",
+    "bestFor": [
+      "Sector norte de Santiago",
+      "Combinacion con barrio Independencia",
+      "Gastronomia variada"
+    ],
+    "notIdealFor": [
+      "Quienes buscan marcas premium",
+      "Turistas alojados en sector oriente sin transporte"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "entretenimiento",
+      "tecnologia"
+    ],
+    "transport": {
+      "metro": "Cercano a estaciones de Linea 3 en Independencia.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "2-3 horas",
+    "priceLevel": "medio",
+    "touristScore": 4,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "gastronomico",
+    "nearbyAttractions": [
+      "Barrio Italia",
+      "Barrio Yungay",
+      "Parque de los Reyes"
+    ],
+    "tips": [
+      "El barrio tiene vida propia fuera del mall, vale la pena explorar los alrededores."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "mall-arauco-quilicura",
+    "name": "Mall Arauco Quilicura",
+    "commune": "Quilicura",
+    "mapsQuery": "Arauco Quilicura Santiago",
+    "type": [
+      "variety",
+      "food",
+      "fashion"
+    ],
+    "description": "Mall Arauco en Quilicura, zona norponiente de Santiago cercana al aeropuerto. Ofrece una propuesta completa de tiendas, gastronomia y entretenimiento para los residentes del sector y quienes se mueven por ese corredor.",
+    "bestFor": [
+      "Residentes de Quilicura",
+      "Sector nor-poniente",
+      "Paso cercano al aeropuerto"
+    ],
+    "notIdealFor": [
+      "Turistas de otras zonas sin auto",
+      "Quienes buscan malls de lujo"
+    ],
+    "categories": [
+      "ropa",
+      "comida",
+      "zapatillas",
+      "deporte",
+      "tecnologia"
+    ],
+    "transport": {
+      "metro": "Sin metro directo al mall. Acceso en bus o auto.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "2-3 horas",
+    "priceLevel": "medio",
+    "touristScore": 3,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Aeropuerto Arturo Merino Benitez"
+    ],
+    "tips": [
+      "Si tienes un vuelo con tiempo y quieres hacer compras, queda cerca del aeropuerto."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "espacio-urbano-las-rejas",
+    "name": "Espacio Urbano Las Rejas",
+    "commune": "Pudahuel",
+    "mapsQuery": "Espacio Urbano Las Rejas Santiago",
+    "type": [
+      "variety",
+      "metro",
+      "quick"
+    ],
+    "description": "Centro comercial de barrio en el sector poniente de Santiago, con acceso desde la estacion Las Rejas de la Linea 1. Practico para compras cotidianas de supermercado, servicios y vestuario.",
+    "bestFor": [
+      "Residentes del sector poniente",
+      "Acceso metro L1",
+      "Compras rapidas"
+    ],
+    "notIdealFor": [
+      "Turistas",
+      "Quienes buscan mall de gran formato"
+    ],
+    "categories": [
+      "supermercado",
+      "servicios",
+      "ropa",
+      "comida"
+    ],
+    "transport": {
+      "metro": "Acceso desde estacion Las Rejas, Linea 1.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-2 horas",
+    "priceLevel": "medio",
+    "touristScore": 2,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": false,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Sector poniente de Santiago"
+    ],
+    "tips": [
+      "Util para residentes del sector, sin mayor interes turistico."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
+  },
+  {
+    "id": "paseo-san-bernardo",
+    "name": "Paseo San Bernardo",
+    "commune": "San Bernardo",
+    "mapsQuery": "Paseo San Bernardo Santiago",
+    "type": [
+      "variety",
+      "quick",
+      "food"
+    ],
+    "description": "Centro comercial en San Bernardo, ciudad independiente al sur del Gran Santiago. Ofrece servicios basicos de supermercado, patio de comidas, vestuario y entretenimiento para los vecinos del municipio.",
+    "bestFor": [
+      "Residentes de San Bernardo",
+      "Compras cotidianas",
+      "Patio de comidas local"
+    ],
+    "notIdealFor": [
+      "Turistas",
+      "Quienes visitan Santiago desde el centro o el oriente"
+    ],
+    "categories": [
+      "supermercado",
+      "ropa",
+      "servicios",
+      "comida"
+    ],
+    "transport": {
+      "metro": "Sin metro directo. Bus o auto desde Santiago.",
+      "uber": true,
+      "parking": true
+    },
+    "recommendedTime": "1-2 horas",
+    "priceLevel": "medio",
+    "touristScore": 2,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "foodLevel": "patio",
+    "nearbyAttractions": [
+      "Centro de San Bernardo"
+    ],
+    "tips": [
+      "Demasiado lejos del centro turistico para recomendarlo como destino de compras."
+    ],
+    "checkOfficialHours": true,
+    "imageUrl": null
   }
 ]
