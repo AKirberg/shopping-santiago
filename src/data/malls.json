@@ -49,7 +49,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/costanera-center.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4173,
+    "lng": -70.6074
   },
   {
     "id": "parque-arauco",
@@ -101,7 +103,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/parque-arauco.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4024,
+    "lng": -70.5788
   },
   {
     "id": "alto-las-condes",
@@ -151,7 +155,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/alto-las-condes.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.3943,
+    "lng": -70.5531
   },
   {
     "id": "casacostanera",
@@ -201,7 +207,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/casacostanera.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4023,
+    "lng": -70.5887
   },
   {
     "id": "mall-sport",
@@ -250,7 +258,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-sport.jpg",
     "foodLevel": "patio",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4055,
+    "lng": -70.567
   },
   {
     "id": "easton-outlet-mall",
@@ -297,7 +307,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/easton-outlet-mall.jpg",
     "foodLevel": "patio",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.3532,
+    "lng": -70.7125
   },
   {
     "id": "arauco-premium-outlet-buenaventura",
@@ -345,7 +357,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/arauco-premium-outlet-buenaventura.jpg",
     "foodLevel": "patio",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.3573,
+    "lng": -70.7093
   },
   {
     "id": "mallplaza-egana",
@@ -395,7 +409,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-egana.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4527,
+    "lng": -70.5648
   },
   {
     "id": "florida-center",
@@ -443,7 +459,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/florida-center.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.5237,
+    "lng": -70.5925
   },
   {
     "id": "mallplaza-vespucio",
@@ -491,7 +509,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-vespucio.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.5147,
+    "lng": -70.5936
   },
   {
     "id": "mallplaza-norte",
@@ -546,7 +566,9 @@
     "imageUrl": "/images/malls/mallplaza-norte.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
-    "airportRoute": true
+    "airportRoute": true,
+    "lat": -33.4077,
+    "lng": -70.6626
   },
   {
     "id": "apumanque",
@@ -596,7 +618,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/apumanque.jpg",
     "foodLevel": "patio",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4162,
+    "lng": -70.5836
   },
   {
     "id": "portal-la-dehesa",
@@ -647,7 +671,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/portal-la-dehesa.jpg",
     "foodLevel": "patio",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.3621,
+    "lng": -70.519
   },
   {
     "id": "mallplaza-oeste",
@@ -700,7 +726,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-oeste.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.4489,
+    "lng": -70.7614
   },
   {
     "id": "arauco-maipu",
@@ -752,7 +780,9 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/arauco-maipu.webp",
     "foodLevel": "gastronomico",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.5099,
+    "lng": -70.773
   },
   {
     "id": "parque-arauco-oriente",
@@ -800,7 +830,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/parque-arauco-oriente.jpg",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4174,
+    "lng": -70.5561
   },
   {
     "id": "mallplaza-los-dominicos",
@@ -851,7 +883,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-los-dominicos.jpg",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4204,
+    "lng": -70.5459
   },
   {
     "id": "vivo-los-trapenses",
@@ -901,7 +935,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/vivo-los-trapenses.jpg",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.3486,
+    "lng": -70.5098
   },
   {
     "id": "paseo-quilin",
@@ -951,7 +987,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/paseo-quilin.jpg",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.4915,
+    "lng": -70.594
   },
   {
     "id": "mallplaza-tobalaba",
@@ -1003,7 +1041,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-tobalaba.jpg",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4365,
+    "lng": -70.5948
   },
   {
     "id": "espacio-urbano-gran-avenida",
@@ -1053,7 +1093,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/espacio-urbano-gran-avenida.jpg",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.4917,
+    "lng": -70.6456
   },
   {
     "id": "midmall-maipu",
@@ -1103,7 +1145,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/midmall-maipu.jpg",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.518,
+    "lng": -70.7533
   },
   {
     "id": "mallplaza-alameda",
@@ -1158,7 +1202,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-alameda.jpg",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4598,
+    "lng": -70.6725
   },
   {
     "id": "mall-barrio-independencia",
@@ -1210,7 +1256,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-barrio-independencia.jpg",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.4178,
+    "lng": -70.6571
   },
   {
     "id": "mall-arauco-quilicura",
@@ -1260,7 +1308,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-arauco-quilicura.jpg",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.357,
+    "lng": -70.711
   },
   {
     "id": "paseo-san-bernardo",
@@ -1309,7 +1359,9 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/paseo-san-bernardo.jpg",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "lat": -33.5977,
+    "lng": -70.6987
   },
   {
     "id": "mut-mercado-urbano-tobalaba",
@@ -1362,6 +1414,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg",
-    "touristZone": "turistico"
+    "touristZone": "turistico",
+    "lat": -33.4354,
+    "lng": -70.5962
   }
 ]

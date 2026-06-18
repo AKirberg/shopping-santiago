@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, MapPin, Sparkles, X } from "lucide-react";
+import { ArrowRight, MapPin, Navigation, Sparkles, X } from "lucide-react";
 import { getRecommendations } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -41,7 +41,8 @@ function useAddressSuggestions(query) {
         const data = await res.json();
         setSuggestions(data.map(d => ({
           label: d.display_name.split(",").slice(0, 3).join(", "),
-          full: d.display_name,
+          lat: parseFloat(d.lat),
+          lng: parseFloat(d.lon),
         })));
       } catch {
         setSuggestions([]);
@@ -58,13 +59,18 @@ function useAddressSuggestions(query) {
 function RecommendationQuiz({ malls, onSelect }) {
   const [answers, setAnswers] = useState(initialAnswers);
   const [customAddress, setCustomAddress] = useState("");
+  const [userCoords, setUserCoords] = useState(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
   const { t } = useLanguage();
   const q = t.quiz;
   const { suggestions, loading } = useAddressSuggestions(customAddress);
-  const recommendations = useMemo(() => getRecommendations(malls, answers).slice(0, 4), [answers, malls]);
+
+  const recommendations = useMemo(
+    () => getRecommendations(malls, answers, userCoords).slice(0, 4),
+    [answers, malls, userCoords]
+  );
 
   function set(key, value) {
     setAnswers(prev => ({ ...prev, [key]: value }));
@@ -73,20 +79,23 @@ function RecommendationQuiz({ malls, onSelect }) {
   function handleAddressChange(e) {
     const val = e.target.value;
     setCustomAddress(val);
+    setUserCoords(null);
     setShowDropdown(true);
     if (val.trim()) {
       setAnswers(prev => ({ ...prev, zone: val.trim() }));
     }
   }
 
-  function selectSuggestion(label) {
-    setCustomAddress(label);
-    setAnswers(prev => ({ ...prev, zone: label }));
+  function selectSuggestion(s) {
+    setCustomAddress(s.label);
+    setAnswers(prev => ({ ...prev, zone: s.label }));
+    setUserCoords({ lat: s.lat, lng: s.lng });
     setShowDropdown(false);
   }
 
   function clearAddress() {
     setCustomAddress("");
+    setUserCoords(null);
     setShowDropdown(false);
     setAnswers(prev => ({ ...prev, zone: "Providencia" }));
     inputRef.current?.focus();
@@ -94,8 +103,10 @@ function RecommendationQuiz({ malls, onSelect }) {
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target) &&
-          inputRef.current && !inputRef.current.contains(e.target)) {
+      if (
+        dropdownRef.current && !dropdownRef.current.contains(e.target) &&
+        inputRef.current && !inputRef.current.contains(e.target)
+      ) {
         setShowDropdown(false);
       }
     }
@@ -105,7 +116,7 @@ function RecommendationQuiz({ malls, onSelect }) {
 
   const zoneField = q.fields.find(f => f.key === "zone");
   const otherFields = q.fields.filter(f => f.key !== "zone");
-  const zoneIsCustom = customAddress.trim() && answers.zone === customAddress.trim();
+  const zoneIsCustom = !!userCoords;
 
   return (
     <section id="quiz" className="bg-white">
@@ -118,7 +129,6 @@ function RecommendationQuiz({ malls, onSelect }) {
 
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
           <div className="grid gap-6">
-            {/* Zone field — pills + address autocomplete */}
             {zoneField && (
               <div>
                 <p className="mb-2.5 text-xs font-extrabold uppercase tracking-wider text-ink/45">{zoneField.label}</p>
@@ -126,7 +136,7 @@ function RecommendationQuiz({ malls, onSelect }) {
                   {zoneField.options.map(({ v, l }) => (
                     <button
                       key={v}
-                      onClick={() => { set("zone", v); setCustomAddress(""); setShowDropdown(false); }}
+                      onClick={() => { set("zone", v); setCustomAddress(""); setUserCoords(null); setShowDropdown(false); }}
                       className={answers.zone === v && !zoneIsCustom ? "quiz-pill-active" : "quiz-pill"}
                     >
                       {l}
@@ -134,7 +144,6 @@ function RecommendationQuiz({ malls, onSelect }) {
                   ))}
                 </div>
 
-                {/* Address input with autocomplete */}
                 <div className="relative mt-3">
                   <div className={`flex items-center gap-2 rounded-xl border px-3 py-2 transition-colors ${
                     zoneIsCustom
@@ -162,7 +171,13 @@ function RecommendationQuiz({ malls, onSelect }) {
                     )}
                   </div>
 
-                  {/* Suggestions dropdown */}
+                  {zoneIsCustom && (
+                    <p className="mt-1.5 flex items-center gap-1 text-xs font-semibold text-leaf">
+                      <Navigation size={11} />
+                      {q.locationActive ?? "Ubicación activa — resultados ordenados por cercanía"}
+                    </p>
+                  )}
+
                   {showDropdown && suggestions.length > 0 && (
                     <ul
                       ref={dropdownRef}
@@ -171,7 +186,7 @@ function RecommendationQuiz({ malls, onSelect }) {
                       {suggestions.map((s, i) => (
                         <li key={i}>
                           <button
-                            onMouseDown={e => { e.preventDefault(); selectSuggestion(s.label); }}
+                            onMouseDown={e => { e.preventDefault(); selectSuggestion(s); }}
                             className="flex w-full items-start gap-2.5 px-3 py-2.5 text-left text-sm hover:bg-leaf/6 transition-colors"
                           >
                             <MapPin size={13} className="mt-0.5 shrink-0 text-ink/35" />
@@ -185,7 +200,6 @@ function RecommendationQuiz({ malls, onSelect }) {
               </div>
             )}
 
-            {/* All other fields */}
             {otherFields.map(({ key, label, options }) => (
               <div key={key}>
                 <p className="mb-2.5 text-xs font-extrabold uppercase tracking-wider text-ink/45">{label}</p>
@@ -220,7 +234,11 @@ function RecommendationQuiz({ malls, onSelect }) {
                 <button
                   key={mall.id}
                   onClick={() => onSelect(mall)}
-                  className="group rounded-2xl border border-ink/8 bg-[#f8faf6] p-4 text-left transition hover:border-leaf/30 hover:bg-white hover:shadow-card"
+                  className={`group rounded-2xl border p-4 text-left transition hover:shadow-card ${
+                    mall.isNearest
+                      ? "border-leaf/40 bg-leaf/5 hover:bg-white"
+                      : "border-ink/8 bg-[#f8faf6] hover:border-leaf/30 hover:bg-white"
+                  }`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex items-start gap-3">
@@ -230,8 +248,20 @@ function RecommendationQuiz({ malls, onSelect }) {
                         {index + 1}
                       </span>
                       <div>
-                        <p className="font-extrabold leading-tight">{mall.name}</p>
-                        <p className="mt-0.5 text-xs font-semibold text-ink/45">{mall.commune} · {mall.recommendedTime}</p>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <p className="font-extrabold leading-tight">{mall.name}</p>
+                          {mall.isNearest && (
+                            <span className="flex items-center gap-1 rounded-full bg-leaf px-2 py-0.5 text-[10px] font-extrabold text-white">
+                              <Navigation size={9} /> {q.nearest ?? "Más cercano"}
+                            </span>
+                          )}
+                        </div>
+                        <p className="mt-0.5 text-xs font-semibold text-ink/45">
+                          {mall.commune} · {mall.recommendedTime}
+                          {mall.distanceKm != null && (
+                            <span className="ml-2 text-leaf font-bold">· {mall.distanceKm} km</span>
+                          )}
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">

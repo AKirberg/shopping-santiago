@@ -42,6 +42,8 @@ export const translations = {
       subtitle: "Selecciona tus preferencias y el sistema ordena los malls según zona, transporte, tiempo y tipo de compra.",
       resultsLabel: "Resultados",
       resultsSubLabel: "Ordenados por compatibilidad",
+      locationActive: "Ubicación activa — resultados ordenados por cercanía",
+      nearest: "Más cercano",
       fields: [
         { key: "zone", label: "¿Dónde estás?", addressPlaceholder: "O ingresa tu dirección…", options: [
           { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
@@ -200,6 +202,8 @@ export const translations = {
       subtitle: "Selecione suas preferências e o sistema ordena os malls por zona, transporte, tempo e tipo de compra.",
       resultsLabel: "Resultados",
       resultsSubLabel: "Ordenados por compatibilidade",
+      locationActive: "Localização ativa — resultados ordenados por proximidade",
+      nearest: "Mais próximo",
       fields: [
         { key: "zone", label: "Onde você está?", addressPlaceholder: "Ou insira seu endereço…", options: [
           { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
@@ -358,6 +362,8 @@ export const translations = {
       subtitle: "Select your preferences and the system ranks malls by zone, transport, time and shopping type.",
       resultsLabel: "Results",
       resultsSubLabel: "Ranked by compatibility",
+      locationActive: "Location active — results ranked by distance",
+      nearest: "Nearest",
       fields: [
         { key: "zone", label: "Where are you staying?", addressPlaceholder: "Or enter your address…", options: [
           { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
