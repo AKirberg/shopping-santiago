@@ -1,0 +1,522 @@
+{
+  "meta": {
+    "title": "Especial Galerías de Santiago Centro",
+    "summary": "Pasajes comerciales bajo techo del centro histórico: compras urbanas, patrimonio, vitrinas pequeñas y recorridos peatonales entre Ahumada, Huérfanos, Estado, Agustinas, Moneda y San Antonio.",
+    "totalKnownGalleries": 74,
+    "networkLengthKm": 5.8,
+    "lastReviewed": "2026-06-18",
+    "sourceNote": "Base inicial armada desde listados públicos patrimoniales. Verificar estado, accesos y rubros antes de publicar una guía definitiva."
+  },
+  "routes": [
+    {
+      "id": "clasicas-ahumada-huerfanos",
+      "title": "Clásicas Ahumada + Huérfanos",
+      "duration": "60-90 min",
+      "bestFor": ["Primera vez", "Arquitectura", "Compras pequeñas"],
+      "stops": ["galeria-agustin-edwards", "galeria-crillon", "centro-comercial-huerfanos", "galeria-gran-palace", "galeria-alessandri"],
+      "tips": ["Ir de día y con poco equipaje.", "Ideal para combinar con Plaza de Armas o Paseo Ahumada."]
+    },
+    {
+      "id": "patrimonial-merced-estado",
+      "title": "Patrimonial Merced + Estado",
+      "duration": "45-75 min",
+      "bestFor": ["Patrimonio", "Fotografía", "Paseo urbano"],
+      "stops": ["galeria-merced-738", "galeria-de-la-merced", "pasaje-matte", "diagonal-pasaje-matte", "galeria-espana"],
+      "tips": ["Revisar accesos antes de ir.", "Algunas galerías funcionan mejor como paseo patrimonial que como destino de compras."]
+    },
+    {
+      "id": "san-antonio-moneda",
+      "title": "San Antonio + Moneda",
+      "duration": "60-90 min",
+      "bestFor": ["Locales pequeños", "Regalos", "Recorrido bajo techo"],
+      "stops": ["galeria-comercial-moneda", "galerias-nacionales", "paseo-san-agustin", "galeria-san-antonio", "galeria-victoria"],
+      "tips": ["Buena ruta si llueve.", "Combina bien con cafés y trámites del centro."]
+    }
+  ],
+  "items": [
+    {
+      "id": "galeria-agustin-edwards",
+      "name": "Galería Agustín Edwards",
+      "address": "Huérfanos 1053-1055",
+      "axis": "Huérfanos / Ahumada / Bandera",
+      "year": "1946",
+      "tags": ["art déco", "clásica", "patrimonial"],
+      "bestFor": ["Arquitectura", "Recorrido histórico", "Compras pequeñas"],
+      "note": "Ubicada entre Paseo Ahumada y Bandera; una de las galerías clásicas del centro.",
+      "touristScore": 8
+    },
+    {
+      "id": "galeria-comercial-agustinas",
+      "name": "Galería Comercial Agustinas",
+      "address": "Agustinas 972 / Moneda 973",
+      "axis": "Agustinas / Moneda",
+      "year": "1938",
+      "tags": ["conservación histórica", "patrimonial", "centro"],
+      "bestFor": ["Patrimonio", "Paseo urbano", "Arquitectura"],
+      "note": "Forma parte de un edificio asociado al Banco de Chile y tiene categoría patrimonial.",
+      "touristScore": 8
+    },
+    {
+      "id": "galeria-agustinas-1022",
+      "name": "Galería Agustinas 1022",
+      "address": "Agustinas 1022",
+      "axis": "Agustinas",
+      "year": "1953",
+      "tags": ["centro", "compras rápidas"],
+      "bestFor": ["Compras puntuales", "Recorrido por Agustinas"],
+      "note": "Ubicada frente al Pasaje Presidente Aníbal Pinto.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-alessandri",
+      "name": "Galería Alessandri",
+      "address": "Huérfanos 1160",
+      "axis": "Huérfanos",
+      "year": "1965",
+      "tags": ["conectada", "clásica", "centro"],
+      "bestFor": ["Ruta Huérfanos", "Compras pequeñas", "Paseo bajo techo"],
+      "note": "Conectada con Galería Gran Palace.",
+      "touristScore": 7
+    },
+    {
+      "id": "galeria-andes",
+      "name": "Galería Andes",
+      "address": "Merced 767-753 / Monjitas 744-754",
+      "axis": "Merced / Monjitas",
+      "year": "1959",
+      "tags": ["centro", "pasaje"],
+      "bestFor": ["Ruta Merced", "Compras puntuales"],
+      "note": "Pasaje comercial del eje Merced-Monjitas.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-del-angel",
+      "name": "Galería del Ángel",
+      "address": "Huérfanos 786",
+      "axis": "Huérfanos",
+      "year": "1955",
+      "tags": ["centro", "compras pequeñas"],
+      "bestFor": ["Ruta Huérfanos", "Regalos", "Paseo urbano"],
+      "note": "Galería de escala urbana sobre Huérfanos.",
+      "touristScore": 5
+    },
+    {
+      "id": "pasaje-presidente-anibal-pinto",
+      "name": "Pasaje Presidente Aníbal Pinto",
+      "address": "Moneda 1025 / Bombero Ossa 1024",
+      "axis": "Moneda / Bombero Ossa",
+      "year": "1955",
+      "tags": ["pasaje", "centro", "compras rápidas"],
+      "bestFor": ["Trámites centro", "Compras puntuales"],
+      "note": "Pasaje frente a Galería Agustinas 1022.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-antonio-varas",
+      "name": "Galería Antonio Varas",
+      "address": "Morandé 25 / Bandera 56",
+      "axis": "Morandé / Bandera",
+      "year": "1954",
+      "tags": ["teatro", "institucional", "centro"],
+      "bestFor": ["Cultura", "Arquitectura", "Paseo cívico"],
+      "note": "Integrada al edificio de la casa matriz de BancoEstado; vinculada al Teatro Nacional Chileno.",
+      "touristScore": 7
+    },
+    {
+      "id": "galeria-arturo-prat",
+      "name": "Galería Arturo Prat",
+      "address": "Arturo Prat 22 / Alameda 980",
+      "axis": "Alameda / Arturo Prat",
+      "year": "1953",
+      "tags": ["alameda", "sur de alameda", "centro"],
+      "bestFor": ["Ruta Universidad de Chile", "Compras puntuales"],
+      "note": "Una de las galerías de la lista ubicada al sur de la Alameda.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-astor",
+      "name": "Galería Astor",
+      "address": "Huérfanos 870-886",
+      "axis": "Huérfanos",
+      "year": "1957",
+      "tags": ["cine histórico", "clásica", "centro"],
+      "bestFor": ["Historia urbana", "Ruta Huérfanos", "Arquitectura"],
+      "note": "El nombre viene del antiguo Cine Astor.",
+      "touristScore": 7
+    },
+    {
+      "id": "centro-comercial-bahia",
+      "name": "Centro Comercial Bahía",
+      "address": "San Antonio 468-496 / Monjitas 844",
+      "axis": "San Antonio / Monjitas",
+      "year": "1979",
+      "tags": ["conectada", "centro", "compras rápidas"],
+      "bestFor": ["Recorrido bajo techo", "Compras puntuales"],
+      "note": "Conectado con Galería Presidente.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-bandera",
+      "name": "Galería Bandera",
+      "address": "Bandera 183",
+      "axis": "Bandera",
+      "year": "Sin confirmar",
+      "tags": ["bandera", "centro"],
+      "bestFor": ["Compras puntuales", "Recorrido por Bandera"],
+      "note": "Galería del eje Bandera.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-comercial-bandera-centro",
+      "name": "Galería Comercial Bandera Centro",
+      "address": "Catedral 1083 / Bandera 521",
+      "axis": "Catedral / Bandera",
+      "year": "1980",
+      "tags": ["centro", "bandera"],
+      "bestFor": ["Compras puntuales", "Ruta Plaza de Armas"],
+      "note": "Conecta el eje Catedral con Bandera.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-betinyani",
+      "name": "Galería Betinyani",
+      "address": "Rosas 1138",
+      "axis": "Rosas",
+      "year": "1945",
+      "tags": ["centro norte", "compras pequeñas"],
+      "bestFor": ["Compras puntuales", "Ruta norte centro"],
+      "note": "Galería del eje Rosas.",
+      "touristScore": 4
+    },
+    {
+      "id": "galeria-caja-agraria",
+      "name": "Galería Caja Agraria",
+      "address": "Catedral 1227",
+      "axis": "Catedral",
+      "year": "1955",
+      "tags": ["catedral", "centro"],
+      "bestFor": ["Compras puntuales", "Ruta Plaza de Armas"],
+      "note": "Galería del eje Catedral.",
+      "touristScore": 4
+    },
+    {
+      "id": "galeria-capri",
+      "name": "Galería Capri",
+      "address": "Monjitas 825 / Santo Domingo 836",
+      "axis": "Monjitas / Santo Domingo",
+      "year": "1947",
+      "tags": ["cine histórico", "centro", "pasaje"],
+      "bestFor": ["Historia urbana", "Ruta Plaza de Armas"],
+      "note": "En su interior se menciona el Cine Capri.",
+      "touristScore": 6
+    },
+    {
+      "id": "galeria-crillon",
+      "name": "Galería Crillón",
+      "address": "Agustinas 1035",
+      "axis": "Agustinas / Ahumada",
+      "year": "1925",
+      "tags": ["patrimonial", "clásica", "conectada"],
+      "bestFor": ["Primera visita", "Patrimonio", "Paseo Ahumada"],
+      "note": "Conectada con Galería Roberto Mac-Clure y Centro Comercial Huérfanos.",
+      "touristScore": 9
+    },
+    {
+      "id": "galeria-espana",
+      "name": "Galería España",
+      "address": "Estado 337 / Huérfanos 875",
+      "axis": "Estado / Huérfanos",
+      "year": "1959",
+      "tags": ["estado", "huérfanos", "centro"],
+      "bestFor": ["Recorrido peatonal", "Compras pequeñas"],
+      "note": "Galería entre dos ejes comerciales clásicos.",
+      "touristScore": 6
+    },
+    {
+      "id": "galeria-comercial-eurocentro",
+      "name": "Galería Comercial Eurocentro",
+      "address": "Ahumada 85 / Moneda",
+      "axis": "Ahumada / Moneda",
+      "year": "1980",
+      "tags": ["tecnología", "moda urbana", "alto flujo"],
+      "bestFor": ["Tecnología", "Accesorios", "Compras rápidas"],
+      "note": "Ubicada en los primeros pisos del Edificio Eurocentro; se cita con 131 locales.",
+      "touristScore": 8
+    },
+    {
+      "id": "galeria-gran-palace",
+      "name": "Galería Gran Palace",
+      "address": "Huérfanos 1178",
+      "axis": "Huérfanos",
+      "year": "1955",
+      "tags": ["murales", "Nemesio Antúnez", "patrimonial"],
+      "bestFor": ["Arte", "Patrimonio", "Ruta Huérfanos"],
+      "note": "En su interior están los murales Sol y Luna de Nemesio Antúnez.",
+      "touristScore": 9
+    },
+    {
+      "id": "centro-comercial-huerfanos",
+      "name": "Centro Comercial Huérfanos",
+      "address": "Huérfanos 1052",
+      "axis": "Huérfanos / Ahumada",
+      "year": "1965",
+      "tags": ["conectada", "clásica", "centro"],
+      "bestFor": ["Ruta Huérfanos", "Compras pequeñas"],
+      "note": "Conectado con Galería Roberto Mac-Clure y Galería Crillón.",
+      "touristScore": 7
+    },
+    {
+      "id": "galeria-estado-215",
+      "name": "Galería Estado 215",
+      "address": "Estado 215",
+      "axis": "Estado",
+      "year": "1953",
+      "tags": ["estado", "centro", "compras rápidas"],
+      "bestFor": ["Compras puntuales", "Ruta Estado"],
+      "note": "Galería comercial del eje Estado.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-huerfanos",
+      "name": "Galería Huérfanos",
+      "address": "Huérfanos 1373",
+      "axis": "Huérfanos",
+      "year": "1965",
+      "tags": ["huérfanos", "centro"],
+      "bestFor": ["Compras puntuales", "Ruta Huérfanos"],
+      "note": "Galería del eje Huérfanos.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-imperio",
+      "name": "Galería Imperio / Vivo Imperio",
+      "address": "Huérfanos 830 / Estado 235 / San Antonio 228",
+      "axis": "Huérfanos / Estado / San Antonio",
+      "year": "1955",
+      "tags": ["alto flujo", "renovada", "centro"],
+      "bestFor": ["Compras rápidas", "Metro", "Centro histórico"],
+      "note": "Galería clásica transformada parcialmente con el centro comercial Vivo Imperio.",
+      "touristScore": 8
+    },
+    {
+      "id": "galeria-juan-esteban-montero",
+      "name": "Galería Juan Esteban Montero",
+      "address": "San Antonio 327 / Huérfanos 779",
+      "axis": "San Antonio / Huérfanos",
+      "year": "1955",
+      "tags": ["mural", "Nemesio Antúnez", "patrimonial"],
+      "bestFor": ["Arte", "Patrimonio", "Ruta San Antonio"],
+      "note": "Contiene el mural Quinchamalí de Nemesio Antúnez.",
+      "touristScore": 8
+    },
+    {
+      "id": "pasaje-matte",
+      "name": "Pasaje Matte",
+      "address": "Estado 343-344",
+      "axis": "Estado / Plaza de Armas",
+      "year": "1927 / 1932",
+      "tags": ["histórico", "patrimonial", "plaza de armas"],
+      "bestFor": ["Primera visita", "Historia urbana", "Ruta Plaza de Armas"],
+      "note": "Uno de los pasajes históricos más importantes del centro; conectado con Diagonal Pasaje Matte.",
+      "touristScore": 9
+    },
+    {
+      "id": "diagonal-pasaje-matte",
+      "name": "Diagonal Pasaje Matte",
+      "address": "Huérfanos 955-957",
+      "axis": "Huérfanos / Estado",
+      "year": "1935 / 1945",
+      "tags": ["conectada", "histórica", "centro"],
+      "bestFor": ["Ruta Plaza de Armas", "Paseo bajo techo"],
+      "note": "Conectada con el Pasaje Matte.",
+      "touristScore": 7
+    },
+    {
+      "id": "galeria-de-la-merced",
+      "name": "Galería de La Merced",
+      "address": "Huérfanos 669-635",
+      "axis": "Huérfanos / Merced",
+      "year": "1959",
+      "tags": ["la merced", "centro", "patrimonio cercano"],
+      "bestFor": ["Ruta Merced", "Paseo histórico"],
+      "note": "Recibe su nombre por la Basílica de la Merced, ubicada cerca.",
+      "touristScore": 6
+    },
+    {
+      "id": "galeria-merced-738",
+      "name": "Galería Merced 738",
+      "address": "Merced 738",
+      "axis": "Merced",
+      "year": "Sin confirmar",
+      "tags": ["monumento nacional", "patrimonial", "histórica"],
+      "bestFor": ["Patrimonio", "Arquitectura", "Ruta Merced"],
+      "note": "Construida en la antigua casa del expresidente Manuel Montt; conserva valor patrimonial.",
+      "touristScore": 9
+    },
+    {
+      "id": "galeria-comercial-moneda",
+      "name": "Galería Comercial Moneda",
+      "address": "Moneda 772-782 / San Antonio / Tenderini",
+      "axis": "Moneda / San Antonio / Tenderini",
+      "year": "1981",
+      "tags": ["conectada", "moneda", "centro"],
+      "bestFor": ["Ruta Moneda", "Compras puntuales", "Recorrido bajo techo"],
+      "note": "Conectada con Galerías Nacionales.",
+      "touristScore": 6
+    },
+    {
+      "id": "galerias-nacionales",
+      "name": "Galerías Nacionales",
+      "address": "Tenderini 60",
+      "axis": "Tenderini / Moneda",
+      "year": "1960",
+      "tags": ["conectada", "moneda", "centro"],
+      "bestFor": ["Ruta Moneda", "Compras puntuales"],
+      "note": "Conectada con Galería Comercial Moneda.",
+      "touristScore": 6
+    },
+    {
+      "id": "galeria-pacifico",
+      "name": "Galería Pacífico",
+      "address": "Huérfanos 1147 / Bandera 314-318",
+      "axis": "Huérfanos / Bandera",
+      "year": "1953",
+      "tags": ["huérfanos", "bandera", "centro"],
+      "bestFor": ["Ruta Huérfanos", "Compras puntuales"],
+      "note": "Galería comercial del eje Huérfanos-Bandera.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-plaza-de-armas",
+      "name": "Galería Plaza de Armas",
+      "address": "Merced 839",
+      "axis": "Plaza de Armas / Merced",
+      "year": "1930",
+      "tags": ["plaza de armas", "histórica", "conectada"],
+      "bestFor": ["Primera visita", "Centro histórico", "Ruta Plaza de Armas"],
+      "note": "Conectada con Galería Bahía.",
+      "touristScore": 8
+    },
+    {
+      "id": "pasaje-plaza-de-armas",
+      "name": "Pasaje Plaza de Armas",
+      "address": "Monjitas 879 / 21 de Mayo 583 / Santo Domingo 868",
+      "axis": "Plaza de Armas / Monjitas",
+      "year": "1958",
+      "tags": ["plaza de armas", "mural", "alto flujo"],
+      "bestFor": ["Patrimonio", "Centro histórico", "Recorrido urbano"],
+      "note": "Asociado al mural Terremoto de Nemesio Antúnez en referencias patrimoniales.",
+      "touristScore": 8
+    },
+    {
+      "id": "galeria-presidente",
+      "name": "Galería Presidente",
+      "address": "San Antonio 454 / Phillips 457",
+      "axis": "San Antonio / Phillips",
+      "year": "1932",
+      "tags": ["clásica", "conectada", "centro"],
+      "bestFor": ["Ruta San Antonio", "Compras puntuales"],
+      "note": "Está conectada con Centro Comercial Bahía.",
+      "touristScore": 6
+    },
+    {
+      "id": "galeria-roberto-mac-clure",
+      "name": "Galería Roberto Mac-Clure",
+      "address": "Ahumada 254",
+      "axis": "Ahumada",
+      "year": "1955",
+      "tags": ["ahumada", "conectada", "centro"],
+      "bestFor": ["Paseo Ahumada", "Compras rápidas"],
+      "note": "Conectada con Galería Crillón y Centro Comercial Huérfanos.",
+      "touristScore": 7
+    },
+    {
+      "id": "galeria-salustio-barros",
+      "name": "Galería Salustio Barros",
+      "address": "San Antonio 278 / Huérfanos 812",
+      "axis": "San Antonio / Huérfanos",
+      "year": "1955",
+      "tags": ["san antonio", "huérfanos", "centro"],
+      "bestFor": ["Ruta San Antonio", "Compras pequeñas"],
+      "note": "Galería del cruce San Antonio-Huérfanos.",
+      "touristScore": 5
+    },
+    {
+      "id": "paseo-san-agustin",
+      "name": "Paseo San Agustín",
+      "address": "San Antonio 140",
+      "axis": "San Antonio",
+      "year": "1980",
+      "tags": ["paseo", "san antonio", "centro"],
+      "bestFor": ["Compras puntuales", "Ruta San Antonio"],
+      "note": "A pasos de la Iglesia de San Agustín.",
+      "touristScore": 6
+    },
+    {
+      "id": "galeria-san-antonio",
+      "name": "Galería San Antonio",
+      "address": "San Antonio 376 / Merced 820",
+      "axis": "San Antonio / Merced",
+      "year": "1953",
+      "tags": ["san antonio", "merced", "centro"],
+      "bestFor": ["Ruta San Antonio", "Compras puntuales"],
+      "note": "Galería del eje San Antonio.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-santiago",
+      "name": "Galería Santiago",
+      "address": "San Antonio 434 / Merced 821",
+      "axis": "San Antonio / Merced",
+      "year": "1952",
+      "tags": ["san antonio", "merced", "centro"],
+      "bestFor": ["Ruta San Antonio", "Compras pequeñas"],
+      "note": "Galería comercial del eje San Antonio-Merced.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-comercial-santiago-centro",
+      "name": "Galería Comercial Santiago Centro",
+      "address": "Alameda 949",
+      "axis": "Alameda / Universidad de Chile",
+      "year": "1980",
+      "tags": ["metro", "universidad de chile", "alto flujo"],
+      "bestFor": ["Metro", "Compras rápidas", "Lluvia"],
+      "note": "Ubicada en el primer piso y subterráneo del Edificio Santiago Centro; conectada con Metro Universidad de Chile.",
+      "touristScore": 8
+    },
+    {
+      "id": "galeria-santo-domingo",
+      "name": "Galería Santo Domingo",
+      "address": "Santo Domingo 883 / Diagonal Cervantes 661",
+      "axis": "Santo Domingo",
+      "year": "1980",
+      "tags": ["santo domingo", "centro"],
+      "bestFor": ["Ruta Plaza de Armas", "Compras puntuales"],
+      "note": "Galería del eje Santo Domingo.",
+      "touristScore": 5
+    },
+    {
+      "id": "galeria-tupahue",
+      "name": "Galería Tupahue",
+      "address": "Monjitas 770",
+      "axis": "Monjitas",
+      "year": "1972",
+      "tags": ["monjitas", "centro"],
+      "bestFor": ["Compras puntuales", "Ruta Monjitas"],
+      "note": "Galería del eje Monjitas.",
+      "touristScore": 4
+    },
+    {
+      "id": "galeria-victoria",
+      "name": "Galería Victoria",
+      "address": "San Antonio 364 / Huérfanos 825",
+      "axis": "San Antonio / Huérfanos",
+      "year": "1963",
+      "tags": ["san antonio", "huérfanos", "centro"],
+      "bestFor": ["Ruta San Antonio", "Compras puntuales"],
+      "note": "Galería ubicada en un cruce comercial de alto flujo.",
+      "touristScore": 5
+    }
+  ]
+}

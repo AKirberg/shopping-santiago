@@ -76,6 +76,7 @@ Revisa estas partes principales:
 - Malls: `src/data/malls.json`
 - Rutas: `src/data/routes.json`
 - Tiendas por mall: `src/data/stores.json`
+- Especial galerías Santiago Centro: `src/data/galleries.json`
 - Filtros: `src/components/MallFilters.jsx`
 - Quiz: `src/components/RecommendationQuiz.jsx` y `src/utils/scoring.js`
 - Comparador: `src/components/CompareMalls.jsx`
@@ -104,7 +105,8 @@ Si agregas tiendas, cada bloque de `src/data/stores.json` debe usar un `mallId` 
     ├── data/
     │   ├── malls.json
     │   ├── routes.json
-    │   └── stores.json
+    │   ├── stores.json
+    │   └── galleries.json
     ├── i18n/
     │   └── locales.js
     └── utils/

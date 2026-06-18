@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import malls from "./data/malls.json";
 import routes from "./data/routes.json";
+import galleries from "./data/galleries.json";
 import { matchesMallFilters } from "./utils/scoring";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -9,6 +10,7 @@ import MallGrid from "./components/MallGrid";
 import MallFilters from "./components/MallFilters";
 import RecommendationQuiz from "./components/RecommendationQuiz";
 import RoutesSection from "./components/RoutesSection";
+import GalleriesSpecial from "./components/GalleriesSpecial";
 import CompareMalls from "./components/CompareMalls";
 import TouristTips from "./components/TouristTips";
 import MallDetail from "./components/MallDetail";
@@ -119,6 +121,7 @@ function App() {
 
         <RecommendationQuiz malls={malls} onSelect={setSelectedMall} />
         <RoutesSection routes={routes} malls={malls} />
+        <GalleriesSpecial data={galleries} />
 
         <section id="malls" className="section-shell">
           <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">

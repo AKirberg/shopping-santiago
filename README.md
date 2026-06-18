@@ -37,6 +37,7 @@ src/
     malls.json
     routes.json
     stores.json
+    galleries.json
   components/
     Header.jsx
     Hero.jsx
@@ -48,6 +49,7 @@ src/
     RecommendationQuiz.jsx
     RouteCard.jsx
     RoutesSection.jsx
+    GalleriesSpecial.jsx
     CompareMalls.jsx
     TouristTips.jsx
     Footer.jsx
@@ -68,6 +70,10 @@ Edita `src/data/routes.json` y agrega una ruta con `id`, `title`, `summary`, `du
 ## Como agregar tiendas por mall
 
 Edita `src/data/stores.json`. Cada bloque usa `mallId` para conectarse con `src/data/malls.json` y contiene un arreglo `stores` con `name` y `category`. Mantiene `status` y `lastReviewed` para saber si el listado ya fue verificado contra el directorio oficial del mall.
+
+## Como editar el especial de galerías
+
+Edita `src/data/galleries.json`. El archivo tiene una sección `meta`, rutas peatonales sugeridas y una lista `items` de galerías de Santiago Centro con dirección, eje, tags y nota turística. Mantén este módulo separado de `malls.json` para no mezclar malls grandes con galerías patrimoniales.
 
 ## Proximos pasos sugeridos
 

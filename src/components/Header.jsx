@@ -6,6 +6,7 @@ function Header() {
   const navItems = [
     ["Recomendador", "#quiz"],
     ["Rutas", "#rutas"],
+    ["Galerías", "#galerias"],
     ["Malls", "#malls"],
     ["Comparar", "#comparar"],
     ["Consejos", "#consejos"]
