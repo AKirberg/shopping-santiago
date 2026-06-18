@@ -276,28 +276,28 @@
     "id": "galeria-los-joyeros",
     "name": "Galería Los Joyeros",
     "year": 1975,
-    "address": "Huérfanos 1074",
+    "address": "Santo Domingo 878",
     "commune": "Santiago Centro",
-    "lat": -33.43840,
-    "lng": -70.65089,
-    "zone": "huerfanos-ahumada",
+    "lat": -33.43512,
+    "lng": -70.65021,
+    "zone": "plaza-de-armas",
     "specialties": ["joyería", "relojería", "plata", "oro", "reparación de joyas", "grabado"],
     "priceLevel": "bajo-medio",
     "touristFriendly": true,
     "historic": false,
     "description": {
-      "es": "Galería especializada casi exclusivamente en joyería y relojería. Decenas de locales donde se trabaja la plata y el oro, con servicio de reparación, grabado y encargo. Muy popular entre locales y turistas que buscan joyería artesanal chilena a buen precio.",
-      "pt": "Galeria especializada quase exclusivamente em joalheria e relojoaria. Dezenas de lojas que trabalham com prata e ouro, com serviço de reparação, gravação e encomenda. Muito popular entre moradores e turistas que buscam joalheria artesanal chilena a bom preço.",
-      "en": "An arcade specialising almost exclusively in jewellery and watchmaking. Dozens of shops working in silver and gold, with repair, engraving and custom-order services. Very popular with locals and tourists seeking handcrafted Chilean jewellery at good prices."
+      "es": "Galería especializada casi exclusivamente en joyería y relojería, ubicada en calle Santo Domingo. Decenas de locales donde se trabaja la plata y el oro, con servicio de reparación, grabado y encargo. Muy popular entre locales y turistas que buscan joyería artesanal chilena a buen precio.",
+      "pt": "Galeria especializada quase exclusivamente em joalheria e relojoaria, localizada na rua Santo Domingo. Dezenas de lojas que trabalham com prata e ouro, com serviço de reparação, gravação e encomenda. Muito popular entre moradores e turistas.",
+      "en": "An arcade specialising almost exclusively in jewellery and watchmaking, on Santo Domingo street. Dozens of shops working in silver and gold, with repair, engraving and custom-order services. Very popular with locals and tourists."
     },
     "entrances": [
-      { "street": "Huérfanos 1074", "ref": "Entrada principal desde Paseo Huérfanos" }
+      { "street": "Santo Domingo 878", "ref": "Entrada principal desde calle Santo Domingo" }
     ],
-    "nearbyMetro": "Universidad de Chile (L1) / Santa Lucía (L1)",
+    "nearbyMetro": "Plaza de Armas (L1/L5) / Puente Cal y Canto (L1/L2)",
     "openHours": "Lun–Sáb 9:30–19:30",
     "highlights": ["Joyería artesanal en plata y oro", "Servicio de reparación y grabado", "Precios de taller directo"],
     "imageUrl": null,
-    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Galería+Los+Joyeros+Huérfanos+Santiago"
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Galería+Los+Joyeros+Santo+Domingo+Santiago"
   },
   {
     "id": "galeria-central",
