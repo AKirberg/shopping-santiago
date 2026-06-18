@@ -36,6 +36,7 @@ src/
   data/
     malls.json
     routes.json
+    stores.json
   components/
     Header.jsx
     Hero.jsx
@@ -63,6 +64,10 @@ Edita `src/data/malls.json` y agrega un objeto con la misma estructura de los ex
 ## Como agregar nuevas rutas
 
 Edita `src/data/routes.json` y agrega una ruta con `id`, `title`, `summary`, `duration`, `bestFor`, `stops` y `tips`. En `stops`, usa `mallId` para relacionar la ruta con un mall existente.
+
+## Como agregar tiendas por mall
+
+Edita `src/data/stores.json`. Cada bloque usa `mallId` para conectarse con `src/data/malls.json` y contiene un arreglo `stores` con `name` y `category`. Mantiene `status` y `lastReviewed` para saber si el listado ya fue verificado contra el directorio oficial del mall.
 
 ## Proximos pasos sugeridos
 

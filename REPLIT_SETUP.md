@@ -75,12 +75,14 @@ Revisa estas partes principales:
 - Home y botones rapidos: `src/components/Hero.jsx` y `src/components/QuickIntentButtons.jsx`
 - Malls: `src/data/malls.json`
 - Rutas: `src/data/routes.json`
+- Tiendas por mall: `src/data/stores.json`
 - Filtros: `src/components/MallFilters.jsx`
 - Quiz: `src/components/RecommendationQuiz.jsx` y `src/utils/scoring.js`
 - Comparador: `src/components/CompareMalls.jsx`
 - Ficha de mall: `src/components/MallDetail.jsx`
 
 Si agregas un mall nuevo, usa un `id` unico. Si agregas una ruta, cada `stop.mallId` debe coincidir con el `id` de un mall existente.
+Si agregas tiendas, cada bloque de `src/data/stores.json` debe usar un `mallId` existente.
 
 ## 6. Estructura esperada
 
@@ -101,7 +103,8 @@ Si agregas un mall nuevo, usa un `id` unico. Si agregas una ruta, cada `stop.mal
     ├── components/
     ├── data/
     │   ├── malls.json
-    │   └── routes.json
+    │   ├── routes.json
+    │   └── stores.json
     ├── i18n/
     │   └── locales.js
     └── utils/
