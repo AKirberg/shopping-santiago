@@ -55,7 +55,17 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
       </button>
 
       <div className="flex flex-1 flex-col p-4">
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {mall.touristZone === "turistico" && (
+            <span className="flex items-center gap-1 rounded-full bg-leaf/12 px-2.5 py-0.5 text-xs font-extrabold text-leaf">
+              ✦ {mc.zoneTuristico}
+            </span>
+          )}
+          {mall.touristZone === "alternativo" && (
+            <span className="flex items-center gap-1 rounded-full bg-ink/8 px-2.5 py-0.5 text-xs font-bold text-ink/50">
+              ↗ {mc.zoneAlternativo}
+            </span>
+          )}
           {mall.type.slice(0, 3).map(tag => (
             <span key={tag} className="tag capitalize">{tag}</span>
           ))}

@@ -48,7 +48,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/costanera-center.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "turistico"
   },
   {
     "id": "parque-arauco",
@@ -99,7 +100,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/parque-arauco.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "turistico"
   },
   {
     "id": "alto-las-condes",
@@ -148,7 +150,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/alto-las-condes.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "turistico"
   },
   {
     "id": "casacostanera",
@@ -197,7 +200,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/casacostanera.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "turistico"
   },
   {
     "id": "mall-sport",
@@ -245,7 +249,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-sport.jpg",
-    "foodLevel": "patio"
+    "foodLevel": "patio",
+    "touristZone": "turistico"
   },
   {
     "id": "easton-outlet-mall",
@@ -291,7 +296,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/easton-outlet-mall.jpg",
-    "foodLevel": "patio"
+    "foodLevel": "patio",
+    "touristZone": "alternativo"
   },
   {
     "id": "arauco-premium-outlet-buenaventura",
@@ -338,7 +344,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/arauco-premium-outlet-buenaventura.jpg",
-    "foodLevel": "patio"
+    "foodLevel": "patio",
+    "touristZone": "alternativo"
   },
   {
     "id": "mallplaza-egana",
@@ -387,7 +394,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-egana.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "turistico"
   },
   {
     "id": "florida-center",
@@ -434,7 +442,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/florida-center.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "alternativo"
   },
   {
     "id": "mallplaza-vespucio",
@@ -481,7 +490,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-vespucio.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "alternativo"
   },
   {
     "id": "mallplaza-norte",
@@ -534,7 +544,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-norte.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "alternativo"
   },
   {
     "id": "apumanque",
@@ -583,7 +594,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/apumanque.jpg",
-    "foodLevel": "patio"
+    "foodLevel": "patio",
+    "touristZone": "turistico"
   },
   {
     "id": "portal-la-dehesa",
@@ -633,7 +645,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/portal-la-dehesa.jpg",
-    "foodLevel": "patio"
+    "foodLevel": "patio",
+    "touristZone": "turistico"
   },
   {
     "id": "mallplaza-oeste",
@@ -685,7 +698,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-oeste.jpg",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "alternativo"
   },
   {
     "id": "arauco-maipu",
@@ -736,7 +750,8 @@
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/arauco-maipu.webp",
-    "foodLevel": "gastronomico"
+    "foodLevel": "gastronomico",
+    "touristZone": "alternativo"
   },
   {
     "id": "parque-arauco-oriente",
@@ -783,7 +798,8 @@
       "Conectado con Parque Arauco principal, ideal para combinar la visita."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/parque-arauco-oriente.jpg"
+    "imageUrl": "/images/malls/parque-arauco-oriente.jpg",
+    "touristZone": "turistico"
   },
   {
     "id": "mallplaza-los-dominicos",
@@ -833,7 +849,8 @@
       "Menos aglomerado que los grandes malls del sector, buena opcion para dias de semana."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-los-dominicos.jpg"
+    "imageUrl": "/images/malls/mallplaza-los-dominicos.jpg",
+    "touristZone": "turistico"
   },
   {
     "id": "vivo-los-trapenses",
@@ -882,7 +899,8 @@
       "Util si estas de paso por Lo Barnechea o alojando en la zona."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/vivo-los-trapenses.jpg"
+    "imageUrl": "/images/malls/vivo-los-trapenses.jpg",
+    "touristZone": "turistico"
   },
   {
     "id": "paseo-quilin",
@@ -931,7 +949,8 @@
       "Buena opcion de paso si te mueves por la linea 4."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/paseo-quilin.jpg"
+    "imageUrl": "/images/malls/paseo-quilin.jpg",
+    "touristZone": "alternativo"
   },
   {
     "id": "mallplaza-tobalaba",
@@ -982,7 +1001,8 @@
       "Ideal para combinar con Costanera Center al estar en la misma zona del metro."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-tobalaba.jpg"
+    "imageUrl": "/images/malls/mallplaza-tobalaba.jpg",
+    "touristZone": "turistico"
   },
   {
     "id": "espacio-urbano-gran-avenida",
@@ -1031,7 +1051,8 @@
       "Buen recurso local, no especialmente orientado a turistas."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/espacio-urbano-gran-avenida.jpg"
+    "imageUrl": "/images/malls/espacio-urbano-gran-avenida.jpg",
+    "touristZone": "alternativo"
   },
   {
     "id": "midmall-maipu",
@@ -1080,7 +1101,8 @@
       "Practico si estas en Maipu y necesitas resolver compras rapidas."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/midmall-maipu.jpg"
+    "imageUrl": "/images/malls/midmall-maipu.jpg",
+    "touristZone": "alternativo"
   },
   {
     "id": "mallplaza-alameda",
@@ -1134,7 +1156,8 @@
       "Buena opcion para turistas alojados en el centro. La Moneda queda a pocos minutos caminando."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-alameda.jpg"
+    "imageUrl": "/images/malls/mallplaza-alameda.jpg",
+    "touristZone": "turistico"
   },
   {
     "id": "mall-barrio-independencia",
@@ -1185,7 +1208,8 @@
       "El barrio tiene vida propia fuera del mall, vale la pena explorar los alrededores."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mall-barrio-independencia.jpg"
+    "imageUrl": "/images/malls/mall-barrio-independencia.jpg",
+    "touristZone": "alternativo"
   },
   {
     "id": "mall-arauco-quilicura",
@@ -1234,7 +1258,8 @@
       "Si tienes un vuelo con tiempo y quieres hacer compras, queda cerca del aeropuerto."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mall-arauco-quilicura.jpg"
+    "imageUrl": "/images/malls/mall-arauco-quilicura.jpg",
+    "touristZone": "alternativo"
   },
   {
     "id": "paseo-san-bernardo",
@@ -1282,7 +1307,8 @@
       "Demasiado lejos del centro turistico para recomendarlo como destino de compras."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/paseo-san-bernardo.jpg"
+    "imageUrl": "/images/malls/paseo-san-bernardo.jpg",
+    "touristZone": "alternativo"
   },
   {
     "id": "mut-mercado-urbano-tobalaba",
@@ -1334,6 +1360,7 @@
       "Combina bien con Costanera Center al estar en la misma zona."
     ],
     "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg"
+    "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg",
+    "touristZone": "turistico"
   }
 ]

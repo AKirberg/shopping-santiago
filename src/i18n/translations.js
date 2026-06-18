@@ -106,6 +106,8 @@ export const translations = {
       viewDetails: "Ver ficha",
       timeTight: "Tiempo justo",
       mapsLabel: "Ver en Google Maps",
+      zoneTuristico: "Zona turística",
+      zoneAlternativo: "Más lejano",
     },
     mallDetail: {
       mapsBtn: "Ver en Google Maps",
@@ -261,6 +263,8 @@ export const translations = {
       viewDetails: "Ver detalhes",
       timeTight: "Tempo curto",
       mapsLabel: "Ver no Google Maps",
+      zoneTuristico: "Zona turística",
+      zoneAlternativo: "Mais distante",
     },
     mallDetail: {
       mapsBtn: "Ver no Google Maps",
@@ -416,6 +420,8 @@ export const translations = {
       viewDetails: "View details",
       timeTight: "Time-tight",
       mapsLabel: "View in Google Maps",
+      zoneTuristico: "Tourist zone",
+      zoneAlternativo: "Further away",
     },
     mallDetail: {
       mapsBtn: "View in Google Maps",
