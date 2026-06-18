@@ -1,0 +1,331 @@
+[
+  {
+    "id": "pasaje-matte",
+    "name": "Pasaje Matte",
+    "year": 1878,
+    "address": "Compañía 983 / Estado 115",
+    "commune": "Santiago Centro",
+    "lat": -33.43672,
+    "lng": -70.64972,
+    "zone": "plaza-de-armas",
+    "specialties": ["libros", "artesanía", "arte", "café", "restaurantes", "joyería"],
+    "priceLevel": "bajo-medio",
+    "touristFriendly": true,
+    "historic": true,
+    "description": {
+      "es": "La galería más icónica y antigua de Santiago (1878). Pasaje cubierto de estilo europeo con azulejos, librería Metales Pesados, varios cafés y tiendas de artesanía. Imperdible para turistas.",
+      "pt": "A galeria mais icônica e antiga de Santiago (1878). Passagem coberta de estilo europeu com azulejos, livraria e cafés. Imperdível para turistas.",
+      "en": "Santiago's most iconic and oldest arcade (1878). European-style covered passage with tiles, independent bookshop, cafés and craft shops. A must-see for tourists."
+    },
+    "entrances": [
+      { "street": "Compañía 983", "ref": "Frente a la Catedral Metropolitana" },
+      { "street": "Estado 115", "ref": "Salida hacia calle Estado" }
+    ],
+    "nearbyMetro": "Plaza de Armas (L1/L5)",
+    "openHours": "Lun–Sáb 9:00–20:00",
+    "highlights": ["Librería Metales Pesados", "Café literario", "Mosaicos históricos del piso"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Pasaje+Matte,+Santiago"
+  },
+  {
+    "id": "portal-fernandez-concha",
+    "name": "Portal Fernández Concha",
+    "year": 1893,
+    "address": "Plaza de Armas, costado poniente",
+    "commune": "Santiago Centro",
+    "lat": -33.43715,
+    "lng": -70.65125,
+    "zone": "plaza-de-armas",
+    "specialties": ["zapatos", "ropa", "accesorios", "joyería", "comida rápida"],
+    "priceLevel": "bajo",
+    "touristFriendly": true,
+    "historic": true,
+    "description": {
+      "es": "Galerías bajo los portales históricos que rodean la Plaza de Armas. Locales de ropa, calzado y accesorios a precios populares. Arquitectura colonial protegida.",
+      "pt": "Galerias sob os pórticos históricos que rodeiam a Plaza de Armas. Lojas de roupas e calçados a preços populares. Arquitetura colonial protegida.",
+      "en": "Arcades under the historic portals surrounding Plaza de Armas. Clothing, shoes and accessories at popular prices. Protected colonial architecture."
+    },
+    "entrances": [
+      { "street": "Plaza de Armas (frente poniente)", "ref": "Acceso desde la plaza" }
+    ],
+    "nearbyMetro": "Plaza de Armas (L1/L5)",
+    "openHours": "Lun–Sáb 9:00–20:00, Dom 10:00–18:00",
+    "highlights": ["Arquitectura neoclásica 1893", "Vista directa a la Plaza de Armas"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Portal+Fernandez+Concha,+Santiago"
+  },
+  {
+    "id": "pasaje-phillips",
+    "name": "Pasaje Phillips",
+    "year": 1902,
+    "address": "Compañía 1068 / Morandé 843",
+    "commune": "Santiago Centro",
+    "lat": -33.43698,
+    "lng": -70.65234,
+    "zone": "plaza-de-armas",
+    "specialties": ["fotografía", "electrónica vintage", "libros usados", "arte", "restaurantes"],
+    "priceLevel": "bajo",
+    "touristFriendly": true,
+    "historic": true,
+    "description": {
+      "es": "Pasaje histórico de principios del siglo XX con galerías de fotografía, electrónica de segunda mano y pequeños restaurantes. Ambiente bohemio muy auténtico.",
+      "pt": "Passagem histórica do início do século XX com galerias de fotografia, eletrônica usada e pequenos restaurantes. Ambiente boêmio muito autêntico.",
+      "en": "Historic early 20th-century arcade with photography galleries, second-hand electronics and small restaurants. Very authentic bohemian atmosphere."
+    },
+    "entrances": [
+      { "street": "Compañía 1068", "ref": "Acceso principal" },
+      { "street": "Morandé 843", "ref": "Salida secundaria" }
+    ],
+    "nearbyMetro": "Plaza de Armas (L1/L5)",
+    "openHours": "Lun–Sáb 9:30–19:30",
+    "highlights": ["Fotógrafos callejeros históricos", "Ambiente de barrio antiguo"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Pasaje+Phillips,+Santiago"
+  },
+  {
+    "id": "galeria-espana",
+    "name": "Galería España",
+    "year": 1942,
+    "address": "Huérfanos 1160",
+    "commune": "Santiago Centro",
+    "lat": -33.43821,
+    "lng": -70.65321,
+    "zone": "huerfanos-ahumada",
+    "specialties": ["ropa", "zapatos", "accesorios", "joyería", "lencería"],
+    "priceLevel": "bajo",
+    "touristFriendly": false,
+    "historic": false,
+    "description": {
+      "es": "Galería popular en el corazón peatonal de Huérfanos. Decenas de locales de ropa, calzado y accesorios a precios muy económicos. Muy concurrida por santiaguinos.",
+      "pt": "Galeria popular no coração pedonal de Huérfanos. Dezenas de lojas de roupas e calçados a preços muito baixos. Muito frequentada pelos habitantes de Santiago.",
+      "en": "Popular arcade in the heart of Huérfanos pedestrian street. Dozens of clothing, shoes and accessories shops at very affordable prices. Very busy with locals."
+    },
+    "entrances": [
+      { "street": "Huérfanos 1160", "ref": "Entrada principal desde paseo Huérfanos" }
+    ],
+    "nearbyMetro": "Santa Lucía (L1) / Bellas Artes (L1)",
+    "openHours": "Lun–Sáb 9:00–20:00",
+    "highlights": ["Ropa a precios populares", "En el Paseo Huérfanos"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Galería+España,+Huérfanos,+Santiago"
+  },
+  {
+    "id": "galeria-umbral",
+    "name": "Galería Umbral",
+    "year": 1960,
+    "address": "Huérfanos 1178",
+    "commune": "Santiago Centro",
+    "lat": -33.43835,
+    "lng": -70.65352,
+    "zone": "huerfanos-ahumada",
+    "specialties": ["ropa urbana", "música", "instrumentos", "skate", "accesorios alternativos"],
+    "priceLevel": "bajo",
+    "touristFriendly": true,
+    "historic": false,
+    "description": {
+      "es": "Galería con identidad juvenil y alternativa. Locales de ropa urbana, música, skate e instrumentos. Punto de encuentro de la escena alternativa de Santiago.",
+      "pt": "Galeria com identidade jovem e alternativa. Lojas de roupa urbana, música, skate e instrumentos. Ponto de encontro da cena alternativa de Santiago.",
+      "en": "Arcade with a youthful, alternative identity. Urban clothing, music, skateboarding and instrument shops. Meeting point for Santiago's alternative scene."
+    },
+    "entrances": [
+      { "street": "Huérfanos 1178", "ref": "Entrada única desde Paseo Huérfanos" }
+    ],
+    "nearbyMetro": "Santa Lucía (L1)",
+    "openHours": "Lun–Sáb 10:00–20:00",
+    "highlights": ["Cultura alternativa", "Ropa urbana y vintage", "Instrumentos musicales"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Galería+Umbral,+Santiago"
+  },
+  {
+    "id": "galeria-bandera",
+    "name": "Galería Bandera",
+    "year": 1970,
+    "address": "Bandera 206",
+    "commune": "Santiago Centro",
+    "lat": -33.43879,
+    "lng": -70.65498,
+    "zone": "bandera-monjitas",
+    "specialties": ["electrónica", "celulares", "computación", "accesorios tech", "ropa"],
+    "priceLevel": "bajo",
+    "touristFriendly": false,
+    "historic": false,
+    "description": {
+      "es": "El laberinto tecnológico del centro de Santiago. Decenas de locales de celulares, accesorios y reparación de equipos. Es fácil perderse entre sus múltiples pisos y pasillos.",
+      "pt": "O labirinto tecnológico do centro de Santiago. Dezenas de lojas de celulares, acessórios e reparação de equipamentos. É fácil se perder em seus múltiplos andares e corredores.",
+      "en": "Santiago's technology labyrinth. Dozens of mobile phone, accessories and repair shops. It's easy to get lost in its multiple floors and corridors."
+    },
+    "entrances": [
+      { "street": "Bandera 206", "ref": "Entrada principal" },
+      { "street": "Moneda / Agustinas", "ref": "Salidas secundarias" }
+    ],
+    "nearbyMetro": "La Moneda (L1) / Morande",
+    "openHours": "Lun–Sáb 9:00–20:00",
+    "highlights": ["Mayor concentración de tech del centro", "Reparación de celulares y laptops"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Galería+Bandera,+Santiago"
+  },
+  {
+    "id": "galeria-imperio",
+    "name": "Galería Imperio",
+    "year": 1965,
+    "address": "Ahumada 137",
+    "commune": "Santiago Centro",
+    "lat": -33.43790,
+    "lng": -70.65149,
+    "zone": "huerfanos-ahumada",
+    "specialties": ["ropa", "joyería", "accesorios", "perfumería", "lencería"],
+    "priceLevel": "bajo",
+    "touristFriendly": false,
+    "historic": false,
+    "description": {
+      "es": "Galería ubicada en el paseo Ahumada, eje comercial más transitado del centro. Locales de ropa, joyería y accesorios a precios populares, entre la multitud del sector.",
+      "pt": "Galeria localizada no passeio Ahumada, o eixo comercial mais movimentado do centro. Lojas de roupas, jóias e acessórios a preços populares.",
+      "en": "Arcade on Ahumada pedestrian mall, the most trafficked commercial axis downtown. Clothing, jewellery and accessories shops at popular prices."
+    },
+    "entrances": [
+      { "street": "Ahumada 137", "ref": "Entrada desde Paseo Ahumada" }
+    ],
+    "nearbyMetro": "Universidad de Chile (L1)",
+    "openHours": "Lun–Sáb 9:00–20:00",
+    "highlights": ["Paseo Ahumada peatonal", "Joyería popular"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Galería+Imperio,+Ahumada,+Santiago"
+  },
+  {
+    "id": "galeria-san-antonio",
+    "name": "Galería San Antonio",
+    "year": 1968,
+    "address": "San Antonio 427",
+    "commune": "Santiago Centro",
+    "lat": -33.43752,
+    "lng": -70.64821,
+    "zone": "santa-lucia",
+    "specialties": ["libros usados", "discos", "arte", "antigüedades", "café"],
+    "priceLevel": "bajo",
+    "touristFriendly": true,
+    "historic": false,
+    "description": {
+      "es": "Galería con vocación cultural ubicada hacia Santa Lucía. Famosa por sus locales de libros usados, discos de vinilo, antigüedades y pequeñas galerías de arte.",
+      "pt": "Galeria com vocação cultural localizada em direção ao Santa Lucía. Famosa por suas lojas de livros usados, discos de vinil, antiguidades e pequenas galerias de arte.",
+      "en": "Culturally-focused arcade towards Santa Lucía. Famous for its second-hand bookshops, vinyl records, antiques and small art galleries."
+    },
+    "entrances": [
+      { "street": "San Antonio 427", "ref": "Entrada principal" }
+    ],
+    "nearbyMetro": "Santa Lucía (L1) / Bellas Artes (L1)",
+    "openHours": "Lun–Sáb 10:00–19:30",
+    "highlights": ["Libros usados", "Vinilos", "Arte y antigüedades"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Galería+San+Antonio,+Santiago"
+  },
+  {
+    "id": "galeria-alessandri",
+    "name": "Galería Alessandri",
+    "year": 1955,
+    "address": "Agustinas 1073",
+    "commune": "Santiago Centro",
+    "lat": -33.43698,
+    "lng": -70.65012,
+    "zone": "plaza-de-armas",
+    "specialties": ["ropa", "calzado", "artículos de deporte", "electrónica menor"],
+    "priceLevel": "bajo",
+    "touristFriendly": false,
+    "historic": false,
+    "description": {
+      "es": "Galería de varios pisos ubicada en Agustinas, con amplia variedad de ropa, calzado y artículos deportivos. Muy frecuentada por trabajadores del centro.",
+      "pt": "Galeria de vários andares localizada em Agustinas, com grande variedade de roupas, calçados e artigos esportivos. Muito frequentada por trabalhadores do centro.",
+      "en": "Multi-floor arcade on Agustinas street with a wide variety of clothing, footwear and sports items. Very popular with downtown workers."
+    },
+    "entrances": [
+      { "street": "Agustinas 1073", "ref": "Entrada principal" }
+    ],
+    "nearbyMetro": "Plaza de Armas (L1/L5)",
+    "openHours": "Lun–Sáb 9:00–19:30",
+    "highlights": ["Ropa y calzado variado", "Múltiples pisos"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Galería+Alessandri,+Santiago"
+  },
+  {
+    "id": "galeria-druggist",
+    "name": "Galería Las Naciones",
+    "year": 1975,
+    "address": "Ahumada 254",
+    "commune": "Santiago Centro",
+    "lat": -33.43854,
+    "lng": -70.65187,
+    "zone": "huerfanos-ahumada",
+    "specialties": ["perfumería", "cosméticos", "ropa", "accesorios", "joyería fina"],
+    "priceLevel": "bajo-medio",
+    "touristFriendly": false,
+    "historic": false,
+    "description": {
+      "es": "Galería en el corazón del Paseo Ahumada, especializada en perfumería, cosméticos y joyería de imitación. Una de las más transitadas del centro.",
+      "pt": "Galeria no coração do Passeio Ahumada, especializada em perfumaria, cosméticos e joalheria de imitação. Uma das mais movimentadas do centro.",
+      "en": "Arcade in the heart of Ahumada pedestrian mall, specialising in perfumery, cosmetics and fashion jewellery. One of the busiest downtown."
+    },
+    "entrances": [
+      { "street": "Ahumada 254", "ref": "Entrada desde Paseo Ahumada" }
+    ],
+    "nearbyMetro": "Universidad de Chile (L1)",
+    "openHours": "Lun–Sáb 9:00–20:00",
+    "highlights": ["Perfumería y cosméticos", "Joyería popular"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Ahumada+254,+Santiago"
+  },
+  {
+    "id": "galeria-meiggs",
+    "name": "Barrio Meiggs / Galería 10 de Julio",
+    "year": 1980,
+    "address": "10 de Julio / Av. Libertador Bernardo O'Higgins",
+    "commune": "Santiago Centro",
+    "lat": -33.44201,
+    "lng": -70.66012,
+    "zone": "meiggs",
+    "specialties": ["electrónica", "herramientas", "ferretería", "materiales eléctricos", "tecnología"],
+    "priceLevel": "bajo",
+    "touristFriendly": false,
+    "historic": false,
+    "description": {
+      "es": "El barrio electrónico más grande de Santiago. Un laberinto de galerías interconectadas con miles de locales de electrónica, herramientas, materiales eléctricos y repuestos. El paraíso del 'cuentacorrientista' tech.",
+      "pt": "O maior bairro eletrônico de Santiago. Um labirinto de galerias interligadas com milhares de lojas de eletrônica, ferramentas, materiais elétricos e peças de reposição.",
+      "en": "Santiago's largest electronics district. A labyrinth of interconnected arcades with thousands of shops selling electronics, tools, electrical materials and spare parts."
+    },
+    "entrances": [
+      { "street": "10 de Julio (varias cuadras)", "ref": "Zona completa de múltiples galerías" },
+      { "street": "Av. Libertador B. O'Higgins / Almirante Barroso", "ref": "Acceso desde Alameda" }
+    ],
+    "nearbyMetro": "Los Héroes (L1/L2) / República (L1)",
+    "openHours": "Lun–Sáb 9:00–19:30",
+    "highlights": ["Electrónica al por mayor y menor", "Herramientas", "Repuestos todo tipo"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/10+de+Julio,+Santiago"
+  },
+  {
+    "id": "galeria-central",
+    "name": "Galería Central / Mercado Central (galerías aledañas)",
+    "year": 1872,
+    "address": "Ismael Valdés Vergara 900 / San Pablo",
+    "commune": "Santiago Centro",
+    "lat": -33.43298,
+    "lng": -70.65021,
+    "zone": "mercado-central",
+    "specialties": ["gastronomía", "mariscos", "artesanía chilena", "souvenirs"],
+    "priceLevel": "medio",
+    "touristFriendly": true,
+    "historic": true,
+    "description": {
+      "es": "El Mercado Central y las galerías de artesanía que lo rodean. Hierro fundido arquitectónico de 1872, mariscos frescos y el mejor caldillo de congrio de Santiago. Zona turística esencial.",
+      "pt": "O Mercado Central e as galerias de artesanato ao redor. Ferro fundido arquitetônico de 1872, frutos do mar frescos e o melhor caldillo de congrio de Santiago. Zona turística essencial.",
+      "en": "The Central Market and surrounding craft arcades. Architectural cast iron from 1872, fresh seafood and the best caldillo de congrio in Santiago. Essential tourist zone."
+    },
+    "entrances": [
+      { "street": "San Pablo 967", "ref": "Entrada principal Mercado Central" },
+      { "street": "Ismael Valdés Vergara", "ref": "Acceso norte" }
+    ],
+    "nearbyMetro": "Puente Cal y Canto (L1/L2)",
+    "openHours": "Lun–Dom 6:00–21:00",
+    "highlights": ["Arquitectura de hierro fundido (1872)", "Caldillo de congrio", "Artesanía chilena", "Mariscos frescos"],
+    "imageUrl": null,
+    "mapsUrl": "https://www.google.com/maps/place/Mercado+Central+de+Santiago"
+  }
+]
