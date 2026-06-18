@@ -13,7 +13,12 @@ function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
 
   return (
     <section id="inicio" className="relative overflow-hidden bg-ink text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_50%,rgba(227,107,69,0.22),transparent_45%),radial-gradient(ellipse_at_85%_20%,rgba(18,97,91,0.30),transparent_50%)]" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/hero-mall.png')" }}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-ink/72" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_50%,rgba(227,107,69,0.18),transparent_45%),radial-gradient(ellipse_at_85%_20%,rgba(18,97,91,0.22),transparent_50%)]" />
       <div className="section-shell relative py-12 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="max-w-2xl">
