@@ -14,6 +14,7 @@ import RoutesSection from "./components/RoutesSection";
 import CompareMalls from "./components/CompareMalls";
 import TouristTips from "./components/TouristTips";
 import MallDetail from "./components/MallDetail";
+import GalleriesSection from "./components/GalleriesSection";
 import Footer from "./components/Footer";
 
 const defaultFilters = {
@@ -103,6 +104,7 @@ function App() {
 
         <RecommendationQuiz malls={malls} onSelect={setSelectedMall} />
         <RoutesSection routes={routes} malls={malls} />
+        <GalleriesSection />
 
         <section id="malls" className="section-shell">
           <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">

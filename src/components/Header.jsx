@@ -10,6 +10,7 @@ function Header() {
   const navItems = [
     [nav.quiz, "#quiz"],
     [nav.routes, "#rutas"],
+    [nav.galleries, "#galerias"],
     [nav.malls, "#malls"],
     [nav.compare, "#comparar"],
     [nav.tips, "#consejos"],

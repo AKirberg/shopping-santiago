@@ -2,7 +2,7 @@ export const translations = {
   es: {
     header: {
       subtitle: "Guía para turistas",
-      nav: { quiz: "Recomendador", routes: "Rutas", malls: "Malls", compare: "Comparar", tips: "Consejos" },
+      nav: { quiz: "Recomendador", routes: "Rutas", galleries: "Galerías", malls: "Malls", compare: "Comparar", tips: "Consejos" },
       cta: "Elegir mall",
     },
     hero: {
@@ -132,12 +132,33 @@ export const translations = {
     footer: {
       text: "Shopping Santiago · Guía de compras para turistas en Santiago de Chile",
     },
+    galleries: {
+      eyebrow: "Centro Histórico",
+      title: "Galerías del Centro",
+      subtitle: "El laberinto comercial de Santiago: pasajes cubiertos históricos, electrónica, moda y cultura a precios populares.",
+      mapTitle: "Mapa referencial",
+      mapHint: "Toca un número para ver la galería",
+      filterAll: "Todas",
+      walkingCta: "Ir a pie",
+      mapsCta: "Ver mapa",
+      highlights: "Destacados",
+      badges: { historic: "Histórica", touristFriendly: "Para turistas" },
+      zones: {
+        "plaza-de-armas":    "Plaza de Armas",
+        "huerfanos-ahumada": "Ahumada / Huérfanos",
+        "bandera-monjitas":  "Bandera · Tech",
+        "santa-lucia":       "Santa Lucía",
+        "meiggs":            "Meiggs",
+        "mercado-central":   "Mercado Central",
+      },
+      stats: { galleries: "galerías", zones: "zonas", center: "centro histórico", walking: "peatonal" },
+    },
   },
 
   pt: {
     header: {
       subtitle: "Guia para turistas",
-      nav: { quiz: "Recomendador", routes: "Rotas", malls: "Malls", compare: "Comparar", tips: "Dicas" },
+      nav: { quiz: "Recomendador", routes: "Rotas", galleries: "Galerias", malls: "Malls", compare: "Comparar", tips: "Dicas" },
       cta: "Escolher mall",
     },
     hero: {
@@ -267,12 +288,33 @@ export const translations = {
     footer: {
       text: "Shopping Santiago · Guia de compras para turistas em Santiago do Chile",
     },
+    galleries: {
+      eyebrow: "Centro Histórico",
+      title: "Galerias do Centro",
+      subtitle: "O labirinto comercial de Santiago: passagens cobertas históricas, eletrônicos, moda e cultura a preços populares.",
+      mapTitle: "Mapa de referência",
+      mapHint: "Toque um número para ver a galeria",
+      filterAll: "Todas",
+      walkingCta: "Ir a pé",
+      mapsCta: "Ver mapa",
+      highlights: "Destaques",
+      badges: { historic: "Histórica", touristFriendly: "Para turistas" },
+      zones: {
+        "plaza-de-armas":    "Plaza de Armas",
+        "huerfanos-ahumada": "Ahumada / Huérfanos",
+        "bandera-monjitas":  "Bandera · Tech",
+        "santa-lucia":       "Santa Lucía",
+        "meiggs":            "Meiggs",
+        "mercado-central":   "Mercado Central",
+      },
+      stats: { galleries: "galerias", zones: "zonas", center: "centro histórico", walking: "pedonal" },
+    },
   },
 
   en: {
     header: {
       subtitle: "Tourist shopping guide",
-      nav: { quiz: "Find my Mall", routes: "Routes", malls: "Malls", compare: "Compare", tips: "Tips" },
+      nav: { quiz: "Find my Mall", routes: "Routes", galleries: "Galleries", malls: "Malls", compare: "Compare", tips: "Tips" },
       cta: "Choose a mall",
     },
     hero: {
@@ -401,6 +443,27 @@ export const translations = {
     },
     footer: {
       text: "Shopping Santiago · Tourist shopping guide for Santiago, Chile",
+    },
+    galleries: {
+      eyebrow: "Historic Downtown",
+      title: "Downtown Galleries",
+      subtitle: "Santiago's commercial labyrinth: historic covered arcades, electronics, fashion and culture at street prices.",
+      mapTitle: "Reference map",
+      mapHint: "Tap a number to see the gallery",
+      filterAll: "All",
+      walkingCta: "Walk there",
+      mapsCta: "View map",
+      highlights: "Highlights",
+      badges: { historic: "Historic", touristFriendly: "Tourist-friendly" },
+      zones: {
+        "plaza-de-armas":    "Plaza de Armas",
+        "huerfanos-ahumada": "Ahumada / Huérfanos",
+        "bandera-monjitas":  "Bandera · Tech",
+        "santa-lucia":       "Santa Lucía",
+        "meiggs":            "Meiggs",
+        "mercado-central":   "Central Market",
+      },
+      stats: { galleries: "galleries", zones: "zones", center: "historic centre", walking: "pedestrian" },
     },
   },
 };
