@@ -66,6 +66,11 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
               ↗ {mc.zoneAlternativo}
             </span>
           )}
+          {mall.airportRoute && (
+            <span className="flex items-center gap-1 rounded-full bg-sky-100 px-2.5 py-0.5 text-xs font-extrabold text-sky-700">
+              ✈ {mc.airportRoute}
+            </span>
+          )}
           {mall.type.slice(0, 3).map(tag => (
             <span key={tag} className="tag capitalize">{tag}</span>
           ))}

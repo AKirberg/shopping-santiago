@@ -545,7 +545,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-norte.jpg",
     "foodLevel": "gastronomico",
-    "touristZone": "alternativo"
+    "touristZone": "alternativo",
+    "airportRoute": true
   },
   {
     "id": "apumanque",

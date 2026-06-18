@@ -108,6 +108,7 @@ export const translations = {
       mapsLabel: "Ver en Google Maps",
       zoneTuristico: "Zona turística",
       zoneAlternativo: "Más lejano",
+      airportRoute: "Camino al aeropuerto",
     },
     mallDetail: {
       mapsBtn: "Ver en Google Maps",
@@ -265,6 +266,7 @@ export const translations = {
       mapsLabel: "Ver no Google Maps",
       zoneTuristico: "Zona turística",
       zoneAlternativo: "Mais distante",
+      airportRoute: "No caminho do aeroporto",
     },
     mallDetail: {
       mapsBtn: "Ver no Google Maps",
@@ -422,6 +424,7 @@ export const translations = {
       mapsLabel: "View in Google Maps",
       zoneTuristico: "Tourist zone",
       zoneAlternativo: "Further away",
+      airportRoute: "On the way to airport",
     },
     mallDetail: {
       mapsBtn: "View in Google Maps",
