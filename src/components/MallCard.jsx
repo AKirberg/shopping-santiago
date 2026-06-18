@@ -1,4 +1,5 @@
 import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, Star, TrainFront } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function accentColor(mall) {
   if (mall.premium) return "bg-gold";
@@ -13,6 +14,8 @@ function parseMinHours(timeStr) {
 }
 
 function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
+  const { t } = useLanguage();
+  const mc = t.mallCard;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
   const minHours = parseMinHours(mall.recommendedTime);
   const tooLong = availableHours !== null && availableHours !== undefined && availableHours < minHours;
@@ -46,7 +49,7 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
         </div>
         {tooLong && (
           <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-coral px-2 py-1 text-xs font-extrabold text-white shadow">
-            <AlertTriangle size={10} /> Tiempo justo
+            <AlertTriangle size={10} /> {mc.timeTight}
           </div>
         )}
       </button>
@@ -64,7 +67,7 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
 
         <div className="mt-3 rounded-xl bg-mist px-3.5 py-2.5">
           <p className="text-xs font-bold text-ink/60">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-ink/40">Mejor para · </span>
+            <span className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{mc.bestFor} · </span>
             {mall.bestFor.slice(0, 2).join(" · ")}
           </p>
         </div>
@@ -82,15 +85,15 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
 
         <div className="mt-4 flex items-center gap-2 border-t border-ink/6 pt-3.5">
           <button onClick={() => onSelect(mall)} className="primary-button flex-1 py-2 text-xs">
-            Ver ficha
+            {mc.viewDetails}
           </button>
           <a
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/10 text-ink/50 transition hover:border-leaf/40 hover:text-leaf"
-            title="Ver en Google Maps"
-            aria-label="Ver en Google Maps"
+            title={mc.mapsLabel}
+            aria-label={mc.mapsLabel}
           >
             <ExternalLink size={14} />
           </a>
@@ -101,7 +104,7 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
                 ? "border-leaf bg-leaf text-white"
                 : "border-ink/10 text-ink/50 hover:border-leaf/40 hover:text-leaf"
             }`}
-            aria-label="Comparar"
+            aria-label={mc.viewDetails}
             title="Comparar"
           >
             <BadgeCheck size={14} />

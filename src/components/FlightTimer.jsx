@@ -1,6 +1,10 @@
 import { AlertTriangle, Plane, X } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function FlightTimer({ flightTime, setFlightTime, availableHours }) {
+  const { t } = useLanguage();
+  const ft = t.flightTimer;
+
   const status =
     availableHours === null ? null
     : availableHours <= 0   ? "late"
@@ -12,21 +16,21 @@ function FlightTimer({ flightTime, setFlightTime, availableHours }) {
     late:  "bg-coral/12 text-coral",
     tight: "bg-gold/15 text-gold",
     ok:    "bg-gold/12 text-gold",
-    good:  "bg-leaf/12 text-leaf"
+    good:  "bg-leaf/12 text-leaf",
   };
 
   const statusLabel = {
-    late:  "Tiempo muy justo — revisa tu traslado",
-    tight: `~${fmt(availableHours)} disponibles — elige malls rápidos`,
-    ok:    `~${fmt(availableHours)} disponibles para comprar`,
-    good:  `~${fmt(availableHours)} disponibles para comprar`
+    late:  ft.late,
+    tight: `~${fmt(availableHours)} ${ft.tight}`,
+    ok:    `~${fmt(availableHours)} ${ft.ok}`,
+    good:  `~${fmt(availableHours)} ${ft.good}`,
   };
 
   return (
     <div className="border-b border-ink/8 bg-[#fafaf8]">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <Plane size={14} className="shrink-0 text-leaf" />
-        <span className="text-xs font-extrabold text-ink/50">Hora de vuelo:</span>
+        <span className="text-xs font-extrabold text-ink/50">{ft.label}</span>
         <input
           type="time"
           value={flightTime}
@@ -40,17 +44,15 @@ function FlightTimer({ flightTime, setFlightTime, availableHours }) {
           </span>
         )}
         {!flightTime && (
-          <span className="text-xs text-ink/35">
-            Ingresa la hora y te decimos cuánto tiempo tienes para comprar
-          </span>
+          <span className="text-xs text-ink/35">{ft.hint}</span>
         )}
         {flightTime && (
           <button
             onClick={() => setFlightTime("")}
             className="ml-auto flex items-center gap-1 text-xs font-bold text-ink/35 transition hover:text-ink/60"
-            aria-label="Quitar vuelo"
+            aria-label={ft.remove}
           >
-            <X size={13} /> Quitar
+            <X size={13} /> {ft.remove}
           </button>
         )}
       </div>
@@ -67,5 +69,4 @@ function fmt(hours) {
   return `${h}h ${m}min`;
 }
 
-export { fmt };
 export default FlightTimer;

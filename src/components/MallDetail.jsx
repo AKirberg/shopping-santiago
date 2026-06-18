@@ -1,6 +1,9 @@
 import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, TrainFront, X } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRoute }) {
+  const { t } = useLanguage();
+  const md = t.mallDetail;
   const relatedRoute = routes.find(r => r.stops.some(s => s.mallId === mall.id));
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
 
@@ -15,18 +18,11 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
         <div className="relative">
           {mall.imageUrl ? (
             <div className="relative h-52 w-full overflow-hidden sm:h-64">
-              <img
-                src={mall.imageUrl}
-                alt={mall.name}
-                className="h-full w-full object-cover"
-              />
+              <img src={mall.imageUrl} alt={mall.name} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/30 to-transparent" />
             </div>
           ) : (
-            <div
-              className="relative h-40"
-              style={{ background: "linear-gradient(135deg,#1f3144 0%,#12615b 70%,#e36b45 100%)" }}
-            />
+            <div className="relative h-40" style={{ background: "linear-gradient(135deg,#1f3144 0%,#12615b 70%,#e36b45 100%)" }} />
           )}
           <button
             className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-ink/40 text-white backdrop-blur-sm transition hover:bg-ink/60"
@@ -50,10 +46,10 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
           <div>
             <p className="text-sm leading-7 text-ink/68">{mall.description}</p>
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
-              <InfoList title="Mejor para" items={mall.bestFor} positive />
-              <InfoList title="No ideal para" items={mall.notIdealFor} />
-              <InfoList title="Tips turistas" items={mall.tips} positive />
-              <InfoList title="Atracciones cercanas" items={mall.nearbyAttractions.length ? mall.nearbyAttractions : ["Sin datos aún"]} />
+              <InfoList title={md.sections.bestFor} items={mall.bestFor} positive />
+              <InfoList title={md.sections.notFor} items={mall.notIdealFor} />
+              <InfoList title={md.sections.tips} items={mall.tips} positive />
+              <InfoList title={md.sections.nearby} items={mall.nearbyAttractions.length ? mall.nearbyAttractions : [md.sections.noData]} />
             </div>
           </div>
 
@@ -61,40 +57,39 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
             <div className="rounded-xl bg-mist p-5">
               <div className="grid gap-3.5 text-sm font-semibold text-ink/70">
                 <span className="flex items-start gap-3"><TrainFront size={16} className="mt-0.5 shrink-0 text-leaf" />{mall.transport.metro}</span>
-                <span className="flex items-center gap-3"><Car size={16} className="shrink-0 text-leaf" />Parking: {mall.transport.parking ? "Sí" : "No"} · Uber: {mall.transport.uber ? "Sí" : "No"}</span>
+                <span className="flex items-center gap-3">
+                  <Car size={16} className="shrink-0 text-leaf" />
+                  {md.parking}: {mall.transport.parking ? md.yes : md.no} · Uber: {mall.transport.uber ? md.yes : md.no}
+                </span>
                 <span className="flex items-center gap-3"><Clock size={16} className="shrink-0 text-leaf" />{mall.recommendedTime}</span>
                 <span className="flex items-center gap-3"><MapPin size={16} className="shrink-0 text-leaf" />{mall.priceLevel}</span>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-2">
-                <Badge label="Familiar" active={mall.familyFriendly} />
-                <Badge label="Outlet" active={mall.outlet} />
-                <Badge label="Premium" active={mall.premium} />
-                <Badge label="Comida" active={mall.foodExperience} />
+                <Badge label={md.badges.family} active={mall.familyFriendly} />
+                <Badge label={md.badges.outlet} active={mall.outlet} />
+                <Badge label={md.badges.premium} active={mall.premium} />
+                <Badge label={md.badges.food} active={mall.foodExperience} />
               </div>
             </div>
 
             <div className="mt-4 grid gap-2.5">
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="primary-button justify-center bg-leaf hover:bg-leaf/85"
-              >
-                <ExternalLink size={15} /> Ver en Google Maps
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
+                className="primary-button justify-center bg-leaf hover:bg-leaf/85">
+                <ExternalLink size={15} /> {md.mapsBtn}
               </a>
               <button onClick={onCompare} className="secondary-button justify-center">
                 <CheckCircle2 size={15} />
-                {isComparing ? "Quitar de comparar" : "Agregar a comparar"}
+                {isComparing ? md.compareRemove : md.compareAdd}
               </button>
               {relatedRoute && (
                 <button onClick={onRelatedRoute} className="secondary-button justify-center">
-                  <Route size={15} /> Ver ruta relacionada
+                  <Route size={15} /> {md.relatedRoute}
                 </button>
               )}
             </div>
 
             <p className="mt-4 rounded-xl border border-ink/8 bg-[#f8faf6] p-3.5 text-xs font-medium leading-5 text-ink/45">
-              Confirma horarios oficiales antes de ir.
+              {md.hoursNote}
             </p>
           </aside>
         </div>

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { getRecommendations } from "../utils/scoring";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const initialAnswers = {
   zone: "Providencia",
@@ -8,44 +9,13 @@ const initialAnswers = {
   time: "3-4 horas",
   transport: "Metro",
   withKids: "No",
-  goal: "variedad"
+  goal: "variedad",
 };
-
-const fields = [
-  {
-    key: "zone",
-    label: "¿Dónde estás?",
-    options: ["Providencia", "Las Condes", "Vitacura", "Santiago Centro", "Aeropuerto", "Otra"]
-  },
-  {
-    key: "category",
-    label: "¿Qué buscas comprar?",
-    options: ["ropa", "zapatillas", "tecnología", "lujo", "deporte", "supermercado", "regalos", "outlet"]
-  },
-  {
-    key: "time",
-    label: "¿Cuánto tiempo tienes?",
-    options: ["1-2 horas", "3-4 horas", "medio día", "día completo"]
-  },
-  {
-    key: "transport",
-    label: "¿Cómo te mueves?",
-    options: ["Metro", "Uber/Taxi", "Auto"]
-  },
-  {
-    key: "withKids",
-    label: "¿Viajas con niños?",
-    options: ["No", "Sí"]
-  },
-  {
-    key: "goal",
-    label: "¿Qué priorizas?",
-    options: ["variedad", "Mejor precio", "Mejor experiencia", "Marcas premium", "rapidez"]
-  }
-];
 
 function RecommendationQuiz({ malls, onSelect }) {
   const [answers, setAnswers] = useState(initialAnswers);
+  const { t } = useLanguage();
+  const q = t.quiz;
   const recommendations = useMemo(() => getRecommendations(malls, answers).slice(0, 4), [answers, malls]);
 
   function set(key, value) {
@@ -56,26 +26,24 @@ function RecommendationQuiz({ malls, onSelect }) {
     <section id="quiz" className="bg-white">
       <div className="section-shell">
         <div className="mb-10 max-w-2xl">
-          <p className="eyebrow">Recomendador</p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight">¿Qué mall me conviene?</h2>
-          <p className="mt-3 text-sm leading-6 text-ink/55">
-            Selecciona tus preferencias y el sistema ordena los malls según zona, transporte, tiempo y tipo de compra.
-          </p>
+          <p className="eyebrow">{q.eyebrow}</p>
+          <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight">{q.title}</h2>
+          <p className="mt-3 text-sm leading-6 text-ink/55">{q.subtitle}</p>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
           <div className="grid gap-6">
-            {fields.map(({ key, label, options }) => (
+            {q.fields.map(({ key, label, options }) => (
               <div key={key}>
                 <p className="mb-2.5 text-xs font-extrabold uppercase tracking-wider text-ink/45">{label}</p>
                 <div className="flex flex-wrap gap-2">
-                  {options.map(opt => (
+                  {options.map(({ v, l }) => (
                     <button
-                      key={opt}
-                      onClick={() => set(key, opt)}
-                      className={answers[key] === opt ? "quiz-pill-active" : "quiz-pill"}
+                      key={v}
+                      onClick={() => set(key, v)}
+                      className={answers[key] === v ? "quiz-pill-active" : "quiz-pill"}
                     >
-                      {opt}
+                      {l}
                     </button>
                   ))}
                 </div>
@@ -89,8 +57,8 @@ function RecommendationQuiz({ malls, onSelect }) {
                 <Sparkles size={17} />
               </span>
               <div>
-                <p className="text-xs font-extrabold uppercase tracking-wider text-ink/40">Resultados</p>
-                <p className="text-sm font-extrabold">Ordenados por compatibilidad</p>
+                <p className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{q.resultsLabel}</p>
+                <p className="text-sm font-extrabold">{q.resultsSubLabel}</p>
               </div>
             </div>
 

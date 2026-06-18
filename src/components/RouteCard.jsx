@@ -1,12 +1,9 @@
 import { Clock3, ExternalLink, MapPinned, Navigation } from "lucide-react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const gradients = [
-  "from-leaf to-night",
-  "from-night to-coral",
-  "from-coral to-gold",
-  "from-gold to-leaf",
-  "from-night to-leaf",
-  "from-leaf to-coral"
+  "from-leaf to-night", "from-night to-coral", "from-coral to-gold",
+  "from-gold to-leaf", "from-night to-leaf", "from-leaf to-coral",
 ];
 
 function buildMapsUrl(stops, mallMap) {
@@ -15,20 +12,21 @@ function buildMapsUrl(stops, mallMap) {
     .filter(Boolean)
     .map(q => encodeURIComponent(q));
   if (queries.length === 0) return null;
-  if (queries.length === 1) {
-    return `https://www.google.com/maps/search/?api=1&query=${queries[0]}`;
-  }
+  if (queries.length === 1) return `https://www.google.com/maps/search/?api=1&query=${queries[0]}`;
   return `https://www.google.com/maps/dir/${queries.join("/")}`;
 }
 
 function RouteCard({ route, mallMap, index = 0 }) {
+  const { t } = useLanguage();
+  const r = t.routes;
   const gradient = gradients[index % gradients.length];
   const mapsUrl = buildMapsUrl(route.stops, mallMap);
+  const stopCount = route.stops.length;
+  const stopLabel = stopCount === 1 ? r.stop : r.stops;
 
   return (
     <article id={`route-${route.id}`} className="overflow-hidden rounded-2xl border border-ink/8 bg-white shadow-card">
       <div className={`h-1.5 bg-gradient-to-r ${gradient}`} />
-
       <div className="p-6">
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
@@ -37,7 +35,7 @@ function RouteCard({ route, mallMap, index = 0 }) {
                 <Clock3 size={13} /> {route.duration}
               </span>
               <span className="text-ink/20">·</span>
-              <span className="text-xs font-bold text-ink/40">{route.stops.length} parada{route.stops.length !== 1 ? "s" : ""}</span>
+              <span className="text-xs font-bold text-ink/40">{stopCount} {stopLabel}</span>
             </div>
             <h3 className="mt-1.5 font-display text-xl font-extrabold leading-tight">{route.title}</h3>
           </div>
@@ -100,7 +98,7 @@ function RouteCard({ route, mallMap, index = 0 }) {
             className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl border border-leaf/25 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf/15"
           >
             <ExternalLink size={15} />
-            {route.stops.length > 1 ? "Abrir ruta en Google Maps" : "Ver en Google Maps"}
+            {stopCount > 1 ? r.mapsRoute : r.mapsOne}
           </a>
         )}
       </div>

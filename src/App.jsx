@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import malls from "./data/malls.json";
 import routes from "./data/routes.json";
 import { matchesMallFilters } from "./utils/scoring";
+import { useLanguage } from "./i18n/LanguageContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import FlightTimer from "./components/FlightTimer";
@@ -16,16 +17,9 @@ import MallDetail from "./components/MallDetail";
 import Footer from "./components/Footer";
 
 const defaultFilters = {
-  query: "",
-  commune: "Todas",
-  category: "Todas",
-  outlet: false,
-  premium: false,
-  family: false,
-  metro: false,
-  food: false,
-  quick: false,
-  tourist: false
+  query: "", commune: "Todas", category: "Todas",
+  outlet: false, premium: false, family: false,
+  metro: false, food: false, quick: false, tourist: false,
 };
 
 function computeAvailableHours(flightTimeStr) {
@@ -34,23 +28,18 @@ function computeAvailableHours(flightTimeStr) {
   const now = new Date();
   const flightMin = h * 60 + m;
   const nowMin = now.getHours() * 60 + now.getMinutes();
-  const buffer = 90;
-  return (flightMin - nowMin - buffer) / 60;
+  return (flightMin - nowMin - 90) / 60;
 }
 
 function App() {
+  const { t } = useLanguage();
   const [filters, setFilters] = useState(defaultFilters);
   const [selectedMall, setSelectedMall] = useState(null);
   const [compareIds, setCompareIds] = useState(["costanera-center", "parque-arauco"]);
   const [flightTime, setFlightTime] = useState("");
 
   const availableHours = useMemo(() => computeAvailableHours(flightTime), [flightTime]);
-
-  const filteredMalls = useMemo(
-    () => malls.filter(mall => matchesMallFilters(mall, filters)),
-    [filters]
-  );
-
+  const filteredMalls = useMemo(() => malls.filter(mall => matchesMallFilters(mall, filters)), [filters]);
   const featuredMalls = useMemo(
     () => malls.filter(mall => mall.touristScore >= 8 || mall.premium || mall.outlet).slice(0, 6),
     []
@@ -82,26 +71,24 @@ function App() {
     }
   }
 
+  const app = t.app;
+
   return (
     <div className="min-h-screen bg-[#f8faf6] text-ink">
       <Header />
       <main>
         <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
         <QuickIntentButtons onIntent={applyIntent} />
-        <FlightTimer
-          flightTime={flightTime}
-          setFlightTime={setFlightTime}
-          availableHours={availableHours}
-        />
+        <FlightTimer flightTime={flightTime} setFlightTime={setFlightTime} availableHours={availableHours} />
 
         <section className="bg-mist/70" id="destacados">
           <div className="section-shell">
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="eyebrow">Selecciones iniciales</p>
-                <h2 className="mt-3 font-display text-4xl font-extrabold">Malls destacados</h2>
+                <p className="eyebrow">{app.featuredEyebrow}</p>
+                <h2 className="mt-3 font-display text-4xl font-extrabold">{app.featuredTitle}</h2>
               </div>
-              <a href="#malls" className="secondary-button">Ver todos</a>
+              <a href="#malls" className="secondary-button">{app.featuredCta}</a>
             </div>
             <MallGrid
               malls={featuredMalls}
@@ -113,14 +100,14 @@ function App() {
           </div>
         </section>
 
-        <RecommendationQuiz malls={malls} onSelect={setSelectedMall} availableHours={availableHours} />
+        <RecommendationQuiz malls={malls} onSelect={setSelectedMall} />
         <RoutesSection routes={routes} malls={malls} />
 
         <section id="malls" className="section-shell">
           <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
-              <p className="eyebrow">Busca y filtra</p>
-              <h2 className="mt-3 font-display text-4xl font-extrabold">Explora malls y outlets</h2>
+              <p className="eyebrow">{app.allEyebrow}</p>
+              <h2 className="mt-3 font-display text-4xl font-extrabold">{app.allTitle}</h2>
             </div>
             <MallFilters filters={filters} setFilters={setFilters} malls={malls} />
           </div>

@@ -1,13 +1,14 @@
 import { ArrowRight, Clock, Compass, MapPinned } from "lucide-react";
-import { defaultLocale, locales } from "../i18n/locales";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
-  const copy = locales[defaultLocale].hero;
+  const { t } = useLanguage();
+  const h = t.hero;
 
   const stats = [
-    { icon: Compass, value: String(mallCount), label: "malls", color: "text-coral" },
-    { icon: MapPinned, value: String(routeCount), label: "rutas", color: "text-leaf" },
-    { icon: Clock, value: "3h", label: "modo rápido", color: "text-gold" }
+    { icon: Compass, value: String(mallCount), label: h.statMalls, color: "text-coral" },
+    { icon: MapPinned, value: String(routeCount), label: h.statRoutes, color: "text-leaf" },
+    { icon: Clock, value: "3h", label: h.statMode, color: "text-gold" },
   ];
 
   return (
@@ -16,19 +17,19 @@ function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
       <div className="section-shell relative py-12 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="max-w-2xl">
-            <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-white/50">{copy.eyebrow}</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-white/50">{h.eyebrow}</p>
             <h1 className="mt-4 font-display text-5xl font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">
-              {copy.title}
+              {h.title}
             </h1>
             <p className="mt-4 text-base leading-7 text-white/60 sm:text-lg">
-              {copy.subtitle}
+              {h.subtitle}
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a href="#quiz" className="primary-button bg-white text-ink hover:bg-coral hover:text-white">
-                {copy.primaryAction} <ArrowRight size={16} />
+                {h.primaryAction} <ArrowRight size={16} />
               </a>
               <a href="#rutas" className="secondary-button border-white/20 bg-white/8 text-white hover:border-white/35 hover:bg-white/15 hover:text-white">
-                {copy.secondaryAction}
+                {h.secondaryAction}
               </a>
             </div>
           </div>
