@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, MapPin, Sparkles } from "lucide-react";
 import { getRecommendations } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -14,6 +14,7 @@ const initialAnswers = {
 
 function RecommendationQuiz({ malls, onSelect }) {
   const [answers, setAnswers] = useState(initialAnswers);
+  const [customAddress, setCustomAddress] = useState("");
   const { t } = useLanguage();
   const q = t.quiz;
   const recommendations = useMemo(() => getRecommendations(malls, answers).slice(0, 4), [answers, malls]);
@@ -21,6 +22,24 @@ function RecommendationQuiz({ malls, onSelect }) {
   function set(key, value) {
     setAnswers(prev => ({ ...prev, [key]: value }));
   }
+
+  function handleAddressChange(e) {
+    const val = e.target.value;
+    setCustomAddress(val);
+    if (val.trim()) {
+      setAnswers(prev => ({ ...prev, zone: val.trim() }));
+    }
+  }
+
+  function handleAddressFocus() {
+    if (customAddress.trim()) {
+      setAnswers(prev => ({ ...prev, zone: customAddress.trim() }));
+    }
+  }
+
+  const zoneField = q.fields.find(f => f.key === "zone");
+  const otherFields = q.fields.filter(f => f.key !== "zone");
+  const zoneIsCustom = customAddress.trim() && answers.zone === customAddress.trim();
 
   return (
     <section id="quiz" className="bg-white">
@@ -33,7 +52,41 @@ function RecommendationQuiz({ malls, onSelect }) {
 
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
           <div className="grid gap-6">
-            {q.fields.map(({ key, label, options }) => (
+            {/* Zone field — pills + address input */}
+            {zoneField && (
+              <div>
+                <p className="mb-2.5 text-xs font-extrabold uppercase tracking-wider text-ink/45">{zoneField.label}</p>
+                <div className="flex flex-wrap gap-2">
+                  {zoneField.options.map(({ v, l }) => (
+                    <button
+                      key={v}
+                      onClick={() => { set("zone", v); setCustomAddress(""); }}
+                      className={answers.zone === v && !zoneIsCustom ? "quiz-pill-active" : "quiz-pill"}
+                    >
+                      {l}
+                    </button>
+                  ))}
+                </div>
+                <div className={`mt-3 flex items-center gap-2 rounded-xl border px-3 py-2 transition-colors ${
+                  zoneIsCustom
+                    ? "border-leaf bg-leaf/5"
+                    : "border-ink/12 bg-ink/3 focus-within:border-ink/30"
+                }`}>
+                  <MapPin size={14} className={zoneIsCustom ? "text-leaf" : "text-ink/35"} />
+                  <input
+                    type="text"
+                    value={customAddress}
+                    onChange={handleAddressChange}
+                    onFocus={handleAddressFocus}
+                    placeholder={zoneField.addressPlaceholder}
+                    className="w-full bg-transparent text-sm text-ink placeholder-ink/35 outline-none"
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* All other fields */}
+            {otherFields.map(({ key, label, options }) => (
               <div key={key}>
                 <p className="mb-2.5 text-xs font-extrabold uppercase tracking-wider text-ink/45">{label}</p>
                 <div className="flex flex-wrap gap-2">

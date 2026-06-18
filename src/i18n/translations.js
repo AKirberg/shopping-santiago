@@ -43,10 +43,10 @@ export const translations = {
       resultsLabel: "Resultados",
       resultsSubLabel: "Ordenados por compatibilidad",
       fields: [
-        { key: "zone", label: "¿Dónde estás?", options: [
+        { key: "zone", label: "¿Dónde estás?", addressPlaceholder: "O ingresa tu dirección…", options: [
           { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
           { v: "Vitacura", l: "Vitacura" }, { v: "Santiago Centro", l: "Santiago Centro" },
-          { v: "Aeropuerto", l: "Aeropuerto" }, { v: "Otra", l: "Otra" },
+          { v: "Aeropuerto", l: "Aeropuerto" },
         ]},
         { key: "category", label: "¿Qué buscas comprar?", options: [
           { v: "ropa", l: "Ropa" }, { v: "zapatillas", l: "Zapatillas" },
@@ -201,10 +201,10 @@ export const translations = {
       resultsLabel: "Resultados",
       resultsSubLabel: "Ordenados por compatibilidade",
       fields: [
-        { key: "zone", label: "Onde você está?", options: [
+        { key: "zone", label: "Onde você está?", addressPlaceholder: "Ou insira seu endereço…", options: [
           { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
           { v: "Vitacura", l: "Vitacura" }, { v: "Santiago Centro", l: "Centro de Santiago" },
-          { v: "Aeropuerto", l: "Aeroporto" }, { v: "Otra", l: "Outro" },
+          { v: "Aeropuerto", l: "Aeroporto" },
         ]},
         { key: "category", label: "O que você quer comprar?", options: [
           { v: "ropa", l: "Roupas" }, { v: "zapatillas", l: "Tênis" },
@@ -359,10 +359,10 @@ export const translations = {
       resultsLabel: "Results",
       resultsSubLabel: "Ranked by compatibility",
       fields: [
-        { key: "zone", label: "Where are you staying?", options: [
+        { key: "zone", label: "Where are you staying?", addressPlaceholder: "Or enter your address…", options: [
           { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
           { v: "Vitacura", l: "Vitacura" }, { v: "Santiago Centro", l: "Santiago Centre" },
-          { v: "Aeropuerto", l: "Airport" }, { v: "Otra", l: "Other" },
+          { v: "Aeropuerto", l: "Airport" },
         ]},
         { key: "category", label: "What are you shopping for?", options: [
           { v: "ropa", l: "Clothing" }, { v: "zapatillas", l: "Sneakers" },
