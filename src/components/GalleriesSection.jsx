@@ -10,7 +10,6 @@ const ZONES = [
   "huerfanos-ahumada",
   "bandera-monjitas",
   "santa-lucia",
-  "meiggs",
   "mercado-central",
 ];
 
@@ -19,7 +18,6 @@ const ZONE_DOT = {
   "huerfanos-ahumada": "bg-gold",
   "bandera-monjitas":  "bg-coral",
   "santa-lucia":       "bg-night",
-  "meiggs":            "bg-ink/40",
   "mercado-central":   "bg-teal-600",
 };
 

@@ -6,7 +6,6 @@ const ZONE_COLOR = {
   "huerfanos-ahumada": "bg-gold/15 text-gold",
   "bandera-monjitas":  "bg-coral/15 text-coral",
   "santa-lucia":       "bg-night/15 text-night",
-  "meiggs":            "bg-ink/10 text-ink/60",
   "mercado-central":   "bg-teal-600/10 text-teal-700",
 };
 
@@ -15,7 +14,6 @@ const ZONE_DOT = {
   "huerfanos-ahumada": "bg-gold",
   "bandera-monjitas":  "bg-coral",
   "santa-lucia":       "bg-night",
-  "meiggs":            "bg-ink/50",
   "mercado-central":   "bg-teal-600",
 };
 

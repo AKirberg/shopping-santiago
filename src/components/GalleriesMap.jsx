@@ -8,7 +8,6 @@ const ZONE_COLOR = {
   "huerfanos-ahumada": "#b8860b",
   "bandera-monjitas":  "#c44d3b",
   "santa-lucia":       "#1a3a5c",
-  "meiggs":            "#4b5563",
   "mercado-central":   "#0e7490",
 };
 

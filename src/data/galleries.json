@@ -273,34 +273,6 @@
     "mapsUrl": "https://www.google.com/maps/place/Ahumada+254,+Santiago"
   },
   {
-    "id": "galeria-meiggs",
-    "name": "Barrio Meiggs / Galería 10 de Julio",
-    "year": 1980,
-    "address": "10 de Julio / Av. Libertador Bernardo O'Higgins",
-    "commune": "Santiago Centro",
-    "lat": -33.44201,
-    "lng": -70.66012,
-    "zone": "meiggs",
-    "specialties": ["electrónica", "herramientas", "ferretería", "materiales eléctricos", "tecnología"],
-    "priceLevel": "bajo",
-    "touristFriendly": false,
-    "historic": false,
-    "description": {
-      "es": "El barrio electrónico más grande de Santiago. Un laberinto de galerías interconectadas con miles de locales de electrónica, herramientas, materiales eléctricos y repuestos. El paraíso del 'cuentacorrientista' tech.",
-      "pt": "O maior bairro eletrônico de Santiago. Um labirinto de galerias interligadas com milhares de lojas de eletrônica, ferramentas, materiais elétricos e peças de reposição.",
-      "en": "Santiago's largest electronics district. A labyrinth of interconnected arcades with thousands of shops selling electronics, tools, electrical materials and spare parts."
-    },
-    "entrances": [
-      { "street": "10 de Julio (varias cuadras)", "ref": "Zona completa de múltiples galerías" },
-      { "street": "Av. Libertador B. O'Higgins / Almirante Barroso", "ref": "Acceso desde Alameda" }
-    ],
-    "nearbyMetro": "Los Héroes (L1/L2) / República (L1)",
-    "openHours": "Lun–Sáb 9:00–19:30",
-    "highlights": ["Electrónica al por mayor y menor", "Herramientas", "Repuestos todo tipo"],
-    "imageUrl": null,
-    "mapsUrl": "https://www.google.com/maps/place/10+de+Julio,+Santiago"
-  },
-  {
     "id": "galeria-central",
     "name": "Galería Central / Mercado Central (galerías aledañas)",
     "year": 1872,
