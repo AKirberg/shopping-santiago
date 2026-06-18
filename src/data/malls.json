@@ -50,8 +50,8 @@
     "imageUrl": "/images/malls/costanera-center.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
-    "lat": -33.4173,
-    "lng": -70.6074
+    "lat": -33.4175,
+    "lng": -70.6055
   },
   {
     "id": "parque-arauco",
@@ -104,8 +104,8 @@
     "imageUrl": "/images/malls/parque-arauco.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
-    "lat": -33.4024,
-    "lng": -70.5788
+    "lat": -33.4023,
+    "lng": -70.5773
   },
   {
     "id": "alto-las-condes",
@@ -156,8 +156,8 @@
     "imageUrl": "/images/malls/alto-las-condes.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
-    "lat": -33.3943,
-    "lng": -70.5531
+    "lat": -33.3909,
+    "lng": -70.5461
   },
   {
     "id": "casacostanera",
@@ -208,8 +208,8 @@
     "imageUrl": "/images/malls/casacostanera.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
-    "lat": -33.4023,
-    "lng": -70.5887
+    "lat": -33.3984,
+    "lng": -70.5986
   },
   {
     "id": "mall-sport",
@@ -259,8 +259,8 @@
     "imageUrl": "/images/malls/mall-sport.jpg",
     "foodLevel": "patio",
     "touristZone": "turistico",
-    "lat": -33.4055,
-    "lng": -70.567
+    "lat": -33.3706,
+    "lng": -70.5067
   },
   {
     "id": "easton-outlet-mall",
@@ -308,8 +308,8 @@
     "imageUrl": "/images/malls/easton-outlet-mall.jpg",
     "foodLevel": "patio",
     "touristZone": "alternativo",
-    "lat": -33.3532,
-    "lng": -70.7125
+    "lat": -33.3348,
+    "lng": -70.7122
   },
   {
     "id": "arauco-premium-outlet-buenaventura",
@@ -358,8 +358,8 @@
     "imageUrl": "/images/malls/arauco-premium-outlet-buenaventura.jpg",
     "foodLevel": "patio",
     "touristZone": "alternativo",
-    "lat": -33.3573,
-    "lng": -70.7093
+    "lat": -33.3321,
+    "lng": -70.704
   },
   {
     "id": "mallplaza-egana",
@@ -410,8 +410,8 @@
     "imageUrl": "/images/malls/mallplaza-egana.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
-    "lat": -33.4527,
-    "lng": -70.5648
+    "lat": -33.4476,
+    "lng": -70.5623
   },
   {
     "id": "florida-center",
@@ -460,8 +460,8 @@
     "imageUrl": "/images/malls/florida-center.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
-    "lat": -33.5237,
-    "lng": -70.5925
+    "lat": -33.5104,
+    "lng": -70.6066
   },
   {
     "id": "mallplaza-vespucio",
@@ -510,8 +510,8 @@
     "imageUrl": "/images/malls/mallplaza-vespucio.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
-    "lat": -33.5147,
-    "lng": -70.5936
+    "lat": -33.5176,
+    "lng": -70.5984
   },
   {
     "id": "mallplaza-norte",
@@ -567,8 +567,8 @@
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
     "airportRoute": true,
-    "lat": -33.4077,
-    "lng": -70.6626
+    "lat": -33.4014,
+    "lng": -70.6608
   },
   {
     "id": "apumanque",
@@ -619,8 +619,8 @@
     "imageUrl": "/images/malls/apumanque.jpg",
     "foodLevel": "patio",
     "touristZone": "turistico",
-    "lat": -33.4162,
-    "lng": -70.5836
+    "lat": -33.4134,
+    "lng": -70.5727
   },
   {
     "id": "portal-la-dehesa",
@@ -672,8 +672,8 @@
     "imageUrl": "/images/malls/portal-la-dehesa.jpg",
     "foodLevel": "patio",
     "touristZone": "turistico",
-    "lat": -33.3621,
-    "lng": -70.519
+    "lat": -33.3579,
+    "lng": -70.5156
   },
   {
     "id": "mallplaza-oeste",
@@ -727,8 +727,8 @@
     "imageUrl": "/images/malls/mallplaza-oeste.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
-    "lat": -33.4489,
-    "lng": -70.7614
+    "lat": -33.4502,
+    "lng": -70.7563
   },
   {
     "id": "arauco-maipu",
@@ -781,8 +781,8 @@
     "imageUrl": "/images/malls/arauco-maipu.webp",
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
-    "lat": -33.5099,
-    "lng": -70.773
+    "lat": -33.4824,
+    "lng": -70.7512
   },
   {
     "id": "parque-arauco-oriente",
@@ -831,8 +831,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/parque-arauco-oriente.jpg",
     "touristZone": "turistico",
-    "lat": -33.4174,
-    "lng": -70.5561
+    "lat": -33.4012,
+    "lng": -70.5754
   },
   {
     "id": "mallplaza-los-dominicos",
@@ -884,8 +884,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-los-dominicos.jpg",
     "touristZone": "turistico",
-    "lat": -33.4204,
-    "lng": -70.5459
+    "lat": -33.4171,
+    "lng": -70.5269
   },
   {
     "id": "vivo-los-trapenses",
@@ -936,8 +936,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/vivo-los-trapenses.jpg",
     "touristZone": "turistico",
-    "lat": -33.3486,
-    "lng": -70.5098
+    "lat": -33.3571,
+    "lng": -70.5401
   },
   {
     "id": "paseo-quilin",
@@ -988,18 +988,17 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/paseo-quilin.jpg",
     "touristZone": "alternativo",
-    "lat": -33.4915,
-    "lng": -70.594
+    "lat": -33.4924,
+    "lng": -70.5935
   },
   {
     "id": "mallplaza-tobalaba",
     "name": "Mallplaza Tobalaba",
-    "commune": "Providencia",
+    "commune": "Las Condes",
     "mapsQuery": "Mallplaza Tobalaba Providencia Santiago",
     "type": [
       "tourist",
       "variety",
-      "metro",
       "food",
       "fashion"
     ],
@@ -1019,7 +1018,7 @@
       "entretenimiento"
     ],
     "transport": {
-      "metro": "Muy cercano a estacion Tobalaba, Linea 1.",
+      "metro": "Sin metro cercano. Accesible en Transantiago, Uber o auto por Av. Tobalaba.",
       "uber": true,
       "parking": true
     },
@@ -1042,8 +1041,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-tobalaba.jpg",
     "touristZone": "turistico",
-    "lat": -33.4365,
-    "lng": -70.5948
+    "lat": -33.4304,
+    "lng": -70.5841
   },
   {
     "id": "espacio-urbano-gran-avenida",
@@ -1146,8 +1145,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/midmall-maipu.jpg",
     "touristZone": "alternativo",
-    "lat": -33.518,
-    "lng": -70.7533
+    "lat": -33.5103,
+    "lng": -70.7401
   },
   {
     "id": "mallplaza-alameda",
@@ -1203,8 +1202,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-alameda.jpg",
     "touristZone": "turistico",
-    "lat": -33.4598,
-    "lng": -70.6725
+    "lat": -33.4573,
+    "lng": -70.6715
   },
   {
     "id": "mall-barrio-independencia",
@@ -1257,7 +1256,7 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-barrio-independencia.jpg",
     "touristZone": "alternativo",
-    "lat": -33.4178,
+    "lat": -33.4118,
     "lng": -70.6571
   },
   {
@@ -1309,8 +1308,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-arauco-quilicura.jpg",
     "touristZone": "alternativo",
-    "lat": -33.357,
-    "lng": -70.711
+    "lat": -33.3559,
+    "lng": -70.7026
   },
   {
     "id": "paseo-san-bernardo",
@@ -1360,17 +1359,16 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/paseo-san-bernardo.jpg",
     "touristZone": "alternativo",
-    "lat": -33.5977,
-    "lng": -70.6987
+    "lat": -33.5933,
+    "lng": -70.6992
   },
   {
     "id": "mut-mercado-urbano-tobalaba",
     "name": "MUT Mercado Urbano Tobalaba",
-    "commune": "Providencia",
+    "commune": "Vitacura",
     "mapsQuery": "MUT Mercado Urbano Tobalaba Santiago",
     "type": [
       "tourist",
-      "metro",
       "food",
       "variety",
       "calm"
@@ -1392,7 +1390,7 @@
       "turismo"
     ],
     "transport": {
-      "metro": "Muy cercano a estacion Tobalaba.",
+      "metro": "Sin metro cercano. Accesible en auto o Uber desde Providencia/Las Condes.",
       "uber": true,
       "parking": true
     },
@@ -1415,7 +1413,7 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg",
     "touristZone": "turistico",
-    "lat": -33.4354,
-    "lng": -70.5962
+    "lat": -33.3873,
+    "lng": -70.5874
   }
 ]
