@@ -15,7 +15,7 @@ export const translations = {
     },
     quickIntents: {
       label: "Busco:",
-      items: { ropa: "Ropa", outlet: "Outlet", providencia: "Providencia", kids: "Con niños", premium: "Premium", quick: "3 horas" },
+      items: { ropa: "Ropa", outlet: "Outlet", providencia: "Providencia", kids: "Con niños", premium: "Premium", quick: "3 horas", comer: "Comer / Almorzar" },
     },
     flightTimer: {
       label: "Hora de vuelo:",
@@ -30,7 +30,11 @@ export const translations = {
       placeholder: "Buscar mall, comuna...",
       all: "Todas",
       clearLabel: "Limpiar filtros",
-      toggles: { outlet: "Outlet", premium: "Premium", family: "Familiar", metro: "Con metro", food: "Buena comida", quick: "Rápido", tourist: "Turístico" },
+      toggles: { outlet: "Outlet", premium: "Premium", family: "Familiar", metro: "Con metro", food: "Con comida", gastronomico: "Gastronomía", quick: "Rápido", tourist: "Turístico" },
+    },
+    foodLevel: {
+      patio: "Patio de comidas",
+      gastronomico: "Centro gastronómico",
     },
     quiz: {
       eyebrow: "Recomendador",
@@ -146,7 +150,7 @@ export const translations = {
     },
     quickIntents: {
       label: "Busco:",
-      items: { ropa: "Roupas", outlet: "Outlet", providencia: "Providencia", kids: "Com crianças", premium: "Premium", quick: "3 horas" },
+      items: { ropa: "Roupas", outlet: "Outlet", providencia: "Providencia", kids: "Com crianças", premium: "Premium", quick: "3 horas", comer: "Comer / Almoçar" },
     },
     flightTimer: {
       label: "Hora do voo:",
@@ -161,7 +165,11 @@ export const translations = {
       placeholder: "Buscar mall, bairro...",
       all: "Todos",
       clearLabel: "Limpar filtros",
-      toggles: { outlet: "Outlet", premium: "Premium", family: "Familiar", metro: "Com metrô", food: "Boa comida", quick: "Rápido", tourist: "Turístico" },
+      toggles: { outlet: "Outlet", premium: "Premium", family: "Familiar", metro: "Com metrô", food: "Com comida", gastronomico: "Gastronomia", quick: "Rápido", tourist: "Turístico" },
+    },
+    foodLevel: {
+      patio: "Praça de alimentação",
+      gastronomico: "Centro gastronômico",
     },
     quiz: {
       eyebrow: "Recomendador",
@@ -277,7 +285,7 @@ export const translations = {
     },
     quickIntents: {
       label: "I want:",
-      items: { ropa: "Clothing", outlet: "Outlet", providencia: "Providencia", kids: "With kids", premium: "Premium", quick: "3 hours" },
+      items: { ropa: "Clothing", outlet: "Outlet", providencia: "Providencia", kids: "With kids", premium: "Premium", quick: "3 hours", comer: "Eat / Lunch" },
     },
     flightTimer: {
       label: "Flight time:",
@@ -292,7 +300,11 @@ export const translations = {
       placeholder: "Search mall, neighborhood...",
       all: "All",
       clearLabel: "Clear filters",
-      toggles: { outlet: "Outlet", premium: "Premium", family: "Family-friendly", metro: "Metro access", food: "Good food", quick: "Quick visit", tourist: "Tourist-friendly" },
+      toggles: { outlet: "Outlet", premium: "Premium", family: "Family-friendly", metro: "Metro access", food: "Has food", gastronomico: "Gastronomy", quick: "Quick visit", tourist: "Tourist-friendly" },
+    },
+    foodLevel: {
+      patio: "Food court",
+      gastronomico: "Gastronomic centre",
     },
     quiz: {
       eyebrow: "Recommender",

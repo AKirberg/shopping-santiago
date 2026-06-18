@@ -1,4 +1,4 @@
-import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, TrainFront, X } from "lucide-react";
+import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, TrainFront, Utensils, X } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRoute }) {
@@ -68,7 +68,7 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
                 <Badge label={md.badges.family} active={mall.familyFriendly} />
                 <Badge label={md.badges.outlet} active={mall.outlet} />
                 <Badge label={md.badges.premium} active={mall.premium} />
-                <Badge label={md.badges.food} active={mall.foodExperience} />
+                <FoodBadge level={mall.foodLevel} labels={t.foodLevel} />
               </div>
             </div>
 
@@ -118,6 +118,19 @@ function Badge({ label, active }) {
   return (
     <span className={`rounded-lg px-3 py-2 text-center text-xs font-bold ${active ? "bg-leaf/15 text-leaf" : "bg-white text-ink/35"}`}>
       {label}
+    </span>
+  );
+}
+
+function FoodBadge({ level, labels }) {
+  if (!level) return <span className="rounded-lg bg-white px-3 py-2 text-center text-xs font-bold text-ink/35">{labels?.patio || "—"}</span>;
+  const isGastro = level === "gastronomico";
+  return (
+    <span className={`col-span-2 flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-xs font-bold ${
+      isGastro ? "bg-gold/15 text-gold" : "bg-ink/5 text-ink/45"
+    }`}>
+      <Utensils size={12} />
+      {labels?.[level] || level}
     </span>
   );
 }

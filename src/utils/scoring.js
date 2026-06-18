@@ -124,6 +124,7 @@ export function matchesMallFilters(mall, filters) {
     (!filters.family || mall.familyFriendly) &&
     (!filters.metro || mall.type.includes("metro")) &&
     (!filters.food || mall.foodExperience) &&
+    (!filters.gastronomico || mall.foodLevel === "gastronomico") &&
     (!filters.quick || mall.type.includes("quick") || timeBucket(mall.recommendedTime) === "quick") &&
     (!filters.tourist || mall.type.includes("tourist") || mall.touristScore >= 8);
 

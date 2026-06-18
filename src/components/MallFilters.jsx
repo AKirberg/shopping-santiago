@@ -1,8 +1,8 @@
 import { RotateCcw, Search } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const toggleKeys = ["outlet", "premium", "family", "metro", "food", "quick", "tourist"];
-const defaultFilters = { query: "", commune: "Todas", category: "Todas", outlet: false, premium: false, family: false, metro: false, food: false, quick: false, tourist: false };
+const toggleKeys = ["outlet", "premium", "family", "metro", "food", "gastronomico", "quick", "tourist"];
+const defaultFilters = { query: "", commune: "Todas", category: "Todas", outlet: false, premium: false, family: false, metro: false, food: false, gastronomico: false, quick: false, tourist: false };
 
 function MallFilters({ filters, setFilters, malls }) {
   const { t } = useLanguage();

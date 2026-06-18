@@ -1,0 +1,1 @@
+- [Food gastronomy levels](food-gastronomy.md) — malls have foodLevel:"gastronomico"|"patio"; filter "gastronomico" is separate from "food" toggle.

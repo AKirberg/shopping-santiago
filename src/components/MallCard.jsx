@@ -1,4 +1,4 @@
-import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, Star, TrainFront } from "lucide-react";
+import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, Star, TrainFront, Utensils } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function accentColor(mall) {
@@ -81,6 +81,14 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
             {mall.type.includes("metro") ? <TrainFront size={12} /> : <Car size={12} />}
             {mall.type.includes("metro") ? "Metro" : "Auto/Uber"}
           </span>
+          {mall.foodLevel && (
+            <span className={`flex items-center gap-1 font-bold ${
+              mall.foodLevel === "gastronomico" ? "text-gold" : "text-ink/40"
+            }`}>
+              <Utensils size={12} />
+              {t.foodLevel[mall.foodLevel]}
+            </span>
+          )}
         </div>
 
         <div className="mt-4 flex items-center gap-2 border-t border-ink/6 pt-3.5">

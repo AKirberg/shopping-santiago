@@ -19,7 +19,7 @@ import Footer from "./components/Footer";
 const defaultFilters = {
   query: "", commune: "Todas", category: "Todas",
   outlet: false, premium: false, family: false,
-  metro: false, food: false, quick: false, tourist: false,
+  metro: false, food: false, gastronomico: false, quick: false, tourist: false,
 };
 
 function computeAvailableHours(flightTimeStr) {
@@ -53,6 +53,7 @@ function App() {
     if (intent === "kids") next.family = true;
     if (intent === "premium") next.premium = true;
     if (intent === "quick") next.quick = true;
+    if (intent === "comer") next.food = true;
     setFilters(next);
     document.getElementById("malls")?.scrollIntoView({ behavior: "smooth" });
   }

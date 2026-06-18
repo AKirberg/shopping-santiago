@@ -1,9 +1,10 @@
-import { Baby, BadgePercent, Clock3, Gem, MapPin, Shirt } from "lucide-react";
+import { Baby, BadgePercent, Clock3, Gem, MapPin, Shirt, UtensilsCrossed } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const intentKeys = [
   { key: "ropa", icon: Shirt },
   { key: "outlet", icon: BadgePercent },
+  { key: "comer", icon: UtensilsCrossed },
   { key: "providencia", icon: MapPin },
   { key: "kids", icon: Baby },
   { key: "premium", icon: Gem },
