@@ -22,6 +22,9 @@ export const translations = {
       placeholder: "Ingresa tu dirección, hotel o barrio…",
       active: "Ubicación activa",
       hint: "Ingresa tu ubicación para ver los malls más cercanos",
+      nearbyTitle: "Malls más cercanos",
+      quizCta: "¿Qué mall me conviene?",
+      distLabel: "km",
     },
     flightTimer: {
       label: "Hora de vuelo:",
@@ -190,6 +193,9 @@ export const translations = {
       placeholder: "Insira seu endereço, hotel ou bairro…",
       active: "Localização ativa",
       hint: "Insira sua localização para ver os malls mais próximos",
+      nearbyTitle: "Malls mais próximos",
+      quizCta: "Qual mall me convém?",
+      distLabel: "km",
     },
     flightTimer: {
       label: "Hora do voo:",
@@ -358,6 +364,9 @@ export const translations = {
       placeholder: "Enter your address, hotel or neighbourhood…",
       active: "Location active",
       hint: "Enter your location to see the nearest malls",
+      nearbyTitle: "Nearest malls",
+      quizCta: "Which mall suits me?",
+      distLabel: "km",
     },
     flightTimer: {
       label: "Flight time:",

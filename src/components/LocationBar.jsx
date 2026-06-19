@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-import { MapPin, Navigation, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowRight, ChevronRight, MapPin, Navigation, X } from "lucide-react";
+import { haversineKm } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function useAddressSuggestions(query) {
@@ -37,13 +38,25 @@ function useAddressSuggestions(query) {
   return { suggestions, loading };
 }
 
-function LocationBar({ address, setAddress, userCoords, setUserCoords }) {
+function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [] }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
   const { t } = useLanguage();
   const lb = t.locationBar;
   const { suggestions, loading } = useAddressSuggestions(address);
+
+  const nearbyMalls = useMemo(() => {
+    if (!userCoords) return [];
+    return malls
+      .filter(m => m.lat && m.lng)
+      .map(m => ({
+        ...m,
+        distanceKm: Math.round(haversineKm(userCoords.lat, userCoords.lng, m.lat, m.lng) * 10) / 10,
+      }))
+      .sort((a, b) => a.distanceKm - b.distanceKm)
+      .slice(0, 5);
+  }, [userCoords, malls]);
 
   function handleChange(e) {
     setAddress(e.target.value);
@@ -64,6 +77,10 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords }) {
     inputRef.current?.focus();
   }
 
+  function scrollToQuiz() {
+    document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth" });
+  }
+
   useEffect(() => {
     function handleClickOutside(e) {
       if (
@@ -77,6 +94,7 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords }) {
 
   return (
     <div className={`border-b border-ink/8 transition-colors ${userCoords ? "bg-leaf/4" : "bg-white"}`}>
+      {/* Input row */}
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <MapPin size={14} className={`shrink-0 transition-colors ${userCoords ? "text-leaf" : "text-ink/40"}`} />
         <span className="shrink-0 text-xs font-extrabold text-ink/50">{lb.label}</span>
@@ -136,6 +154,46 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords }) {
           <span className="text-xs text-ink/35 hidden sm:inline">{lb.hint}</span>
         )}
       </div>
+
+      {/* Nearby malls panel */}
+      {userCoords && nearbyMalls.length > 0 && (
+        <div className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
+          <p className="mb-2.5 text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
+            {lb.nearbyTitle}
+          </p>
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+            {nearbyMalls.map((mall, i) => (
+              <div
+                key={mall.id}
+                className="flex items-center justify-between gap-2 rounded-2xl border border-ink/8 bg-white px-4 py-3 shadow-sm"
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold text-white ${
+                    i === 0 ? "bg-leaf" : "bg-ink/20"
+                  }`}>
+                    {i + 1}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
+                    <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
+                      {mall.commune}
+                      <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={scrollToQuiz}
+                  title={lb.quizCta}
+                  className="ml-1 shrink-0 flex items-center gap-1 rounded-xl border border-leaf/30 bg-leaf/8 px-2.5 py-1.5 text-[10px] font-extrabold text-leaf transition hover:bg-leaf hover:text-white whitespace-nowrap"
+                >
+                  {lb.quizCta}
+                  <ChevronRight size={10} />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

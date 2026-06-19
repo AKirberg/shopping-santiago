@@ -89,6 +89,7 @@ function App() {
           setAddress={setUserAddress}
           userCoords={userCoords}
           setUserCoords={setUserCoords}
+          malls={malls}
         />
         <FlightTimer flightTime={flightTime} setFlightTime={setFlightTime} availableHours={availableHours} />
 
