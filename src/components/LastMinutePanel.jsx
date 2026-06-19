@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { AlertTriangle, ChevronRight, Clock, Plane, ShoppingBag, X, Zap } from "lucide-react";
+import { AlertTriangle, ChevronRight, Plane, ShoppingBag, X, Zap, Clock } from "lucide-react";
+import { fmtMin } from "../utils/timeCalc";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function parseMinHours(str) {
@@ -8,8 +9,8 @@ function parseMinHours(str) {
   return match ? parseInt(match[1]) : 99;
 }
 
-function fmt(hours) {
-  if (hours <= 0) return "0h";
+function fmtHrs(hours) {
+  if (!hours || hours <= 0) return "0h";
   const h = Math.floor(hours);
   const m = Math.round((hours - h) * 60);
   if (m === 0) return `${h}h`;
@@ -17,11 +18,20 @@ function fmt(hours) {
   return `${h}h ${m}min`;
 }
 
-export default function LastMinutePanel({ flightTime, setFlightTime, availableHours, malls, onSelectMall }) {
+const AIRPORT_OPTIONS = [30, 45, 60, 90];
+
+export default function LastMinutePanel({
+  flightTime, setFlightTime,
+  timeBreakdown, minutesToAirport, setMinutesToAirport,
+  malls, onSelectMall,
+}) {
   const [showInput, setShowInput] = useState(false);
   const { t } = useLanguage();
   const lm = t.lastMinute;
   const ft = t.flightTimer;
+
+  const bd = timeBreakdown; // shorthand
+  const availableHours = bd?.availableHours ?? null;
 
   const status =
     availableHours === null ? null
@@ -39,10 +49,10 @@ export default function LastMinutePanel({ flightTime, setFlightTime, availableHo
   }, [availableHours, malls, status]);
 
   const themes = {
-    late:  { bar: "border-coral/20 bg-coral/5",  badge: "bg-coral text-white",      icon: <AlertTriangle size={15} />, timeColor: "text-coral",  ctaBorder: "border-coral/35 bg-coral/8 text-coral hover:bg-coral hover:text-white" },
-    tight: { bar: "border-gold/20 bg-gold/5",    badge: "bg-gold text-white",        icon: <Zap size={15} />,          timeColor: "text-gold",   ctaBorder: "border-gold/35 bg-gold/8 text-gold hover:bg-gold hover:text-white" },
-    ok:    { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",        icon: <Clock size={15} />,        timeColor: "text-leaf",   ctaBorder: "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white" },
-    good:  { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",        icon: <ShoppingBag size={15} />, timeColor: "text-leaf",   ctaBorder: "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white" },
+    late:  { bar: "border-coral/20 bg-coral/5",  badge: "bg-coral text-white",      icon: <AlertTriangle size={14} />, timeColor: "text-coral",  ctaCls: "border-coral/35 bg-coral/8 text-coral hover:bg-coral hover:text-white" },
+    tight: { bar: "border-gold/20 bg-gold/5",    badge: "bg-gold text-white",        icon: <Zap size={14} />,           timeColor: "text-gold",   ctaCls: "border-gold/35 bg-gold/8 text-gold hover:bg-gold hover:text-white" },
+    ok:    { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",        icon: <Clock size={14} />,         timeColor: "text-leaf",   ctaCls: "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white" },
+    good:  { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",        icon: <ShoppingBag size={14} />,   timeColor: "text-leaf",   ctaCls: "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white" },
   };
 
   const inputVisible = showInput || !!flightTime;
@@ -52,23 +62,21 @@ export default function LastMinutePanel({ flightTime, setFlightTime, availableHo
     setShowInput(false);
   }
 
-  /* ── Empty / no flight time entered ── */
-  if (status === null && !inputVisible) {
+  /* ── State 1: no flight time, input not shown ── */
+  if (!inputVisible) {
     return (
       <div className="border-b border-ink/8 bg-[#fafaf8]">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-dashed border-ink/15 px-5 py-4">
             <span className="flex items-center gap-2 text-xs font-extrabold text-ink/35">
-              <ShoppingBag size={13} />
-              {lm.title}
+              <ShoppingBag size={13} /> {lm.title}
             </span>
             <p className="text-xs font-medium text-ink/40">{lm.emptyHint}</p>
             <button
               onClick={() => setShowInput(true)}
               className="ml-auto flex items-center gap-1.5 rounded-xl border border-leaf/30 bg-leaf/8 px-3 py-1.5 text-xs font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
             >
-              <Plane size={12} />
-              {lm.enterFlightCta}
+              <Plane size={12} /> {lm.enterFlightCta}
             </button>
           </div>
         </div>
@@ -76,18 +84,17 @@ export default function LastMinutePanel({ flightTime, setFlightTime, availableHo
     );
   }
 
-  /* ── Input revealed (no time set yet) ── */
-  if (status === null && inputVisible) {
+  /* ── State 2: input shown, no time set yet ── */
+  if (status === null) {
     return (
       <div className="border-b border-ink/8 bg-[#fafaf8]">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-leaf/25 bg-white px-5 py-4 shadow-sm">
             <span className="flex items-center gap-2 text-xs font-extrabold text-ink/40">
-              <ShoppingBag size={13} />
-              {lm.title}
+              <ShoppingBag size={13} /> {lm.title}
             </span>
             <div className="flex items-center gap-2 ml-2">
-              <Plane size={14} className="text-leaf shrink-0" />
+              <Plane size={13} className="text-leaf shrink-0" />
               <span className="text-xs font-extrabold text-ink/50">{ft.label}</span>
               <input
                 type="time"
@@ -97,12 +104,9 @@ export default function LastMinutePanel({ flightTime, setFlightTime, availableHo
                 className="rounded-xl border border-ink/12 bg-[#f8faf6] px-3 py-1.5 text-xs font-bold text-ink outline-none transition focus:border-leaf focus:ring-2 focus:ring-leaf/15"
               />
             </div>
-            <p className="text-xs text-ink/35">{ft.hint}</p>
-            <button
-              onClick={handleRemove}
-              className="ml-auto flex items-center gap-1 text-xs font-bold text-ink/30 transition hover:text-ink/60"
-            >
-              <X size={12} /> {ft.remove}
+            <p className="text-xs text-ink/35 hidden sm:block">{ft.hint}</p>
+            <button onClick={handleRemove} className="ml-auto flex items-center gap-1 text-xs font-bold text-ink/30 hover:text-ink/60">
+              <X size={12} />
             </button>
           </div>
         </div>
@@ -110,47 +114,100 @@ export default function LastMinutePanel({ flightTime, setFlightTime, availableHo
     );
   }
 
-  /* ── Active: flight time entered ── */
+  /* ── State 3: flight time active, show full breakdown ── */
   const th = themes[status];
+
   return (
     <div className={`border-b ${th.bar}`}>
-      <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
 
-        {/* Header row */}
+        {/* Top row: badge + subtitle + time + edit input */}
         <div className="mb-4 flex flex-wrap items-center gap-3">
           <span className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-extrabold ${th.badge}`}>
-            {th.icon}
-            {lm.title}
+            {th.icon} {lm.title}
           </span>
-          <p className="text-xs text-ink/55 font-medium">{lm.subtitle[status]}</p>
-
-          {/* Time display */}
+          <p className="text-xs font-medium text-ink/55">{lm.subtitle[status]}</p>
           <div className="ml-auto flex items-center gap-3">
-            <div className="flex items-baseline gap-1.5">
-              <span className={`font-display text-3xl font-extrabold tabular-nums ${th.timeColor}`}>
-                {availableHours > 0 ? fmt(availableHours) : "0h"}
+            <div className="flex items-baseline gap-1">
+              <span className={`font-display text-3xl font-extrabold tabular-nums leading-none ${th.timeColor}`}>
+                {fmtHrs(availableHours)}
               </span>
               <span className="text-xs font-bold text-ink/40">{lm.forShopping}</span>
             </div>
-            {/* Inline flight time edit */}
-            <div className="flex items-center gap-1.5 rounded-xl border border-ink/12 bg-white/70 px-2.5 py-1">
-              <Plane size={11} className="text-ink/35" />
+            <div className="flex items-center gap-1.5 rounded-xl border border-ink/12 bg-white/80 px-2.5 py-1">
+              <Plane size={10} className="text-ink/35" />
               <input
                 type="time"
                 value={flightTime}
                 onChange={e => setFlightTime(e.target.value)}
-                className="w-20 bg-transparent text-xs font-bold text-ink outline-none"
+                className="w-[4.5rem] bg-transparent text-xs font-bold text-ink outline-none"
               />
               <button onClick={handleRemove} className="text-ink/25 hover:text-ink/60 transition">
-                <X size={11} />
+                <X size={10} />
               </button>
             </div>
           </div>
         </div>
 
+        {/* Time breakdown timeline */}
+        <div className="mb-4 rounded-2xl border border-ink/8 bg-white px-5 py-4">
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Stage 1: Travel to mall */}
+            <TimeStep
+              icon="🚇"
+              label={lm.breakdown.travelToMall}
+              duration={fmtMin(bd.travelToMallMin)}
+              color="text-ink/50"
+            />
+            {/* Stage 2: Shopping window */}
+            <TimeStep
+              icon="🛍"
+              label={lm.breakdown.shopping}
+              duration={fmtHrs(availableHours)}
+              color={th.timeColor}
+              bold
+              deadline={bd.mustLeaveMallTime ? `${lm.breakdown.leaveMall} ${bd.mustLeaveMallTime}` : null}
+            />
+            {/* Stage 3: Travel to airport */}
+            <TimeStep
+              icon="🚕"
+              label={lm.breakdown.travelToAirport}
+              duration={fmtMin(minutesToAirport)}
+              color="text-ink/50"
+              deadline={bd.mustArriveAirportTime ? `${lm.breakdown.arriveAirport} ${bd.mustArriveAirportTime}` : null}
+            />
+            {/* Stage 4: Airport + boarding */}
+            <TimeStep
+              icon="✈️"
+              label={`${lm.breakdown.checkin} · ${lm.breakdown.boarding}`}
+              duration={`90min`}
+              color="text-ink/50"
+              deadline={`${lm.breakdown.departure} ${bd.departureTime}`}
+            />
+          </div>
+
+          {/* Travel to airport selector */}
+          <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-ink/6 pt-3">
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-ink/40">{lm.toAirportLabel}</span>
+            {AIRPORT_OPTIONS.map(min => (
+              <button
+                key={min}
+                onClick={() => setMinutesToAirport(min)}
+                className={`rounded-full px-2.5 py-0.5 text-xs font-extrabold transition ${
+                  minutesToAirport === min
+                    ? "bg-ink text-white"
+                    : "border border-ink/12 text-ink/45 hover:border-ink/30"
+                }`}
+              >
+                {lm.toAirportOptions[String(min)]}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Late message */}
         {status === "late" && (
-          <p className="mb-3 rounded-2xl border border-coral/20 bg-white px-4 py-3 text-sm font-semibold text-coral/80">
+          <p className="mb-4 rounded-2xl border border-coral/20 bg-white px-4 py-3 text-sm font-semibold text-coral/80">
             {lm.lateMessage}
           </p>
         )}
@@ -178,13 +235,25 @@ export default function LastMinutePanel({ flightTime, setFlightTime, availableHo
             </div>
             <button
               onClick={() => document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth" })}
-              className={`mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-sm font-extrabold transition ${th.ctaBorder}`}
+              className={`mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-sm font-extrabold transition ${th.ctaCls}`}
             >
-              {lm.cta}
-              <ChevronRight size={15} />
+              {lm.cta} <ChevronRight size={15} />
             </button>
           </>
         )}
+      </div>
+    </div>
+  );
+}
+
+function TimeStep({ icon, label, duration, color, bold, deadline }) {
+  return (
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 text-base leading-none">{icon}</span>
+      <div>
+        <p className="text-[10px] font-extrabold uppercase tracking-wider text-ink/35">{label}</p>
+        <p className={`text-sm font-extrabold ${color} ${bold ? "text-base" : ""}`}>{duration}</p>
+        {deadline && <p className="text-[10px] font-bold text-ink/40 mt-0.5">{deadline}</p>}
       </div>
     </div>
   );

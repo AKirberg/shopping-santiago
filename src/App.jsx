@@ -2,11 +2,11 @@ import { useMemo, useState } from "react";
 import malls from "./data/malls.json";
 import routes from "./data/routes.json";
 import { matchesMallFilters } from "./utils/scoring";
+import { computeTimeBreakdown } from "./utils/timeCalc";
 import { useLanguage } from "./i18n/LanguageContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import LocationBar from "./components/LocationBar";
-import FlightTimer from "./components/FlightTimer";
 import QuickIntentButtons from "./components/QuickIntentButtons";
 import MallGrid from "./components/MallGrid";
 import MallFilters from "./components/MallFilters";
@@ -25,25 +25,21 @@ const defaultFilters = {
   metro: false, food: false, gastronomico: false, quick: false, tourist: false,
 };
 
-function computeAvailableHours(flightTimeStr) {
-  if (!flightTimeStr) return null;
-  const [h, m] = flightTimeStr.split(":").map(Number);
-  const now = new Date();
-  const flightMin = h * 60 + m;
-  const nowMin = now.getHours() * 60 + now.getMinutes();
-  return (flightMin - nowMin - 90) / 60;
-}
-
 function App() {
   const { t } = useLanguage();
   const [filters, setFilters] = useState(defaultFilters);
   const [selectedMall, setSelectedMall] = useState(null);
   const [compareIds, setCompareIds] = useState(["costanera-center", "parque-arauco"]);
   const [flightTime, setFlightTime] = useState("");
+  const [minutesToAirport, setMinutesToAirport] = useState(45);
   const [userAddress, setUserAddress] = useState("");
   const [userCoords, setUserCoords] = useState(null);
 
-  const availableHours = useMemo(() => computeAvailableHours(flightTime), [flightTime]);
+  const timeBreakdown = useMemo(
+    () => computeTimeBreakdown(flightTime, minutesToAirport),
+    [flightTime, minutesToAirport]
+  );
+  const availableHours = timeBreakdown?.availableHours ?? null;
   const filteredMalls = useMemo(() => malls.filter(mall => matchesMallFilters(mall, filters)), [filters]);
   const featuredMalls = useMemo(
     () => malls.filter(mall => mall.touristScore >= 8 || mall.premium || mall.outlet).slice(0, 6),
@@ -95,7 +91,9 @@ function App() {
         <LastMinutePanel
           flightTime={flightTime}
           setFlightTime={setFlightTime}
-          availableHours={availableHours}
+          timeBreakdown={timeBreakdown}
+          minutesToAirport={minutesToAirport}
+          setMinutesToAirport={setMinutesToAirport}
           malls={malls}
           onSelectMall={setSelectedMall}
         />
