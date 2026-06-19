@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, MapPin, Navigation, Sparkles, X } from "lucide-react";
+import { useMemo, useState } from "react";
+import { ArrowRight, Navigation, Sparkles } from "lucide-react";
 import { getRecommendations } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -12,60 +12,10 @@ const initialAnswers = {
   goal: "variedad",
 };
 
-function useAddressSuggestions(query) {
-  const [suggestions, setSuggestions] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const timerRef = useRef(null);
-
-  useEffect(() => {
-    if (!query || query.length < 3) {
-      setSuggestions([]);
-      return;
-    }
-    clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(async () => {
-      setLoading(true);
-      try {
-        const params = new URLSearchParams({
-          q: `${query}, Santiago, Chile`,
-          format: "json",
-          countrycodes: "cl",
-          limit: "6",
-          viewbox: "-71.1,-33.75,-70.35,-33.1",
-          bounded: "1",
-          "accept-language": "es",
-        });
-        const res = await fetch(`https://nominatim.openstreetmap.org/search?${params}`, {
-          headers: { "Accept-Language": "es" },
-        });
-        const data = await res.json();
-        setSuggestions(data.map(d => ({
-          label: d.display_name.split(",").slice(0, 3).join(", "),
-          lat: parseFloat(d.lat),
-          lng: parseFloat(d.lon),
-        })));
-      } catch {
-        setSuggestions([]);
-      } finally {
-        setLoading(false);
-      }
-    }, 350);
-    return () => clearTimeout(timerRef.current);
-  }, [query]);
-
-  return { suggestions, loading };
-}
-
-function RecommendationQuiz({ malls, onSelect }) {
+function RecommendationQuiz({ malls, onSelect, userCoords }) {
   const [answers, setAnswers] = useState(initialAnswers);
-  const [customAddress, setCustomAddress] = useState("");
-  const [userCoords, setUserCoords] = useState(null);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const inputRef = useRef(null);
-  const dropdownRef = useRef(null);
   const { t } = useLanguage();
   const q = t.quiz;
-  const { suggestions, loading } = useAddressSuggestions(customAddress);
 
   const recommendations = useMemo(
     () => getRecommendations(malls, answers, userCoords).slice(0, 4),
@@ -76,47 +26,8 @@ function RecommendationQuiz({ malls, onSelect }) {
     setAnswers(prev => ({ ...prev, [key]: value }));
   }
 
-  function handleAddressChange(e) {
-    const val = e.target.value;
-    setCustomAddress(val);
-    setUserCoords(null);
-    setShowDropdown(true);
-    if (val.trim()) {
-      setAnswers(prev => ({ ...prev, zone: val.trim() }));
-    }
-  }
-
-  function selectSuggestion(s) {
-    setCustomAddress(s.label);
-    setAnswers(prev => ({ ...prev, zone: s.label }));
-    setUserCoords({ lat: s.lat, lng: s.lng });
-    setShowDropdown(false);
-  }
-
-  function clearAddress() {
-    setCustomAddress("");
-    setUserCoords(null);
-    setShowDropdown(false);
-    setAnswers(prev => ({ ...prev, zone: "Providencia" }));
-    inputRef.current?.focus();
-  }
-
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (
-        dropdownRef.current && !dropdownRef.current.contains(e.target) &&
-        inputRef.current && !inputRef.current.contains(e.target)
-      ) {
-        setShowDropdown(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   const zoneField = q.fields.find(f => f.key === "zone");
   const otherFields = q.fields.filter(f => f.key !== "zone");
-  const zoneIsCustom = !!userCoords;
 
   return (
     <section id="quiz" className="bg-white">
@@ -127,6 +38,13 @@ function RecommendationQuiz({ malls, onSelect }) {
           <p className="mt-3 text-sm leading-6 text-ink/55">{q.subtitle}</p>
         </div>
 
+        {userCoords && (
+          <div className="mb-6 flex items-center gap-2 rounded-2xl border border-leaf/30 bg-leaf/6 px-4 py-3">
+            <Navigation size={14} className="shrink-0 text-leaf" />
+            <p className="text-xs font-extrabold text-leaf">{q.locationActive}</p>
+          </div>
+        )}
+
         <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
           <div className="grid gap-6">
             {zoneField && (
@@ -136,67 +54,19 @@ function RecommendationQuiz({ malls, onSelect }) {
                   {zoneField.options.map(({ v, l }) => (
                     <button
                       key={v}
-                      onClick={() => { set("zone", v); setCustomAddress(""); setUserCoords(null); setShowDropdown(false); }}
-                      className={answers.zone === v && !zoneIsCustom ? "quiz-pill-active" : "quiz-pill"}
+                      onClick={() => set("zone", v)}
+                      className={answers.zone === v && !userCoords ? "quiz-pill-active" : "quiz-pill"}
+                      disabled={!!userCoords}
                     >
                       {l}
                     </button>
                   ))}
                 </div>
-
-                <div className="relative mt-3">
-                  <div className={`flex items-center gap-2 rounded-xl border px-3 py-2 transition-colors ${
-                    zoneIsCustom
-                      ? "border-leaf bg-leaf/5"
-                      : "border-ink/12 bg-ink/3 focus-within:border-ink/30"
-                  }`}>
-                    <MapPin size={14} className={zoneIsCustom ? "text-leaf shrink-0" : "text-ink/35 shrink-0"} />
-                    <input
-                      ref={inputRef}
-                      type="text"
-                      value={customAddress}
-                      onChange={handleAddressChange}
-                      onFocus={() => customAddress.length >= 3 && setShowDropdown(true)}
-                      placeholder={zoneField.addressPlaceholder}
-                      className="w-full bg-transparent text-sm text-ink placeholder-ink/35 outline-none"
-                      autoComplete="off"
-                    />
-                    {customAddress && (
-                      <button onClick={clearAddress} className="shrink-0 text-ink/30 hover:text-ink/60">
-                        <X size={13} />
-                      </button>
-                    )}
-                    {loading && (
-                      <span className="shrink-0 h-3 w-3 animate-spin rounded-full border-2 border-ink/20 border-t-ink/60" />
-                    )}
-                  </div>
-
-                  {zoneIsCustom && (
-                    <p className="mt-1.5 flex items-center gap-1 text-xs font-semibold text-leaf">
-                      <Navigation size={11} />
-                      {q.locationActive ?? "Ubicación activa — resultados ordenados por cercanía"}
-                    </p>
-                  )}
-
-                  {showDropdown && suggestions.length > 0 && (
-                    <ul
-                      ref={dropdownRef}
-                      className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-xl border border-ink/10 bg-white shadow-card"
-                    >
-                      {suggestions.map((s, i) => (
-                        <li key={i}>
-                          <button
-                            onMouseDown={e => { e.preventDefault(); selectSuggestion(s); }}
-                            className="flex w-full items-start gap-2.5 px-3 py-2.5 text-left text-sm hover:bg-leaf/6 transition-colors"
-                          >
-                            <MapPin size={13} className="mt-0.5 shrink-0 text-ink/35" />
-                            <span className="text-ink/80 leading-snug">{s.label}</span>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                {userCoords && (
+                  <p className="mt-2 text-xs text-ink/40 font-medium">
+                    {q.zonePillsDisabled ?? "Zona automática según tu ubicación ingresada arriba"}
+                  </p>
+                )}
               </div>
             )}
 

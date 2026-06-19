@@ -5,6 +5,7 @@ import { matchesMallFilters } from "./utils/scoring";
 import { useLanguage } from "./i18n/LanguageContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import LocationBar from "./components/LocationBar";
 import FlightTimer from "./components/FlightTimer";
 import QuickIntentButtons from "./components/QuickIntentButtons";
 import MallGrid from "./components/MallGrid";
@@ -38,6 +39,8 @@ function App() {
   const [selectedMall, setSelectedMall] = useState(null);
   const [compareIds, setCompareIds] = useState(["costanera-center", "parque-arauco"]);
   const [flightTime, setFlightTime] = useState("");
+  const [userAddress, setUserAddress] = useState("");
+  const [userCoords, setUserCoords] = useState(null);
 
   const availableHours = useMemo(() => computeAvailableHours(flightTime), [flightTime]);
   const filteredMalls = useMemo(() => malls.filter(mall => matchesMallFilters(mall, filters)), [filters]);
@@ -81,6 +84,12 @@ function App() {
       <main>
         <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
         <QuickIntentButtons onIntent={applyIntent} />
+        <LocationBar
+          address={userAddress}
+          setAddress={setUserAddress}
+          userCoords={userCoords}
+          setUserCoords={setUserCoords}
+        />
         <FlightTimer flightTime={flightTime} setFlightTime={setFlightTime} availableHours={availableHours} />
 
         <section className="bg-mist/70" id="destacados">
@@ -102,7 +111,7 @@ function App() {
           </div>
         </section>
 
-        <RecommendationQuiz malls={malls} onSelect={setSelectedMall} />
+        <RecommendationQuiz malls={malls} onSelect={setSelectedMall} userCoords={userCoords} />
         <RoutesSection routes={routes} malls={malls} />
         <GalleriesSection />
 

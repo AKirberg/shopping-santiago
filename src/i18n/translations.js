@@ -17,6 +17,12 @@ export const translations = {
       label: "Busco:",
       items: { ropa: "Ropa", outlet: "Outlet", providencia: "Providencia", kids: "Con niños", premium: "Premium", quick: "3 horas", comer: "Comer / Almorzar" },
     },
+    locationBar: {
+      label: "¿Dónde estás?",
+      placeholder: "Ingresa tu dirección, hotel o barrio…",
+      active: "Ubicación activa",
+      hint: "Ingresa tu ubicación para ver los malls más cercanos",
+    },
     flightTimer: {
       label: "Hora de vuelo:",
       hint: "Ingresa la hora y te decimos cuánto tiempo tienes para comprar",
@@ -179,6 +185,12 @@ export const translations = {
       label: "Busco:",
       items: { ropa: "Roupas", outlet: "Outlet", providencia: "Providencia", kids: "Com crianças", premium: "Premium", quick: "3 horas", comer: "Comer / Almoçar" },
     },
+    locationBar: {
+      label: "Onde você está?",
+      placeholder: "Insira seu endereço, hotel ou bairro…",
+      active: "Localização ativa",
+      hint: "Insira sua localização para ver os malls mais próximos",
+    },
     flightTimer: {
       label: "Hora do voo:",
       hint: "Informe o horário e diremos quanto tempo você tem para comprar",
@@ -340,6 +352,12 @@ export const translations = {
     quickIntents: {
       label: "I want:",
       items: { ropa: "Clothing", outlet: "Outlet", providencia: "Providencia", kids: "With kids", premium: "Premium", quick: "3 hours", comer: "Eat / Lunch" },
+    },
+    locationBar: {
+      label: "Where are you?",
+      placeholder: "Enter your address, hotel or neighbourhood…",
+      active: "Location active",
+      hint: "Enter your location to see the nearest malls",
     },
     flightTimer: {
       label: "Flight time:",
