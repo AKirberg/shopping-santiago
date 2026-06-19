@@ -51,7 +51,125 @@
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
     "lat": -33.4175,
-    "lng": -70.6055
+    "lng": -70.6055,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Jumbo",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Forever 21",
+        "cat": "fashion"
+      },
+      {
+        "name": "Bershka",
+        "cat": "fashion"
+      },
+      {
+        "name": "Pull&Bear",
+        "cat": "fashion"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "New Balance",
+        "cat": "sport"
+      },
+      {
+        "name": "Fila",
+        "cat": "sport"
+      },
+      {
+        "name": "iShop (Apple)",
+        "cat": "tech"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Falabella Tech",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Juan Valdez",
+        "cat": "food"
+      },
+      {
+        "name": "TGI Fridays",
+        "cat": "food"
+      },
+      {
+        "name": "Sephora",
+        "cat": "other"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Tous",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "parque-arauco",
@@ -105,7 +223,113 @@
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
     "lat": -33.4023,
-    "lng": -70.5773
+    "lng": -70.5773,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Forever 21",
+        "cat": "fashion"
+      },
+      {
+        "name": "Lacoste",
+        "cat": "fashion"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
+      },
+      {
+        "name": "Hugo Boss",
+        "cat": "fashion"
+      },
+      {
+        "name": "Calvin Klein",
+        "cat": "fashion"
+      },
+      {
+        "name": "Ralph Lauren",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Under Armour",
+        "cat": "sport"
+      },
+      {
+        "name": "iShop (Apple)",
+        "cat": "tech"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Sushi Pop",
+        "cat": "food"
+      },
+      {
+        "name": "Louis Vuitton",
+        "cat": "other"
+      },
+      {
+        "name": "Gucci",
+        "cat": "other"
+      },
+      {
+        "name": "Sephora",
+        "cat": "other"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "alto-las-condes",
@@ -157,7 +381,117 @@
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
     "lat": -33.3909,
-    "lng": -70.5461
+    "lng": -70.5461,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Jumbo",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Louis Vuitton",
+        "cat": "fashion"
+      },
+      {
+        "name": "Hermès",
+        "cat": "fashion"
+      },
+      {
+        "name": "Prada",
+        "cat": "fashion"
+      },
+      {
+        "name": "Michael Kors",
+        "cat": "fashion"
+      },
+      {
+        "name": "Armani",
+        "cat": "fashion"
+      },
+      {
+        "name": "Valentino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "The North Face",
+        "cat": "sport"
+      },
+      {
+        "name": "iShop (Apple)",
+        "cat": "tech"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Crepería del Alto",
+        "cat": "food"
+      },
+      {
+        "name": "Osaka",
+        "cat": "food"
+      },
+      {
+        "name": "Cartier",
+        "cat": "other"
+      },
+      {
+        "name": "Bulgari",
+        "cat": "other"
+      },
+      {
+        "name": "Sephora",
+        "cat": "other"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "casacostanera",
@@ -209,7 +543,73 @@
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
     "lat": -33.3984,
-    "lng": -70.5986
+    "lng": -70.5986,
+    "stores": [
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
+      },
+      {
+        "name": "Guess",
+        "cat": "fashion"
+      },
+      {
+        "name": "Calzedonia",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "PizzaPizza",
+        "cat": "food"
+      },
+      {
+        "name": "Sushi Itto",
+        "cat": "food"
+      },
+      {
+        "name": "Tous",
+        "cat": "other"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mall-sport",
@@ -260,7 +660,89 @@
     "foodLevel": "patio",
     "touristZone": "turistico",
     "lat": -33.3706,
-    "lng": -70.5067
+    "lng": -70.5067,
+    "stores": [
+      {
+        "name": "Decathlon",
+        "cat": "anchor"
+      },
+      {
+        "name": "Columbia",
+        "cat": "fashion"
+      },
+      {
+        "name": "The North Face",
+        "cat": "fashion"
+      },
+      {
+        "name": "Patagonia",
+        "cat": "fashion"
+      },
+      {
+        "name": "Quiksilver",
+        "cat": "fashion"
+      },
+      {
+        "name": "Billabong",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "New Balance",
+        "cat": "sport"
+      },
+      {
+        "name": "Reebok",
+        "cat": "sport"
+      },
+      {
+        "name": "Under Armour",
+        "cat": "sport"
+      },
+      {
+        "name": "Puma",
+        "cat": "sport"
+      },
+      {
+        "name": "Asics",
+        "cat": "sport"
+      },
+      {
+        "name": "Skechers",
+        "cat": "sport"
+      },
+      {
+        "name": "Brooks",
+        "cat": "sport"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Juan Valdez",
+        "cat": "food"
+      },
+      {
+        "name": "GoPro",
+        "cat": "other"
+      },
+      {
+        "name": "Leatherman",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "easton-outlet-mall",
@@ -309,7 +791,73 @@
     "foodLevel": "patio",
     "touristZone": "alternativo",
     "lat": -33.3348,
-    "lng": -70.7122
+    "lng": -70.7122,
+    "stores": [
+      {
+        "name": "Falabella Outlet",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley Outlet",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara Outlet",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M Outlet",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango Outlet",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Kevingston",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas Outlet",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike Outlet",
+        "cat": "sport"
+      },
+      {
+        "name": "Puma Outlet",
+        "cat": "sport"
+      },
+      {
+        "name": "Fila Outlet",
+        "cat": "sport"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "Telepizza",
+        "cat": "food"
+      },
+      {
+        "name": "Skechers Outlet",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "arauco-premium-outlet-buenaventura",
@@ -359,7 +907,73 @@
     "foodLevel": "patio",
     "touristZone": "alternativo",
     "lat": -33.3321,
-    "lng": -70.704
+    "lng": -70.704,
+    "stores": [
+      {
+        "name": "Polo Ralph Lauren",
+        "cat": "fashion"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
+      },
+      {
+        "name": "Calvin Klein",
+        "cat": "fashion"
+      },
+      {
+        "name": "Lacoste",
+        "cat": "fashion"
+      },
+      {
+        "name": "Guess",
+        "cat": "fashion"
+      },
+      {
+        "name": "Levi's",
+        "cat": "fashion"
+      },
+      {
+        "name": "Benetton",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas Outlet",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike Outlet",
+        "cat": "sport"
+      },
+      {
+        "name": "New Balance Outlet",
+        "cat": "sport"
+      },
+      {
+        "name": "Under Armour Outlet",
+        "cat": "sport"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Skechers Outlet",
+        "cat": "other"
+      },
+      {
+        "name": "Swarovski",
+        "cat": "other"
+      },
+      {
+        "name": "Tous",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mallplaza-egana",
@@ -411,7 +1025,93 @@
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
     "lat": -33.4476,
-    "lng": -70.5623
+    "lng": -70.5623,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Jumbo",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Chevignon",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Fila",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Falabella Tech",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Telepizza",
+        "cat": "food"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Pharmaton",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "florida-center",
@@ -461,7 +1161,109 @@
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
     "lat": -33.5104,
-    "lng": -70.6066
+    "lng": -70.6066,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Tottus",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "New Balance",
+        "cat": "sport"
+      },
+      {
+        "name": "Fila",
+        "cat": "sport"
+      },
+      {
+        "name": "iShop (Apple)",
+        "cat": "tech"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Falabella Tech",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Juan Valdez",
+        "cat": "food"
+      },
+      {
+        "name": "Sephora",
+        "cat": "other"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mallplaza-vespucio",
@@ -511,7 +1313,105 @@
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
     "lat": -33.5176,
-    "lng": -70.5984
+    "lng": -70.5984,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Jumbo",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Bershka",
+        "cat": "fashion"
+      },
+      {
+        "name": "Pull&Bear",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Puma",
+        "cat": "sport"
+      },
+      {
+        "name": "Fila",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Falabella Tech",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Sephora",
+        "cat": "other"
+      },
+      {
+        "name": "Farmacia Ahumada",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mallplaza-norte",
@@ -568,7 +1468,101 @@
     "touristZone": "alternativo",
     "airportRoute": true,
     "lat": -33.4014,
-    "lng": -70.6608
+    "lng": -70.6608,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Jumbo",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Chevignon",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "New Balance",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Falabella Tech",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Domino's",
+        "cat": "food"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      },
+      {
+        "name": "Levi's",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "apumanque",
@@ -620,7 +1614,77 @@
     "foodLevel": "patio",
     "touristZone": "turistico",
     "lat": -33.4134,
-    "lng": -70.5727
+    "lng": -70.5727,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
+      },
+      {
+        "name": "Lacoste",
+        "cat": "fashion"
+      },
+      {
+        "name": "Escada",
+        "cat": "fashion"
+      },
+      {
+        "name": "Carolina Herrera",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "iShop (Apple)",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "Sushi Itto",
+        "cat": "food"
+      },
+      {
+        "name": "Il Posto",
+        "cat": "food"
+      },
+      {
+        "name": "Tous",
+        "cat": "other"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Farmacia Ahumada",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "portal-la-dehesa",
@@ -673,7 +1737,77 @@
     "foodLevel": "patio",
     "touristZone": "turistico",
     "lat": -33.3579,
-    "lng": -70.5156
+    "lng": -70.5156,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Jumbo",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "The North Face",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Juan Valdez",
+        "cat": "food"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mallplaza-oeste",
@@ -728,7 +1862,77 @@
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
     "lat": -33.4502,
-    "lng": -70.7563
+    "lng": -70.7563,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Tottus",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Fila",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "arauco-maipu",
@@ -782,7 +1986,105 @@
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
     "lat": -33.4824,
-    "lng": -70.7512
+    "lng": -70.7512,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Jumbo",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Bershka",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "New Balance",
+        "cat": "sport"
+      },
+      {
+        "name": "Fila",
+        "cat": "sport"
+      },
+      {
+        "name": "iShop (Apple)",
+        "cat": "tech"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Falabella Tech",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Sephora",
+        "cat": "other"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Farmacia Ahumada",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "parque-arauco-oriente",
@@ -832,7 +2134,69 @@
     "imageUrl": "/images/malls/parque-arauco-oriente.jpg",
     "touristZone": "turistico",
     "lat": -33.4012,
-    "lng": -70.5754
+    "lng": -70.5754,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Guess",
+        "cat": "fashion"
+      },
+      {
+        "name": "Calvin Klein",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "Sushi Pop",
+        "cat": "food"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Tous",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mallplaza-los-dominicos",
@@ -885,7 +2249,73 @@
     "imageUrl": "/images/malls/mallplaza-los-dominicos.jpg",
     "touristZone": "turistico",
     "lat": -33.4171,
-    "lng": -70.5269
+    "lng": -70.5269,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "The North Face",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Juan Valdez",
+        "cat": "food"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Farmacia Ahumada",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "vivo-los-trapenses",
@@ -937,7 +2367,57 @@
     "imageUrl": "/images/malls/vivo-los-trapenses.jpg",
     "touristZone": "turistico",
     "lat": -33.3571,
-    "lng": -70.5401
+    "lng": -70.5401,
+    "stores": [
+      {
+        "name": "Jumbo",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "Juan Valdez",
+        "cat": "food"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "paseo-quilin",
@@ -989,7 +2469,57 @@
     "imageUrl": "/images/malls/paseo-quilin.jpg",
     "touristZone": "alternativo",
     "lat": -33.4924,
-    "lng": -70.5935
+    "lng": -70.5935,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Unimarc",
+        "cat": "anchor"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Levi's",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Telepizza",
+        "cat": "food"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mallplaza-tobalaba",
@@ -1042,7 +2572,89 @@
     "imageUrl": "/images/malls/mallplaza-tobalaba.jpg",
     "touristZone": "turistico",
     "lat": -33.4304,
-    "lng": -70.5841
+    "lng": -70.5841,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Mango",
+        "cat": "fashion"
+      },
+      {
+        "name": "Forever 21",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Puma",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Falabella Tech",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Pandora",
+        "cat": "other"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "espacio-urbano-gran-avenida",
@@ -1094,7 +2706,45 @@
     "imageUrl": "/images/malls/espacio-urbano-gran-avenida.jpg",
     "touristZone": "alternativo",
     "lat": -33.4917,
-    "lng": -70.6456
+    "lng": -70.6456,
+    "stores": [
+      {
+        "name": "Líder",
+        "cat": "anchor"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Telepizza",
+        "cat": "food"
+      },
+      {
+        "name": "Farmacia Ahumada",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "midmall-maipu",
@@ -1146,7 +2796,45 @@
     "imageUrl": "/images/malls/midmall-maipu.jpg",
     "touristZone": "alternativo",
     "lat": -33.5103,
-    "lng": -70.7401
+    "lng": -70.7401,
+    "stores": [
+      {
+        "name": "Unimarc",
+        "cat": "anchor"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Telepizza",
+        "cat": "food"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mallplaza-alameda",
@@ -1203,7 +2891,81 @@
     "imageUrl": "/images/malls/mallplaza-alameda.jpg",
     "touristZone": "turistico",
     "lat": -33.4573,
-    "lng": -70.6715
+    "lng": -70.6715,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Paris",
+        "cat": "anchor"
+      },
+      {
+        "name": "Tottus",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Levi's",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Fila",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Farmacia Ahumada",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mall-barrio-independencia",
@@ -1257,7 +3019,45 @@
     "imageUrl": "/images/malls/mall-barrio-independencia.jpg",
     "touristZone": "alternativo",
     "lat": -33.4118,
-    "lng": -70.6571
+    "lng": -70.6571,
+    "stores": [
+      {
+        "name": "Unimarc",
+        "cat": "anchor"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "Burger King",
+        "cat": "food"
+      },
+      {
+        "name": "Telepizza",
+        "cat": "food"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mall-arauco-quilicura",
@@ -1309,7 +3109,69 @@
     "imageUrl": "/images/malls/mall-arauco-quilicura.jpg",
     "touristZone": "alternativo",
     "lat": -33.3559,
-    "lng": -70.7026
+    "lng": -70.7026,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Ripley",
+        "cat": "anchor"
+      },
+      {
+        "name": "Tottus",
+        "cat": "anchor"
+      },
+      {
+        "name": "Zara",
+        "cat": "fashion"
+      },
+      {
+        "name": "H&M",
+        "cat": "fashion"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "Samsung",
+        "cat": "tech"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Subway",
+        "cat": "food"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "paseo-san-bernardo",
@@ -1360,7 +3222,49 @@
     "imageUrl": "/images/malls/paseo-san-bernardo.jpg",
     "touristZone": "alternativo",
     "lat": -33.5933,
-    "lng": -70.6992
+    "lng": -70.6992,
+    "stores": [
+      {
+        "name": "Falabella",
+        "cat": "anchor"
+      },
+      {
+        "name": "Unimarc",
+        "cat": "anchor"
+      },
+      {
+        "name": "Americanino",
+        "cat": "fashion"
+      },
+      {
+        "name": "Basement",
+        "cat": "fashion"
+      },
+      {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Nike",
+        "cat": "sport"
+      },
+      {
+        "name": "McDonald's",
+        "cat": "food"
+      },
+      {
+        "name": "KFC",
+        "cat": "food"
+      },
+      {
+        "name": "Telepizza",
+        "cat": "food"
+      },
+      {
+        "name": "Farmacia Cruz Verde",
+        "cat": "other"
+      }
+    ]
   },
   {
     "id": "mut-mercado-urbano-tobalaba",
@@ -1414,6 +3318,48 @@
     "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg",
     "touristZone": "turistico",
     "lat": -33.3873,
-    "lng": -70.5874
+    "lng": -70.5874,
+    "stores": [
+      {
+        "name": "Boutiques de diseñador",
+        "cat": "fashion"
+      },
+      {
+        "name": "Marcas locales emergentes",
+        "cat": "fashion"
+      },
+      {
+        "name": "Restaurantes gourmet",
+        "cat": "food"
+      },
+      {
+        "name": "Starbucks",
+        "cat": "food"
+      },
+      {
+        "name": "Wine bar",
+        "cat": "food"
+      },
+      {
+        "name": "Panadería artesanal",
+        "cat": "food"
+      },
+      {
+        "name": "Café de especialidad",
+        "cat": "food"
+      },
+      {
+        "name": "Galería de arte",
+        "cat": "other"
+      },
+      {
+        "name": "Decoración y diseño",
+        "cat": "other"
+      },
+      {
+        "name": "Libros y papelería",
+        "cat": "other"
+      }
+    ]
   }
 ]

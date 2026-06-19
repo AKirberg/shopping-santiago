@@ -1,4 +1,4 @@
-import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, TrainFront, Utensils, X } from "lucide-react";
+import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, ShoppingBag, TrainFront, Utensils, X } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRoute }) {
@@ -51,6 +51,40 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
               <InfoList title={md.sections.tips} items={mall.tips} positive />
               <InfoList title={md.sections.nearby} items={mall.nearbyAttractions.length ? mall.nearbyAttractions : [md.sections.noData]} />
             </div>
+
+            {mall.stores?.length > 0 && (
+              <div className="mt-6">
+                <h3 className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-ink/40">
+                  <ShoppingBag size={13} /> {md.stores?.title}
+                </h3>
+                <div className="mt-3 grid gap-3">
+                  {["anchor","fashion","sport","tech","food","other"].map(cat => {
+                    const items = mall.stores.filter(s => s.cat === cat);
+                    if (!items.length) return null;
+                    return (
+                      <div key={cat}>
+                        <p className="mb-1.5 text-[10px] font-extrabold uppercase tracking-widest text-ink/30">
+                          {md.stores?.cats?.[cat]}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {items.map(s => (
+                            <span key={s.name} className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
+                              cat === 'anchor' ? 'bg-ink text-white' :
+                              cat === 'food'   ? 'bg-gold/12 text-gold' :
+                              cat === 'tech'   ? 'bg-sky-50 text-sky-700' :
+                              cat === 'sport'  ? 'bg-leaf/10 text-leaf' :
+                              'bg-ink/6 text-ink/65'
+                            }`}>
+                              {s.name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
           <aside>

@@ -122,6 +122,7 @@ export const translations = {
       sections: { bestFor: "Mejor para", notFor: "No ideal para", tips: "Tips turistas", nearby: "Atracciones cercanas", noData: "Sin datos aún" },
       badges: { family: "Familiar", outlet: "Outlet", premium: "Premium", food: "Comida" },
       hoursNote: "Confirma horarios oficiales antes de ir.",
+      stores: { title: "Tiendas destacadas", cats: { anchor: "Tiendas ancla", fashion: "Moda", sport: "Deporte", tech: "Tecnología", food: "Gastronomía", other: "Otros" } },
     },
     mallGrid: {
       empty: "No hay malls para esos filtros.",
@@ -282,6 +283,7 @@ export const translations = {
       sections: { bestFor: "Ideal para", notFor: "Não ideal para", tips: "Dicas turistas", nearby: "Atrações próximas", noData: "Sem dados ainda" },
       badges: { family: "Familiar", outlet: "Outlet", premium: "Premium", food: "Comida" },
       hoursNote: "Confirme os horários oficiais antes de ir.",
+      stores: { title: "Lojas em destaque", cats: { anchor: "Lojas âncora", fashion: "Moda", sport: "Esporte", tech: "Tecnologia", food: "Gastronomia", other: "Outros" } },
     },
     mallGrid: {
       empty: "Nenhum mall para esses filtros.",
@@ -442,6 +444,7 @@ export const translations = {
       sections: { bestFor: "Best for", notFor: "Not ideal for", tips: "Tourist tips", nearby: "Nearby attractions", noData: "No data yet" },
       badges: { family: "Family-friendly", outlet: "Outlet", premium: "Premium", food: "Food" },
       hoursNote: "Confirm official hours before visiting.",
+      stores: { title: "Featured stores", cats: { anchor: "Anchor stores", fashion: "Fashion", sport: "Sport", tech: "Technology", food: "Food & dining", other: "Other" } },
     },
     mallGrid: {
       empty: "No malls match those filters.",
