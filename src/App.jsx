@@ -11,6 +11,7 @@ import QuickIntentButtons from "./components/QuickIntentButtons";
 import MallGrid from "./components/MallGrid";
 import MallFilters from "./components/MallFilters";
 import RecommendationQuiz from "./components/RecommendationQuiz";
+import LastMinutePanel from "./components/LastMinutePanel";
 import RoutesSection from "./components/RoutesSection";
 import CompareMalls from "./components/CompareMalls";
 import TouristTips from "./components/TouristTips";
@@ -92,6 +93,7 @@ function App() {
           malls={malls}
         />
         <FlightTimer flightTime={flightTime} setFlightTime={setFlightTime} availableHours={availableHours} />
+        <LastMinutePanel availableHours={availableHours} malls={malls} onSelectMall={setSelectedMall} />
 
         <section className="bg-mist/70" id="destacados">
           <div className="section-shell">

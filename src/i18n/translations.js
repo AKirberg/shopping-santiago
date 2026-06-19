@@ -26,6 +26,18 @@ export const translations = {
       quizCta: "¿Qué mall me conviene?",
       distLabel: "km",
     },
+    lastMinute: {
+      title: "Compras de último minuto",
+      forShopping: "para comprar",
+      cta: "¿Qué mall me conviene según mi tiempo?",
+      lateMessage: "El tiempo es muy justo. Considera comprar en el aeropuerto o el duty free.",
+      subtitle: {
+        late:  "Ya no alcanza el tiempo — revisa tu traslado al aeropuerto",
+        tight: "Tiempo muy justo — elige malls compactos y cerca",
+        ok:    "Tienes un tiempo razonable — shopping enfocado",
+        good:  "Tienes tiempo de sobra para comprar con calma",
+      },
+    },
     flightTimer: {
       label: "Hora de vuelo:",
       hint: "Ingresa la hora y te decimos cuánto tiempo tienes para comprar",
@@ -197,6 +209,18 @@ export const translations = {
       quizCta: "Qual mall me convém?",
       distLabel: "km",
     },
+    lastMinute: {
+      title: "Compras de última hora",
+      forShopping: "para comprar",
+      cta: "Qual mall me convém com meu tempo?",
+      lateMessage: "O tempo está muito apertado. Considere comprar no aeroporto ou no duty free.",
+      subtitle: {
+        late:  "Já não há tempo — verifique seu traslado ao aeroporto",
+        tight: "Tempo muito apertado — escolha malls compactos e pertos",
+        ok:    "Você tem um tempo razoável — shopping focado",
+        good:  "Você tem tempo de sobra para comprar com calma",
+      },
+    },
     flightTimer: {
       label: "Hora do voo:",
       hint: "Informe o horário e diremos quanto tempo você tem para comprar",
@@ -367,6 +391,18 @@ export const translations = {
       nearbyTitle: "Nearest malls",
       quizCta: "Which mall suits me?",
       distLabel: "km",
+    },
+    lastMinute: {
+      title: "Last-minute shopping",
+      forShopping: "for shopping",
+      cta: "Which mall suits my available time?",
+      lateMessage: "Time is too tight. Consider shopping at the airport or duty free.",
+      subtitle: {
+        late:  "No time left — check your airport transfer",
+        tight: "Very tight — pick compact malls nearby",
+        ok:    "You have a reasonable window — focused shopping",
+        good:  "Plenty of time to shop at your own pace",
+      },
     },
     flightTimer: {
       label: "Flight time:",
