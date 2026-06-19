@@ -125,6 +125,25 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
             <p className="mt-4 rounded-xl border border-ink/8 bg-[#f8faf6] p-3.5 text-xs font-medium leading-5 text-ink/45">
               {md.hoursNote}
             </p>
+            {mall.officialUrl && (
+              <a
+                href={mall.officialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 flex items-center justify-between gap-3 rounded-xl border border-leaf/25 bg-leaf/6 px-4 py-3 transition hover:bg-leaf/12 hover:border-leaf/40"
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-leaf text-white">
+                    <ExternalLink size={13} />
+                  </span>
+                  <div>
+                    <p className="text-xs font-extrabold text-leaf">{md.officialSite}</p>
+                    <p className="text-[10px] text-ink/40 font-medium truncate max-w-[140px]">{mall.officialUrl.replace('https://','')}</p>
+                  </div>
+                </div>
+                <ExternalLink size={13} className="shrink-0 text-leaf/50" />
+              </a>
+            )}
           </aside>
         </div>
       </div>

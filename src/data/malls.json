@@ -169,7 +169,8 @@
         "name": "Tous",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.costaneracenter.cl"
   },
   {
     "id": "parque-arauco",
@@ -329,7 +330,8 @@
         "name": "Pandora",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.parqueArauco.cl"
   },
   {
     "id": "alto-las-condes",
@@ -491,7 +493,8 @@
         "name": "Pandora",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.altolascondes.cl"
   },
   {
     "id": "casacostanera",
@@ -609,7 +612,8 @@
         "name": "Pandora",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.casacostanera.cl"
   },
   {
     "id": "mall-sport",
@@ -742,7 +746,8 @@
         "name": "Leatherman",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.mallsport.cl"
   },
   {
     "id": "easton-outlet-mall",
@@ -857,7 +862,8 @@
         "name": "Skechers Outlet",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.eastonoutlet.cl"
   },
   {
     "id": "arauco-premium-outlet-buenaventura",
@@ -973,7 +979,8 @@
         "name": "Tous",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.araucooutlet.cl"
   },
   {
     "id": "mallplaza-egana",
@@ -1111,7 +1118,8 @@
         "name": "Pharmaton",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://mallplaza.cl/mallplaza-egana"
   },
   {
     "id": "florida-center",
@@ -1263,7 +1271,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.floridacenter.cl"
   },
   {
     "id": "mallplaza-vespucio",
@@ -1411,7 +1420,8 @@
         "name": "Farmacia Ahumada",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://mallplaza.cl/mallplaza-vespucio"
   },
   {
     "id": "mallplaza-norte",
@@ -1562,7 +1572,8 @@
         "name": "Levi's",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://mallplaza.cl/mallplaza-norte"
   },
   {
     "id": "apumanque",
@@ -1684,7 +1695,8 @@
         "name": "Farmacia Ahumada",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.apumanque.cl"
   },
   {
     "id": "portal-la-dehesa",
@@ -1807,7 +1819,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.portallaDehesa.cl"
   },
   {
     "id": "mallplaza-oeste",
@@ -1932,7 +1945,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://mallplaza.cl/mallplaza-oeste"
   },
   {
     "id": "arauco-maipu",
@@ -2084,7 +2098,8 @@
         "name": "Farmacia Ahumada",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.araucomaipu.cl"
   },
   {
     "id": "parque-arauco-oriente",
@@ -2196,7 +2211,8 @@
         "name": "Tous",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.parqueArauco.cl/oriente"
   },
   {
     "id": "mallplaza-los-dominicos",
@@ -2315,7 +2331,8 @@
         "name": "Farmacia Ahumada",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://mallplaza.cl/mallplaza-los-dominicos"
   },
   {
     "id": "vivo-los-trapenses",
@@ -2417,7 +2434,8 @@
         "name": "Pandora",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.vivoloslapenses.cl"
   },
   {
     "id": "paseo-quilin",
@@ -2519,7 +2537,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.paseoQuilin.cl"
   },
   {
     "id": "mallplaza-tobalaba",
@@ -2654,7 +2673,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://mallplaza.cl/mallplaza-tobalaba"
   },
   {
     "id": "espacio-urbano-gran-avenida",
@@ -2744,7 +2764,8 @@
         "name": "Farmacia Ahumada",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.espaciourbano.cl"
   },
   {
     "id": "midmall-maipu",
@@ -2834,7 +2855,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.midmall.cl"
   },
   {
     "id": "mallplaza-alameda",
@@ -2965,7 +2987,8 @@
         "name": "Farmacia Ahumada",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://mallplaza.cl/mallplaza-alameda"
   },
   {
     "id": "mall-barrio-independencia",
@@ -3057,7 +3080,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.mallbarrioindependencia.cl"
   },
   {
     "id": "mall-arauco-quilicura",
@@ -3171,7 +3195,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.araucoquilicura.cl"
   },
   {
     "id": "paseo-san-bernardo",
@@ -3264,7 +3289,8 @@
         "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.paseosanbernardo.cl"
   },
   {
     "id": "mut-mercado-urbano-tobalaba",
@@ -3360,6 +3386,7 @@
         "name": "Libros y papelería",
         "cat": "other"
       }
-    ]
+    ],
+    "officialUrl": "https://www.mut.cl"
   }
 ]
