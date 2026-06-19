@@ -92,8 +92,13 @@ function App() {
           setUserCoords={setUserCoords}
           malls={malls}
         />
-        <FlightTimer flightTime={flightTime} setFlightTime={setFlightTime} availableHours={availableHours} />
-        <LastMinutePanel availableHours={availableHours} malls={malls} onSelectMall={setSelectedMall} />
+        <LastMinutePanel
+          flightTime={flightTime}
+          setFlightTime={setFlightTime}
+          availableHours={availableHours}
+          malls={malls}
+          onSelectMall={setSelectedMall}
+        />
 
         <section className="bg-mist/70" id="destacados">
           <div className="section-shell">
