@@ -30,6 +30,8 @@ export const translations = {
       title: "Compras de último minuto",
       forShopping: "para comprar",
       cta: "¿Qué mall me conviene según mi tiempo?",
+      emptyHint: "Ingresa tu hora de vuelo arriba y te mostramos qué malls te dan tiempo",
+      enterFlightCta: "Ingresar hora de vuelo",
       lateMessage: "El tiempo es muy justo. Considera comprar en el aeropuerto o el duty free.",
       subtitle: {
         late:  "Ya no alcanza el tiempo — revisa tu traslado al aeropuerto",
@@ -213,6 +215,8 @@ export const translations = {
       title: "Compras de última hora",
       forShopping: "para comprar",
       cta: "Qual mall me convém com meu tempo?",
+      emptyHint: "Insira o horário do seu voo acima e mostramos quais malls cabem no seu tempo",
+      enterFlightCta: "Inserir horário do voo",
       lateMessage: "O tempo está muito apertado. Considere comprar no aeroporto ou no duty free.",
       subtitle: {
         late:  "Já não há tempo — verifique seu traslado ao aeroporto",
@@ -396,6 +400,8 @@ export const translations = {
       title: "Last-minute shopping",
       forShopping: "for shopping",
       cta: "Which mall suits my available time?",
+      emptyHint: "Enter your flight time above and we'll show which malls fit your schedule",
+      enterFlightCta: "Enter flight time",
       lateMessage: "Time is too tight. Consider shopping at the airport or duty free.",
       subtitle: {
         late:  "No time left — check your airport transfer",

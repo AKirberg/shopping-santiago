@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { AlertTriangle, ChevronRight, Clock, ShoppingBag, Zap } from "lucide-react";
+import { AlertTriangle, ChevronRight, Clock, Plane, ShoppingBag, Zap } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function parseMinHours(str) {
@@ -37,14 +37,36 @@ export default function LastMinutePanel({ availableHours, malls, onSelectMall })
       .slice(0, status === "tight" ? 3 : 4);
   }, [availableHours, malls, status]);
 
-  if (availableHours === null) return null;
-
   const themes = {
-    late:  { bar: "bg-coral/8 border-coral/20",  badge: "bg-coral text-white",        icon: <AlertTriangle size={16} />, timeColor: "text-coral" },
-    tight: { bar: "bg-gold/8 border-gold/20",     badge: "bg-gold text-white",         icon: <Zap size={16} />,           timeColor: "text-gold" },
-    ok:    { bar: "bg-leaf/6 border-leaf/20",     badge: "bg-leaf text-white",         icon: <Clock size={16} />,         timeColor: "text-leaf" },
-    good:  { bar: "bg-leaf/6 border-leaf/20",     badge: "bg-leaf text-white",         icon: <ShoppingBag size={16} />,   timeColor: "text-leaf" },
+    late:  { bar: "border-coral/20 bg-coral/5",  badge: "bg-coral text-white",       icon: <AlertTriangle size={15} />, timeColor: "text-coral" },
+    tight: { bar: "border-gold/20 bg-gold/5",    badge: "bg-gold text-white",         icon: <Zap size={15} />,          timeColor: "text-gold" },
+    ok:    { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",         icon: <Clock size={15} />,        timeColor: "text-leaf" },
+    good:  { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",         icon: <ShoppingBag size={15} />,  timeColor: "text-leaf" },
   };
+
+  /* ── Empty / no flight time entered ── */
+  if (status === null) {
+    return (
+      <div className="border-b border-ink/8 bg-[#fafaf8]">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-dashed border-ink/15 px-5 py-4">
+            <span className="flex items-center gap-2 rounded-full border border-ink/12 bg-white px-3 py-1.5 text-xs font-extrabold text-ink/40">
+              <ShoppingBag size={13} />
+              {lm.title}
+            </span>
+            <p className="text-xs font-medium text-ink/40">{lm.emptyHint}</p>
+            <button
+              onClick={() => document.querySelector("input[type='time']")?.focus()}
+              className="ml-auto flex items-center gap-1.5 rounded-xl border border-ink/12 bg-white px-3 py-1.5 text-xs font-extrabold text-ink/50 transition hover:border-leaf/40 hover:text-leaf"
+            >
+              <Plane size={12} />
+              {lm.enterFlightCta}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const th = themes[status];
 
