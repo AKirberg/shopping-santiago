@@ -1,4 +1,4 @@
-import { RotateCcw, Search } from "lucide-react";
+import { RotateCcw } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const toggleKeys = ["outlet", "premium", "family", "metro", "food", "gastronomico", "quick", "tourist"];
@@ -13,15 +13,12 @@ function MallFilters({ filters, setFilters, malls }) {
   return (
     <div className="rounded-2xl border border-ink/8 bg-white p-4 shadow-card">
       <div className="grid gap-2.5 md:grid-cols-[1fr_0.6fr_0.6fr_auto]">
-        <label className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/30" size={16} />
-          <input
-            className="control pl-11 text-sm"
-            placeholder={f.placeholder}
-            value={filters.query}
-            onChange={e => setFilters({ ...filters, query: e.target.value })}
-          />
-        </label>
+        <input
+          className="control text-sm"
+          placeholder={f.placeholder}
+          value={filters.query}
+          onChange={e => setFilters({ ...filters, query: e.target.value })}
+        />
         <select className="control text-sm" value={filters.commune} onChange={e => setFilters({ ...filters, commune: e.target.value })}>
           {communes.map(c => <option key={c}>{c}</option>)}
         </select>
