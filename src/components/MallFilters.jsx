@@ -16,7 +16,7 @@ function MallFilters({ filters, setFilters, malls }) {
         <label className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/30" size={16} />
           <input
-            className="control pl-10 text-sm"
+            className="control pl-11 text-sm"
             placeholder={f.placeholder}
             value={filters.query}
             onChange={e => setFilters({ ...filters, query: e.target.value })}
