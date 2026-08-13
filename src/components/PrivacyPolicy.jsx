@@ -8,7 +8,7 @@ const CONTENT = {
     sections: [
       {
         heading: "1. Responsable del tratamiento",
-        body: `Shopping Santiago (en adelante, "el Sitio") es responsable del tratamiento de los datos personales recopilados en este sitio web. Para consultas relacionadas con esta política, puedes escribirnos a: contacto@shoppingsantiago.cl`,
+        body: `Shopeando (en adelante, "el Sitio") es responsable del tratamiento de los datos personales recopilados en este sitio web. Para consultas relacionadas con esta política, puedes escribirnos a: contacto@shopeando.cl`,
       },
       {
         heading: "2. Marco legal aplicable",
@@ -66,7 +66,7 @@ const CONTENT = {
       },
       {
         heading: "9. Tus derechos",
-        body: `De acuerdo con la Ley N° 21.719, tienes los siguientes derechos respecto de tus datos personales:\n\n• Acceso: conocer qué datos tenemos sobre ti.\n• Rectificación: corregir datos inexactos.\n• Supresión: solicitar la eliminación de tus datos.\n• Oposición: oponerte a ciertos tratamientos.\n• Portabilidad: recibir tus datos en formato estructurado.\n• Revocación del consentimiento: cuando el tratamiento se base en él.\n\nDado que el Sitio no almacena datos personales identificables en servidores propios, el ejercicio práctico de estos derechos se limita al dato de preferencia de idioma, que puedes borrar directamente desde la configuración de tu navegador (Herramientas > Almacenamiento > Local Storage).\n\nPara consultas formales, escríbenos a: contacto@shoppingsantiago.cl`,
+        body: `De acuerdo con la Ley N° 21.719, tienes los siguientes derechos respecto de tus datos personales:\n\n• Acceso: conocer qué datos tenemos sobre ti.\n• Rectificación: corregir datos inexactos.\n• Supresión: solicitar la eliminación de tus datos.\n• Oposición: oponerte a ciertos tratamientos.\n• Portabilidad: recibir tus datos en formato estructurado.\n• Revocación del consentimiento: cuando el tratamiento se base en él.\n\nDado que el Sitio no almacena datos personales identificables en servidores propios, el ejercicio práctico de estos derechos se limita al dato de preferencia de idioma, que puedes borrar directamente desde la configuración de tu navegador (Herramientas > Almacenamiento > Local Storage).\n\nPara consultas formales, escríbenos a: contacto@shopeando.cl`,
       },
       {
         heading: "10. Seguridad",
@@ -78,7 +78,7 @@ const CONTENT = {
       },
       {
         heading: "12. Contacto y reclamaciones",
-        body: `Para consultas, solicitudes de ejercicio de derechos o reclamaciones relacionadas con el tratamiento de tus datos, contáctanos en: contacto@shoppingsantiago.cl\n\nSi consideras que el tratamiento de tus datos infringe la normativa vigente, tienes derecho a presentar una reclamación ante la Agencia de Protección de Datos Personales (APDP), una vez que dicha autoridad esté plenamente operativa conforme a la Ley 21.719.`,
+        body: `Para consultas, solicitudes de ejercicio de derechos o reclamaciones relacionadas con el tratamiento de tus datos, contáctanos en: contacto@shopeando.cl\n\nSi consideras que el tratamiento de tus datos infringe la normativa vigente, tienes derecho a presentar una reclamación ante la Agencia de Protección de Datos Personales (APDP), una vez que dicha autoridad esté plenamente operativa conforme a la Ley 21.719.`,
       },
     ],
   },
@@ -88,7 +88,7 @@ const CONTENT = {
     sections: [
       {
         heading: "1. Data Controller",
-        body: `Shopping Santiago ("the Site") is responsible for the processing of personal data collected on this website. For inquiries related to this policy, contact us at: contacto@shoppingsantiago.cl`,
+        body: `Shopeando ("the Site") is responsible for the processing of personal data collected on this website. For inquiries related to this policy, contact us at: contacto@shopeando.cl`,
       },
       {
         heading: "2. Applicable Legal Framework",
@@ -146,7 +146,7 @@ const CONTENT = {
       },
       {
         heading: "9. Your Rights",
-        body: `Under Law No. 21.719, you have the following rights regarding your personal data:\n\n• Access: know what data we hold about you.\n• Rectification: correct inaccurate data.\n• Erasure: request deletion of your data.\n• Objection: object to certain processing activities.\n• Portability: receive your data in a structured format.\n• Withdrawal of consent: where processing is based on consent.\n\nSince the Site does not store identifiable personal data on its own servers, exercising these rights is practically limited to the language preference, which you can delete directly from your browser settings (Tools > Storage > Local Storage).\n\nFor formal inquiries: contacto@shoppingsantiago.cl`,
+        body: `Under Law No. 21.719, you have the following rights regarding your personal data:\n\n• Access: know what data we hold about you.\n• Rectification: correct inaccurate data.\n• Erasure: request deletion of your data.\n• Objection: object to certain processing activities.\n• Portability: receive your data in a structured format.\n• Withdrawal of consent: where processing is based on consent.\n\nSince the Site does not store identifiable personal data on its own servers, exercising these rights is practically limited to the language preference, which you can delete directly from your browser settings (Tools > Storage > Local Storage).\n\nFor formal inquiries: contacto@shopeando.cl`,
       },
       {
         heading: "10. Security",
@@ -158,7 +158,7 @@ const CONTENT = {
       },
       {
         heading: "12. Contact and Complaints",
-        body: `For inquiries, rights requests, or complaints related to data processing, contact us at: contacto@shoppingsantiago.cl\n\nIf you believe that the processing of your data violates applicable regulations, you have the right to file a complaint with the Personal Data Protection Agency (APDP) once that authority is fully operational under Law 21.719.`,
+        body: `For inquiries, rights requests, or complaints related to data processing, contact us at: contacto@shopeando.cl\n\nIf you believe that the processing of your data violates applicable regulations, you have the right to file a complaint with the Personal Data Protection Agency (APDP) once that authority is fully operational under Law 21.719.`,
       },
     ],
   },
@@ -168,7 +168,7 @@ const CONTENT = {
     sections: [
       {
         heading: "1. Responsável pelo tratamento",
-        body: `Shopping Santiago ("o Site") é responsável pelo tratamento dos dados pessoais recolhidos neste website. Para consultas relacionadas com esta política, contacte-nos em: contacto@shoppingsantiago.cl`,
+        body: `Shopeando ("o Site") é responsável pelo tratamento dos dados pessoais recolhidos neste website. Para consultas relacionadas com esta política, contacte-nos em: contacto@shopeando.cl`,
       },
       {
         heading: "2. Marco legal aplicável",
@@ -226,7 +226,7 @@ const CONTENT = {
       },
       {
         heading: "9. Os seus direitos",
-        body: `Ao abrigo da Lei N° 21.719, tem os seguintes direitos relativamente aos seus dados pessoais:\n\n• Acesso: saber que dados temos sobre si.\n• Retificação: corrigir dados inexatos.\n• Supressão: solicitar a eliminação dos seus dados.\n• Oposição: opor-se a certos tratamentos.\n• Portabilidade: receber os seus dados em formato estruturado.\n• Revogação do consentimento: quando o tratamento se baseie nele.\n\nPara consultas formais: contacto@shoppingsantiago.cl`,
+        body: `Ao abrigo da Lei N° 21.719, tem os seguintes direitos relativamente aos seus dados pessoais:\n\n• Acesso: saber que dados temos sobre si.\n• Retificação: corrigir dados inexatos.\n• Supressão: solicitar a eliminação dos seus dados.\n• Oposição: opor-se a certos tratamentos.\n• Portabilidade: receber os seus dados em formato estruturado.\n• Revogação do consentimento: quando o tratamento se baseie nele.\n\nPara consultas formais: contacto@shopeando.cl`,
       },
       {
         heading: "10. Segurança",
@@ -238,7 +238,7 @@ const CONTENT = {
       },
       {
         heading: "12. Contacto e reclamações",
-        body: `Para consultas, pedidos de exercício de direitos ou reclamações: contacto@shoppingsantiago.cl\n\nSe considerar que o tratamento dos seus dados viola a legislação aplicável, tem o direito de apresentar uma reclamação à Agência de Proteção de Dados Pessoais (APDP).`,
+        body: `Para consultas, pedidos de exercício de direitos ou reclamações: contacto@shopeando.cl\n\nSe considerar que o tratamento dos seus dados viola a legislação aplicável, tem o direito de apresentar uma reclamação à Agência de Proteção de Dados Pessoais (APDP).`,
       },
     ],
   },
@@ -319,7 +319,7 @@ function PrivacyPolicy({ onClose }) {
         {/* Footer */}
         <div className="border-t border-ink/8 bg-white/50 px-6 py-4">
           <p className="text-center text-xs text-ink/40">
-            contacto@shoppingsantiago.cl · Shopping Santiago · Santiago, Chile
+            contacto@shopeando.cl · Shopeando · Santiago, Chile
           </p>
         </div>
       </div>
