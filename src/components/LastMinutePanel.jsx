@@ -93,7 +93,7 @@ export default function LastMinutePanel({
             <p className="text-xs font-medium text-ink/40">{lm.emptyHint}</p>
             <button
               onClick={() => setShowInput(true)}
-              className="ml-auto flex items-center gap-1.5 rounded-xl border border-leaf/30 bg-leaf/8 px-3 py-1.5 text-xs font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
+              className="ml-auto flex items-center gap-1.5 rounded-xl border border-leaf/30 bg-leaf/8 px-4 py-2.5 text-xs font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
             >
               <Plane size={12} /> {lm.enterFlightCta}
             </button>
@@ -127,8 +127,8 @@ export default function LastMinutePanel({
               />
             </div>
             <p className="text-xs text-ink/35 hidden sm:block">{ft.hint}</p>
-            <button onClick={handleRemove} className="ml-auto flex items-center gap-1 text-xs font-bold text-ink/30 hover:text-ink/60">
-              <X size={12} />
+            <button onClick={handleRemove} className="ml-auto p-2 text-ink/30 hover:text-ink/60 transition">
+              <X size={14} />
             </button>
           </div>
         </div>
@@ -167,8 +167,8 @@ export default function LastMinutePanel({
                 maxLength={5}
                 className="w-[4rem] bg-transparent text-xs font-bold text-ink outline-none"
               />
-              <button onClick={handleRemove} className="text-ink/25 hover:text-ink/60 transition">
-                <X size={10} />
+              <button onClick={handleRemove} className="p-1.5 text-ink/25 hover:text-ink/60 transition">
+                <X size={12} />
               </button>
             </div>
           </div>
@@ -213,12 +213,12 @@ export default function LastMinutePanel({
 
           {/* Travel to airport selector */}
           <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-ink/6 pt-3">
-            <span className="text-[10px] font-extrabold uppercase tracking-wider text-ink/40">{lm.toAirportLabel}</span>
+            <span className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{lm.toAirportLabel}</span>
             {AIRPORT_OPTIONS.map(min => (
               <button
                 key={min}
                 onClick={() => setMinutesToAirport(min)}
-                className={`rounded-full px-2.5 py-0.5 text-xs font-extrabold transition ${
+                className={`rounded-full px-4 py-2 text-xs font-extrabold transition ${
                   minutesToAirport === min
                     ? "bg-ink text-white"
                     : "border border-ink/12 text-ink/45 hover:border-ink/30"
@@ -276,9 +276,9 @@ function TimeStep({ icon, label, duration, color, bold, deadline }) {
     <div className="flex items-start gap-3">
       <span className="mt-0.5 text-base leading-none">{icon}</span>
       <div>
-        <p className="text-[10px] font-extrabold uppercase tracking-wider text-ink/35">{label}</p>
+        <p className="text-xs font-extrabold uppercase tracking-wider text-ink/35">{label}</p>
         <p className={`text-sm font-extrabold ${color} ${bold ? "text-base" : ""}`}>{duration}</p>
-        {deadline && <p className="text-[10px] font-bold text-ink/40 mt-0.5">{deadline}</p>}
+        {deadline && <p className="text-xs font-bold text-ink/40 mt-0.5">{deadline}</p>}
       </div>
     </div>
   );

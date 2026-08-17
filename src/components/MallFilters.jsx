@@ -39,7 +39,7 @@ function MallFilters({ filters, setFilters, malls }) {
           <button
             key={key}
             onClick={() => setFilters({ ...filters, [key]: !filters[key] })}
-            className={`rounded-full border px-3.5 py-1.5 text-xs font-bold transition ${
+            className={`rounded-full border px-4 py-2.5 text-xs font-bold transition ${
               filters[key]
                 ? "border-leaf bg-leaf text-white"
                 : "border-ink/10 bg-[#f8faf6] text-ink/60 hover:border-leaf/30 hover:text-ink"

@@ -112,12 +112,12 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
               onChange={handleChange}
               onFocus={() => address.length >= 3 && setShowDropdown(true)}
               placeholder={lb.placeholder}
-              className="w-full bg-transparent text-xs font-medium text-ink placeholder-ink/35 outline-none min-w-[180px]"
+              className="w-full bg-transparent text-xs font-medium text-ink placeholder-ink/35 outline-none"
               autoComplete="off"
             />
             {address && (
-              <button onClick={clear} className="shrink-0 text-ink/30 hover:text-ink/60 transition-colors">
-                <X size={12} />
+              <button onClick={clear} className="shrink-0 p-1.5 -mr-1 text-ink/30 hover:text-ink/60 transition-colors">
+                <X size={13} />
               </button>
             )}
             {loading && (
@@ -128,13 +128,13 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
           {showDropdown && suggestions.length > 0 && (
             <ul
               ref={dropdownRef}
-              className="absolute left-0 top-full z-50 mt-1 min-w-[260px] overflow-hidden rounded-xl border border-ink/10 bg-white shadow-card"
+              className="absolute left-0 top-full z-50 mt-1 w-max min-w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border border-ink/10 bg-white shadow-card"
             >
               {suggestions.map((s, i) => (
                 <li key={i}>
                   <button
                     onMouseDown={e => { e.preventDefault(); selectSuggestion(s); }}
-                    className="flex w-full items-start gap-2.5 px-3 py-2.5 text-left text-xs hover:bg-leaf/6 transition-colors"
+                    className="flex w-full items-start gap-2.5 px-3 py-3 text-left text-xs hover:bg-leaf/6 transition-colors"
                   >
                     <MapPin size={12} className="mt-0.5 shrink-0 text-ink/35" />
                     <span className="text-ink/80 leading-snug">{s.label}</span>

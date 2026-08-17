@@ -45,11 +45,11 @@ function Header() {
         <div className="flex items-center gap-2">
           <a className="primary-button hidden py-2.5 text-xs sm:inline-flex" href="#quiz">{t.header.cta}</a>
           <button
-            className="icon-button h-9 w-9 md:hidden"
+            className="icon-button h-11 w-11 md:hidden"
             onClick={() => setOpen(v => !v)}
             aria-label="Menu"
           >
-            {open ? <X size={18} /> : <Menu size={18} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>

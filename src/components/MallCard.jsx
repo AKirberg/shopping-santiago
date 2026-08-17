@@ -114,15 +114,15 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/10 text-ink/50 transition hover:border-leaf/40 hover:text-leaf"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-ink/10 text-ink/50 transition hover:border-leaf/40 hover:text-leaf"
             title={mc.mapsLabel}
             aria-label={mc.mapsLabel}
           >
-            <ExternalLink size={14} />
+            <ExternalLink size={15} />
           </a>
           <button
             onClick={() => onCompare(mall.id)}
-            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition ${
+            className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition ${
               isComparing
                 ? "border-leaf bg-leaf text-white"
                 : "border-ink/10 text-ink/50 hover:border-leaf/40 hover:text-leaf"
@@ -130,7 +130,7 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
             aria-label={mc.viewDetails}
             title="Comparar"
           >
-            <BadgeCheck size={14} />
+            <BadgeCheck size={15} />
           </button>
         </div>
       </div>

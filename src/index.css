@@ -45,7 +45,7 @@ select {
 }
 
 .icon-button {
-  @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 bg-white text-ink transition hover:border-leaf/40 hover:text-leaf;
+  @apply inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink/10 bg-white text-ink transition hover:border-leaf/40 hover:text-leaf;
 }
 
 .primary-button {
@@ -57,9 +57,9 @@ select {
 }
 
 .quiz-pill {
-  @apply rounded-full border border-ink/10 bg-white px-3 py-1.5 text-xs font-bold text-ink/60 transition hover:border-ink/30 hover:text-ink;
+  @apply rounded-full border border-ink/10 bg-white px-4 py-2.5 text-xs font-bold text-ink/60 transition hover:border-ink/30 hover:text-ink;
 }
 
 .quiz-pill-active {
-  @apply rounded-full border border-ink bg-ink px-3 py-1.5 text-xs font-bold text-white;
+  @apply rounded-full border border-ink bg-ink px-4 py-2.5 text-xs font-bold text-white;
 }
