@@ -37,11 +37,15 @@ const CONTENT = {
       },
       {
         heading: "5. Cookies y tecnologías similares",
-        body: `El Sitio no utiliza cookies propias ni de terceros con fines publicitarios o de seguimiento. El único almacenamiento persistente utilizado es localStorage para la preferencia de idioma (véase sección 3b). No empleamos píxeles de seguimiento, fingerprinting ni ninguna tecnología de rastreo de usuarios.`,
+        body: `El Sitio no utiliza cookies propias ni de terceros con fines publicitarios o de seguimiento. El único almacenamiento persistente utilizado es localStorage para la preferencia de idioma (véase sección 3b). No empleamos píxeles de seguimiento, fingerprinting ni ninguna tecnología de rastreo de usuarios.\n\nPara conocer estadísticas de uso (número de visitas, páginas más consultadas, países de acceso y tipos de dispositivos) utilizamos Umami Analytics, un servicio de analítica web que opera sin cookies, sin recopilar datos personales identificables y sin compartir información con terceros con fines publicitarios. Umami cumple con la normativa GDPR y es compatible con la Ley N° 21.719.`,
       },
       {
         heading: "6. Servicios de terceros",
         subsections: [
+          {
+            sub: "Umami Analytics",
+            detail: `El Sitio utiliza Umami Analytics (https://umami.is), un servicio de analítica web respetuoso de la privacidad, operado por Umami Software Inc. con servidores en Estados Unidos y Europa.\n\nUmami registra métricas agregadas de uso: páginas visitadas, país de origen (a partir del idioma del navegador o IP anonimizada), tipo de dispositivo y fuente de referencia. No crea perfiles individuales, no utiliza cookies ni técnicas de fingerprinting y no comparte datos con redes publicitarias.\n\nFinalidad: conocer el uso del Sitio para mejorarlo.\nBase de legitimación: interés legítimo del responsable (art. 13 letra f Ley 21.719).\nPolítica de privacidad de Umami: https://umami.is/privacy`,
+          },
           {
             sub: "Nominatim / OpenStreetMap Foundation",
             detail: `Al ingresar una dirección, tu consulta es enviada a la API pública de Nominatim (https://nominatim.openstreetmap.org), operada por la OpenStreetMap Foundation (OSMF) con servidores en Europa. La OSMF puede registrar temporalmente las consultas con fines operativos. Consulta su política de uso en: https://nominatim.org/release-docs/latest/api/Search/`,
@@ -117,11 +121,15 @@ const CONTENT = {
       },
       {
         heading: "5. Cookies and similar technologies",
-        body: `The Site does not use first-party or third-party cookies for advertising or tracking purposes. The only persistent storage used is localStorage for language preference (see section 3b). We do not use tracking pixels, fingerprinting, or any user tracking technology.`,
+        body: `The Site does not use first-party or third-party cookies for advertising or tracking purposes. The only persistent storage used is localStorage for language preference (see section 3b). We do not use tracking pixels, fingerprinting, or any user tracking technology.\n\nTo understand how the Site is used (number of visits, most-viewed pages, countries of origin, and device types) we use Umami Analytics, a web analytics service that operates without cookies, without collecting identifiable personal data, and without sharing information with third parties for advertising purposes. Umami complies with GDPR and is compatible with Chilean Law No. 21.719.`,
       },
       {
         heading: "6. Third-party services",
         subsections: [
+          {
+            sub: "Umami Analytics",
+            detail: `The Site uses Umami Analytics (https://umami.is), a privacy-respecting web analytics service operated by Umami Software Inc. with servers in the United States and Europe.\n\nUmami records aggregated usage metrics: pages visited, country of origin (derived from browser language or anonymized IP), device type, and referral source. It does not create individual profiles, does not use cookies or fingerprinting techniques, and does not share data with advertising networks.\n\nPurpose: understand Site usage in order to improve it.\nLegal basis: legitimate interest of the data controller.\nUmami Privacy Policy: https://umami.is/privacy`,
+          },
           {
             sub: "Nominatim / OpenStreetMap Foundation",
             detail: `When you enter an address, your query is sent to the Nominatim public API (https://nominatim.openstreetmap.org), operated by the OpenStreetMap Foundation (OSMF) with servers in Europe. OSMF may temporarily log queries for operational purposes.`,
@@ -197,11 +205,15 @@ const CONTENT = {
       },
       {
         heading: "5. Cookies e tecnologias similares",
-        body: `O Site não utiliza cookies próprios ou de terceiros para fins publicitários ou de rastreamento. O único armazenamento persistente é o localStorage para a preferência de idioma (ver secção 3b). Não utilizamos pixels de rastreamento, fingerprinting nem qualquer tecnologia de rastreamento de utilizadores.`,
+        body: `O Site não utiliza cookies próprios ou de terceiros para fins publicitários ou de rastreamento. O único armazenamento persistente é o localStorage para a preferência de idioma (ver secção 3b). Não utilizamos pixels de rastreamento, fingerprinting nem qualquer tecnologia de rastreamento de utilizadores.\n\nPara compreender como o Site é utilizado (número de visitas, páginas mais consultadas, países de origem e tipos de dispositivos) utilizamos o Umami Analytics, um serviço de análise web que funciona sem cookies, sem recolher dados pessoais identificáveis e sem partilhar informações com terceiros para fins publicitários. O Umami cumpre o RGPD e é compatível com a Lei N° 21.719.`,
       },
       {
         heading: "6. Serviços de terceiros",
         subsections: [
+          {
+            sub: "Umami Analytics",
+            detail: `O Site utiliza o Umami Analytics (https://umami.is), um serviço de análise web respeitador da privacidade, operado pela Umami Software Inc. com servidores nos Estados Unidos e na Europa.\n\nO Umami regista métricas agregadas de utilização: páginas visitadas, país de origem (a partir do idioma do navegador ou IP anonimizado), tipo de dispositivo e fonte de referência. Não cria perfis individuais, não utiliza cookies nem técnicas de fingerprinting e não partilha dados com redes publicitárias.\n\nFinalidade: conhecer a utilização do Site para o melhorar.\nBase legal: interesse legítimo do responsável pelo tratamento.\nPolítica de privacidade do Umami: https://umami.is/privacy`,
+          },
           {
             sub: "Nominatim / OpenStreetMap Foundation",
             detail: `Ao inserir um endereço, a sua consulta é enviada à API pública do Nominatim (https://nominatim.openstreetmap.org), operada pela OpenStreetMap Foundation com servidores na Europa.`,
