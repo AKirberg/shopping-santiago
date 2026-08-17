@@ -1,3 +1,4 @@
+// @refresh reset
 import { createContext, useContext, useState } from "react";
 import { translations } from "./translations";
 
