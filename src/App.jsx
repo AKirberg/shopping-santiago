@@ -32,12 +32,16 @@ function App() {
   const [compareIds, setCompareIds] = useState(["costanera-center", "parque-arauco"]);
   const [flightTime, setFlightTime] = useState("");
   const [minutesToAirport, setMinutesToAirport] = useState(45);
+  const [flightType, setFlightType] = useState("international");
   const [userAddress, setUserAddress] = useState("");
   const [userCoords, setUserCoords] = useState(null);
 
   const timeBreakdown = useMemo(
-    () => computeTimeBreakdown(flightTime, minutesToAirport),
-    [flightTime, minutesToAirport]
+    () => computeTimeBreakdown(
+      flightTime, minutesToAirport, 20,
+      flightType === "domestic" ? 120 : 240
+    ),
+    [flightTime, minutesToAirport, flightType]
   );
   const availableHours = timeBreakdown?.availableHours ?? null;
   const filteredMalls = useMemo(() => malls.filter(mall => matchesMallFilters(mall, filters)), [filters]);
@@ -94,6 +98,8 @@ function App() {
           timeBreakdown={timeBreakdown}
           minutesToAirport={minutesToAirport}
           setMinutesToAirport={setMinutesToAirport}
+          flightType={flightType}
+          setFlightType={setFlightType}
           malls={malls}
           onSelectMall={setSelectedMall}
         />

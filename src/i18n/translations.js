@@ -51,6 +51,9 @@ export const translations = {
       },
       toAirportLabel: "Viaje al aeropuerto:",
       toAirportOptions: { "30": "30 min", "45": "45 min", "60": "1h", "90": "1h 30min" },
+      flightTypeLabel: "Tipo de vuelo:",
+      flightTypeIntl: "Internacional (4h)",
+      flightTypeDomestic: "Nacional (2h)",
     },
     flightTimer: {
       label: "Hora de vuelo:", example: "ej: 20:30",
@@ -249,6 +252,9 @@ export const translations = {
       },
       toAirportLabel: "Viagem ao aeroporto:",
       toAirportOptions: { "30": "30 min", "45": "45 min", "60": "1h", "90": "1h 30min" },
+      flightTypeLabel: "Tipo de voo:",
+      flightTypeIntl: "Internacional (4h)",
+      flightTypeDomestic: "Nacional (2h)",
     },
     flightTimer: {
       label: "Hora do voo:", example: "ex: 20:30",
@@ -447,6 +453,9 @@ export const translations = {
       },
       toAirportLabel: "Travel to airport:",
       toAirportOptions: { "30": "30 min", "45": "45 min", "60": "1h", "90": "1h 30min" },
+      flightTypeLabel: "Flight type:",
+      flightTypeIntl: "International (4h)",
+      flightTypeDomestic: "Domestic (2h)",
     },
     flightTimer: {
       label: "Flight time:", example: "e.g. 20:30",

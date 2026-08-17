@@ -1,7 +1,8 @@
 export const BOARDING_CLOSE_MIN = 30; // boarding closes 30 min before departure
-export const CHECKIN_SECURITY_MIN = 60; // check-in + security buffer
 export const DEFAULT_TRAVEL_TO_MALL_MIN = 20;
 export const DEFAULT_TRAVEL_TO_AIRPORT_MIN = 45;
+export const AIRPORT_BUFFER_INTERNATIONAL = 240; // 4h — international flights
+export const AIRPORT_BUFFER_DOMESTIC = 120;      // 2h — domestic flights
 
 /**
  * Compute full time breakdown given a flight departure time string ("HH:MM")
@@ -18,7 +19,12 @@ export const DEFAULT_TRAVEL_TO_AIRPORT_MIN = 45;
  *  - minutesToAirport: number
  *  - travelToMallMin: number
  */
-export function computeTimeBreakdown(flightTimeStr, minutesToAirport = DEFAULT_TRAVEL_TO_AIRPORT_MIN, travelToMallMin = DEFAULT_TRAVEL_TO_MALL_MIN) {
+export function computeTimeBreakdown(
+  flightTimeStr,
+  minutesToAirport = DEFAULT_TRAVEL_TO_AIRPORT_MIN,
+  travelToMallMin = DEFAULT_TRAVEL_TO_MALL_MIN,
+  airportBufferMin = AIRPORT_BUFFER_INTERNATIONAL,
+) {
   if (!flightTimeStr) return null;
 
   const [h, m] = flightTimeStr.split(":").map(Number);
@@ -29,11 +35,11 @@ export function computeTimeBreakdown(flightTimeStr, minutesToAirport = DEFAULT_T
   // Handle next-day flights (if departure is earlier than now, assume next day)
   if (departureAbsMin < nowMin) departureAbsMin += 24 * 60;
 
-  const boardingClosesMin = departureAbsMin - BOARDING_CLOSE_MIN;
-  const mustArriveAirportMin = boardingClosesMin - CHECKIN_SECURITY_MIN;
-  const mustLeaveMallMin = mustArriveAirportMin - minutesToAirport;
-  const mallArrivalMin = nowMin + travelToMallMin;
-  const shoppingMin = mustLeaveMallMin - mallArrivalMin;
+  const boardingClosesMin    = departureAbsMin - BOARDING_CLOSE_MIN;
+  const mustArriveAirportMin = departureAbsMin - airportBufferMin;
+  const mustLeaveMallMin     = mustArriveAirportMin - minutesToAirport;
+  const mallArrivalMin       = nowMin + travelToMallMin;
+  const shoppingMin          = mustLeaveMallMin - mallArrivalMin;
 
   return {
     nowMin,
@@ -43,13 +49,14 @@ export function computeTimeBreakdown(flightTimeStr, minutesToAirport = DEFAULT_T
     mustLeaveMallMin,
     mallArrivalMin,
     shoppingMin,
+    airportBufferMin,
     availableHours: shoppingMin / 60,
     minutesToAirport,
     travelToMallMin,
-    departureTime: absMinToHHMM(departureAbsMin),
-    boardingTime: absMinToHHMM(boardingClosesMin),
-    mustArriveAirportTime: absMinToHHMM(mustArriveAirportMin),
-    mustLeaveMallTime: absMinToHHMM(mustLeaveMallMin),
+    departureTime:          absMinToHHMM(departureAbsMin),
+    boardingTime:           absMinToHHMM(boardingClosesMin),
+    mustArriveAirportTime:  absMinToHHMM(mustArriveAirportMin),
+    mustLeaveMallTime:      absMinToHHMM(mustLeaveMallMin),
   };
 }
 

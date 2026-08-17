@@ -23,20 +23,22 @@ const AIRPORT_OPTIONS = [30, 45, 60, 90];
 export default function LastMinutePanel({
   flightTime, setFlightTime,
   timeBreakdown, minutesToAirport, setMinutesToAirport,
+  flightType, setFlightType,
   malls, onSelectMall,
 }) {
   const [showInput, setShowInput] = useState(false);
   const [rawTime, setRawTime] = useState(flightTime || "");
+  const { t } = useLanguage();
+  const lm = t.lastMinute;
+  const ft = t.flightTimer;
 
   function handleTimeChange(e) {
     let v = e.target.value.replace(/[^\d:]/g, "");
-    // auto-insert colon after 2 digits
     if (v.length === 2 && !v.includes(":") && e.nativeEvent.inputType !== "deleteContentBackward") {
       v = v + ":";
     }
     if (v.length > 5) v = v.slice(0, 5);
     setRawTime(v);
-    // only propagate valid HH:MM
     if (/^\d{2}:\d{2}$/.test(v)) {
       const [h, m] = v.split(":").map(Number);
       if (h >= 0 && h <= 23 && m >= 0 && m <= 59) setFlightTime(v);
@@ -50,11 +52,8 @@ export default function LastMinutePanel({
     setRawTime("");
     setShowInput(false);
   }
-  const { t } = useLanguage();
-  const lm = t.lastMinute;
-  const ft = t.flightTimer;
 
-  const bd = timeBreakdown; // shorthand
+  const bd = timeBreakdown;
   const availableHours = bd?.availableHours ?? null;
 
   const status =
@@ -73,13 +72,55 @@ export default function LastMinutePanel({
   }, [availableHours, malls, status]);
 
   const themes = {
-    late:  { bar: "border-coral/20 bg-coral/5",  badge: "bg-coral text-white",      icon: <AlertTriangle size={14} />, timeColor: "text-coral",  ctaCls: "border-coral/35 bg-coral/8 text-coral hover:bg-coral hover:text-white" },
-    tight: { bar: "border-gold/20 bg-gold/5",    badge: "bg-gold text-white",        icon: <Zap size={14} />,           timeColor: "text-gold",   ctaCls: "border-gold/35 bg-gold/8 text-gold hover:bg-gold hover:text-white" },
-    ok:    { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",        icon: <Clock size={14} />,         timeColor: "text-leaf",   ctaCls: "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white" },
-    good:  { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",        icon: <ShoppingBag size={14} />,   timeColor: "text-leaf",   ctaCls: "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white" },
+    late:  { bar: "border-coral/20 bg-coral/5",  badge: "bg-coral text-white",    icon: <AlertTriangle size={14} />, timeColor: "text-coral",  ctaCls: "border-coral/35 bg-coral/8 text-coral hover:bg-coral hover:text-white" },
+    tight: { bar: "border-gold/20 bg-gold/5",    badge: "bg-gold text-white",      icon: <Zap size={14} />,           timeColor: "text-gold",   ctaCls: "border-gold/35 bg-gold/8 text-gold hover:bg-gold hover:text-white" },
+    ok:    { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",      icon: <Clock size={14} />,         timeColor: "text-leaf",   ctaCls: "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white" },
+    good:  { bar: "border-leaf/20 bg-leaf/5",    badge: "bg-leaf text-white",      icon: <ShoppingBag size={14} />,   timeColor: "text-leaf",   ctaCls: "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white" },
   };
 
   const inputVisible = showInput || !!flightTime;
+
+  /* ── Shared: flight-type + airport-travel selectors ── */
+  function ConfigRow() {
+    return (
+      <div className="flex flex-wrap gap-x-6 gap-y-3">
+        {/* Flight type */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{lm.flightTypeLabel}</span>
+          <div className="flex gap-1">
+            {[["international", lm.flightTypeIntl], ["domestic", lm.flightTypeDomestic]].map(([key, label]) => (
+              <button
+                key={key}
+                onClick={() => setFlightType(key)}
+                className={`rounded-full px-3 py-2 text-xs font-extrabold transition ${
+                  flightType === key ? "bg-ink text-white" : "border border-ink/12 text-ink/45 hover:border-ink/30"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+        {/* Travel to airport */}
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{lm.toAirportLabel}</span>
+          <div className="flex gap-1">
+            {AIRPORT_OPTIONS.map(min => (
+              <button
+                key={min}
+                onClick={() => setMinutesToAirport(min)}
+                className={`rounded-full px-3 py-2 text-xs font-extrabold transition ${
+                  minutesToAirport === min ? "bg-ink text-white" : "border border-ink/12 text-ink/45 hover:border-ink/30"
+                }`}
+              >
+                {lm.toAirportOptions[String(min)]}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   /* ── State 1: no flight time, input not shown ── */
   if (!inputVisible) {
@@ -108,28 +149,35 @@ export default function LastMinutePanel({
     return (
       <div className="border-b border-ink/8 bg-[#fafaf8]">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-leaf/25 bg-white px-5 py-4 shadow-sm">
-            <span className="flex items-center gap-2 text-xs font-extrabold text-ink/40">
-              <ShoppingBag size={13} /> {lm.title}
-            </span>
-            <div className="flex items-center gap-2 ml-2">
-              <Plane size={13} className="text-leaf shrink-0" />
-              <span className="text-xs font-extrabold text-ink/50">{ft.label}</span>
-              <input
-                type="text"
-                inputMode="numeric"
-                value={rawTime}
-                onChange={handleTimeChange}
-                placeholder="20:30"
-                autoFocus
-                maxLength={5}
-                className="w-20 rounded-xl border border-ink/12 bg-[#f8faf6] px-3 py-1.5 text-xs font-bold text-ink outline-none transition focus:border-leaf focus:ring-2 focus:ring-leaf/15"
-              />
+          <div className="rounded-2xl border border-leaf/25 bg-white px-5 py-4 shadow-sm">
+            {/* Config row: type + airport travel FIRST */}
+            <div className="mb-4 pb-3 border-b border-ink/6">
+              <ConfigRow />
             </div>
-            <p className="text-xs text-ink/35 hidden sm:block">{ft.hint}</p>
-            <button onClick={handleRemove} className="ml-auto p-2 text-ink/30 hover:text-ink/60 transition">
-              <X size={14} />
-            </button>
+            {/* Hour input row */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="flex items-center gap-2 text-xs font-extrabold text-ink/40">
+                <ShoppingBag size={13} /> {lm.title}
+              </span>
+              <div className="flex items-center gap-2 ml-2">
+                <Plane size={13} className="text-leaf shrink-0" />
+                <span className="text-xs font-extrabold text-ink/50">{ft.label}</span>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={rawTime}
+                  onChange={handleTimeChange}
+                  placeholder="20:30"
+                  autoFocus
+                  maxLength={5}
+                  className="w-20 rounded-xl border border-ink/12 bg-[#f8faf6] px-3 py-1.5 text-xs font-bold text-ink outline-none transition focus:border-leaf focus:ring-2 focus:ring-leaf/15"
+                />
+              </div>
+              <p className="text-xs text-ink/35 hidden sm:block">{ft.hint}</p>
+              <button onClick={handleRemove} className="ml-auto p-2 text-ink/30 hover:text-ink/60 transition">
+                <X size={14} />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -138,6 +186,7 @@ export default function LastMinutePanel({
 
   /* ── State 3: flight time active, show full breakdown ── */
   const th = themes[status];
+  const airportBufferMin = bd?.airportBufferMin ?? 240;
 
   return (
     <div className={`border-b ${th.bar}`}>
@@ -176,15 +225,20 @@ export default function LastMinutePanel({
 
         {/* Time breakdown timeline */}
         <div className="mb-4 rounded-2xl border border-ink/8 bg-white px-5 py-4">
+
+          {/* Config row at the TOP — type + airport travel */}
+          <div className="mb-4 pb-3 border-b border-ink/6">
+            <ConfigRow />
+          </div>
+
+          {/* Timeline steps */}
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Stage 1: Travel to mall */}
             <TimeStep
               icon="🚇"
               label={lm.breakdown.travelToMall}
               duration={fmtMin(bd.travelToMallMin)}
               color="text-ink/50"
             />
-            {/* Stage 2: Shopping window */}
             <TimeStep
               icon="🛍"
               label={lm.breakdown.shopping}
@@ -193,7 +247,6 @@ export default function LastMinutePanel({
               bold
               deadline={bd.mustLeaveMallTime ? `${lm.breakdown.leaveMall} ${bd.mustLeaveMallTime}` : null}
             />
-            {/* Stage 3: Travel to airport */}
             <TimeStep
               icon="🚕"
               label={lm.breakdown.travelToAirport}
@@ -201,32 +254,13 @@ export default function LastMinutePanel({
               color="text-ink/50"
               deadline={bd.mustArriveAirportTime ? `${lm.breakdown.arriveAirport} ${bd.mustArriveAirportTime}` : null}
             />
-            {/* Stage 4: Airport + boarding */}
             <TimeStep
               icon="✈️"
               label={`${lm.breakdown.checkin} · ${lm.breakdown.boarding}`}
-              duration={`90min`}
+              duration={fmtMin(airportBufferMin)}
               color="text-ink/50"
               deadline={`${lm.breakdown.departure} ${bd.departureTime}`}
             />
-          </div>
-
-          {/* Travel to airport selector */}
-          <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-ink/6 pt-3">
-            <span className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{lm.toAirportLabel}</span>
-            {AIRPORT_OPTIONS.map(min => (
-              <button
-                key={min}
-                onClick={() => setMinutesToAirport(min)}
-                className={`rounded-full px-4 py-2 text-xs font-extrabold transition ${
-                  minutesToAirport === min
-                    ? "bg-ink text-white"
-                    : "border border-ink/12 text-ink/45 hover:border-ink/30"
-                }`}
-              >
-                {lm.toAirportOptions[String(min)]}
-              </button>
-            ))}
           </div>
         </div>
 
