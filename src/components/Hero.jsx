@@ -1,14 +1,9 @@
-import { ArrowRight, Compass, MapPinned } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
-function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
+function Hero({ onIntent }) {
   const { t } = useLanguage();
   const h = t.hero;
-
-  const stats = [
-    { icon: Compass, value: String(mallCount), label: h.statMalls, color: "text-coral" },
-    { icon: MapPinned, value: String(routeCount), label: h.statRoutes, color: "text-leaf" },
-  ];
 
   return (
     <section id="inicio" className="relative overflow-hidden bg-mist text-ink">
@@ -18,7 +13,7 @@ function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
       />
       <div className="pointer-events-none absolute inset-0 bg-white/30" />
       <div className="section-shell relative py-12 lg:py-16">
-        <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div className="grid gap-10">
           <div className="max-w-2xl">
             <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-ink/50">{h.eyebrow}</p>
             <h1 className="mt-4 font-display text-5xl font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">
@@ -35,16 +30,6 @@ function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
                 {h.secondaryAction}
               </a>
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 lg:grid-cols-1 lg:w-36">
-            {stats.map(({ icon: Icon, value, label, color }) => (
-              <div key={label} className="rounded-2xl border border-ink/10 bg-white/60 p-4 backdrop-blur-sm">
-                <Icon size={16} className={`${color} opacity-90`} />
-                <p className="mt-2.5 text-2xl font-extrabold text-ink">{value}</p>
-                <p className="mt-0.5 text-xs font-bold text-ink/50">{label}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
