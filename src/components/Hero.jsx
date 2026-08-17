@@ -1,4 +1,4 @@
-import { ArrowRight, Compass, Gift, MapPinned } from "lucide-react";
+import { ArrowRight, Compass, MapPinned } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
@@ -8,7 +8,6 @@ function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
   const stats = [
     { icon: Compass, value: String(mallCount), label: h.statMalls, color: "text-coral" },
     { icon: MapPinned, value: String(routeCount), label: h.statRoutes, color: "text-leaf" },
-    { icon: Gift, value: "100%", label: h.statMode, color: "text-gold" },
   ];
 
   return (
@@ -38,7 +37,7 @@ function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 lg:grid-cols-1 lg:w-36">
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-1 lg:w-36">
             {stats.map(({ icon: Icon, value, label, color }) => (
               <div key={label} className="rounded-2xl border border-ink/10 bg-white/60 p-4 backdrop-blur-sm">
                 <Icon size={16} className={`${color} opacity-90`} />
