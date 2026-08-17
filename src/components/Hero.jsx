@@ -6,30 +6,69 @@ function Hero({ onIntent }) {
   const h = t.hero;
 
   return (
-    <section id="inicio" className="relative overflow-hidden bg-mist text-ink">
+    <section id="inicio" className="relative overflow-hidden text-white">
+
+      {/* ── Layer 1: duotone image (grayscale + green bg-blend) ── */}
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero-mall.png')" }}
+        style={{
+          backgroundImage: "url('/images/hero-mall.png')",
+          backgroundColor: "#15803d",
+          backgroundBlendMode: "luminosity",
+          filter: "grayscale(100%) contrast(1.25) brightness(0.85)",
+        }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-white/30" />
-      <div className="section-shell relative py-12 lg:py-16">
-        <div className="grid gap-10">
-          <div className="max-w-2xl">
-            <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-ink/50">{h.eyebrow}</p>
-            <h1 className="mt-4 font-display text-5xl font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">
-              {h.title}
-            </h1>
-            <p className="mt-4 text-base leading-7 text-ink/65 sm:text-lg">
-              {h.subtitle}
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#quiz" className="primary-button bg-ink text-white hover:bg-coral hover:text-white">
-                {h.primaryAction} <ArrowRight size={16} />
-              </a>
-              <a href="#rutas" className="secondary-button border-ink/20 bg-white/60 text-ink hover:border-ink/40 hover:bg-white/80">
-                {h.secondaryAction}
-              </a>
-            </div>
+
+      {/* ── Layer 2: bold green color wash — gives the POP tint ── */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "rgba(21, 128, 61, 0.42)" }}
+      />
+
+      {/* ── Layer 3: halftone dot grid ── */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.28) 1.5px, transparent 1.5px)",
+          backgroundSize: "13px 13px",
+        }}
+      />
+
+      {/* ── Layer 4: dark gradient for text contrast (left → right) ── */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.48) 38%, rgba(0,0,0,0.14) 65%, transparent 100%)",
+        }}
+      />
+
+      {/* ── Content ── */}
+      <div className="section-shell relative py-12 lg:py-20">
+        <div className="max-w-2xl">
+          <p className="text-[10px] font-extrabold uppercase tracking-[0.26em] text-white/55">
+            {h.eyebrow}
+          </p>
+          <h1 className="mt-3 font-display text-5xl font-extrabold leading-[1.0] drop-shadow-sm sm:text-6xl lg:text-7xl">
+            {h.title}
+          </h1>
+          <p className="mt-4 text-base font-medium leading-7 text-white/80 drop-shadow-sm sm:text-lg">
+            {h.subtitle}
+          </p>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href="#quiz"
+              className="primary-button bg-white text-ink hover:bg-leaf hover:text-white border-transparent"
+            >
+              {h.primaryAction} <ArrowRight size={16} />
+            </a>
+            <a
+              href="#rutas"
+              className="secondary-button border-white/35 bg-white/10 text-white hover:border-white/60 hover:bg-white/20 backdrop-blur-sm"
+            >
+              {h.secondaryAction}
+            </a>
           </div>
         </div>
       </div>
