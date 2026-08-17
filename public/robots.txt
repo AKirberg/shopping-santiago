@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Allow: /mall/
 
 Sitemap: https://www.shopeando.cl/sitemap.xml
