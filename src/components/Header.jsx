@@ -28,7 +28,7 @@ function Header() {
               <ShoppingBag size={18} />
             </span>
             <span>
-              <span className="block text-sm font-extrabold leading-tight">Shopping Santiago</span>
+              <span className="block text-sm font-extrabold leading-tight">Shopeando</span>
               <span className="flex items-center gap-1 text-xs font-semibold text-ink/45">
                 <MapPin size={11} /> {t.header.subtitle}
               </span>

@@ -7,7 +7,7 @@ export const translations = {
     },
     hero: {
       eyebrow: "Turismo de compras en Santiago de Chile",
-      title: "Shopping Santiago",
+      title: "Shopeando",
       subtitle: "Encuentra el mejor mall, outlet o ruta de compras según tu ubicación, presupuesto y tiempo disponible.",
       primaryAction: "¿Qué mall me conviene?",
       secondaryAction: "Ver rutas recomendadas",
@@ -172,7 +172,7 @@ export const translations = {
       allTitle: "Explora malls y outlets",
     },
     footer: {
-      text: "Shopping Santiago · Guía de compras para turistas en Santiago de Chile",
+      text: "Shopeando · Guía de compras para turistas en Santiago de Chile",
     },
     galleries: {
       eyebrow: "Centro Histórico",
@@ -204,7 +204,7 @@ export const translations = {
     },
     hero: {
       eyebrow: "Turismo de compras em Santiago do Chile",
-      title: "Shopping Santiago",
+      title: "Shopeando",
       subtitle: "Encontre o melhor mall, outlet ou rota de compras de acordo com sua localização, orçamento e tempo disponível.",
       primaryAction: "Qual mall é ideal para mim?",
       secondaryAction: "Ver rotas recomendadas",
@@ -369,7 +369,7 @@ export const translations = {
       allTitle: "Explore malls e outlets",
     },
     footer: {
-      text: "Shopping Santiago · Guia de compras para turistas em Santiago do Chile",
+      text: "Shopeando · Guia de compras para turistas em Santiago do Chile",
     },
     galleries: {
       eyebrow: "Centro Histórico",
@@ -401,7 +401,7 @@ export const translations = {
     },
     hero: {
       eyebrow: "Shopping tourism in Santiago, Chile",
-      title: "Shopping Santiago",
+      title: "Shopeando",
       subtitle: "Find the best mall, outlet or shopping route based on your location, budget and available time.",
       primaryAction: "Which mall suits me?",
       secondaryAction: "View recommended routes",
@@ -566,7 +566,7 @@ export const translations = {
       allTitle: "Explore malls & outlets",
     },
     footer: {
-      text: "Shopping Santiago · Tourist shopping guide for Santiago, Chile",
+      text: "Shopeando · Tourist shopping guide for Santiago, Chile",
     },
     galleries: {
       eyebrow: "Historic Downtown",
