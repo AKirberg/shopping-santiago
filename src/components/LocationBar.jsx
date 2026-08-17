@@ -56,6 +56,7 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState(address || "");
   const [history, setHistory] = useState(loadHistory);
+  const [focusedMall, setFocusedMall] = useState(null);
   const inputRef = useRef(null);
   const { t } = useLanguage();
   const lb = t.locationBar;
@@ -115,6 +116,7 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
 
   function closeModal() {
     setOpen(false);
+    setFocusedMall(null);
     /* If no coords selected, revert draft to last confirmed address */
     if (!userCoords) setDraft(address || "");
   }
@@ -259,62 +261,69 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
               </ul>
             )}
 
-            {/* Nearby malls */}
+            {/* Nearby malls — list OR detail */}
             {userCoords && nearbyMalls.length > 0 && (
               <div className="border-t border-ink/6 px-5 py-4">
-                <p className="mb-3 text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
-                  {lb.nearbyTitle}
-                </p>
-                <div className="grid gap-2 grid-cols-1 sm:grid-cols-2">
-                  {nearbyMalls.map((mall, i) => {
-                    const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`;
-                    const isNearest = i === 0;
-                    return (
-                      <a
-                        key={mall.id}
-                        href={mapsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center gap-3 rounded-2xl border px-3.5 py-2.5 transition ${
-                          isNearest
-                            ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/12 col-span-full sm:col-span-2"
-                            : "border-ink/8 bg-ink/2 hover:border-leaf/30 hover:bg-leaf/4"
-                        }`}
-                      >
-                        <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-extrabold text-white ${
-                          isNearest ? "bg-leaf" : "bg-ink/20"
-                        }`}>{i + 1}</span>
-                        <div className="min-w-0 flex-1">
-                          <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
-                          <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
-                            {mall.commune}
-                            <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
-                          </p>
-                        </div>
-                        {isNearest && (
-                          <span className="shrink-0 rounded-xl bg-leaf px-3 py-1.5 text-xs font-extrabold text-white whitespace-nowrap">
-                            {lb.goNow}
-                          </span>
-                        )}
-                      </a>
-                    );
-                  })}
-                </div>
 
-                {/* Advanced search banner */}
-                <button
-                  onClick={scrollToQuiz}
-                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:border-ink/20 hover:bg-ink/6 hover:text-ink/70"
-                >
-                  🔍 {lb.advancedSearch}
-                </button>
+                {/* ── Detail view ── */}
+                {focusedMall ? (
+                  <MallDetail
+                    mall={focusedMall}
+                    userCoords={userCoords}
+                    lb={lb}
+                    onBack={() => setFocusedMall(null)}
+                    onQuiz={scrollToQuiz}
+                  />
+                ) : (
+                  /* ── List view ── */
+                  <>
+                    <p className="mb-3 text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
+                      {lb.nearbyTitle}
+                    </p>
+                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2">
+                      {nearbyMalls.map((mall, i) => {
+                        const isNearest = i === 0;
+                        return (
+                          <button
+                            key={mall.id}
+                            onClick={() => setFocusedMall(mall)}
+                            className={`flex items-center gap-3 rounded-2xl border px-3.5 py-2.5 text-left transition ${
+                              isNearest
+                                ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/12 col-span-full sm:col-span-2"
+                                : "border-ink/8 bg-ink/2 hover:border-leaf/30 hover:bg-leaf/4"
+                            }`}
+                          >
+                            <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-extrabold text-white ${
+                              isNearest ? "bg-leaf" : "bg-ink/20"
+                            }`}>{i + 1}</span>
+                            <div className="min-w-0 flex-1">
+                              <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
+                              <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
+                                {mall.commune}
+                                <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
+                              </p>
+                            </div>
+                            <ChevronRight size={13} className="shrink-0 text-ink/25" />
+                          </button>
+                        );
+                      })}
+                    </div>
 
-                <button
-                  onClick={scrollToQuiz}
-                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
-                >
-                  {lb.quizCta} <ChevronRight size={15} />
-                </button>
+                    {/* Advanced search banner */}
+                    <button
+                      onClick={scrollToQuiz}
+                      className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:border-ink/20 hover:bg-ink/6 hover:text-ink/70"
+                    >
+                      🔍 {lb.advancedSearch}
+                    </button>
+                    <button
+                      onClick={scrollToQuiz}
+                      className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
+                    >
+                      {lb.quizCta} <ChevronRight size={15} />
+                    </button>
+                  </>
+                )}
               </div>
             )}
 
@@ -328,5 +337,104 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
         </div>
       )}
     </>
+  );
+}
+
+/* ── Mini ficha de mall dentro del modal ── */
+function MallDetail({ mall, userCoords, lb, onBack, onQuiz }) {
+  const mapsUrl = userCoords
+    ? `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`
+    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
+
+  const typeIcons = { metro: "🚇", tourist: "🌍", outlet: "🏷️", premium: "💎", family: "👨‍👩‍👧", quick: "⚡", food: "🍽️" };
+
+  return (
+    <div>
+      {/* Back button */}
+      <button
+        onClick={onBack}
+        className="mb-3 flex items-center gap-1.5 text-xs font-extrabold text-ink/40 hover:text-ink/70 transition"
+      >
+        <ChevronRight size={12} className="rotate-180" /> {lb.nearbyTitle}
+      </button>
+
+      {/* Image */}
+      {mall.imageUrl && (
+        <div className="mb-3 h-32 w-full overflow-hidden rounded-2xl bg-ink/5">
+          <img
+            src={mall.imageUrl}
+            alt={mall.name}
+            className="h-full w-full object-cover"
+            onError={e => { e.target.style.display = "none"; }}
+          />
+        </div>
+      )}
+
+      {/* Header row */}
+      <div className="mb-2 flex items-start justify-between gap-2">
+        <div>
+          <h3 className="text-base font-extrabold text-ink leading-tight">{mall.name}</h3>
+          <p className="mt-0.5 text-xs font-semibold text-ink/45">
+            {mall.commune}
+            {mall.distanceKm && (
+              <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
+            )}
+          </p>
+        </div>
+        {mall.recommendedTime && (
+          <span className="shrink-0 rounded-xl border border-ink/10 bg-ink/3 px-2.5 py-1 text-[10px] font-extrabold text-ink/50">
+            ⏱ {mall.recommendedTime}
+          </span>
+        )}
+      </div>
+
+      {/* Description */}
+      {mall.description && (
+        <p className="mb-3 text-xs leading-relaxed text-ink/60">{mall.description}</p>
+      )}
+
+      {/* Best for tags */}
+      {mall.bestFor?.length > 0 && (
+        <div className="mb-3 flex flex-wrap gap-1.5">
+          {mall.bestFor.map((tag, i) => (
+            <span key={i} className="rounded-full bg-leaf/8 px-2.5 py-1 text-[10px] font-extrabold text-leaf">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Type badges */}
+      {mall.type?.length > 0 && (
+        <div className="mb-4 flex flex-wrap gap-1.5">
+          {mall.type.filter(t => typeIcons[t]).map(t => (
+            <span key={t} className="rounded-full border border-ink/8 bg-ink/3 px-2 py-0.5 text-[10px] font-bold text-ink/50">
+              {typeIcons[t]}
+            </span>
+          ))}
+          {mall.transport?.metro && (
+            <span className="rounded-full border border-leaf/20 bg-leaf/6 px-2.5 py-0.5 text-[10px] font-extrabold text-leaf">
+              🚇 Metro
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Actions */}
+      <a
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex w-full items-center justify-center gap-2 rounded-2xl bg-leaf px-4 py-3.5 text-sm font-extrabold text-white shadow-md transition hover:bg-leaf/90 active:scale-[0.98]"
+      >
+        {lb.goNow}
+      </a>
+      <button
+        onClick={onQuiz}
+        className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:bg-ink/6 hover:text-ink/70"
+      >
+        🔍 {lb.advancedSearch}
+      </button>
+    </div>
   );
 }
