@@ -1,7 +1,22 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, ChevronRight, MapPin, Navigation, X } from "lucide-react";
+import { ChevronRight, Clock, MapPin, Navigation, X } from "lucide-react";
 import { haversineKm } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
+
+const HISTORY_KEY = "ss-addr-history";
+const HISTORY_MAX = 5;
+
+function loadHistory() {
+  try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]"); }
+  catch { return []; }
+}
+
+function saveToHistory(entry) {
+  try {
+    const prev = loadHistory().filter(h => h.label !== entry.label);
+    localStorage.setItem(HISTORY_KEY, JSON.stringify([entry, ...prev].slice(0, HISTORY_MAX)));
+  } catch { /* noop */ }
+}
 
 function useAddressSuggestions(query) {
   const [suggestions, setSuggestions] = useState([]);
@@ -40,11 +55,21 @@ function useAddressSuggestions(query) {
 
 function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [] }) {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const [history, setHistory] = useState(loadHistory);
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
   const { t } = useLanguage();
   const lb = t.locationBar;
   const { suggestions, loading } = useAddressSuggestions(address);
+
+  /* ── Scroll lock while input is focused on mobile ── */
+  useEffect(() => {
+    if (!isFocused) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, [isFocused]);
 
   const nearbyMalls = useMemo(() => {
     if (!userCoords) return [];
@@ -77,13 +102,13 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
     setAddress(s.label);
     setUserCoords({ lat: s.lat, lng: s.lng });
     setShowDropdown(false);
+    saveToHistory(s);
+    setHistory(loadHistory());
   }
 
-  function clear() {
-    setAddress("");
+  /* X: cierra el panel de malls, deja la dirección intacta */
+  function closeMalls() {
     setUserCoords(null);
-    setShowDropdown(false);
-    inputRef.current?.focus();
   }
 
   function scrollToQuiz() {
@@ -100,6 +125,10 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  /* Dropdown content: API suggestions OR history when focused with no results */
+  const showHistory = showDropdown && suggestions.length === 0 && !loading && history.length > 0;
+  const showSuggestions = showDropdown && suggestions.length > 0;
 
   return (
     <div className={`sticky top-16 z-30 border-b border-ink/8 transition-colors ${userCoords ? "bg-leaf/4" : "bg-white"}`}>
@@ -120,22 +149,22 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
               value={address}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
-              onFocus={() => address.length >= 3 && setShowDropdown(true)}
+              onFocus={() => {
+                setIsFocused(true);
+                setShowDropdown(true);
+              }}
+              onBlur={() => setIsFocused(false)}
               placeholder={lb.placeholder}
               className="w-full bg-transparent text-xs font-medium text-ink placeholder-ink/35 outline-none"
               autoComplete="off"
             />
-            {address && (
-              <button onClick={clear} className="shrink-0 p-1.5 -mr-1 text-ink/30 hover:text-ink/60 transition-colors">
-                <X size={13} />
-              </button>
-            )}
             {loading && (
               <span className="shrink-0 h-3 w-3 animate-spin rounded-full border-2 border-ink/20 border-t-leaf" />
             )}
           </div>
 
-          {showDropdown && suggestions.length > 0 && (
+          {/* Dropdown: API suggestions */}
+          {showSuggestions && (
             <ul
               ref={dropdownRef}
               className="absolute left-0 top-full z-50 mt-1 w-max min-w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border border-ink/10 bg-white shadow-card"
@@ -148,6 +177,26 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
                   >
                     <MapPin size={12} className="mt-0.5 shrink-0 text-ink/35" />
                     <span className="text-ink/80 leading-snug">{s.label}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Dropdown: address history */}
+          {showHistory && (
+            <ul
+              ref={dropdownRef}
+              className="absolute left-0 top-full z-50 mt-1 w-max min-w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border border-ink/10 bg-white shadow-card"
+            >
+              {history.map((h, i) => (
+                <li key={i}>
+                  <button
+                    onMouseDown={e => { e.preventDefault(); selectSuggestion(h); }}
+                    className="flex w-full items-start gap-2.5 px-3 py-3 text-left text-xs hover:bg-leaf/6 transition-colors"
+                  >
+                    <Clock size={12} className="mt-0.5 shrink-0 text-ink/30" />
+                    <span className="text-ink/70 leading-snug">{h.label}</span>
                   </button>
                 </li>
               ))}
@@ -168,9 +217,19 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
       {/* Nearby malls panel */}
       {userCoords && nearbyMalls.length > 0 && (
         <div className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
-          <p className="mb-2.5 text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
-            {lb.nearbyTitle}
-          </p>
+          <div className="mb-2.5 flex items-center justify-between">
+            <p className="text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
+              {lb.nearbyTitle}
+            </p>
+            {/* X: cierra el panel, mantiene la dirección */}
+            <button
+              onClick={closeMalls}
+              className="p-1.5 text-ink/30 hover:text-ink/60 transition-colors"
+              aria-label="Cerrar"
+            >
+              <X size={14} />
+            </button>
+          </div>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
             {nearbyMalls.map((mall, i) => {
               const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`;
