@@ -64,6 +64,15 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
     setShowDropdown(true);
   }
 
+  function handleKeyDown(e) {
+    if (e.key !== "Enter") return;
+    if (suggestions.length > 0) {
+      selectSuggestion(suggestions[0]);
+    } else {
+      setShowDropdown(false);
+    }
+  }
+
   function selectSuggestion(s) {
     setAddress(s.label);
     setUserCoords({ lat: s.lat, lng: s.lng });
@@ -110,6 +119,7 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
               type="text"
               value={address}
               onChange={handleChange}
+              onKeyDown={handleKeyDown}
               onFocus={() => address.length >= 3 && setShowDropdown(true)}
               placeholder={lb.placeholder}
               className="w-full bg-transparent text-xs font-medium text-ink placeholder-ink/35 outline-none"
