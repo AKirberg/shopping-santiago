@@ -17,7 +17,7 @@ function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/8 bg-[#f8faf6]/92 backdrop-blur-xl">
+    <header className="sm:sticky sm:top-0 z-40 border-b border-ink/8 bg-[#f8faf6]/92 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <div className="hidden items-center rounded-xl bg-ink px-2 py-1.5 sm:flex">
