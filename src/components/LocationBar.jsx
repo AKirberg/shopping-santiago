@@ -172,25 +172,31 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
             {lb.nearbyTitle}
           </p>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-            {nearbyMalls.map((mall, i) => (
-              <div
-                key={mall.id}
-                className="flex items-center gap-3 rounded-2xl border border-ink/8 bg-white px-4 py-3 shadow-sm"
-              >
-                <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold text-white ${
-                  i === 0 ? "bg-leaf" : "bg-ink/20"
-                }`}>
-                  {i + 1}
-                </span>
-                <div className="min-w-0">
-                  <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
-                  <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
-                    {mall.commune}
-                    <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
-                  </p>
-                </div>
-              </div>
-            ))}
+            {nearbyMalls.map((mall, i) => {
+              const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`;
+              return (
+                <a
+                  key={mall.id}
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 rounded-2xl border border-ink/8 bg-white px-4 py-3 shadow-sm transition hover:border-leaf/40 hover:shadow-card"
+                >
+                  <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold text-white ${
+                    i === 0 ? "bg-leaf" : "bg-ink/20"
+                  }`}>
+                    {i + 1}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
+                    <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
+                      {mall.commune}
+                      <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
+                    </p>
+                  </div>
+                </a>
+              );
+            })}
           </div>
 
           <button
