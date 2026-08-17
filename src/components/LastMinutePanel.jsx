@@ -96,13 +96,16 @@ export default function LastMinutePanel({
             <div className="flex items-center gap-2 ml-2">
               <Plane size={13} className="text-leaf shrink-0" />
               <span className="text-xs font-extrabold text-ink/50">{ft.label}</span>
-              <input
-                type="time"
-                value={flightTime}
-                onChange={e => setFlightTime(e.target.value)}
-                autoFocus
-                className="rounded-xl border border-ink/12 bg-[#f8faf6] px-3 py-1.5 text-xs font-bold text-ink outline-none transition focus:border-leaf focus:ring-2 focus:ring-leaf/15"
-              />
+              <div className="flex flex-col gap-0.5">
+                <input
+                  type="time"
+                  value={flightTime}
+                  onChange={e => setFlightTime(e.target.value)}
+                  autoFocus
+                  className="rounded-xl border border-ink/12 bg-[#f8faf6] px-3 py-1.5 text-xs font-bold text-ink outline-none transition focus:border-leaf focus:ring-2 focus:ring-leaf/15"
+                />
+                <span className="text-[10px] font-semibold text-ink/35 pl-1">{ft.example}</span>
+              </div>
             </div>
             <p className="text-xs text-ink/35 hidden sm:block">{ft.hint}</p>
             <button onClick={handleRemove} className="ml-auto flex items-center gap-1 text-xs font-bold text-ink/30 hover:text-ink/60">

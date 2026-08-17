@@ -53,7 +53,7 @@ export const translations = {
       toAirportOptions: { "30": "30 min", "45": "45 min", "60": "1h", "90": "1h 30min" },
     },
     flightTimer: {
-      label: "Hora de vuelo:",
+      label: "Hora de vuelo:", example: "ej: 20:30",
       hint: "Ingresa la hora y te decimos cuánto tiempo tienes para comprar",
       late: "Tiempo muy justo — revisa tu traslado",
       tight: "disponibles — elige malls rápidos",
@@ -250,7 +250,7 @@ export const translations = {
       toAirportOptions: { "30": "30 min", "45": "45 min", "60": "1h", "90": "1h 30min" },
     },
     flightTimer: {
-      label: "Hora do voo:",
+      label: "Hora do voo:", example: "ex: 20:30",
       hint: "Informe o horário e diremos quanto tempo você tem para comprar",
       late: "Tempo muito apertado — verifique seu traslado",
       tight: "disponíveis — escolha malls rápidos",
@@ -447,7 +447,7 @@ export const translations = {
       toAirportOptions: { "30": "30 min", "45": "45 min", "60": "1h", "90": "1h 30min" },
     },
     flightTimer: {
-      label: "Flight time:",
+      label: "Flight time:", example: "e.g. 20:30",
       hint: "Enter your departure time and we'll tell you how much shopping time you have",
       late: "Very tight — check your transfer time",
       tight: "available — pick quick malls",
