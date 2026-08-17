@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronRight, Clock, MapPin, Navigation, X } from "lucide-react";
+import { ChevronRight, Clock, MapPin, Navigation, Search, X } from "lucide-react";
 import { haversineKm } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -10,7 +10,6 @@ function loadHistory() {
   try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]"); }
   catch { return []; }
 }
-
 function saveToHistory(entry) {
   try {
     const prev = loadHistory().filter(h => h.label !== entry.label);
@@ -53,23 +52,30 @@ function useAddressSuggestions(query) {
   return { suggestions, loading };
 }
 
-function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [] }) {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
+export default function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [] }) {
+  const [open, setOpen] = useState(false);
+  const [draft, setDraft] = useState(address || "");
   const [history, setHistory] = useState(loadHistory);
   const inputRef = useRef(null);
-  const dropdownRef = useRef(null);
   const { t } = useLanguage();
   const lb = t.locationBar;
-  const { suggestions, loading } = useAddressSuggestions(address);
+  const { suggestions, loading } = useAddressSuggestions(draft);
 
-  /* ── Scroll lock while input is focused on mobile ── */
+  /* Sync draft when address is cleared externally */
+  useEffect(() => { if (!address) setDraft(""); }, [address]);
+
+  /* Scroll lock while modal is open */
   useEffect(() => {
-    if (!isFocused) return;
+    if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = prev; };
-  }, [isFocused]);
+  }, [open]);
+
+  /* Auto-focus input when modal opens */
+  useEffect(() => {
+    if (open) setTimeout(() => inputRef.current?.focus(), 80);
+  }, [open]);
 
   const nearbyMalls = useMemo(() => {
     if (!userCoords) return [];
@@ -83,192 +89,225 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
       .slice(0, 5);
   }, [userCoords, malls]);
 
-  function handleChange(e) {
-    setAddress(e.target.value);
+  function handleDraftChange(e) {
+    setDraft(e.target.value);
     setUserCoords(null);
-    setShowDropdown(true);
   }
 
   function handleKeyDown(e) {
-    if (e.key !== "Enter") return;
-    if (suggestions.length > 0) {
-      selectSuggestion(suggestions[0]);
-    } else {
-      setShowDropdown(false);
-    }
+    if (e.key === "Enter" && suggestions.length > 0) selectSuggestion(suggestions[0]);
+    if (e.key === "Escape") closeModal();
   }
 
   function selectSuggestion(s) {
     setAddress(s.label);
+    setDraft(s.label);
     setUserCoords({ lat: s.lat, lng: s.lng });
-    setShowDropdown(false);
     saveToHistory(s);
     setHistory(loadHistory());
   }
 
-  /* X: cierra el panel de malls, deja la dirección intacta */
-  function closeMalls() {
+  function clearLocation() {
+    setAddress("");
+    setDraft("");
     setUserCoords(null);
   }
 
-  function scrollToQuiz() {
-    document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth" });
+  function closeModal() {
+    setOpen(false);
+    /* If no coords selected, revert draft to last confirmed address */
+    if (!userCoords) setDraft(address || "");
   }
 
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (
-        dropdownRef.current && !dropdownRef.current.contains(e.target) &&
-        inputRef.current && !inputRef.current.contains(e.target)
-      ) setShowDropdown(false);
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  function scrollToQuiz() {
+    closeModal();
+    setTimeout(() => document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth" }), 200);
+  }
 
-  /* Dropdown content: API suggestions OR history when focused with no results */
-  const showHistory = showDropdown && suggestions.length === 0 && !loading && history.length > 0;
-  const showSuggestions = showDropdown && suggestions.length > 0;
+  const showHistory = draft.length === 0 && history.length > 0;
+  const showSuggestions = draft.length >= 3 && suggestions.length > 0;
 
+  const shortAddress = address
+    ? address.split(",").slice(0, 2).join(",").trim()
+    : null;
+
+  /* ── Sticky trigger bar ── */
   return (
-    <div className={`sticky top-0 sm:top-16 z-30 border-b border-ink/8 transition-colors ${userCoords ? "bg-leaf/4" : "bg-white"}`}>
-      {/* Input row */}
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
-        <MapPin size={14} className={`shrink-0 transition-colors ${userCoords ? "text-leaf" : "text-ink/40"}`} />
-        <span className="shrink-0 text-xs font-extrabold text-ink/50">{lb.label}</span>
+    <>
+      <div className="sticky top-0 sm:top-16 z-30 border-b border-ink/8 bg-white/95 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-2.5 sm:px-6 lg:px-8">
 
-        <div className="relative w-full max-w-xs sm:w-auto">
-          <div className={`flex items-center gap-2 rounded-xl border px-3 py-1.5 transition-colors ${
-            userCoords
-              ? "border-leaf bg-white shadow-sm"
-              : "border-ink/12 bg-ink/3 focus-within:border-ink/30 focus-within:bg-white"
-          }`}>
-            <input
-              ref={inputRef}
-              type="text"
-              value={address}
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-              onFocus={() => {
-                setIsFocused(true);
-                setShowDropdown(true);
-              }}
-              onBlur={() => setIsFocused(false)}
-              placeholder={lb.placeholder}
-              className="w-full bg-transparent text-xs font-medium text-ink placeholder-ink/35 outline-none"
-              autoComplete="off"
+          {/* Trigger button — whole row is clickable */}
+          <button
+            onClick={() => setOpen(true)}
+            className="flex flex-1 items-center gap-2.5 rounded-2xl border border-ink/10 bg-ink/3 px-3 py-2 text-left transition hover:border-ink/20 hover:bg-ink/5 min-w-0"
+          >
+            <MapPin
+              size={14}
+              className={`shrink-0 transition-colors ${userCoords ? "text-leaf" : "text-ink/35"}`}
             />
-            {loading && (
-              <span className="shrink-0 h-3 w-3 animate-spin rounded-full border-2 border-ink/20 border-t-leaf" />
+            {shortAddress ? (
+              <span className="flex-1 truncate text-xs font-semibold text-ink/75 min-w-0">
+                {shortAddress}
+              </span>
+            ) : (
+              <span className="flex-1 truncate text-xs font-medium text-ink/35">
+                {lb.placeholder}
+              </span>
             )}
-          </div>
+            {userCoords ? (
+              <span className="shrink-0 flex items-center gap-1 rounded-full bg-leaf/10 px-2 py-0.5 text-[10px] font-extrabold text-leaf">
+                <Navigation size={9} /> {lb.active}
+              </span>
+            ) : (
+              <Search size={12} className="shrink-0 text-ink/25" />
+            )}
+          </button>
 
-          {/* Dropdown: API suggestions */}
-          {showSuggestions && (
-            <ul
-              ref={dropdownRef}
-              className="absolute left-0 top-full z-50 mt-1 w-max min-w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border border-ink/10 bg-white shadow-card"
-            >
-              {suggestions.map((s, i) => (
-                <li key={i}>
-                  <button
-                    onMouseDown={e => { e.preventDefault(); selectSuggestion(s); }}
-                    className="flex w-full items-start gap-2.5 px-3 py-3 text-left text-xs hover:bg-leaf/6 transition-colors"
-                  >
-                    <MapPin size={12} className="mt-0.5 shrink-0 text-ink/35" />
-                    <span className="text-ink/80 leading-snug">{s.label}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {/* Dropdown: address history */}
-          {showHistory && (
-            <ul
-              ref={dropdownRef}
-              className="absolute left-0 top-full z-50 mt-1 w-max min-w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border border-ink/10 bg-white shadow-card"
-            >
-              {history.map((h, i) => (
-                <li key={i}>
-                  <button
-                    onMouseDown={e => { e.preventDefault(); selectSuggestion(h); }}
-                    className="flex w-full items-start gap-2.5 px-3 py-3 text-left text-xs hover:bg-leaf/6 transition-colors"
-                  >
-                    <Clock size={12} className="mt-0.5 shrink-0 text-ink/30" />
-                    <span className="text-ink/70 leading-snug">{h.label}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        {userCoords ? (
-          <span className="flex items-center gap-1.5 rounded-full bg-leaf px-3 py-1 text-xs font-extrabold text-white">
-            <Navigation size={11} />
-            {lb.active}
-          </span>
-        ) : (
-          <span className="text-xs text-ink/35 hidden sm:inline">{lb.hint}</span>
-        )}
-      </div>
-
-      {/* Nearby malls panel */}
-      {userCoords && nearbyMalls.length > 0 && (
-        <div className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
-          <div className="mb-2.5 flex items-center justify-between">
-            <p className="text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
-              {lb.nearbyTitle}
-            </p>
-            {/* X: cierra el panel, mantiene la dirección */}
+          {/* Clear badge — only when location is active */}
+          {userCoords && (
             <button
-              onClick={closeMalls}
-              className="p-1.5 text-ink/30 hover:text-ink/60 transition-colors"
-              aria-label="Cerrar"
+              onClick={clearLocation}
+              className="shrink-0 p-2 text-ink/30 hover:text-ink/60 transition"
+              aria-label="Borrar ubicación"
             >
               <X size={14} />
             </button>
-          </div>
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-            {nearbyMalls.map((mall, i) => {
-              const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`;
-              return (
-                <a
-                  key={mall.id}
-                  href={mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 rounded-2xl border border-ink/8 bg-white px-4 py-3 shadow-sm transition hover:border-leaf/40 hover:shadow-card"
-                >
-                  <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-extrabold text-white ${
-                    i === 0 ? "bg-leaf" : "bg-ink/20"
-                  }`}>
-                    {i + 1}
-                  </span>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
-                    <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
-                      {mall.commune}
-                      <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
-                    </p>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
+          )}
+        </div>
+      </div>
 
-          <button
-            onClick={scrollToQuiz}
-            className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
-          >
-            {lb.quizCta}
-            <ChevronRight size={15} />
-          </button>
+      {/* ── Modal ── */}
+      {open && (
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-16 sm:pt-24"
+          onClick={e => { if (e.target === e.currentTarget) closeModal(); }}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={closeModal} />
+
+          {/* Card */}
+          <div className="relative w-full max-w-lg rounded-3xl bg-white shadow-2xl overflow-hidden">
+
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-ink/6 px-5 py-4">
+              <div className="flex items-center gap-2">
+                <MapPin size={15} className="text-leaf" />
+                <span className="text-sm font-extrabold text-ink">{lb.label}</span>
+              </div>
+              <button
+                onClick={closeModal}
+                className="p-2 text-ink/30 hover:text-ink/70 transition rounded-xl hover:bg-ink/5"
+              >
+                <X size={16} />
+              </button>
+            </div>
+
+            {/* Search input */}
+            <div className="px-5 pt-4 pb-3">
+              <div className="flex items-center gap-2.5 rounded-2xl border border-ink/12 bg-ink/3 px-3.5 py-3 focus-within:border-leaf focus-within:bg-white focus-within:ring-2 focus-within:ring-leaf/12 transition">
+                <Search size={14} className="shrink-0 text-ink/35" />
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={draft}
+                  onChange={handleDraftChange}
+                  onKeyDown={handleKeyDown}
+                  placeholder={lb.placeholder}
+                  className="flex-1 bg-transparent text-sm font-medium text-ink placeholder-ink/35 outline-none"
+                  autoComplete="off"
+                />
+                {loading && (
+                  <span className="shrink-0 h-3.5 w-3.5 animate-spin rounded-full border-2 border-ink/15 border-t-leaf" />
+                )}
+                {draft.length > 0 && (
+                  <button
+                    onMouseDown={e => { e.preventDefault(); setDraft(""); setUserCoords(null); }}
+                    className="shrink-0 text-ink/30 hover:text-ink/60 transition"
+                  >
+                    <X size={13} />
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Results list */}
+            {(showSuggestions || showHistory) && (
+              <ul className="max-h-52 overflow-y-auto border-t border-ink/6">
+                {showHistory && history.map((h, i) => (
+                  <li key={i}>
+                    <button
+                      onMouseDown={e => { e.preventDefault(); selectSuggestion(h); }}
+                      className="flex w-full items-start gap-3 px-5 py-3 text-left text-sm hover:bg-leaf/5 transition-colors"
+                    >
+                      <Clock size={13} className="mt-0.5 shrink-0 text-ink/30" />
+                      <span className="text-ink/70 leading-snug text-xs">{h.label}</span>
+                    </button>
+                  </li>
+                ))}
+                {showSuggestions && suggestions.map((s, i) => (
+                  <li key={i}>
+                    <button
+                      onMouseDown={e => { e.preventDefault(); selectSuggestion(s); }}
+                      className="flex w-full items-start gap-3 px-5 py-3 text-left hover:bg-leaf/5 transition-colors"
+                    >
+                      <MapPin size={13} className="mt-0.5 shrink-0 text-ink/35" />
+                      <span className="text-ink/80 leading-snug text-xs">{s.label}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Nearby malls */}
+            {userCoords && nearbyMalls.length > 0 && (
+              <div className="border-t border-ink/6 px-5 py-4">
+                <p className="mb-3 text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
+                  {lb.nearbyTitle}
+                </p>
+                <div className="grid gap-2 grid-cols-1 sm:grid-cols-2">
+                  {nearbyMalls.map((mall, i) => {
+                    const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`;
+                    return (
+                      <a
+                        key={mall.id}
+                        href={mapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 rounded-2xl border border-ink/8 bg-ink/2 px-3.5 py-2.5 transition hover:border-leaf/40 hover:bg-leaf/4"
+                      >
+                        <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-extrabold text-white ${
+                          i === 0 ? "bg-leaf" : "bg-ink/20"
+                        }`}>{i + 1}</span>
+                        <div className="min-w-0 flex-1">
+                          <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
+                          <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
+                            {mall.commune}
+                            <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
+                          </p>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+                <button
+                  onClick={scrollToQuiz}
+                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
+                >
+                  {lb.quizCta} <ChevronRight size={15} />
+                </button>
+              </div>
+            )}
+
+            {/* Empty state when no input and no history */}
+            {!showSuggestions && !showHistory && !userCoords && (
+              <div className="px-5 pb-5 pt-1">
+                <p className="text-xs text-ink/35 text-center">{lb.hint}</p>
+              </div>
+            )}
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
-
-export default LocationBar;
