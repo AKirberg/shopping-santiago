@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { X } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -281,6 +282,12 @@ function PrivacyPolicy({ onClose }) {
   const { locale } = useLanguage();
   const lang = locale === "pt" ? "pt" : locale === "en" ? "en" : "es";
   const c = CONTENT[lang];
+
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, []);
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center">

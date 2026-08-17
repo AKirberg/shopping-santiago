@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, ShoppingBag, TrainFront, Utensils, X } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -6,6 +7,12 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
   const md = t.mallDetail;
   const relatedRoute = routes.find(r => r.stops.some(s => s.mallId === mall.id));
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
+
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, []);
 
   return (
     <div
@@ -145,6 +152,16 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
               </a>
             )}
           </aside>
+        </div>
+
+        {/* Sticky close button – always visible on mobile */}
+        <div className="sticky bottom-0 border-t border-ink/8 bg-white/95 px-6 py-3 backdrop-blur-sm">
+          <button
+            onClick={onClose}
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-ink/12 py-3 text-sm font-extrabold text-ink/60 transition hover:border-ink/30 hover:text-ink"
+          >
+            <X size={15} /> {md.close ?? "Cerrar"}
+          </button>
         </div>
       </div>
     </div>
