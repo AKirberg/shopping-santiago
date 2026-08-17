@@ -60,6 +60,10 @@ deploymentTarget = "static"
 build = ["npm", "run", "build"]
 publicDir = "dist"
 
+[[deployment.rewrites]]
+from = "/mall/*"
+to = "/index.html"
+
 [postMerge]
 path = "scripts/post-merge.sh"
 timeoutMs = 60000

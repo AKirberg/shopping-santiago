@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import malls from "./data/malls.json";
 import routes from "./data/routes.json";
 import { matchesMallFilters } from "./utils/scoring";
 import { computeTimeBreakdown } from "./utils/timeCalc";
+import { applyMallSeo, resetSeo } from "./utils/mallSeo";
 import { useLanguage } from "./i18n/LanguageContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -19,6 +20,11 @@ import MallDetail from "./components/MallDetail";
 import GalleriesSection from "./components/GalleriesSection";
 import Footer from "./components/Footer";
 
+function mallFromPath(pathname) {
+  const match = pathname.match(/^\/mall\/([^/]+)\/?$/);
+  return match ? malls.find(m => m.id === match[1]) ?? null : null;
+}
+
 const defaultFilters = {
   query: "", commune: "Todas", category: "Todas",
   outlet: false, premium: false, family: false,
@@ -28,13 +34,38 @@ const defaultFilters = {
 function App() {
   const { t } = useLanguage();
   const [filters, setFilters] = useState(defaultFilters);
-  const [selectedMall, setSelectedMall] = useState(null);
+  const [selectedMall, setSelectedMall] = useState(() => mallFromPath(window.location.pathname));
   const [compareIds, setCompareIds] = useState(["costanera-center", "parque-arauco"]);
   const [flightTime, setFlightTime] = useState("");
   const [minutesToAirport, setMinutesToAirport] = useState(45);
   const [flightType, setFlightType] = useState("international");
   const [userAddress, setUserAddress] = useState("");
   const [userCoords, setUserCoords] = useState(null);
+
+  useEffect(() => {
+    const onPopState = () => setSelectedMall(mallFromPath(window.location.pathname));
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  useEffect(() => {
+    if (selectedMall) applyMallSeo(selectedMall);
+    else resetSeo();
+  }, [selectedMall]);
+
+  function openMall(mall) {
+    setSelectedMall(mall);
+    if (window.location.pathname !== `/mall/${mall.id}`) {
+      window.history.pushState({}, "", `/mall/${mall.id}`);
+    }
+  }
+
+  function closeMall() {
+    setSelectedMall(null);
+    if (window.location.pathname.startsWith("/mall/")) {
+      window.history.pushState({}, "", "/");
+    }
+  }
 
   const timeBreakdown = useMemo(
     () => computeTimeBreakdown(
@@ -72,7 +103,7 @@ function App() {
   function showRelatedRoute(mallId) {
     const route = routes.find(r => r.stops.some(s => s.mallId === mallId));
     if (route) {
-      setSelectedMall(null);
+      closeMall();
       setTimeout(() => document.getElementById(`route-${route.id}`)?.scrollIntoView({ behavior: "smooth" }), 50);
     }
   }
@@ -101,7 +132,7 @@ function App() {
           flightType={flightType}
           setFlightType={setFlightType}
           malls={malls}
-          onSelectMall={setSelectedMall}
+          onSelectMall={openMall}
         />
 
         <section className="bg-mist/70" id="destacados">
@@ -117,13 +148,13 @@ function App() {
               malls={featuredMalls}
               compareIds={compareIds}
               onCompare={toggleCompare}
-              onSelect={setSelectedMall}
+              onSelect={openMall}
               availableHours={availableHours}
             />
           </div>
         </section>
 
-        <RecommendationQuiz malls={malls} onSelect={setSelectedMall} userCoords={userCoords} />
+        <RecommendationQuiz malls={malls} onSelect={openMall} userCoords={userCoords} />
         <RoutesSection routes={routes} malls={malls} />
         <GalleriesSection />
 
@@ -139,7 +170,7 @@ function App() {
             malls={filteredMalls}
             compareIds={compareIds}
             onCompare={toggleCompare}
-            onSelect={setSelectedMall}
+            onSelect={openMall}
             availableHours={availableHours}
           />
         </section>
@@ -154,7 +185,7 @@ function App() {
           routes={routes}
           isComparing={compareIds.includes(selectedMall.id)}
           onCompare={() => toggleCompare(selectedMall.id)}
-          onClose={() => setSelectedMall(null)}
+          onClose={closeMall}
           onRelatedRoute={() => showRelatedRoute(selectedMall.id)}
         />
       )}
