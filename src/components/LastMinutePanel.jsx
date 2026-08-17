@@ -26,6 +26,30 @@ export default function LastMinutePanel({
   malls, onSelectMall,
 }) {
   const [showInput, setShowInput] = useState(false);
+  const [rawTime, setRawTime] = useState(flightTime || "");
+
+  function handleTimeChange(e) {
+    let v = e.target.value.replace(/[^\d:]/g, "");
+    // auto-insert colon after 2 digits
+    if (v.length === 2 && !v.includes(":") && e.nativeEvent.inputType !== "deleteContentBackward") {
+      v = v + ":";
+    }
+    if (v.length > 5) v = v.slice(0, 5);
+    setRawTime(v);
+    // only propagate valid HH:MM
+    if (/^\d{2}:\d{2}$/.test(v)) {
+      const [h, m] = v.split(":").map(Number);
+      if (h >= 0 && h <= 23 && m >= 0 && m <= 59) setFlightTime(v);
+    } else {
+      setFlightTime("");
+    }
+  }
+
+  function handleRemove() {
+    setFlightTime("");
+    setRawTime("");
+    setShowInput(false);
+  }
   const { t } = useLanguage();
   const lm = t.lastMinute;
   const ft = t.flightTimer;
@@ -56,11 +80,6 @@ export default function LastMinutePanel({
   };
 
   const inputVisible = showInput || !!flightTime;
-
-  function handleRemove() {
-    setFlightTime("");
-    setShowInput(false);
-  }
 
   /* ── State 1: no flight time, input not shown ── */
   if (!inputVisible) {
@@ -96,16 +115,16 @@ export default function LastMinutePanel({
             <div className="flex items-center gap-2 ml-2">
               <Plane size={13} className="text-leaf shrink-0" />
               <span className="text-xs font-extrabold text-ink/50">{ft.label}</span>
-              <div className="flex flex-col gap-0.5">
-                <input
-                  type="time"
-                  value={flightTime}
-                  onChange={e => setFlightTime(e.target.value)}
-                  autoFocus
-                  className="rounded-xl border border-ink/12 bg-[#f8faf6] px-3 py-1.5 text-xs font-bold text-ink outline-none transition focus:border-leaf focus:ring-2 focus:ring-leaf/15"
-                />
-                <span className="text-[10px] font-semibold text-ink/35 pl-1">{ft.example}</span>
-              </div>
+              <input
+                type="text"
+                inputMode="numeric"
+                value={rawTime}
+                onChange={handleTimeChange}
+                placeholder="20:30"
+                autoFocus
+                maxLength={5}
+                className="w-20 rounded-xl border border-ink/12 bg-[#f8faf6] px-3 py-1.5 text-xs font-bold text-ink outline-none transition focus:border-leaf focus:ring-2 focus:ring-leaf/15"
+              />
             </div>
             <p className="text-xs text-ink/35 hidden sm:block">{ft.hint}</p>
             <button onClick={handleRemove} className="ml-auto flex items-center gap-1 text-xs font-bold text-ink/30 hover:text-ink/60">
@@ -140,10 +159,13 @@ export default function LastMinutePanel({
             <div className="flex items-center gap-1.5 rounded-xl border border-ink/12 bg-white/80 px-2.5 py-1">
               <Plane size={10} className="text-ink/35" />
               <input
-                type="time"
-                value={flightTime}
-                onChange={e => setFlightTime(e.target.value)}
-                className="w-[4.5rem] bg-transparent text-xs font-bold text-ink outline-none"
+                type="text"
+                inputMode="numeric"
+                value={rawTime}
+                onChange={handleTimeChange}
+                placeholder="20:30"
+                maxLength={5}
+                className="w-[4rem] bg-transparent text-xs font-bold text-ink outline-none"
               />
               <button onClick={handleRemove} className="text-ink/25 hover:text-ink/60 transition">
                 <X size={10} />
