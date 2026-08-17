@@ -268,16 +268,21 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                 <div className="grid gap-2 grid-cols-1 sm:grid-cols-2">
                   {nearbyMalls.map((mall, i) => {
                     const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`;
+                    const isNearest = i === 0;
                     return (
                       <a
                         key={mall.id}
                         href={mapsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 rounded-2xl border border-ink/8 bg-ink/2 px-3.5 py-2.5 transition hover:border-leaf/40 hover:bg-leaf/4"
+                        className={`flex items-center gap-3 rounded-2xl border px-3.5 py-2.5 transition ${
+                          isNearest
+                            ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/12 col-span-full sm:col-span-2"
+                            : "border-ink/8 bg-ink/2 hover:border-leaf/30 hover:bg-leaf/4"
+                        }`}
                       >
                         <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-extrabold text-white ${
-                          i === 0 ? "bg-leaf" : "bg-ink/20"
+                          isNearest ? "bg-leaf" : "bg-ink/20"
                         }`}>{i + 1}</span>
                         <div className="min-w-0 flex-1">
                           <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
@@ -286,13 +291,27 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                             <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
                           </p>
                         </div>
+                        {isNearest && (
+                          <span className="shrink-0 rounded-xl bg-leaf px-3 py-1.5 text-xs font-extrabold text-white whitespace-nowrap">
+                            {lb.goNow}
+                          </span>
+                        )}
                       </a>
                     );
                   })}
                 </div>
+
+                {/* Advanced search banner */}
                 <button
                   onClick={scrollToQuiz}
-                  className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
+                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:border-ink/20 hover:bg-ink/6 hover:text-ink/70"
+                >
+                  🔍 {lb.advancedSearch}
+                </button>
+
+                <button
+                  onClick={scrollToQuiz}
+                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
                 >
                   {lb.quizCta} <ChevronRight size={15} />
                 </button>

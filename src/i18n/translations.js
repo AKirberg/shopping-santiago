@@ -25,6 +25,8 @@ export const translations = {
       nearbyTitle: "Malls más cercanos",
       quizCta: "¿Qué mall me conviene?",
       distLabel: "km",
+      goNow: "IR YA →",
+      advancedSearch: "Búsqueda avanzada por filtros",
     },
     lastMinute: {
       title: "Compras de último minuto",
@@ -226,6 +228,8 @@ export const translations = {
       nearbyTitle: "Malls mais próximos",
       quizCta: "Qual mall me convém?",
       distLabel: "km",
+      goNow: "IR AGORA →",
+      advancedSearch: "Busca avançada por filtros",
     },
     lastMinute: {
       title: "Compras de última hora",
@@ -427,6 +431,8 @@ export const translations = {
       nearbyTitle: "Nearest malls",
       quizCta: "Which mall suits me?",
       distLabel: "km",
+      goNow: "GO NOW →",
+      advancedSearch: "Advanced search by filters",
     },
     lastMinute: {
       title: "Last-minute shopping",
