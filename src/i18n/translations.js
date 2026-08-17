@@ -11,7 +11,7 @@ export const translations = {
       subtitle: "Encuentra el mejor mall, outlet o ruta de compras según tu ubicación, presupuesto y tiempo disponible.",
       primaryAction: "¿Qué mall me conviene?",
       secondaryAction: "Ver rutas recomendadas",
-      statMalls: "malls", statRoutes: "rutas", statMode: "modo rápido",
+      statMalls: "malls", statRoutes: "rutas", statMode: "gratis",
     },
     quickIntents: {
       label: "Busco:",
@@ -208,7 +208,7 @@ export const translations = {
       subtitle: "Encontre o melhor mall, outlet ou rota de compras de acordo com sua localização, orçamento e tempo disponível.",
       primaryAction: "Qual mall é ideal para mim?",
       secondaryAction: "Ver rotas recomendadas",
-      statMalls: "malls", statRoutes: "rotas", statMode: "modo rápido",
+      statMalls: "malls", statRoutes: "rotas", statMode: "grátis",
     },
     quickIntents: {
       label: "Busco:",
@@ -405,7 +405,7 @@ export const translations = {
       subtitle: "Find the best mall, outlet or shopping route based on your location, budget and available time.",
       primaryAction: "Which mall suits me?",
       secondaryAction: "View recommended routes",
-      statMalls: "malls", statRoutes: "routes", statMode: "quick mode",
+      statMalls: "malls", statRoutes: "routes", statMode: "free",
     },
     quickIntents: {
       label: "I want:",

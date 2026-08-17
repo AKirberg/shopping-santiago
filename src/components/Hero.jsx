@@ -1,4 +1,4 @@
-import { ArrowRight, Clock, Compass, MapPinned } from "lucide-react";
+import { ArrowRight, Compass, Gift, MapPinned } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
@@ -8,7 +8,7 @@ function Hero({ onIntent, mallCount = 0, routeCount = 0 }) {
   const stats = [
     { icon: Compass, value: String(mallCount), label: h.statMalls, color: "text-coral" },
     { icon: MapPinned, value: String(routeCount), label: h.statRoutes, color: "text-leaf" },
-    { icon: Clock, value: "3h", label: h.statMode, color: "text-gold" },
+    { icon: Gift, value: "100%", label: h.statMode, color: "text-gold" },
   ];
 
   return (
