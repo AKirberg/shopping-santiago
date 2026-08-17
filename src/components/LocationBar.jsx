@@ -93,7 +93,7 @@ function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [
   }, []);
 
   return (
-    <div className={`border-b border-ink/8 transition-colors ${userCoords ? "bg-leaf/4" : "bg-white"}`}>
+    <div className={`sticky top-16 z-30 border-b border-ink/8 transition-colors ${userCoords ? "bg-leaf/4" : "bg-white"}`}>
       {/* Input row */}
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <MapPin size={14} className={`shrink-0 transition-colors ${userCoords ? "text-leaf" : "text-ink/40"}`} />
