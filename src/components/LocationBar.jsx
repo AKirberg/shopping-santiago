@@ -59,7 +59,24 @@ function useAddressSuggestions(query) {
   return { suggestions, loading };
 }
 
-export default function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [], flightTime, availableHours, onOpenFlight }) {
+function fmtH(hours) {
+  if (!hours || hours <= 0) return "0min";
+  const h = Math.floor(hours);
+  const m = Math.round((hours - h) * 60);
+  if (h === 0) return `${m}min`;
+  if (m === 0) return `${h}h`;
+  return `${h}h ${m}min`;
+}
+function fmtMin(min) {
+  if (!min || min <= 0) return "0min";
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  if (h === 0) return `${m}min`;
+  if (m === 0) return `${h}h`;
+  return `${h}h ${m}min`;
+}
+
+export default function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [], flightTime, availableHours, timeBreakdown, onOpenFlight }) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState(address || "");
   const [history, setHistory] = useState(loadHistory);
@@ -287,31 +304,56 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
         </div>
 
         {/* ── Fila de vuelo activo — dentro del mismo sticky ── */}
-        {flightTime && onOpenFlight && (
+        {flightTime && onOpenFlight && timeBreakdown && (
           <button
             onClick={onOpenFlight}
-            className={`w-full flex items-center gap-3 border-t border-ink/6 px-4 sm:px-6 lg:px-8 py-2 text-left transition ${
-              availableHours <= 0  ? "bg-coral/8 hover:bg-coral/13" :
-              availableHours < 1.5 ? "bg-gold/8 hover:bg-gold/13" :
+            className={`w-full flex items-center gap-2 border-t border-ink/6 px-4 sm:px-6 lg:px-8 py-2 text-left transition overflow-x-auto ${
+              availableHours <= 0  ? "bg-coral/8 hover:bg-coral/12" :
+              availableHours < 1.5 ? "bg-gold/8 hover:bg-gold/12"  :
                                      "bg-leaf/6 hover:bg-leaf/10"
             }`}
           >
-            <span className="text-sm">✈️</span>
-            <span className="text-xs font-extrabold text-ink/55">Vuelo {flightTime}</span>
-            <span className="mx-1 text-ink/20">·</span>
-            <span className={`text-xs font-extrabold ${
-              availableHours <= 0  ? "text-coral" :
-              availableHours < 1.5 ? "text-gold"  :
-                                     "text-leaf"
-            }`}>
-              {availableHours <= 0
-                ? "Sin tiempo para compras"
-                : `${availableHours < 1
-                    ? Math.round(availableHours * 60) + " min"
-                    : Math.floor(availableHours) + (availableHours % 1 >= 0.08 ? "h " + Math.round((availableHours % 1) * 60) + "min" : "h")
-                  } para comprar`}
+            {/* Vuelo */}
+            <span className="shrink-0 flex items-center gap-1.5">
+              <span className="text-sm">✈️</span>
+              <span className="text-xs font-extrabold text-ink/55">Vuelo {flightTime}</span>
             </span>
-            <span className="ml-auto text-[10px] font-bold text-ink/30">Editar →</span>
+
+            <span className="shrink-0 text-ink/20 text-xs">·</span>
+
+            {/* Traslado al mall */}
+            <span className="shrink-0 flex items-center gap-1 text-[11px] text-ink/40 font-semibold">
+              🚇 <span>{fmtMin(timeBreakdown.travelToMallMin)}</span>
+            </span>
+
+            <span className="shrink-0 text-ink/20 text-[10px]">→</span>
+
+            {/* Compras — resaltado */}
+            <span className={`shrink-0 flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-extrabold ${
+              availableHours <= 0  ? "bg-coral text-white" :
+              availableHours < 1.5 ? "bg-gold text-white"  :
+                                     "bg-leaf text-white"
+            }`}>
+              🛍 {availableHours <= 0 ? "Sin tiempo" : fmtH(availableHours) + " compras"}
+            </span>
+
+            <span className="shrink-0 text-ink/20 text-[10px]">→</span>
+
+            {/* Traslado al aeropuerto */}
+            <span className="shrink-0 flex items-center gap-1 text-[11px] text-ink/40 font-semibold">
+              🚕 <span>{fmtMin(timeBreakdown.minutesToAirport ?? 45)}</span>
+            </span>
+
+            <span className="shrink-0 text-ink/20 text-[10px]">→</span>
+
+            {/* Llegada aeropuerto */}
+            {timeBreakdown.mustArriveAirportTime && (
+              <span className="shrink-0 flex items-center gap-1 text-[11px] text-ink/40 font-semibold">
+                🛫 <span>{timeBreakdown.mustArriveAirportTime}</span>
+              </span>
+            )}
+
+            <span className="ml-auto shrink-0 text-[10px] font-bold text-ink/30 pl-2">Editar →</span>
           </button>
         )}
       </div>

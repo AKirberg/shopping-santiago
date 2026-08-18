@@ -123,6 +123,7 @@ function App() {
           malls={malls}
           flightTime={flightTime}
           availableHours={availableHours}
+          timeBreakdown={timeBreakdown}
           onOpenFlight={() => setLastMinuteOpen(true)}
         />
         <QuickIntentButtons onIntent={applyIntent} onLastMinute={() => setLastMinuteOpen(true)} />
