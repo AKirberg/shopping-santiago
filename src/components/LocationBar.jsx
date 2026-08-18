@@ -136,33 +136,39 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
   /* ── Sticky trigger bar ── */
   return (
     <>
-      <div className="sticky top-0 sm:top-16 z-30 border-b border-ink/8 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-2.5 sm:px-6 lg:px-8">
+      <div className="sticky top-0 sm:top-16 z-30 border-b border-ink/8 bg-white/98 backdrop-blur-md shadow-sm">
+        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
 
           {/* Trigger button — whole row is clickable */}
           <button
             onClick={() => setOpen(true)}
-            className="flex flex-1 items-center gap-2.5 rounded-2xl border border-ink/10 bg-ink/3 px-3 py-2 text-left transition hover:border-ink/20 hover:bg-ink/5 min-w-0"
+            className={`flex flex-1 items-center gap-3 rounded-2xl border px-4 py-3 text-left transition min-w-0 ${
+              userCoords
+                ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/10"
+                : "border-leaf/30 bg-leaf/5 hover:border-leaf/50 hover:bg-leaf/9"
+            }`}
           >
             <MapPin
-              size={14}
-              className={`shrink-0 transition-colors ${userCoords ? "text-leaf" : "text-ink/35"}`}
+              size={15}
+              className={`shrink-0 transition-colors ${userCoords ? "text-leaf" : "text-leaf/60"}`}
             />
             {shortAddress ? (
-              <span className="flex-1 truncate text-xs font-semibold text-ink/75 min-w-0">
+              <span className="flex-1 truncate text-sm font-semibold text-ink/80 min-w-0">
                 {shortAddress}
               </span>
             ) : (
-              <span className="flex-1 truncate text-xs font-medium text-ink/35">
+              <span className="flex-1 truncate text-sm font-semibold text-ink/45">
                 {lb.placeholder}
               </span>
             )}
             {userCoords ? (
-              <span className="shrink-0 flex items-center gap-1 rounded-full bg-leaf/10 px-2 py-0.5 text-[10px] font-extrabold text-leaf">
+              <span className="shrink-0 flex items-center gap-1 rounded-full bg-leaf px-2.5 py-1 text-[10px] font-extrabold text-white">
                 <Navigation size={9} /> {lb.active}
               </span>
             ) : (
-              <Search size={12} className="shrink-0 text-ink/25" />
+              <span className="shrink-0 flex items-center gap-1.5 rounded-xl bg-leaf px-3 py-1.5 text-xs font-extrabold text-white whitespace-nowrap">
+                <Search size={11} /> {lb.label}
+              </span>
             )}
           </button>
 
