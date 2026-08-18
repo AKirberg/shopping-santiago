@@ -59,7 +59,7 @@ function useAddressSuggestions(query) {
   return { suggestions, loading };
 }
 
-export default function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [] }) {
+export default function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [], flightTime, availableHours, onOpenFlight }) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState(address || "");
   const [history, setHistory] = useState(loadHistory);
@@ -220,6 +220,7 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
       <div className="sticky top-0 sm:top-16 z-30 border-b border-ink/8 bg-white/98 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
 
+
           {/* Trigger button — whole row is clickable */}
           <button
             onClick={() => setOpen(true)}
@@ -284,6 +285,35 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
             </button>
           )}
         </div>
+
+        {/* ── Fila de vuelo activo — dentro del mismo sticky ── */}
+        {flightTime && onOpenFlight && (
+          <button
+            onClick={onOpenFlight}
+            className={`w-full flex items-center gap-3 border-t border-ink/6 px-4 sm:px-6 lg:px-8 py-2 text-left transition ${
+              availableHours <= 0  ? "bg-coral/8 hover:bg-coral/13" :
+              availableHours < 1.5 ? "bg-gold/8 hover:bg-gold/13" :
+                                     "bg-leaf/6 hover:bg-leaf/10"
+            }`}
+          >
+            <span className="text-sm">✈️</span>
+            <span className="text-xs font-extrabold text-ink/55">Vuelo {flightTime}</span>
+            <span className="mx-1 text-ink/20">·</span>
+            <span className={`text-xs font-extrabold ${
+              availableHours <= 0  ? "text-coral" :
+              availableHours < 1.5 ? "text-gold"  :
+                                     "text-leaf"
+            }`}>
+              {availableHours <= 0
+                ? "Sin tiempo para compras"
+                : `${availableHours < 1
+                    ? Math.round(availableHours * 60) + " min"
+                    : Math.floor(availableHours) + (availableHours % 1 >= 0.08 ? "h " + Math.round((availableHours % 1) * 60) + "min" : "h")
+                  } para comprar`}
+            </span>
+            <span className="ml-auto text-[10px] font-bold text-ink/30">Editar →</span>
+          </button>
+        )}
       </div>
 
       {/* ── Modal ── */}
