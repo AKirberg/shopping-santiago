@@ -433,6 +433,14 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
               {gpsError && (
                 <p className="text-center text-[11px] font-semibold text-coral/80">{gpsError}</p>
               )}
+
+              {/* ¿Qué mall me conviene? — justo después de la dirección */}
+              <button
+                onClick={scrollToQuiz}
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
+              >
+                {lb.quizCta} <ChevronRight size={15} />
+              </button>
             </div>
 
             {/* Contenido scrolleable */}
@@ -515,12 +523,6 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                         className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:border-ink/20 hover:bg-ink/6 hover:text-ink/70"
                       >
                         🔍 {lb.advancedSearch}
-                      </button>
-                      <button
-                        onClick={scrollToQuiz}
-                        className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
-                      >
-                        {lb.quizCta} <ChevronRight size={15} />
                       </button>
                     </>
                   )}
