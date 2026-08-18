@@ -526,12 +526,6 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                           );
                         })}
                       </div>
-                      <button
-                        onClick={scrollToQuiz}
-                        className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:border-ink/20 hover:bg-ink/6 hover:text-ink/70"
-                      >
-                        🔍 {lb.advancedSearch}
-                      </button>
                     </>
                   )}
                 </div>
@@ -643,12 +637,6 @@ function MallDetail({ mall, userCoords, lb, onBack, onQuiz }) {
       >
         {lb.goNow}
       </a>
-      <button
-        onClick={onQuiz}
-        className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:bg-ink/6 hover:text-ink/70"
-      >
-        🔍 {lb.advancedSearch}
-      </button>
     </div>
   );
 }
