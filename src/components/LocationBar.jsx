@@ -201,27 +201,30 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
       async (pos) => {
         const { latitude: lat, longitude: lng } = pos.coords;
         setUserCoords({ lat, lng });
-        // Reverse-geocode via Google Geocoder
+
+        // Reverse-geocode via Nominatim (no API key required)
+        let label = null;
         try {
-          const maps = await loadGoogleMaps();
-          const geocoder = new maps.Geocoder();
-          geocoder.geocode(
-            { location: { lat, lng }, language: "es" },
-            (results, status) => {
-              const label =
-                status === "OK" && results[0]
-                  ? results[0].formatted_address
-                  : `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
-              setAddress(label);
-              setDraft(label);
-              saveToHistory({ label, lat, lng });
-              setHistory(loadHistory());
-            }
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&accept-language=es`,
+            { headers: { "Accept-Language": "es" } }
           );
-        } catch {
-          setAddress(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
-          setDraft(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
-        }
+          const data = await res.json();
+          const a = data.address || {};
+          // Build a friendly label: neighbourhood/suburb/road + commune/city
+          const place =
+            a.neighbourhood || a.suburb || a.city_district ||
+            a.road || a.pedestrian || a.footway || "";
+          const city = a.city || a.town || a.village || a.county || "";
+          label = [place, city].filter(Boolean).join(", ") || data.display_name;
+        } catch { /* fall through */ }
+
+        if (!label) label = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+
+        setAddress(label);
+        setDraft(label);
+        saveToHistory({ label, lat, lng });
+        setHistory(loadHistory());
         setGpsLoading(false);
       },
       (err) => {
