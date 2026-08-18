@@ -1,4 +1,4 @@
-import { Baby, BadgePercent, Clock3, Gem, PlaneLanding, Shirt, UtensilsCrossed } from "lucide-react";
+import { Baby, BadgePercent, Clock3, Gem, PlaneTakeoff, Shirt, UtensilsCrossed } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const intentKeys = [
@@ -28,7 +28,7 @@ function QuickIntentButtons({ onIntent, onLastMinute }) {
             onClick={onLastMinute}
             className="flex shrink-0 items-center gap-2 rounded-2xl border border-coral/30 bg-coral/6 px-3.5 py-2 text-left transition hover:bg-coral hover:border-coral group"
           >
-            <PlaneLanding size={14} className="shrink-0 text-coral group-hover:text-white" />
+            <PlaneTakeoff size={14} className="shrink-0 text-coral group-hover:text-white" />
             <span className="flex flex-col leading-tight">
               <span className="text-xs font-extrabold text-coral group-hover:text-white">{items.lastMinute}</span>
               <span className="text-[10px] font-semibold text-coral/60 group-hover:text-white/70">{items.lastMinuteSub}</span>

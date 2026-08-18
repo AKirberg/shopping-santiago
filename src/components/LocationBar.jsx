@@ -76,7 +76,7 @@ function fmtMin(min) {
   return `${h}h ${m}min`;
 }
 
-export default function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [], flightTime, availableHours, timeBreakdown, onOpenFlight }) {
+export default function LocationBar({ address, setAddress, userCoords, setUserCoords, malls = [], flightTime, availableHours, timeBreakdown, onOpenFlight, forceOpen, onForceOpenHandled }) {
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState(address || "");
   const [history, setHistory] = useState(loadHistory);
@@ -90,6 +90,14 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
 
   /* Sync draft when address is cleared externally */
   useEffect(() => { if (!address) setDraft(""); }, [address]);
+
+  /* Open modal when triggered externally (e.g. from LastMinutePanel) */
+  useEffect(() => {
+    if (forceOpen) {
+      setOpen(true);
+      onForceOpenHandled?.();
+    }
+  }, [forceOpen]);
 
   /* Scroll lock while modal is open */
   useEffect(() => {

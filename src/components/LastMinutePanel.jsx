@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { AlertTriangle, ChevronRight, Plane, ShoppingBag, X, Zap, Clock } from "lucide-react";
+import { AlertTriangle, ChevronRight, MapPin, Plane, ShoppingBag, X, Zap, Clock } from "lucide-react";
 import { fmtMin } from "../utils/timeCalc";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -27,6 +27,8 @@ export default function LastMinutePanel({
   malls, onSelectMall,
   autoOpen = false,
   onClose,
+  address,
+  onOpenAddress,
 }) {
   const [showInput, setShowInput] = useState(autoOpen);
   const [rawTime, setRawTime] = useState(flightTime || "");
@@ -81,6 +83,33 @@ export default function LastMinutePanel({
   };
 
   const inputVisible = showInput || !!flightTime;
+
+  /* ── Location header (only in modal/autoOpen mode) ── */
+  function LocationHeader() {
+    if (!autoOpen) return null;
+    if (address) {
+      return (
+        <div className="mb-4 flex items-center gap-2 rounded-xl border border-ink/8 bg-white/70 px-3 py-2">
+          <MapPin size={12} className="shrink-0 text-leaf" />
+          <span className="min-w-0 flex-1 truncate text-xs font-semibold text-ink/60">{address}</span>
+        </div>
+      );
+    }
+    return (
+      <div className="mb-4 flex items-center gap-2 rounded-xl border border-dashed border-ink/15 bg-white/50 px-3 py-2">
+        <MapPin size={12} className="shrink-0 text-ink/30" />
+        <span className="flex-1 text-xs font-medium text-ink/40">Agrega tu ubicación para calcular la distancia al mall</span>
+        {onOpenAddress && (
+          <button
+            onClick={onOpenAddress}
+            className="shrink-0 rounded-lg border border-leaf/25 bg-leaf/8 px-2.5 py-1 text-[10px] font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
+          >
+            Agregar
+          </button>
+        )}
+      </div>
+    );
+  }
 
   /* ── Shared: flight-type + airport-travel selectors ── */
   function ConfigRow() {
@@ -151,6 +180,7 @@ export default function LastMinutePanel({
     return (
       <div className="border-b border-ink/8 bg-[#fafaf8]">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <LocationHeader />
           <div className="rounded-2xl border border-coral/40 bg-coral/3 px-5 py-4 shadow-sm">
             {/* Config row: type + airport travel FIRST */}
             <div className="mb-4 pb-3 border-b border-ink/6">
@@ -193,6 +223,7 @@ export default function LastMinutePanel({
   return (
     <div className={`border-b border-l-4 border-l-coral ${th.bar}`}>
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+        <LocationHeader />
 
         {/* Top row: badge + subtitle + time + edit input */}
         <div className="mb-4 flex flex-wrap items-center gap-3">

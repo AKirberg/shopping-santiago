@@ -42,6 +42,7 @@ function App() {
   const [userAddress, setUserAddress] = useState("");
   const [userCoords, setUserCoords] = useState(null);
   const [lastMinuteOpen, setLastMinuteOpen] = useState(false);
+  const [triggerAddressOpen, setTriggerAddressOpen] = useState(false);
 
   useEffect(() => {
     const onPopState = () => setSelectedMall(mallFromPath(window.location.pathname));
@@ -116,6 +117,8 @@ function App() {
       <main>
         <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
         <LocationBar
+          forceOpen={triggerAddressOpen}
+          onForceOpenHandled={() => setTriggerAddressOpen(false)}
           address={userAddress}
           setAddress={setUserAddress}
           userCoords={userCoords}
@@ -199,6 +202,8 @@ function App() {
                 onSelectMall={mall => { setLastMinuteOpen(false); openMall(mall); }}
                 onClose={() => setLastMinuteOpen(false)}
                 autoOpen
+                address={userAddress}
+                onOpenAddress={() => { setLastMinuteOpen(false); setTriggerAddressOpen(true); }}
               />
             </div>
           </div>
