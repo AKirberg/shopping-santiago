@@ -182,17 +182,17 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
       {/* ── Modal ── */}
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-16 sm:pt-24"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
           onClick={e => { if (e.target === e.currentTarget) closeModal(); }}
         >
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={closeModal} />
 
-          {/* Card */}
-          <div className="relative w-full max-w-lg rounded-3xl bg-white shadow-2xl overflow-hidden">
+          {/* Card — flex column, capped at 90dvh, nunca desborda */}
+          <div className="relative w-full max-w-lg sm:mx-4 rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl flex flex-col max-h-[90dvh]">
 
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-ink/6 px-5 py-4">
+            {/* Header — fijo arriba */}
+            <div className="shrink-0 flex items-center justify-between border-b border-ink/6 px-5 py-4">
               <div className="flex items-center gap-2">
                 <MapPin size={15} className="text-leaf" />
                 <span className="text-sm font-extrabold text-ink">{lb.label}</span>
@@ -205,8 +205,8 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
               </button>
             </div>
 
-            {/* Search input */}
-            <div className="px-5 pt-4 pb-3">
+            {/* Search input — fijo bajo el header */}
+            <div className="shrink-0 px-5 pt-4 pb-3">
               <div className="flex items-center gap-2.5 rounded-2xl border border-ink/12 bg-ink/3 px-3.5 py-3 focus-within:border-leaf focus-within:bg-white focus-within:ring-2 focus-within:ring-leaf/12 transition">
                 <Search size={14} className="shrink-0 text-ink/35" />
                 <input
@@ -233,106 +233,106 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
               </div>
             </div>
 
-            {/* Results list */}
-            {(showSuggestions || showHistory) && (
-              <ul className="max-h-52 overflow-y-auto border-t border-ink/6">
-                {showHistory && history.map((h, i) => (
-                  <li key={i}>
-                    <button
-                      onMouseDown={e => { e.preventDefault(); selectSuggestion(h); }}
-                      className="flex w-full items-start gap-3 px-5 py-3 text-left text-sm hover:bg-leaf/5 transition-colors"
-                    >
-                      <Clock size={13} className="mt-0.5 shrink-0 text-ink/30" />
-                      <span className="text-ink/70 leading-snug text-xs">{h.label}</span>
-                    </button>
-                  </li>
-                ))}
-                {showSuggestions && suggestions.map((s, i) => (
-                  <li key={i}>
-                    <button
-                      onMouseDown={e => { e.preventDefault(); selectSuggestion(s); }}
-                      className="flex w-full items-start gap-3 px-5 py-3 text-left hover:bg-leaf/5 transition-colors"
-                    >
-                      <MapPin size={13} className="mt-0.5 shrink-0 text-ink/35" />
-                      <span className="text-ink/80 leading-snug text-xs">{s.label}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
+            {/* Contenido scrolleable */}
+            <div className="flex-1 overflow-y-auto overscroll-contain">
 
-            {/* Nearby malls — list OR detail */}
-            {userCoords && nearbyMalls.length > 0 && (
-              <div className="border-t border-ink/6 px-5 py-4">
+              {/* Results list */}
+              {(showSuggestions || showHistory) && (
+                <ul className="border-t border-ink/6">
+                  {showHistory && history.map((h, i) => (
+                    <li key={i}>
+                      <button
+                        onMouseDown={e => { e.preventDefault(); selectSuggestion(h); }}
+                        className="flex w-full items-start gap-3 px-5 py-3 text-left hover:bg-leaf/5 transition-colors"
+                      >
+                        <Clock size={13} className="mt-0.5 shrink-0 text-ink/30" />
+                        <span className="text-ink/70 leading-snug text-xs">{h.label}</span>
+                      </button>
+                    </li>
+                  ))}
+                  {showSuggestions && suggestions.map((s, i) => (
+                    <li key={i}>
+                      <button
+                        onMouseDown={e => { e.preventDefault(); selectSuggestion(s); }}
+                        className="flex w-full items-start gap-3 px-5 py-3 text-left hover:bg-leaf/5 transition-colors"
+                      >
+                        <MapPin size={13} className="mt-0.5 shrink-0 text-ink/35" />
+                        <span className="text-ink/80 leading-snug text-xs">{s.label}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
-                {/* ── Detail view ── */}
-                {focusedMall ? (
-                  <MallDetail
-                    mall={focusedMall}
-                    userCoords={userCoords}
-                    lb={lb}
-                    onBack={() => setFocusedMall(null)}
-                    onQuiz={scrollToQuiz}
-                  />
-                ) : (
-                  /* ── List view ── */
-                  <>
-                    <p className="mb-3 text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
-                      {lb.nearbyTitle}
-                    </p>
-                    <div className="grid gap-2 grid-cols-1 sm:grid-cols-2">
-                      {nearbyMalls.map((mall, i) => {
-                        const isNearest = i === 0;
-                        return (
-                          <button
-                            key={mall.id}
-                            onClick={() => setFocusedMall(mall)}
-                            className={`flex items-center gap-3 rounded-2xl border px-3.5 py-2.5 text-left transition ${
-                              isNearest
-                                ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/12 col-span-full sm:col-span-2"
-                                : "border-ink/8 bg-ink/2 hover:border-leaf/30 hover:bg-leaf/4"
-                            }`}
-                          >
-                            <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-extrabold text-white ${
-                              isNearest ? "bg-leaf" : "bg-ink/20"
-                            }`}>{i + 1}</span>
-                            <div className="min-w-0 flex-1">
-                              <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
-                              <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
-                                {mall.commune}
-                                <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
-                              </p>
-                            </div>
-                            <ChevronRight size={13} className="shrink-0 text-ink/25" />
-                          </button>
-                        );
-                      })}
-                    </div>
+              {/* Nearby malls — list OR detail */}
+              {userCoords && nearbyMalls.length > 0 && (
+                <div className="border-t border-ink/6 px-5 py-4">
+                  {focusedMall ? (
+                    <MallDetail
+                      mall={focusedMall}
+                      userCoords={userCoords}
+                      lb={lb}
+                      onBack={() => setFocusedMall(null)}
+                      onQuiz={scrollToQuiz}
+                    />
+                  ) : (
+                    <>
+                      <p className="mb-3 text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
+                        {lb.nearbyTitle}
+                      </p>
+                      <div className="grid gap-2 grid-cols-1 sm:grid-cols-2">
+                        {nearbyMalls.map((mall, i) => {
+                          const isNearest = i === 0;
+                          return (
+                            <button
+                              key={mall.id}
+                              onClick={() => setFocusedMall(mall)}
+                              className={`flex items-center gap-3 rounded-2xl border px-3.5 py-2.5 text-left transition ${
+                                isNearest
+                                  ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/12 col-span-full sm:col-span-2"
+                                  : "border-ink/8 bg-ink/2 hover:border-leaf/30 hover:bg-leaf/4"
+                              }`}
+                            >
+                              <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[9px] font-extrabold text-white ${
+                                isNearest ? "bg-leaf" : "bg-ink/20"
+                              }`}>{i + 1}</span>
+                              <div className="min-w-0 flex-1">
+                                <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
+                                <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
+                                  {mall.commune}
+                                  <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
+                                </p>
+                              </div>
+                              <ChevronRight size={13} className="shrink-0 text-ink/25" />
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <button
+                        onClick={scrollToQuiz}
+                        className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:border-ink/20 hover:bg-ink/6 hover:text-ink/70"
+                      >
+                        🔍 {lb.advancedSearch}
+                      </button>
+                      <button
+                        onClick={scrollToQuiz}
+                        className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
+                      >
+                        {lb.quizCta} <ChevronRight size={15} />
+                      </button>
+                    </>
+                  )}
+                </div>
+              )}
 
-                    {/* Advanced search banner */}
-                    <button
-                      onClick={scrollToQuiz}
-                      className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/10 bg-ink/3 px-4 py-2.5 text-xs font-extrabold text-ink/50 transition hover:border-ink/20 hover:bg-ink/6 hover:text-ink/70"
-                    >
-                      🔍 {lb.advancedSearch}
-                    </button>
-                    <button
-                      onClick={scrollToQuiz}
-                      className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
-                    >
-                      {lb.quizCta} <ChevronRight size={15} />
-                    </button>
-                  </>
-                )}
-              </div>
-            )}
+              {/* Empty state */}
+              {!showSuggestions && !showHistory && !userCoords && (
+                <div className="px-5 pb-5 pt-1">
+                  <p className="text-xs text-ink/35 text-center">{lb.hint}</p>
+                </div>
+              )}
 
-            {/* Empty state when no input and no history */}
-            {!showSuggestions && !showHistory && !userCoords && (
-              <div className="px-5 pb-5 pt-1">
-                <p className="text-xs text-ink/35 text-center">{lb.hint}</p>
-              </div>
-            )}
+            </div>{/* fin scroll */}
           </div>
         </div>
       )}
