@@ -115,7 +115,6 @@ function App() {
       <Header />
       <main>
         <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
-        <QuickIntentButtons onIntent={applyIntent} onLastMinute={() => setLastMinuteOpen(true)} />
         <LocationBar
           address={userAddress}
           setAddress={setUserAddress}
@@ -126,6 +125,7 @@ function App() {
           availableHours={availableHours}
           onOpenFlight={() => setLastMinuteOpen(true)}
         />
+        <QuickIntentButtons onIntent={applyIntent} onLastMinute={() => setLastMinuteOpen(true)} />
 
         <section className="bg-mist/70" id="destacados">
           <div className="section-shell">
