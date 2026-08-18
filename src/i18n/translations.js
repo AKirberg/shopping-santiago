@@ -15,7 +15,7 @@ export const translations = {
     },
     quickIntents: {
       label: "Busco:",
-      items: { ropa: "Ropa", outlet: "Outlet", comer: "Comer / Almorzar", kids: "Con niños", premium: "Premium", quick: "3 horas", lastMinute: "Último minuto" },
+      items: { ropa: "Ropa", outlet: "Outlet", comer: "Comer / Almorzar", kids: "Con niños", premium: "Premium", quick: "3 horas", lastMinute: "Compras de último minuto", lastMinuteSub: "Incluye hora de vuelo" },
     },
     locationBar: {
       label: "¿Dónde estás?",
@@ -230,7 +230,7 @@ export const translations = {
     },
     quickIntents: {
       label: "Busco:",
-      items: { ropa: "Roupas", outlet: "Outlet", comer: "Comer / Almoçar", kids: "Com crianças", premium: "Premium", quick: "3 horas", lastMinute: "Última hora" },
+      items: { ropa: "Roupas", outlet: "Outlet", comer: "Comer / Almoçar", kids: "Com crianças", premium: "Premium", quick: "3 horas", lastMinute: "Compras de última hora", lastMinuteSub: "Inclui horário do voo" },
     },
     locationBar: {
       label: "Onde você está?",
@@ -445,7 +445,7 @@ export const translations = {
     },
     quickIntents: {
       label: "I want:",
-      items: { ropa: "Clothing", outlet: "Outlet", comer: "Eat / Lunch", kids: "With kids", premium: "Premium", quick: "3 hours", lastMinute: "Last minute" },
+      items: { ropa: "Clothing", outlet: "Outlet", comer: "Eat / Lunch", kids: "With kids", premium: "Premium", quick: "3 hours", lastMinute: "Last-minute shopping", lastMinuteSub: "Includes flight time" },
     },
     locationBar: {
       label: "Where are you?",

@@ -31,13 +31,16 @@ function QuickIntentButtons({ onIntent, onLastMinute }) {
           </button>
         ))}
 
-        {/* Último minuto — chip especial coral */}
+        {/* Último minuto — chip especial coral con subtítulo */}
         <button
           onClick={onLastMinute}
-          className="flex shrink-0 items-center gap-1.5 rounded-full border border-coral/30 bg-coral/6 px-3.5 py-2 text-xs font-bold text-coral transition hover:bg-coral hover:text-white hover:border-coral"
+          className="flex shrink-0 items-center gap-2 rounded-2xl border border-coral/30 bg-coral/6 px-3.5 py-2 text-left transition hover:bg-coral hover:text-white hover:border-coral group"
         >
-          <PlaneLanding size={13} />
-          {items.lastMinute}
+          <PlaneLanding size={14} className="shrink-0 text-coral group-hover:text-white" />
+          <span className="flex flex-col leading-tight">
+            <span className="text-xs font-extrabold text-coral group-hover:text-white">{items.lastMinute}</span>
+            <span className="text-[10px] font-semibold text-coral/60 group-hover:text-white/70">{items.lastMinuteSub}</span>
+          </span>
         </button>
       </div>
     </section>
