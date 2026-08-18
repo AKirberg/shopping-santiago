@@ -3,6 +3,7 @@ import { ChevronRight, Clock, Crosshair, MapPin, Navigation, Search, X } from "l
 import { haversineKm } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
+import { loadGoogleMaps } from "../utils/googleMaps";
 
 const HISTORY_KEY = "ss-addr-history";
 const HISTORY_MAX = 5;
@@ -23,30 +24,35 @@ function useAddressSuggestions(query) {
   const [loading, setLoading] = useState(false);
   const timerRef = useRef(null);
 
+  // Preload SDK on mount
+  useEffect(() => { loadGoogleMaps().catch(() => {}); }, []);
+
   useEffect(() => {
     if (!query || query.length < 3) { setSuggestions([]); return; }
     clearTimeout(timerRef.current);
     timerRef.current = setTimeout(async () => {
       setLoading(true);
       try {
-        const params = new URLSearchParams({
-          q: `${query}, Santiago, Chile`,
-          format: "json", countrycodes: "cl", limit: "6",
-          viewbox: "-71.1,-33.75,-70.35,-33.1", bounded: "1",
-          "accept-language": "es",
-        });
-        const res = await fetch(`https://nominatim.openstreetmap.org/search?${params}`, {
-          headers: { "Accept-Language": "es" },
-        });
-        const data = await res.json();
-        setSuggestions(data.map(d => ({
-          label: d.display_name.split(",").slice(0, 3).join(", "),
-          lat: parseFloat(d.lat),
-          lng: parseFloat(d.lon),
-        })));
-      } catch { setSuggestions([]); }
-      finally { setLoading(false); }
-    }, 350);
+        const maps = await loadGoogleMaps();
+        const { suggestions: preds } =
+          await maps.places.AutocompleteSuggestion.fetchAutocompleteSuggestions({
+            input: query,
+            includedRegionCodes: ["cl"],
+            locationBias: new maps.LatLng(-33.45, -70.65),
+          });
+        setSuggestions(
+          preds.map(s => ({
+            label: s.placePrediction.text.toString(),
+            placeId: s.placePrediction.placeId,
+            prediction: s.placePrediction,
+          }))
+        );
+      } catch {
+        setSuggestions([]);
+      } finally {
+        setLoading(false);
+      }
+    }, 300);
     return () => clearTimeout(timerRef.current);
   }, [query]);
 
@@ -103,12 +109,45 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
     if (e.key === "Escape") closeModal();
   }
 
-  function selectSuggestion(s) {
+  async function selectSuggestion(s) {
     setAddress(s.label);
     setDraft(s.label);
-    setUserCoords({ lat: s.lat, lng: s.lng });
-    saveToHistory(s);
-    setHistory(loadHistory());
+    // History items already have coords
+    if (s.lat && s.lng) {
+      setUserCoords({ lat: s.lat, lng: s.lng });
+      saveToHistory(s);
+      setHistory(loadHistory());
+      return;
+    }
+    // New Places API: use toPlace() + fetchFields()
+    if (s.prediction) {
+      try {
+        const place = s.prediction.toPlace();
+        await place.fetchFields({ fields: ["location"] });
+        const lat = place.location.lat();
+        const lng = place.location.lng();
+        setUserCoords({ lat, lng });
+        saveToHistory({ label: s.label, lat, lng });
+        setHistory(loadHistory());
+      } catch { /* accept label without coords */ }
+      return;
+    }
+    // Fallback for history items with placeId only
+    if (s.placeId) {
+      try {
+        const maps = await loadGoogleMaps();
+        const geocoder = new maps.Geocoder();
+        geocoder.geocode({ placeId: s.placeId }, (results, status) => {
+          if (status === "OK" && results[0]) {
+            const lat = results[0].geometry.location.lat();
+            const lng = results[0].geometry.location.lng();
+            setUserCoords({ lat, lng });
+            saveToHistory({ label: s.label, lat, lng });
+            setHistory(loadHistory());
+          }
+        });
+      } catch { /* no coords */ }
+    }
   }
 
   function clearLocation() {
@@ -137,20 +176,23 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
       async (pos) => {
         const { latitude: lat, longitude: lng } = pos.coords;
         setUserCoords({ lat, lng });
-        // Reverse-geocode via Nominatim
+        // Reverse-geocode via Google Geocoder
         try {
-          const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&accept-language=es`,
-            { headers: { "Accept-Language": "es" } }
+          const maps = await loadGoogleMaps();
+          const geocoder = new maps.Geocoder();
+          geocoder.geocode(
+            { location: { lat, lng }, language: "es" },
+            (results, status) => {
+              const label =
+                status === "OK" && results[0]
+                  ? results[0].formatted_address
+                  : `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+              setAddress(label);
+              setDraft(label);
+              saveToHistory({ label, lat, lng });
+              setHistory(loadHistory());
+            }
           );
-          const data = await res.json();
-          const label = data.display_name
-            ? data.display_name.split(",").slice(0, 3).join(",").trim()
-            : `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
-          setAddress(label);
-          setDraft(label);
-          saveToHistory({ label, lat, lng });
-          setHistory(loadHistory());
         } catch {
           setAddress(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
           setDraft(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
