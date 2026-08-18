@@ -25,8 +25,9 @@ export default function LastMinutePanel({
   timeBreakdown, minutesToAirport, setMinutesToAirport,
   flightType, setFlightType,
   malls, onSelectMall,
+  autoOpen = false,
 }) {
-  const [showInput, setShowInput] = useState(false);
+  const [showInput, setShowInput] = useState(autoOpen);
   const [rawTime, setRawTime] = useState(flightTime || "");
   const { t } = useLanguage();
   const lm = t.lastMinute;

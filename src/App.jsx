@@ -192,6 +192,7 @@ function App() {
                 setFlightType={setFlightType}
                 malls={malls}
                 onSelectMall={mall => { setLastMinuteOpen(false); openMall(mall); }}
+                autoOpen
               />
             </div>
           </div>
