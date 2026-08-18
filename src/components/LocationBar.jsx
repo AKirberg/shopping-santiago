@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronRight, Clock, MapPin, Navigation, Search, X } from "lucide-react";
+import { ChevronRight, Clock, Crosshair, MapPin, Navigation, Search, X } from "lucide-react";
 import { haversineKm } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
+import { localizeMall } from "../i18n/mallContent";
 
 const HISTORY_KEY = "ss-addr-history";
 const HISTORY_MAX = 5;
@@ -57,6 +58,8 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
   const [draft, setDraft] = useState(address || "");
   const [history, setHistory] = useState(loadHistory);
   const [focusedMall, setFocusedMall] = useState(null);
+  const [gpsLoading, setGpsLoading] = useState(false);
+  const [gpsError, setGpsError] = useState(null);
   const inputRef = useRef(null);
   const { t } = useLanguage();
   const lb = t.locationBar;
@@ -126,6 +129,42 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
     setTimeout(() => document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth" }), 200);
   }
 
+  async function handleGPS() {
+    if (!navigator.geolocation) return;
+    setGpsLoading(true);
+    setGpsError(null);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude: lat, longitude: lng } = pos.coords;
+        setUserCoords({ lat, lng });
+        // Reverse-geocode via Nominatim
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&accept-language=es`,
+            { headers: { "Accept-Language": "es" } }
+          );
+          const data = await res.json();
+          const label = data.display_name
+            ? data.display_name.split(",").slice(0, 3).join(",").trim()
+            : `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+          setAddress(label);
+          setDraft(label);
+          saveToHistory({ label, lat, lng });
+          setHistory(loadHistory());
+        } catch {
+          setAddress(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
+          setDraft(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
+        }
+        setGpsLoading(false);
+      },
+      (err) => {
+        setGpsLoading(false);
+        setGpsError(err.code === 1 ? lb.gpsDenied : lb.gpsError);
+      },
+      { timeout: 10000, maximumAge: 60000 }
+    );
+  }
+
   const showHistory = draft.length === 0 && history.length > 0;
   const showSuggestions = draft.length >= 3 && suggestions.length > 0;
 
@@ -172,6 +211,26 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
             )}
           </button>
 
+          {/* GPS quick button — visible when no location yet */}
+          {!userCoords && (
+            <button
+              onClick={handleGPS}
+              disabled={gpsLoading}
+              className={`shrink-0 flex items-center justify-center h-10 w-10 rounded-full border transition ${
+                gpsLoading
+                  ? "border-leaf/20 bg-leaf/5 text-leaf/40 cursor-wait"
+                  : "border-leaf/30 bg-leaf/6 text-leaf hover:bg-leaf hover:text-white hover:border-leaf"
+              }`}
+              aria-label={lb.gpsBtn}
+              title={lb.gpsBtn}
+            >
+              {gpsLoading
+                ? <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-leaf/30 border-t-leaf" />
+                : <Crosshair size={15} />
+              }
+            </button>
+          )}
+
           {/* Clear badge — only when location is active */}
           {userCoords && (
             <button
@@ -212,7 +271,7 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
             </div>
 
             {/* Search input — fijo bajo el header */}
-            <div className="shrink-0 px-5 pt-4 pb-3">
+            <div className="shrink-0 px-5 pt-4 pb-3 space-y-2.5">
               <div className="flex items-center gap-2.5 rounded-2xl border border-ink/12 bg-ink/3 px-3.5 py-3 focus-within:border-leaf focus-within:bg-white focus-within:ring-2 focus-within:ring-leaf/12 transition">
                 <Search size={14} className="shrink-0 text-ink/35" />
                 <input
@@ -237,6 +296,29 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                   </button>
                 )}
               </div>
+
+              {/* GPS button */}
+              <button
+                onClick={handleGPS}
+                disabled={gpsLoading}
+                className={`flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-2.5 text-xs font-extrabold transition ${
+                  gpsLoading
+                    ? "border-leaf/20 bg-leaf/5 text-leaf/50 cursor-wait"
+                    : "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white hover:border-leaf"
+                }`}
+              >
+                {gpsLoading ? (
+                  <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-leaf/30 border-t-leaf" />
+                ) : (
+                  <Crosshair size={13} />
+                )}
+                {gpsLoading ? lb.gpsLoading : lb.gpsBtn}
+              </button>
+
+              {/* GPS error message */}
+              {gpsError && (
+                <p className="text-center text-[11px] font-semibold text-coral/80">{gpsError}</p>
+              )}
             </div>
 
             {/* Contenido scrolleable */}
@@ -348,6 +430,8 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
 
 /* ── Mini ficha de mall dentro del modal ── */
 function MallDetail({ mall, userCoords, lb, onBack, onQuiz }) {
+  const { lang } = useLanguage();
+  const lm = localizeMall(mall, lang);
   const mapsUrl = userCoords
     ? `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`
     : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
@@ -387,22 +471,22 @@ function MallDetail({ mall, userCoords, lb, onBack, onQuiz }) {
             )}
           </p>
         </div>
-        {mall.recommendedTime && (
+        {lm.recommendedTime && (
           <span className="shrink-0 rounded-xl border border-ink/10 bg-ink/3 px-2.5 py-1 text-[10px] font-extrabold text-ink/50">
-            ⏱ {mall.recommendedTime}
+            ⏱ {lm.recommendedTime}
           </span>
         )}
       </div>
 
       {/* Description */}
-      {mall.description && (
-        <p className="mb-3 text-xs leading-relaxed text-ink/60">{mall.description}</p>
+      {lm.description && (
+        <p className="mb-3 text-xs leading-relaxed text-ink/60">{lm.description}</p>
       )}
 
       {/* Best for tags */}
-      {mall.bestFor?.length > 0 && (
+      {lm.bestFor?.length > 0 && (
         <div className="mb-3 flex flex-wrap gap-1.5">
-          {mall.bestFor.map((tag, i) => (
+          {lm.bestFor.map((tag, i) => (
             <span key={i} className="rounded-full bg-leaf/8 px-2.5 py-1 text-[10px] font-extrabold text-leaf">
               {tag}
             </span>

@@ -1,5 +1,6 @@
 import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, Star, TrainFront, Utensils } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { localizeMall } from "../i18n/mallContent";
 
 function accentColor(mall) {
   if (mall.premium) return "bg-gold";
@@ -14,8 +15,9 @@ function parseMinHours(timeStr) {
 }
 
 function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const mc = t.mallCard;
+  const lm = localizeMall(mall, lang);
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
   const minHours = parseMinHours(mall.recommendedTime);
   const tooLong = availableHours !== null && availableHours !== undefined && availableHours < minHours;
@@ -72,26 +74,26 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
             </span>
           )}
           {mall.type.slice(0, 3).map(tag => (
-            <span key={tag} className="tag capitalize">{tag}</span>
+            <span key={tag} className="tag capitalize">{t.typeLabels?.[tag] ?? tag}</span>
           ))}
         </div>
 
         <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/55 line-clamp-2">
-          {mall.description}
+          {lm.description}
         </p>
 
         <div className="mt-3 rounded-xl bg-mist px-3.5 py-2.5">
           <p className="text-xs font-bold text-ink/60">
             <span className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{mc.bestFor} · </span>
-            {mall.bestFor.slice(0, 2).join(" · ")}
+            {lm.bestFor.slice(0, 2).join(" · ")}
           </p>
         </div>
 
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-ink/45">
           <span className={`flex items-center gap-1 ${tooLong ? "font-extrabold text-coral" : ""}`}>
-            <Clock size={12} /> {mall.recommendedTime}
+            <Clock size={12} /> {lm.recommendedTime}
           </span>
-          <span className="flex items-center gap-1"><MapPin size={12} /> {mall.priceLevel}</span>
+          <span className="flex items-center gap-1"><MapPin size={12} /> {t.priceLabels?.[mall.priceLevel] ?? mall.priceLevel}</span>
           <span className="flex items-center gap-1">
             {mall.type.includes("metro") ? <TrainFront size={12} /> : <Car size={12} />}
             {mall.type.includes("metro") ? "Metro" : "Auto/Uber"}

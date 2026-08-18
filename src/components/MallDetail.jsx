@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, ShoppingBag, TrainFront, Utensils, X } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { localizeMall } from "../i18n/mallContent";
 
 function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRoute }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const md = t.mallDetail;
+  const lm = localizeMall(mall, lang);
   const relatedRoute = routes.find(r => r.stops.some(s => s.mallId === mall.id));
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
 
@@ -43,7 +45,7 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
             <h2 className="mt-1 font-display text-3xl font-extrabold text-white drop-shadow">{mall.name}</h2>
             <div className="mt-3 flex flex-wrap gap-2">
               {mall.type.map(tag => (
-                <span key={tag} className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold capitalize backdrop-blur-sm">{tag}</span>
+                <span key={tag} className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold capitalize backdrop-blur-sm">{t.typeLabels?.[tag] ?? tag}</span>
               ))}
             </div>
           </div>
@@ -51,11 +53,11 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
 
         <div className="grid gap-6 p-6 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
-            <p className="text-sm leading-7 text-ink/68">{mall.description}</p>
+            <p className="text-sm leading-7 text-ink/68">{lm.description}</p>
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
-              <InfoList title={md.sections.bestFor} items={mall.bestFor} positive />
-              <InfoList title={md.sections.notFor} items={mall.notIdealFor} />
-              <InfoList title={md.sections.tips} items={mall.tips} positive />
+              <InfoList title={md.sections.bestFor} items={lm.bestFor} positive />
+              <InfoList title={md.sections.notFor} items={lm.notIdealFor} />
+              <InfoList title={md.sections.tips} items={lm.tips} positive />
               <InfoList title={md.sections.nearby} items={mall.nearbyAttractions.length ? mall.nearbyAttractions : [md.sections.noData]} />
             </div>
 
@@ -97,13 +99,13 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
           <aside>
             <div className="rounded-xl bg-mist p-5">
               <div className="grid gap-3.5 text-sm font-semibold text-ink/70">
-                <span className="flex items-start gap-3"><TrainFront size={16} className="mt-0.5 shrink-0 text-leaf" />{mall.transport.metro}</span>
+                <span className="flex items-start gap-3"><TrainFront size={16} className="mt-0.5 shrink-0 text-leaf" />{lm.transport.metro}</span>
                 <span className="flex items-center gap-3">
                   <Car size={16} className="shrink-0 text-leaf" />
                   {md.parking}: {mall.transport.parking ? md.yes : md.no} · Uber: {mall.transport.uber ? md.yes : md.no}
                 </span>
-                <span className="flex items-center gap-3"><Clock size={16} className="shrink-0 text-leaf" />{mall.recommendedTime}</span>
-                <span className="flex items-center gap-3"><MapPin size={16} className="shrink-0 text-leaf" />{mall.priceLevel}</span>
+                <span className="flex items-center gap-3"><Clock size={16} className="shrink-0 text-leaf" />{lm.recommendedTime}</span>
+                <span className="flex items-center gap-3"><MapPin size={16} className="shrink-0 text-leaf" />{t.priceLabels?.[mall.priceLevel] ?? mall.priceLevel}</span>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-2">
                 <Badge label={md.badges.family} active={mall.familyFriendly} />

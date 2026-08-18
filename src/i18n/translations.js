@@ -27,6 +27,10 @@ export const translations = {
       distLabel: "km",
       goNow: "IR YA →",
       advancedSearch: "Búsqueda avanzada por filtros",
+      gpsBtn: "Usar mi ubicación",
+      gpsLoading: "Obteniendo ubicación…",
+      gpsDenied: "Permiso denegado. Ingresa tu dirección manualmente.",
+      gpsError: "No se pudo obtener la ubicación. Intenta de nuevo.",
     },
     lastMinute: {
       title: "Compras de último minuto",
@@ -75,6 +79,14 @@ export const translations = {
     foodLevel: {
       patio: "Patio de comidas",
       gastronomico: "Centro gastronómico",
+    },
+    typeLabels: {
+      tourist: "turístico", variety: "variedad", metro: "metro",
+      fashion: "moda", food: "comida", quick: "visita rápida",
+      outlet: "outlet", premium: "premium", family: "familiar", sport: "deporte",
+    },
+    priceLabels: {
+      bajo: "Bajo", medio: "Medio", alto: "Alto", "muy alto": "Muy alto",
     },
     quiz: {
       eyebrow: "Recomendador",
@@ -230,6 +242,10 @@ export const translations = {
       distLabel: "km",
       goNow: "IR AGORA →",
       advancedSearch: "Busca avançada por filtros",
+      gpsBtn: "Usar minha localização",
+      gpsLoading: "Obtendo localização…",
+      gpsDenied: "Permissão negada. Insira seu endereço manualmente.",
+      gpsError: "Não foi possível obter a localização. Tente novamente.",
     },
     lastMinute: {
       title: "Compras de última hora",
@@ -278,6 +294,14 @@ export const translations = {
     foodLevel: {
       patio: "Praça de alimentação",
       gastronomico: "Centro gastronômico",
+    },
+    typeLabels: {
+      tourist: "turístico", variety: "variedade", metro: "metrô",
+      fashion: "moda", food: "gastronomia", quick: "visita rápida",
+      outlet: "outlet", premium: "premium", family: "familiar", sport: "esporte",
+    },
+    priceLabels: {
+      bajo: "Econômico", medio: "Médio", alto: "Premium", "muy alto": "Luxo",
     },
     quiz: {
       eyebrow: "Recomendador",
@@ -433,6 +457,10 @@ export const translations = {
       distLabel: "km",
       goNow: "GO NOW →",
       advancedSearch: "Advanced search by filters",
+      gpsBtn: "Use my location",
+      gpsLoading: "Getting location…",
+      gpsDenied: "Permission denied. Please enter your address manually.",
+      gpsError: "Could not get location. Please try again.",
     },
     lastMinute: {
       title: "Last-minute shopping",
@@ -481,6 +509,14 @@ export const translations = {
     foodLevel: {
       patio: "Food court",
       gastronomico: "Gastronomic centre",
+    },
+    typeLabels: {
+      tourist: "tourist-friendly", variety: "variety", metro: "metro access",
+      fashion: "fashion", food: "dining", quick: "quick visit",
+      outlet: "outlet", premium: "premium", family: "family-friendly", sport: "sport",
+    },
+    priceLabels: {
+      bajo: "Budget", medio: "Mid-range", alto: "High-end", "muy alto": "Luxury",
     },
     quiz: {
       eyebrow: "Recommender",
