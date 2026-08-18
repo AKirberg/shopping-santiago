@@ -123,18 +123,6 @@ function App() {
           setUserCoords={setUserCoords}
           malls={malls}
         />
-        <LastMinutePanel
-          flightTime={flightTime}
-          setFlightTime={setFlightTime}
-          timeBreakdown={timeBreakdown}
-          minutesToAirport={minutesToAirport}
-          setMinutesToAirport={setMinutesToAirport}
-          flightType={flightType}
-          setFlightType={setFlightType}
-          malls={malls}
-          onSelectMall={openMall}
-        />
-
         <section className="bg-mist/70" id="destacados">
           <div className="section-shell">
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
