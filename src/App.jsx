@@ -41,6 +41,7 @@ function App() {
   const [flightType, setFlightType] = useState("international");
   const [userAddress, setUserAddress] = useState("");
   const [userCoords, setUserCoords] = useState(null);
+  const [lastMinuteOpen, setLastMinuteOpen] = useState(false);
 
   useEffect(() => {
     const onPopState = () => setSelectedMall(mallFromPath(window.location.pathname));
@@ -85,7 +86,6 @@ function App() {
     const next = { ...defaultFilters };
     if (intent === "ropa") next.category = "ropa";
     if (intent === "outlet") next.outlet = true;
-    if (intent === "providencia") next.commune = "Providencia";
     if (intent === "kids") next.family = true;
     if (intent === "premium") next.premium = true;
     if (intent === "quick") next.quick = true;
@@ -115,7 +115,7 @@ function App() {
       <Header />
       <main>
         <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
-        <QuickIntentButtons onIntent={applyIntent} />
+        <QuickIntentButtons onIntent={applyIntent} onLastMinute={() => setLastMinuteOpen(true)} />
         <LocationBar
           address={userAddress}
           setAddress={setUserAddress}
@@ -179,6 +179,37 @@ function App() {
         <TouristTips />
       </main>
       <Footer />
+      {/* ── Modal Último minuto ── */}
+      {lastMinuteOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-ink/40 backdrop-blur-sm p-0 sm:p-4"
+          onClick={e => { if (e.target === e.currentTarget) setLastMinuteOpen(false); }}
+        >
+          <div className="relative w-full sm:max-w-xl sm:rounded-3xl rounded-t-3xl bg-[#f8faf6] shadow-2xl overflow-hidden">
+            <button
+              onClick={() => setLastMinuteOpen(false)}
+              className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-ink/8 text-ink/50 transition hover:bg-ink/15 hover:text-ink"
+              aria-label="Cerrar"
+            >
+              <span className="text-base leading-none">×</span>
+            </button>
+            <div className="p-4 pt-5">
+              <LastMinutePanel
+                flightTime={flightTime}
+                setFlightTime={setFlightTime}
+                timeBreakdown={timeBreakdown}
+                minutesToAirport={minutesToAirport}
+                setMinutesToAirport={setMinutesToAirport}
+                flightType={flightType}
+                setFlightType={setFlightType}
+                malls={malls}
+                onSelectMall={mall => { setLastMinuteOpen(false); openMall(mall); }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       {selectedMall && (
         <MallDetail
           mall={selectedMall}

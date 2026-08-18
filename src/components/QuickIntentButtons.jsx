@@ -1,17 +1,16 @@
-import { Baby, BadgePercent, Clock3, Gem, MapPin, Shirt, UtensilsCrossed } from "lucide-react";
+import { Baby, BadgePercent, Clock3, Gem, PlaneLanding, Shirt, UtensilsCrossed } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const intentKeys = [
-  { key: "ropa", icon: Shirt },
-  { key: "outlet", icon: BadgePercent },
-  { key: "comer", icon: UtensilsCrossed },
-  { key: "providencia", icon: MapPin },
-  { key: "kids", icon: Baby },
+  { key: "ropa",    icon: Shirt },
+  { key: "outlet",  icon: BadgePercent },
+  { key: "comer",   icon: UtensilsCrossed },
+  { key: "kids",    icon: Baby },
   { key: "premium", icon: Gem },
-  { key: "quick", icon: Clock3 },
+  { key: "quick",   icon: Clock3 },
 ];
 
-function QuickIntentButtons({ onIntent }) {
+function QuickIntentButtons({ onIntent, onLastMinute }) {
   const { t } = useLanguage();
   const items = t.quickIntents.items;
 
@@ -31,6 +30,15 @@ function QuickIntentButtons({ onIntent }) {
             {items[key]}
           </button>
         ))}
+
+        {/* Último minuto — chip especial coral */}
+        <button
+          onClick={onLastMinute}
+          className="flex shrink-0 items-center gap-1.5 rounded-full border border-coral/30 bg-coral/6 px-3.5 py-2 text-xs font-bold text-coral transition hover:bg-coral hover:text-white hover:border-coral"
+        >
+          <PlaneLanding size={13} />
+          {items.lastMinute}
+        </button>
       </div>
     </section>
   );
