@@ -7,6 +7,7 @@ import { applyMallSeo, resetSeo } from "./utils/mallSeo";
 import { useLanguage } from "./i18n/LanguageContext";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import TrustStrip from "./components/TrustStrip";
 import LocationBar from "./components/LocationBar";
 import QuickIntentButtons from "./components/QuickIntentButtons";
 import MallGrid from "./components/MallGrid";
@@ -125,6 +126,7 @@ function App() {
       <Header />
       <main>
         <Hero onIntent={applyIntent} mallCount={malls.length} routeCount={routes.length} />
+        <TrustStrip />
         <LocationBar
           forceOpen={triggerAddressOpen}
           onForceOpenHandled={() => setTriggerAddressOpen(false)}

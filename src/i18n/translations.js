@@ -12,6 +12,7 @@ export const translations = {
       primaryAction: "¿Qué mall me conviene?",
       secondaryAction: "Ver rutas recomendadas",
       statMalls: "malls", statRoutes: "rutas", statMode: "gratis",
+      trust: { free: "Servicio gratuito", noReg: "Sin registro", noAds: "Sin publicidad" },
     },
     quickIntents: {
       label: "Busco:",
@@ -227,6 +228,7 @@ export const translations = {
       primaryAction: "Qual mall é ideal para mim?",
       secondaryAction: "Ver rotas recomendadas",
       statMalls: "malls", statRoutes: "rotas", statMode: "grátis",
+      trust: { free: "Serviço gratuito", noReg: "Sem cadastro", noAds: "Sem publicidade" },
     },
     quickIntents: {
       label: "Busco:",
@@ -442,6 +444,7 @@ export const translations = {
       primaryAction: "Which mall suits me?",
       secondaryAction: "View recommended routes",
       statMalls: "malls", statRoutes: "routes", statMode: "free",
+      trust: { free: "Free service", noReg: "No sign-up", noAds: "No ads" },
     },
     quickIntents: {
       label: "I want:",
