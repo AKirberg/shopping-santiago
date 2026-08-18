@@ -26,6 +26,7 @@ export default function LastMinutePanel({
   flightType, setFlightType,
   malls, onSelectMall,
   autoOpen = false,
+  onClose,
 }) {
   const [showInput, setShowInput] = useState(autoOpen);
   const [rawTime, setRawTime] = useState(flightTime || "");
@@ -283,7 +284,7 @@ export default function LastMinutePanel({
                   className="group flex items-center gap-3 rounded-2xl border border-ink/8 bg-white px-4 py-3 text-left shadow-sm transition hover:border-leaf/30 hover:shadow-card"
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
+                    <p className="text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
                     <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
                       {mall.commune}
                       <span className={`ml-1.5 font-bold ${th.timeColor}`}>{mall.recommendedTime}</span>
@@ -294,7 +295,10 @@ export default function LastMinutePanel({
               ))}
             </div>
             <button
-              onClick={() => document.getElementById("quiz")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => {
+                onClose?.();
+                setTimeout(() => document.getElementById("malls")?.scrollIntoView({ behavior: "smooth" }), 150);
+              }}
               className={`mt-3 flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-3 text-sm font-extrabold transition ${th.ctaCls}`}
             >
               {lm.cta} <ChevronRight size={15} />

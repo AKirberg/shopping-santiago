@@ -123,6 +123,36 @@ function App() {
           setUserCoords={setUserCoords}
           malls={malls}
         />
+
+        {/* ── Barra fija de vuelo activo ── */}
+        {flightTime && timeBreakdown && (
+          <div className="sticky top-[104px] sm:top-[120px] z-20 border-b border-ink/8">
+            <button
+              onClick={() => setLastMinuteOpen(true)}
+              className={`w-full flex items-center gap-3 px-4 sm:px-6 lg:px-8 py-2.5 text-left transition ${
+                availableHours <= 0   ? "bg-coral/10 hover:bg-coral/15" :
+                availableHours < 1.5  ? "bg-gold/10 hover:bg-gold/15" :
+                                        "bg-leaf/8 hover:bg-leaf/12"
+              }`}
+            >
+              <span className="text-base">✈️</span>
+              <span className="text-xs font-extrabold text-ink/60">Vuelo {flightTime}</span>
+              <span className="mx-1 text-ink/20">·</span>
+              <span className={`text-sm font-extrabold ${
+                availableHours <= 0   ? "text-coral" :
+                availableHours < 1.5  ? "text-gold" :
+                                        "text-leaf"
+              }`}>
+                {availableHours <= 0
+                  ? "Sin tiempo para compras"
+                  : `${availableHours < 1 ? Math.round(availableHours * 60) + " min" : (Math.floor(availableHours) + (availableHours % 1 >= 0.08 ? "h " + Math.round((availableHours % 1) * 60) + "min" : "h"))} para comprar`
+                }
+              </span>
+              <span className="ml-auto text-[10px] font-bold text-ink/35">Toca para editar →</span>
+            </button>
+          </div>
+        )}
+
         <section className="bg-mist/70" id="destacados">
           <div className="section-shell">
             <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -192,6 +222,7 @@ function App() {
                 setFlightType={setFlightType}
                 malls={malls}
                 onSelectMall={mall => { setLastMinuteOpen(false); openMall(mall); }}
+                onClose={() => setLastMinuteOpen(false)}
                 autoOpen
               />
             </div>
