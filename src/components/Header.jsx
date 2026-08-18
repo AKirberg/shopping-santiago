@@ -17,7 +17,7 @@ function Header() {
   ];
 
   return (
-    <header className="sm:sticky sm:top-0 z-40 border-b border-ink/8 bg-[#f8faf6]/92 backdrop-blur-xl">
+    <header className="sm:sticky sm:top-0 z-40 border-b border-ink/8 bg-[#f8faf6]">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4">
           <div className="hidden items-center rounded-xl bg-ink px-2 py-1.5 sm:flex">
@@ -55,7 +55,7 @@ function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-ink/8 bg-white/95 backdrop-blur-xl px-4 py-3 md:hidden">
+        <nav className="border-t border-ink/8 bg-white px-4 py-3 md:hidden">
           <div className="mx-auto grid max-w-7xl gap-1">
             <div className="flex items-center gap-2 rounded-xl bg-ink px-4 py-2.5 mb-1">
               <LanguageSwitcher />
