@@ -14,6 +14,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 48px; /* LocationBar sticky en móvil */
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 112px; /* Header (64px) + LocationBar (48px) en desktop */
+  }
 }
 
 body {
