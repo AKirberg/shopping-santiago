@@ -127,8 +127,8 @@ export default function LastMinutePanel({
     return (
       <div className="border-b border-ink/8 bg-[#fafaf8]">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-dashed border-ink/15 px-5 py-4">
-            <span className="flex items-center gap-2 text-xs font-extrabold text-ink/35">
+          <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-dashed border-coral/50 bg-coral/3 px-5 py-4">
+            <span className="flex items-center gap-2 text-xs font-extrabold text-coral">
               <ShoppingBag size={13} /> {lm.title}
             </span>
             <p className="text-xs font-medium text-ink/40">{lm.emptyHint}</p>
@@ -149,7 +149,7 @@ export default function LastMinutePanel({
     return (
       <div className="border-b border-ink/8 bg-[#fafaf8]">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-leaf/25 bg-white px-5 py-4 shadow-sm">
+          <div className="rounded-2xl border border-coral/40 bg-coral/3 px-5 py-4 shadow-sm">
             {/* Config row: type + airport travel FIRST */}
             <div className="mb-4 pb-3 border-b border-ink/6">
               <ConfigRow />
@@ -189,7 +189,7 @@ export default function LastMinutePanel({
   const airportBufferMin = bd?.airportBufferMin ?? 240;
 
   return (
-    <div className={`border-b ${th.bar}`}>
+    <div className={`border-b border-l-4 border-l-coral ${th.bar}`}>
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
 
         {/* Top row: badge + subtitle + time + edit input */}
