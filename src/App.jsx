@@ -77,7 +77,7 @@ function App() {
   const availableHours = timeBreakdown?.availableHours ?? null;
   const filteredMalls = useMemo(() => malls.filter(mall => matchesMallFilters(mall, filters)), [filters]);
   const featuredMalls = useMemo(
-    () => malls.filter(mall => mall.touristScore >= 8 || mall.premium || mall.outlet).slice(0, 6),
+    () => malls.filter(mall => mall.touristScore >= 8 || mall.premium || mall.outlet).slice(0, 3),
     []
   );
 
