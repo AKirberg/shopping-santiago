@@ -443,36 +443,30 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                 )}
               </div>
 
-              {/* GPS button */}
-              <button
-                onClick={handleGPS}
-                disabled={gpsLoading}
-                className={`flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-2.5 text-xs font-extrabold transition ${
-                  gpsLoading
-                    ? "border-leaf/20 bg-leaf/5 text-leaf/50 cursor-wait"
-                    : "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white hover:border-leaf"
-                }`}
-              >
-                {gpsLoading ? (
-                  <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-leaf/30 border-t-leaf" />
-                ) : (
-                  <Crosshair size={13} />
-                )}
-                {gpsLoading ? lb.gpsLoading : lb.gpsBtn}
-              </button>
+              {/* GPS button — solo cuando no hay ubicación */}
+              {!userCoords && (
+                <button
+                  onClick={handleGPS}
+                  disabled={gpsLoading}
+                  className={`flex w-full items-center justify-center gap-2 rounded-2xl border px-4 py-2.5 text-xs font-extrabold transition ${
+                    gpsLoading
+                      ? "border-leaf/20 bg-leaf/5 text-leaf/50 cursor-wait"
+                      : "border-leaf/35 bg-leaf/8 text-leaf hover:bg-leaf hover:text-white hover:border-leaf"
+                  }`}
+                >
+                  {gpsLoading ? (
+                    <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-leaf/30 border-t-leaf" />
+                  ) : (
+                    <Crosshair size={13} />
+                  )}
+                  {gpsLoading ? lb.gpsLoading : lb.gpsBtn}
+                </button>
+              )}
 
               {/* GPS error message */}
               {gpsError && (
                 <p className="text-center text-[11px] font-semibold text-coral/80">{gpsError}</p>
               )}
-
-              {/* ¿Qué mall me conviene? — justo después de la dirección */}
-              <button
-                onClick={scrollToQuiz}
-                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-leaf/35 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf hover:text-white"
-              >
-                {lb.quizCta} <ChevronRight size={15} />
-              </button>
             </div>
 
             {/* Contenido scrolleable */}
@@ -522,16 +516,16 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                       <p className="mb-3 text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">
                         {lb.nearbyTitle}
                       </p>
-                      <div className="grid gap-2 grid-cols-1 sm:grid-cols-2">
+                      <div className="flex flex-col gap-2">
                         {nearbyMalls.map((mall, i) => {
                           const isNearest = i === 0;
                           return (
                             <button
                               key={mall.id}
                               onClick={() => setFocusedMall(mall)}
-                              className={`flex items-center gap-3 rounded-2xl border px-3.5 py-2.5 text-left transition ${
+                              className={`flex w-full items-center gap-3 rounded-2xl border px-3.5 py-2.5 text-left transition ${
                                 isNearest
-                                  ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/12 col-span-full sm:col-span-2"
+                                  ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/12"
                                   : "border-ink/8 bg-ink/2 hover:border-leaf/30 hover:bg-leaf/4"
                               }`}
                             >
@@ -561,6 +555,16 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                   <p className="text-xs text-ink/35 text-center">{lb.hint}</p>
                 </div>
               )}
+
+              {/* Volver — al fondo */}
+              <div className="px-5 pb-5 pt-3">
+                <button
+                  onClick={closeModal}
+                  className="flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/12 bg-ink/3 px-4 py-3 text-sm font-extrabold text-ink/50 transition hover:bg-ink/6 hover:text-ink/70"
+                >
+                  Volver
+                </button>
+              </div>
 
             </div>{/* fin scroll */}
           </div>
