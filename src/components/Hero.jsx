@@ -47,7 +47,7 @@ function Hero({ onIntent }) {
 
       {/* ── Content ── */}
       <div className="section-shell relative py-12 lg:py-20">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mx-auto text-center">
           <p className="text-[10px] font-extrabold uppercase tracking-[0.26em] text-white/55">
             {h.eyebrow}
           </p>
