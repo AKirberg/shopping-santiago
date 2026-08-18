@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import TrustStrip from "./TrustStrip";
 
 function Hero({ onIntent }) {
   const { t } = useLanguage();
@@ -69,6 +70,20 @@ function Hero({ onIntent }) {
             >
               {h.secondaryAction}
             </a>
+          </div>
+
+          {/* Trust badges */}
+          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+            {[
+              { emoji: "✅", label: h.trust.free },
+              { emoji: "🔓", label: h.trust.noReg },
+              { emoji: "🚫", label: h.trust.noAds },
+            ].map(({ emoji, label }) => (
+              <span key={label} className="flex items-center gap-1.5 text-xs font-semibold text-white/70">
+                <span className="text-sm leading-none">{emoji}</span>
+                {label}
+              </span>
+            ))}
           </div>
         </div>
       </div>
