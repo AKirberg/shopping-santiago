@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import malls from "./data/malls.json";
 import routes from "./data/routes.json";
 import { matchesMallFilters } from "./utils/scoring";
@@ -43,6 +43,7 @@ function App() {
   const [userCoords, setUserCoords] = useState(null);
   const [lastMinuteOpen, setLastMinuteOpen] = useState(false);
   const [triggerAddressOpen, setTriggerAddressOpen] = useState(false);
+  const returnToLastMinute = useRef(false);
 
   useEffect(() => {
     const onPopState = () => setSelectedMall(mallFromPath(window.location.pathname));
@@ -54,6 +55,14 @@ function App() {
     if (selectedMall) applyMallSeo(selectedMall);
     else resetSeo();
   }, [selectedMall]);
+
+  /* Reopen LastMinutePanel after user sets address from within it */
+  useEffect(() => {
+    if (userAddress && returnToLastMinute.current) {
+      returnToLastMinute.current = false;
+      setLastMinuteOpen(true);
+    }
+  }, [userAddress]);
 
   function openMall(mall) {
     setSelectedMall(mall);
@@ -203,7 +212,7 @@ function App() {
                 onClose={() => setLastMinuteOpen(false)}
                 autoOpen
                 address={userAddress}
-                onOpenAddress={() => { setLastMinuteOpen(false); setTriggerAddressOpen(true); }}
+                onOpenAddress={() => { setLastMinuteOpen(false); returnToLastMinute.current = true; setTriggerAddressOpen(true); }}
               />
             </div>
           </div>
