@@ -202,22 +202,43 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
         const { latitude: lat, longitude: lng } = pos.coords;
         setUserCoords({ lat, lng });
 
-        // Reverse-geocode via Nominatim (no API key required)
+        // Reverse-geocode: Google Geocoder first, Nominatim as fallback
         let label = null;
+
+        // 1. Try Google Geocoder (street_number + route + locality)
         try {
-          const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&accept-language=es`,
-            { headers: { "Accept-Language": "es" } }
-          );
-          const data = await res.json();
-          const a = data.address || {};
-          // Build a friendly label: neighbourhood/suburb/road + commune/city
-          const place =
-            a.neighbourhood || a.suburb || a.city_district ||
-            a.road || a.pedestrian || a.footway || "";
-          const city = a.city || a.town || a.village || a.county || "";
-          label = [place, city].filter(Boolean).join(", ") || data.display_name;
-        } catch { /* fall through */ }
+          const maps = await loadGoogleMaps();
+          label = await new Promise((resolve) => {
+            const geocoder = new maps.Geocoder();
+            geocoder.geocode({ location: { lat, lng }, language: "es" }, (results, status) => {
+              if (status !== "OK" || !results[0]) { resolve(null); return; }
+              const comps = results[0].address_components;
+              const get = (type) => comps.find(c => c.types.includes(type))?.long_name ?? "";
+              const number = get("street_number");
+              const street = get("route");
+              const commune = get("locality") || get("sublocality") || get("administrative_area_level_3");
+              const parts = [street && number ? `${street} ${number}` : street || number, commune].filter(Boolean);
+              resolve(parts.length ? parts.join(", ") : results[0].formatted_address);
+            });
+          });
+        } catch { /* fall through to Nominatim */ }
+
+        // 2. Fallback: Nominatim
+        if (!label) {
+          try {
+            const res = await fetch(
+              `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&accept-language=es`,
+              { headers: { "Accept-Language": "es" } }
+            );
+            const data = await res.json();
+            const a = data.address || {};
+            const street = a.road || a.pedestrian || a.footway || "";
+            const number = a.house_number || "";
+            const commune = a.city || a.town || a.village || a.suburb || "";
+            const parts = [street && number ? `${street} ${number}` : street, commune].filter(Boolean);
+            label = parts.length ? parts.join(", ") : data.display_name;
+          } catch { /* fall through */ }
+        }
 
         if (!label) label = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
 
