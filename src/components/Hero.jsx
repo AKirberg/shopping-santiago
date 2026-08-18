@@ -57,7 +57,7 @@ function Hero({ onIntent }) {
           <p className="mt-4 text-base font-medium leading-7 text-white/80 drop-shadow-sm sm:text-lg">
             {h.subtitle}
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
               href="#quiz"
               className="primary-button bg-white text-ink hover:bg-leaf hover:text-white border-transparent"
@@ -73,7 +73,7 @@ function Hero({ onIntent }) {
           </div>
 
           {/* Trust badges */}
-          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+          <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2">
             {[
               { emoji: "✅", label: h.trust.free },
               { emoji: "🔓", label: h.trust.noReg },
