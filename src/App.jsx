@@ -187,10 +187,10 @@ function App() {
       {/* ── Modal Último minuto ── */}
       {lastMinuteOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-ink/40 backdrop-blur-sm p-0 sm:p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 backdrop-blur-sm p-4 pb-[22vh]"
           onClick={e => { if (e.target === e.currentTarget) setLastMinuteOpen(false); }}
         >
-          <div className="relative w-full sm:max-w-xl sm:rounded-3xl rounded-t-3xl bg-[#f8faf6] shadow-2xl overflow-hidden">
+          <div className="relative w-full max-w-xl rounded-3xl bg-[#f8faf6] shadow-2xl overflow-hidden">
             <button
               onClick={() => setLastMinuteOpen(false)}
               className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-ink/8 text-ink/50 transition hover:bg-ink/15 hover:text-ink"

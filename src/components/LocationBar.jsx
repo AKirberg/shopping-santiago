@@ -369,14 +369,14 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
       {/* ── Modal ── */}
       {open && (
         <div
-          className="fixed inset-0 z-50 flex flex-col sm:flex-row sm:items-center sm:justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center pb-[22vh]"
           onClick={e => { if (e.target === e.currentTarget) closeModal(); }}
         >
           {/* Backdrop */}
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={closeModal} />
 
           {/* Card — flex column, capped at 90dvh, nunca desborda */}
-          <div className="relative flex-1 sm:flex-none w-full sm:max-w-lg sm:mx-4 sm:rounded-3xl sm:max-h-[90dvh] bg-white shadow-2xl flex flex-col overflow-hidden">
+          <div className="relative w-full max-w-lg mx-4 rounded-3xl max-h-[90dvh] bg-white shadow-2xl flex flex-col overflow-hidden">
 
             {/* Header — fijo arriba */}
             <div className="shrink-0 flex items-center justify-between border-b border-ink/6 px-5 py-4">
