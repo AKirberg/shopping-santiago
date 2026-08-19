@@ -6,10 +6,10 @@ import { localizeMall } from "../i18n/mallContent";
 import { loadGoogleMaps } from "../utils/googleMaps";
 
 const HISTORY_KEY = "ss-addr-history";
-const HISTORY_MAX = 5;
+const HISTORY_MAX = 3;
 
 function loadHistory() {
-  try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]"); }
+  try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]").slice(0, HISTORY_MAX); }
   catch { return []; }
 }
 function saveToHistory(entry) {
