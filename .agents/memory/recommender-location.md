@@ -9,6 +9,6 @@ The mall recommender depends on the confirmed address/location set in the shared
 
 **How to apply:** Without confirmed coordinates and an address, show an explicit location-required state and direct the visitor to the shared address input. Once set, display that address in the recommender and rank by distance.
 
-The bottom action in the location popup should use the recommender CTA and close the popup while scrolling back to the recommender section.
+The bottom action in the location popup should use the recommender CTA only after an address and coordinates are confirmed; it closes the popup while scrolling back to the recommender section.
 
 **Why:** The visitor should have a direct return path to the recommendation they were preparing, rather than a generic “Back” action with no destination.

@@ -558,16 +558,18 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                 </div>
               )}
 
-              {/* Recomendador — al fondo */}
-              <div className="px-5 pb-5 pt-3">
-                <button
-                  onClick={scrollToQuiz}
-                  className="flex w-full items-center justify-center gap-2 rounded-2xl bg-coral px-4 py-3.5 text-sm font-extrabold text-white shadow-md transition hover:bg-coral/90 hover:shadow-lg active:scale-[0.98]"
-                >
-                  <Navigation size={15} />
-                  {lb.quizCta}
-                </button>
-              </div>
+              {/* Recomendador — aparece solo con ubicación confirmada */}
+              {userCoords && address?.trim() && (
+                <div className="px-5 pb-5 pt-3">
+                  <button
+                    onClick={scrollToQuiz}
+                    className="flex w-full items-center justify-center gap-2 rounded-2xl bg-coral px-4 py-3.5 text-sm font-extrabold text-white shadow-md transition hover:bg-coral/90 hover:shadow-lg active:scale-[0.98]"
+                  >
+                    <Navigation size={15} />
+                    {lb.quizCta}
+                  </button>
+                </div>
+              )}
 
             </div>{/* fin scroll */}
           </div>
