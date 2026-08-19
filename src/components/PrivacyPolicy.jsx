@@ -20,7 +20,7 @@ const CONTENT = {
         subsections: [
           {
             sub: "a) Dirección ingresada para buscar malls cercanos",
-            detail: `Cuando escribes una dirección en el buscador de ubicación, el texto es enviado al servicio de geocodificación Nominatim (OpenStreetMap Foundation) para obtener coordenadas geográficas aproximadas. Este dato no se almacena en nuestros sistemas ni en tu dispositivo. Solo existe en memoria mientras navegas el Sitio y desaparece al recargar la página.\n\nFinalidad: calcular la distancia entre tu ubicación y los malls de Santiago.\nBase de legitimación: ejecución de la función solicitada por el usuario (art. 4 Ley 19.628; art. 13 letra b Ley 21.719).`,
+            detail: `Cuando escribes una dirección en el buscador de ubicación, el texto se consulta mediante Google Places y Google Geocoder para obtener coordenadas aproximadas. Si eliges “usar mi ubicación”, el navegador solicita tu permiso de GPS. Nominatim (OpenStreetMap Foundation) puede utilizarse como alternativa de geocodificación inversa. Si confirmas una ubicación, la dirección y coordenadas se guardan solamente en el almacenamiento local de tu navegador para retomar el recomendador; nunca se envían a nuestros servidores.\n\nFinalidad: calcular la distancia entre tu ubicación y los malls de Santiago.\nBase de legitimación: ejecución de la función solicitada por el usuario (art. 4 Ley 19.628; art. 13 letra b Ley 21.719).`,
           },
           {
             sub: "b) Preferencia de idioma",
@@ -28,17 +28,17 @@ const CONTENT = {
           },
           {
             sub: "c) Opciones del quiz de recomendación y planificador de vuelo",
-            detail: `Las respuestas que ingresas en el quiz (zona, categoría, tiempo disponible, transporte, niños, objetivo de compra) y los datos del planificador de último minuto (hora de vuelo, tiempo de traslado al aeropuerto) existen únicamente en la memoria temporal del navegador. No se almacenan, no se envían a ningún servidor y desaparecen al cerrar o recargar la página.\n\nFinalidad: generar recomendaciones personalizadas localmente en tu dispositivo.`,
+            detail: `Las respuestas que ingresas en el quiz y los malls de la ruta se guardan en el almacenamiento local de tu navegador para retomar el recomendador tras recargar. Los datos del planificador de último minuto existen únicamente durante la sesión. Ninguno de estos datos se envía a nuestros servidores.\n\nFinalidad: generar recomendaciones personalizadas localmente en tu dispositivo.`,
           },
         ],
       },
       {
         heading: "4. Datos que NO recopilamos",
-        body: `El Sitio no recopila ni procesa: nombres, correos electrónicos, teléfonos, documentos de identidad, datos de pago, datos de geolocalización GPS del dispositivo (no solicitamos permiso de ubicación al navegador), ni ningún tipo de información sensible según la ley chilena.`,
+        body: `El Sitio no recopila ni procesa: nombres, correos electrónicos, teléfonos, documentos de identidad, datos de pago ni información sensible según la ley chilena. La ubicación GPS solo se solicita si eliges explícitamente usarla; las coordenadas se procesan mediante los servicios de geocodificación descritos en la sección 6 y la copia confirmada se conserva en tu navegador.`,
       },
       {
         heading: "5. Cookies y tecnologías similares",
-        body: `El Sitio no utiliza cookies propias ni de terceros con fines publicitarios o de seguimiento. El único almacenamiento persistente utilizado es localStorage para la preferencia de idioma (véase sección 3b). No empleamos píxeles de seguimiento, fingerprinting ni ninguna tecnología de rastreo de usuarios.\n\nPara conocer estadísticas de uso (número de visitas, páginas más consultadas, países de acceso y tipos de dispositivos) utilizamos Umami Analytics, un servicio de analítica web que opera sin cookies, sin recopilar datos personales identificables y sin compartir información con terceros con fines publicitarios. Umami cumple con la normativa GDPR y es compatible con la Ley N° 21.719.`,
+        body: `El Sitio no utiliza cookies propias ni de terceros con fines publicitarios o de seguimiento. Usamos localStorage únicamente para el idioma, la ubicación confirmada y el progreso del recomendador (véase sección 3). No empleamos píxeles de seguimiento, fingerprinting ni ninguna tecnología de rastreo de usuarios.\n\nPara conocer estadísticas de uso (número de visitas, páginas más consultadas, países de acceso y tipos de dispositivos) utilizamos Umami Analytics, un servicio de analítica web que opera sin cookies, sin recopilar datos personales identificables y sin compartir información con terceros con fines publicitarios. Umami cumple con la normativa GDPR y es compatible con la Ley N° 21.719.`,
       },
       {
         heading: "6. Servicios de terceros",
@@ -49,7 +49,7 @@ const CONTENT = {
           },
           {
             sub: "Nominatim / OpenStreetMap Foundation",
-            detail: `Al ingresar una dirección, tu consulta es enviada a la API pública de Nominatim (https://nominatim.openstreetmap.org), operada por la OpenStreetMap Foundation (OSMF) con servidores en Europa. La OSMF puede registrar temporalmente las consultas con fines operativos. Consulta su política de uso en: https://nominatim.org/release-docs/latest/api/Search/`,
+            detail: `Nominatim (https://nominatim.openstreetmap.org), operado por la OpenStreetMap Foundation (OSMF), puede utilizarse como alternativa de geocodificación inversa después de que el usuario autorice una ubicación GPS. La OSMF puede registrar temporalmente esta consulta con fines operativos. Las direcciones escritas se procesan mediante Google Places y Google Geocoder, no mediante Nominatim.`,
           },
           {
             sub: "Teselas de mapas (OpenStreetMap)",
@@ -57,17 +57,17 @@ const CONTENT = {
           },
           {
             sub: "Google Maps (enlaces externos)",
-            detail: `Algunas tarjetas de malls, galerías y rutas incluyen enlaces que abren Google Maps en una nueva pestaña. Al hacer clic, eres redirigido a los servidores de Google y quedan sujetos a la Política de Privacidad de Google (https://policies.google.com/privacy). El Sitio no transmite datos a Google por su cuenta.`,
+            detail: `El buscador de ubicación utiliza Google Places y Google Geocoder para sugerencias y coordenadas. Además, algunas tarjetas de malls, galerías y rutas incluyen enlaces que abren Google Maps en una nueva pestaña. El uso de estos servicios queda sujeto a la Política de Privacidad de Google (https://policies.google.com/privacy).`,
           },
         ],
       },
       {
         heading: "7. Transferencias internacionales de datos",
-        body: `La dirección ingresada para geocodificación es procesada por servidores ubicados en Europa (OpenStreetMap Foundation). Esta transferencia es necesaria para el funcionamiento del servicio y se realiza bajo los estándares de protección de datos de la Unión Europea, considerados adecuados conforme al art. 25 de la Ley 21.719.`,
+        body: `Las direcciones escritas y las coordenadas autorizadas pueden ser procesadas por Google Places y Google Geocoder conforme a la política de Google. Si se utiliza la alternativa Nominatim para geocodificación inversa, las coordenadas se procesan por la OpenStreetMap Foundation en Europa. Estas transferencias son necesarias para prestar la función de ubicación.`,
       },
       {
         heading: "8. Plazo de conservación",
-        body: `Los datos ingresados (dirección, opciones del quiz, hora de vuelo) no son conservados: desaparecen al cerrar o recargar la página. La preferencia de idioma se conserva en tu navegador hasta que la cambies o borres el almacenamiento local de tu dispositivo.`,
+        body: `La ubicación confirmada y las opciones del recomendador se conservan solamente en tu navegador hasta que borres el almacenamiento local. La hora de vuelo no se conserva. Puedes eliminar estos datos desde la configuración de almacenamiento de tu navegador.`,
       },
       {
         heading: "9. Tus derechos",
@@ -104,7 +104,7 @@ const CONTENT = {
         subsections: [
           {
             sub: "a) Address entered to find nearby malls",
-            detail: `When you type an address into the location search bar, the text is sent to the Nominatim geocoding service (OpenStreetMap Foundation) to obtain approximate geographic coordinates. This data is not stored on our systems or your device. It only exists in memory while you browse the Site and disappears when the page is reloaded.\n\nPurpose: calculate the distance between your location and Santiago malls.\nLegal basis: performance of the function requested by the user.`,
+            detail: `When you type an address into the location search bar, it is queried through Google Places and Google Geocoder to obtain approximate coordinates. If you choose “use my location”, your browser asks for GPS permission. Nominatim (OpenStreetMap Foundation) may be used as a reverse-geocoding fallback. Once confirmed, the address and coordinates are stored only in your browser's local storage so you can resume the recommender; they are never sent to our servers.\n\nPurpose: calculate the distance between your location and Santiago malls.\nLegal basis: performance of the function requested by the user.`,
           },
           {
             sub: "b) Language preference",
@@ -112,17 +112,17 @@ const CONTENT = {
           },
           {
             sub: "c) Quiz answers and flight planner data",
-            detail: `Your quiz answers (zone, category, time available, transport, children, shopping goal) and last-minute planner data (flight time, airport transfer time) exist only in temporary browser memory. They are not stored, not sent to any server, and disappear when you close or reload the page.\n\nPurpose: generate personalized recommendations locally on your device.`,
+            detail: `Your quiz answers and route selections are stored in your browser's local storage so you can resume the recommender after a refresh. Last-minute planner data remains session-only. None of this information is sent to our servers.\n\nPurpose: generate personalized recommendations locally on your device.`,
           },
         ],
       },
       {
         heading: "4. Data we do NOT collect",
-        body: `The Site does not collect or process: names, email addresses, phone numbers, identity documents, payment data, GPS geolocation data (we do not request location permission from the browser), or any type of sensitive information under Chilean law.`,
+        body: `The Site does not collect or process names, email addresses, phone numbers, identity documents, payment data, or sensitive information under Chilean law. GPS location is requested only if you explicitly choose it; coordinates are processed by the geocoding providers described in section 6 and the confirmed copy remains in your browser.`,
       },
       {
         heading: "5. Cookies and similar technologies",
-        body: `The Site does not use first-party or third-party cookies for advertising or tracking purposes. The only persistent storage used is localStorage for language preference (see section 3b). We do not use tracking pixels, fingerprinting, or any user tracking technology.\n\nTo understand how the Site is used (number of visits, most-viewed pages, countries of origin, and device types) we use Umami Analytics, a web analytics service that operates without cookies, without collecting identifiable personal data, and without sharing information with third parties for advertising purposes. Umami complies with GDPR and is compatible with Chilean Law No. 21.719.`,
+        body: `The Site does not use first-party or third-party cookies for advertising or tracking purposes. We use localStorage only for language, confirmed location, and recommender progress (see section 3). We do not use tracking pixels, fingerprinting, or any user tracking technology.\n\nTo understand how the Site is used (number of visits, most-viewed pages, countries of origin, and device types) we use Umami Analytics, a web analytics service that operates without cookies, without collecting identifiable personal data, and without sharing information with third parties for advertising purposes. Umami complies with GDPR and is compatible with Chilean Law No. 21.719.`,
       },
       {
         heading: "6. Third-party services",
@@ -133,7 +133,7 @@ const CONTENT = {
           },
           {
             sub: "Nominatim / OpenStreetMap Foundation",
-            detail: `When you enter an address, your query is sent to the Nominatim public API (https://nominatim.openstreetmap.org), operated by the OpenStreetMap Foundation (OSMF) with servers in Europe. OSMF may temporarily log queries for operational purposes.`,
+            detail: `Nominatim (https://nominatim.openstreetmap.org), operated by the OpenStreetMap Foundation (OSMF), may be used as a reverse-geocoding fallback after a user authorizes GPS location. OSMF may temporarily log that request for operational purposes. Typed addresses are processed through Google Places and Google Geocoder, not Nominatim.`,
           },
           {
             sub: "Map tiles (OpenStreetMap)",
@@ -141,17 +141,17 @@ const CONTENT = {
           },
           {
             sub: "Google Maps (external links)",
-            detail: `Some mall, gallery, and route cards include links that open Google Maps in a new tab. When clicked, you are redirected to Google's servers and subject to Google's Privacy Policy (https://policies.google.com/privacy). The Site does not transmit data to Google on its own.`,
+            detail: `The location search uses Google Places and Google Geocoder for suggestions and coordinates. Some mall, gallery, and route cards also open Google Maps in a new tab. Use of these services is subject to Google's Privacy Policy (https://policies.google.com/privacy).`,
           },
         ],
       },
       {
         heading: "7. International Data Transfers",
-        body: `Addresses entered for geocoding are processed by servers located in Europe (OpenStreetMap Foundation). This transfer is necessary for the service to function and is carried out under EU data protection standards, considered adequate under Art. 25 of Law 21.719.`,
+        body: `Typed addresses and authorized coordinates may be processed by Google Places and Google Geocoder under Google's privacy policy. If the Nominatim reverse-geocoding fallback is used, coordinates are processed by the OpenStreetMap Foundation in Europe. These transfers are necessary to provide the location feature.`,
       },
       {
         heading: "8. Retention Period",
-        body: `Data entered (address, quiz options, flight time) is not retained — it disappears when you close or reload the page. The language preference is retained in your browser until you change it or clear your device's local storage.`,
+        body: `Confirmed location and recommender choices remain only in your browser until you clear local storage. Flight time is not retained. You can delete these data from your browser's storage settings.`,
       },
       {
         heading: "9. Your Rights",
@@ -188,7 +188,7 @@ const CONTENT = {
         subsections: [
           {
             sub: "a) Endereço inserido para encontrar malls próximos",
-            detail: `Quando você digita um endereço na barra de pesquisa de localização, o texto é enviado ao serviço de geocodificação Nominatim (OpenStreetMap Foundation) para obter coordenadas geográficas aproximadas. Este dado não é armazenado nos nossos sistemas nem no seu dispositivo.\n\nFinalidade: calcular a distância entre a sua localização e os malls de Santiago.\nBase legal: execução da função solicitada pelo utilizador.`,
+            detail: `Quando você digita um endereço na barra de pesquisa de localização, ele é consultado pelo Google Places e Google Geocoder para obter coordenadas aproximadas. Se escolher usar sua localização, o navegador pede permissão de GPS. O Nominatim (OpenStreetMap Foundation) pode ser usado como alternativa de geocodificação inversa. Depois de confirmar, o endereço e as coordenadas ficam somente no armazenamento local do seu navegador para retomar o recomendador; nunca são enviados aos nossos servidores.\n\nFinalidade: calcular a distância entre a sua localização e os malls de Santiago.\nBase legal: execução da função solicitada pelo utilizador.`,
           },
           {
             sub: "b) Preferência de idioma",
@@ -196,17 +196,17 @@ const CONTENT = {
           },
           {
             sub: "c) Respostas do quiz e dados do planejador de voo",
-            detail: `As suas respostas no quiz e os dados do planejador de última hora (hora do voo, tempo de deslocamento ao aeroporto) existem apenas na memória temporária do navegador. Não são armazenados nem enviados a nenhum servidor.\n\nFinalidade: gerar recomendações personalizadas localmente no seu dispositivo.`,
+            detail: `As suas respostas no quiz e os malls da rota ficam no armazenamento local do navegador para retomar o recomendador depois de recarregar. Os dados do planejador de última hora permanecem apenas na sessão. Nenhum dado é enviado aos nossos servidores.\n\nFinalidade: gerar recomendações personalizadas localmente no seu dispositivo.`,
           },
         ],
       },
       {
         heading: "4. Dados que NÃO recolhemos",
-        body: `O Site não recolhe nem processa: nomes, emails, telefones, documentos de identidade, dados de pagamento, geolocalização GPS (não solicitamos permissão de localização ao navegador), nem qualquer tipo de informação sensível.`,
+        body: `O Site não recolhe nem processa nomes, emails, telefones, documentos de identidade, dados de pagamento ou informações sensíveis. A localização GPS só é solicitada se você a escolher explicitamente; as coordenadas são processadas pelos serviços de geocodificação descritos na secção 6 e a cópia confirmada permanece no seu navegador.`,
       },
       {
         heading: "5. Cookies e tecnologias similares",
-        body: `O Site não utiliza cookies próprios ou de terceiros para fins publicitários ou de rastreamento. O único armazenamento persistente é o localStorage para a preferência de idioma (ver secção 3b). Não utilizamos pixels de rastreamento, fingerprinting nem qualquer tecnologia de rastreamento de utilizadores.\n\nPara compreender como o Site é utilizado (número de visitas, páginas mais consultadas, países de origem e tipos de dispositivos) utilizamos o Umami Analytics, um serviço de análise web que funciona sem cookies, sem recolher dados pessoais identificáveis e sem partilhar informações com terceiros para fins publicitários. O Umami cumpre o RGPD e é compatível com a Lei N° 21.719.`,
+        body: `O Site não utiliza cookies próprios ou de terceiros para fins publicitários ou de rastreamento. Usamos localStorage apenas para idioma, localização confirmada e progresso do recomendador (ver secção 3). Não utilizamos pixels de rastreamento, fingerprinting nem qualquer tecnologia de rastreamento de utilizadores.\n\nPara compreender como o Site é utilizado (número de visitas, páginas mais consultadas, países de origem e tipos de dispositivos) utilizamos o Umami Analytics, um serviço de análise web que funciona sem cookies, sem recolher dados pessoais identificáveis e sem partilhar informações com terceiros para fins publicitários. O Umami cumpre o RGPD e é compatível com a Lei N° 21.719.`,
       },
       {
         heading: "6. Serviços de terceiros",
@@ -217,7 +217,7 @@ const CONTENT = {
           },
           {
             sub: "Nominatim / OpenStreetMap Foundation",
-            detail: `Ao inserir um endereço, a sua consulta é enviada à API pública do Nominatim (https://nominatim.openstreetmap.org), operada pela OpenStreetMap Foundation com servidores na Europa.`,
+            detail: `O Nominatim (https://nominatim.openstreetmap.org), operado pela OpenStreetMap Foundation, pode ser usado como alternativa de geocodificação inversa depois que o usuário autoriza a localização GPS. Endereços digitados são processados pelo Google Places e Google Geocoder, não pelo Nominatim.`,
           },
           {
             sub: "Tiles de mapa (OpenStreetMap)",
@@ -225,17 +225,17 @@ const CONTENT = {
           },
           {
             sub: "Google Maps (links externos)",
-            detail: `Alguns cartões de malls, galerias e rotas incluem links que abrem o Google Maps numa nova aba. Ao clicar, é redirecionado para os servidores do Google e sujeito à Política de Privacidade do Google.`,
+            detail: `A busca de localização utiliza Google Places e Google Geocoder para sugestões e coordenadas. Alguns cartões de malls, galerias e rotas também abrem o Google Maps numa nova aba. O uso desses serviços está sujeito à Política de Privacidade do Google.`,
           },
         ],
       },
       {
         heading: "7. Transferências internacionais de dados",
-        body: `Os endereços inseridos para geocodificação são processados por servidores localizados na Europa (OpenStreetMap Foundation). Esta transferência é necessária para o funcionamento do serviço e realiza-se ao abrigo dos padrões europeus de proteção de dados.`,
+        body: `Endereços digitados e coordenadas autorizadas podem ser processados pelo Google Places e Google Geocoder conforme a política de privacidade do Google. Se a alternativa Nominatim for usada para geocodificação inversa, as coordenadas são processadas pela OpenStreetMap Foundation na Europa. Essas transferências são necessárias para oferecer o recurso de localização.`,
       },
       {
         heading: "8. Prazo de conservação",
-        body: `Os dados inseridos (endereço, opções do quiz, hora do voo) não são conservados — desaparecem ao fechar ou recarregar a página. A preferência de idioma é conservada no navegador até que a altere ou limpe o armazenamento local do seu dispositivo.`,
+        body: `A localização confirmada e as escolhas do recomendador permanecem apenas no seu navegador até você limpar o armazenamento local. A hora do voo não é conservada. Você pode excluir esses dados nas configurações de armazenamento do navegador.`,
       },
       {
         heading: "9. Os seus direitos",

@@ -32,6 +32,22 @@ const defaultFilters = {
   outlet: false, premium: false, family: false,
   metro: false, food: false, gastronomico: false, quick: false, tourist: false,
 };
+const LOCATION_STATE_KEY = "ss-location-state";
+
+function loadSavedLocation() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(LOCATION_STATE_KEY) || "null");
+    if (
+      !saved ||
+      typeof saved.address !== "string" ||
+      !Number.isFinite(saved.coords?.lat) ||
+      !Number.isFinite(saved.coords?.lng)
+    ) return { address: "", coords: null };
+    return { address: saved.address, coords: saved.coords };
+  } catch {
+    return { address: "", coords: null };
+  }
+}
 
 function App() {
   const { t, lang } = useLanguage();
@@ -52,8 +68,8 @@ function App() {
   const [flightTime, setFlightTime] = useState("");
   const [minutesToAirport, setMinutesToAirport] = useState(45);
   const [flightType, setFlightType] = useState("international");
-  const [userAddress, setUserAddress] = useState("");
-  const [userCoords, setUserCoords] = useState(null);
+  const [userAddress, setUserAddress] = useState(() => loadSavedLocation().address);
+  const [userCoords, setUserCoords] = useState(() => loadSavedLocation().coords);
   const [lastMinuteOpen, setLastMinuteOpen] = useState(false);
   const [triggerAddressOpen, setTriggerAddressOpen] = useState(false);
   const returnToLastMinute = useRef(false);
@@ -86,6 +102,16 @@ function App() {
       setLastMinuteOpen(true);
     }
   }, [userAddress]);
+
+  useEffect(() => {
+    try {
+      if (userAddress && userCoords) {
+        localStorage.setItem(LOCATION_STATE_KEY, JSON.stringify({ address: userAddress, coords: userCoords }));
+      } else {
+        localStorage.removeItem(LOCATION_STATE_KEY);
+      }
+    } catch { /* Storage can be unavailable in private browsing. */ }
+  }, [userAddress, userCoords]);
 
   function openMall(mall) {
     const canonicalPath = mall.outlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;

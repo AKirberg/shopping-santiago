@@ -4,6 +4,7 @@ import { getRecommendations } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 import { routeMapsUrl } from "../utils/maps";
 import { analyzeMallRoute } from "../utils/routePlanning";
+import MobileRecommender from "./MobileRecommender";
 
 const initialAnswers = {
   category: ["ropa"],
@@ -12,14 +13,33 @@ const initialAnswers = {
   withKids: "No",
   goal: "variedad",
 };
+const QUIZ_STATE_KEY = "ss-recommender-state";
+
+function loadQuizState() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(QUIZ_STATE_KEY) || "null");
+    if (!saved || typeof saved !== "object") return {};
+    return {
+      answers: saved.answers && typeof saved.answers === "object"
+        ? { ...initialAnswers, ...saved.answers, category: Array.isArray(saved.answers.category) ? saved.answers.category : initialAnswers.category }
+        : initialAnswers,
+      selectedIds: Array.isArray(saved.selectedIds) ? saved.selectedIds : [],
+      mobileStep: Number.isInteger(saved.mobileStep) ? Math.min(Math.max(saved.mobileStep, 1), 4) : 1,
+    };
+  } catch {
+    return {};
+  }
+}
 
 function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLocation }) {
-  const [answers, setAnswers] = useState(initialAnswers);
-  const [selectedIds, setSelectedIds] = useState([]);
+  const [answers, setAnswers] = useState(() => loadQuizState().answers || initialAnswers);
+  const [selectedIds, setSelectedIds] = useState(() => loadQuizState().selectedIds || []);
+  const [mobileStep, setMobileStep] = useState(() => loadQuizState().mobileStep || 1);
   const { t } = useLanguage();
   const q = t.quiz;
   const hasLocation = Boolean(userCoords && address?.trim());
   const canBuildRoute = ["3-4 horas", "medio día", "día completo"].includes(answers.time);
+  const maxRouteStops = answers.time === "3-4 horas" ? 2 : canBuildRoute ? 4 : 0;
 
   const recommendations = useMemo(
     () => hasLocation ? getRecommendations(malls, answers, userCoords).slice(0, 4) : [],
@@ -40,6 +60,17 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
     () => canBuildRoute ? analyzeMallRoute(selectedMalls, userCoords, answers.time) : null,
     [answers.time, canBuildRoute, selectedMalls, userCoords]
   );
+  const optimizedRouteMalls = useMemo(() => {
+    if (!routeAnalysis?.recommendedOrderIds?.length) return selectedMalls;
+    return routeAnalysis.recommendedOrderIds
+      .map(id => selectedMalls.find(mall => mall.id === id))
+      .filter(Boolean);
+  }, [routeAnalysis, selectedMalls]);
+  const optimizedRouteUrl = useMemo(() => {
+    if (!canBuildRoute || optimizedRouteMalls.length < 2) return null;
+    const mallMap = Object.fromEntries(malls.map(mall => [mall.id, mall]));
+    return routeMapsUrl(optimizedRouteMalls.map(mall => ({ mallId: mall.id })), mallMap, userCoords);
+  }, [canBuildRoute, malls, optimizedRouteMalls, userCoords]);
 
   useEffect(() => {
     setSelectedIds(current => current.filter(id => recommendations.some(mall => mall.id === id)));
@@ -48,6 +79,18 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
   useEffect(() => {
     if (!canBuildRoute) setSelectedIds([]);
   }, [canBuildRoute]);
+
+  useEffect(() => {
+    if (maxRouteStops > 0 && selectedIds.length > maxRouteStops) {
+      setSelectedIds(current => current.slice(0, maxRouteStops));
+    }
+  }, [maxRouteStops, selectedIds.length]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(QUIZ_STATE_KEY, JSON.stringify({ answers, selectedIds, mobileStep }));
+    } catch { /* Storage can be unavailable in private browsing. */ }
+  }, [answers, selectedIds, mobileStep]);
 
   function set(key, value) {
     setAnswers(prev => ({ ...prev, [key]: value }));
@@ -75,13 +118,40 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
     setSelectedIds(current =>
       current.includes(mallId)
         ? current.filter(id => id !== mallId)
-        : [...current, mallId]
+        : !canBuildRoute || current.length >= maxRouteStops
+          ? current
+          : [...current, mallId]
     );
   }
 
   return (
     <section id="quiz" className="bg-white">
       <div className="section-shell">
+        <div className="lg:hidden">
+          <MobileRecommender
+            address={address}
+            hasLocation={hasLocation}
+            onRequestLocation={onRequestLocation}
+            answers={answers}
+            setAnswer={set}
+            toggleCategory={toggleCategory}
+            recommendations={recommendations}
+            selectedMalls={selectedMalls}
+            selectedIds={selectedIds}
+            toggleRouteMall={toggleRouteMall}
+            routeAnalysis={routeAnalysis}
+            routeUrl={optimizedRouteUrl}
+            routeMalls={optimizedRouteMalls}
+            canBuildRoute={canBuildRoute}
+            maxRouteStops={maxRouteStops}
+            onOpenMall={onSelect}
+            q={q}
+            step={mobileStep}
+            setStep={setMobileStep}
+          />
+        </div>
+
+        <div className="hidden lg:block">
         <div className="mb-10 max-w-2xl">
           <p className="eyebrow">{q.eyebrow}</p>
           <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight">{q.title}</h2>
@@ -181,6 +251,8 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                     <div className="mt-3 grid gap-2 text-xs">
                       <div className={`rounded-xl px-3 py-2.5 ${routeAnalysis.fitsTime ? "bg-leaf/10 text-leaf" : "bg-gold/15 text-gold"}`}>
                         <p className="font-extrabold">{q.routeTimeLabel}: {routeAnalysis.shoppingTime}</p>
+                        <p className="mt-0.5 text-[10px] font-semibold opacity-75">{q.routeTravelLabel}: {routeAnalysis.travelTime}</p>
+                        <p className="mt-0.5 text-[10px] font-semibold opacity-75">{q.routeTotalLabel}: {routeAnalysis.totalTime}</p>
                         <p className="mt-0.5 text-[10px] font-semibold opacity-75">
                           {routeAnalysis.fitsTime ? q.routeFitsTime : q.routeExceedsTime}
                         </p>
@@ -292,6 +364,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
             </div>
           </div>
         )}
+        </div>
       </div>
     </section>
   );

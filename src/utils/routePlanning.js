@@ -42,6 +42,11 @@ function formatRange(min, max) {
   return min === max ? formatMinutes(min) : `${formatMinutes(min)}–${formatMinutes(max)}`;
 }
 
+function estimateTravelMinutes(distanceKm, legs) {
+  // Santiago city travel: about 17 km/h door-to-door plus a short transfer buffer per leg.
+  return Math.round(distanceKm * 3.5 + legs * 4);
+}
+
 export function analyzeMallRoute(malls, origin, timeKey) {
   const shopping = malls.reduce(
     (total, mall) => {
@@ -51,28 +56,27 @@ export function analyzeMallRoute(malls, origin, timeKey) {
     { min: 0, max: 0 }
   );
 
-  if (malls.length < 2) {
-    return {
-      shoppingTime: formatRange(shopping.min, shopping.max),
-      fitsTime: shopping.max <= (timeWindows[timeKey] || Infinity),
-      orderRecommended: null,
-      recommendedOrderIds: malls.map(mall => mall.id),
-      orderDistanceKm: 0,
-      idealDistanceKm: 0,
-    };
-  }
-
   const orderDistanceKm = routeDistance(malls, origin);
-  const bestOrder = permutations(malls).reduce((best, order) =>
-    routeDistance(order, origin) < routeDistance(best, origin) ? order : best
-  );
+  const bestOrder = malls.length < 2
+    ? malls
+    : permutations(malls).reduce((best, order) =>
+      routeDistance(order, origin) < routeDistance(best, origin) ? order : best
+    );
   const idealDistanceKm = routeDistance(bestOrder, origin);
-  const orderRecommended =
-    orderDistanceKm <= idealDistanceKm * 1.15 || orderDistanceKm - idealDistanceKm <= 1;
+  const orderRecommended = malls.length < 2
+    ? null
+    : orderDistanceKm <= idealDistanceKm * 1.15 || orderDistanceKm - idealDistanceKm <= 1;
+  const travelMinutes = estimateTravelMinutes(idealDistanceKm, bestOrder.length);
+  const total = {
+    min: shopping.min + travelMinutes,
+    max: shopping.max + travelMinutes,
+  };
 
   return {
     shoppingTime: formatRange(shopping.min, shopping.max),
-    fitsTime: shopping.max <= (timeWindows[timeKey] || Infinity),
+    travelTime: formatMinutes(travelMinutes),
+    totalTime: formatRange(total.min, total.max),
+    fitsTime: total.max <= (timeWindows[timeKey] || Infinity),
     orderRecommended,
     recommendedOrderIds: bestOrder.map(mall => mall.id),
     orderDistanceKm: Math.round(orderDistanceKm * 10) / 10,
