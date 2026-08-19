@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "start": "vite --host 0.0.0.0",
-    "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender-malls.js",
+    "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender-malls.js && node scripts/validate-umami-analytics.js",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.js"
   },
