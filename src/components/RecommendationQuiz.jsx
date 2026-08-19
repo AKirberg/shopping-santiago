@@ -19,7 +19,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
   const { t } = useLanguage();
   const q = t.quiz;
   const hasLocation = Boolean(userCoords && address?.trim());
-  const canBuildRoute = answers.time === "medio día" || answers.time === "día completo";
+  const canBuildRoute = ["3-4 horas", "medio día", "día completo"].includes(answers.time);
 
   const recommendations = useMemo(
     () => hasLocation ? getRecommendations(malls, answers, userCoords).slice(0, 4) : [],

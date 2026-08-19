@@ -1,6 +1,7 @@
 import { haversineKm } from "./scoring.js";
 
 const timeWindows = {
+  "3-4 horas": 4 * 60,
   "medio día": 6 * 60,
   "día completo": 10 * 60,
 };
