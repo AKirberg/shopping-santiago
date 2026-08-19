@@ -96,13 +96,12 @@ export const translations = {
       resultsLabel: "Resultados",
       resultsSubLabel: "Ordenados por compatibilidad",
       locationActive: "Ubicación activa — resultados ordenados por cercanía",
+      locationLabel: "Tu ubicación",
+      locationRequiredTitle: "Primero indica dónde estás",
+      locationRequired: "Necesitamos tu dirección o ubicación para calcular la cercanía y habilitar el recomendador.",
+      locationCta: "Agregar mi ubicación",
       nearest: "Más cercano",
       fields: [
-        { key: "zone", label: "¿Dónde estás?", addressPlaceholder: "O ingresa tu dirección…", options: [
-          { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
-          { v: "Vitacura", l: "Vitacura" }, { v: "Santiago Centro", l: "Santiago Centro" },
-          { v: "Aeropuerto", l: "Aeropuerto" },
-        ]},
         { key: "category", label: "¿Qué buscas comprar?", options: [
           { v: "ropa", l: "Ropa" }, { v: "zapatillas", l: "Zapatillas" },
           { v: "tecnología", l: "Tecnología" }, { v: "lujo", l: "Lujo" },
@@ -312,13 +311,12 @@ export const translations = {
       resultsLabel: "Resultados",
       resultsSubLabel: "Ordenados por compatibilidade",
       locationActive: "Localização ativa — resultados ordenados por proximidade",
+      locationLabel: "Sua localização",
+      locationRequiredTitle: "Primeiro indique onde você está",
+      locationRequired: "Precisamos do seu endereço ou localização para calcular a proximidade e habilitar o recomendador.",
+      locationCta: "Adicionar minha localização",
       nearest: "Mais próximo",
       fields: [
-        { key: "zone", label: "Onde você está?", addressPlaceholder: "Ou insira seu endereço…", options: [
-          { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
-          { v: "Vitacura", l: "Vitacura" }, { v: "Santiago Centro", l: "Centro de Santiago" },
-          { v: "Aeropuerto", l: "Aeroporto" },
-        ]},
         { key: "category", label: "O que você quer comprar?", options: [
           { v: "ropa", l: "Roupas" }, { v: "zapatillas", l: "Tênis" },
           { v: "tecnología", l: "Tecnologia" }, { v: "lujo", l: "Luxo" },
@@ -528,13 +526,12 @@ export const translations = {
       resultsLabel: "Results",
       resultsSubLabel: "Ranked by compatibility",
       locationActive: "Location active — results ranked by distance",
+      locationLabel: "Your location",
+      locationRequiredTitle: "First tell us where you are",
+      locationRequired: "We need your address or location to calculate distance and enable the recommender.",
+      locationCta: "Add my location",
       nearest: "Nearest",
       fields: [
-        { key: "zone", label: "Where are you staying?", addressPlaceholder: "Or enter your address…", options: [
-          { v: "Providencia", l: "Providencia" }, { v: "Las Condes", l: "Las Condes" },
-          { v: "Vitacura", l: "Vitacura" }, { v: "Santiago Centro", l: "Santiago Centre" },
-          { v: "Aeropuerto", l: "Airport" },
-        ]},
         { key: "category", label: "What are you shopping for?", options: [
           { v: "ropa", l: "Clothing" }, { v: "zapatillas", l: "Sneakers" },
           { v: "tecnología", l: "Technology" }, { v: "lujo", l: "Luxury" },

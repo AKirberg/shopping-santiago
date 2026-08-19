@@ -159,7 +159,13 @@ function App() {
           </div>
         </section>
 
-        <RecommendationQuiz malls={malls} onSelect={openMall} userCoords={userCoords} />
+        <RecommendationQuiz
+          malls={malls}
+          onSelect={openMall}
+          userCoords={userCoords}
+          address={userAddress}
+          onRequestLocation={() => setTriggerAddressOpen(true)}
+        />
         <RoutesSection routes={routes} malls={malls} />
         <GalleriesSection />
 

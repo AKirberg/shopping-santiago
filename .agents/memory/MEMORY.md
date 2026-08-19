@@ -2,3 +2,4 @@
 - [Mall list canon](mall-list.md) — 32 malls as of June 2026; see file for IDs and communes.
 - [Brazilian SEO entry point](brazilian-seo.md) — Portuguese discovery relies on a static `/pt-br/` landing, not only client-side locale switching.
 - [Mall Maps destinations](mall-maps-links.md) — outbound Maps links use verified coordinates, not only place-name searches.
+- [Recommender location](recommender-location.md) — the mall recommender requires the confirmed top-bar location; it never asks for a second zone.
