@@ -89,7 +89,7 @@ export default function LastMinutePanel({
     if (!autoOpen) return null;
     if (address) {
       return (
-        <div className="mb-4 flex items-center gap-2 rounded-xl border border-ink/8 bg-white/70 px-3 py-2">
+        <div className="mb-4 flex w-full min-w-0 max-w-full items-center gap-2 overflow-hidden rounded-xl border border-ink/8 bg-white/70 px-3 py-2">
           <MapPin size={12} className="shrink-0 text-leaf" />
           <span className="min-w-0 flex-1 truncate text-xs font-semibold text-ink/60">{address}</span>
         </div>

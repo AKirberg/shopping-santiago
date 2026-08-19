@@ -267,14 +267,14 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
   /* ── Sticky trigger bar ── */
   return (
     <>
-      <div className="sticky top-0 sm:top-[64px] z-30 border-b border-ink/8 bg-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
+      <div className="sticky top-0 sm:top-[64px] z-30 w-full min-w-0 overflow-x-clip border-b border-ink/8 bg-white shadow-sm">
+        <div className="mx-auto flex w-full min-w-0 max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
 
 
           {/* Trigger button — whole row is clickable */}
           <button
             onClick={() => setOpen(true)}
-            className={`flex flex-1 items-center gap-3 rounded-2xl border px-4 py-3 text-left transition min-w-0 ${
+            className={`flex min-w-0 max-w-full flex-1 items-center gap-3 rounded-2xl border px-4 py-3 text-left transition ${
               userCoords
                 ? "border-leaf/40 bg-leaf/6 hover:bg-leaf/10"
                 : "border-leaf/30 bg-leaf/5 hover:border-leaf/50 hover:bg-leaf/9"
