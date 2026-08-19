@@ -13,6 +13,10 @@ Selection order is the route order. Show numbered stops as they are selected, ad
 
 **Why:** A multi-mall route needs transparent sequencing and a realistic time check; otherwise a valid map link can still be impractical.
 
+When the selected sequence is inefficient, its review banner offers a one-click action that applies the calculated best order to the same selected malls.
+
+**Why:** Users should be able to accept a better route without manually deselecting and recreating their selection.
+
 The 3–4-hour time option enables a two-mall route; 1–2 hours remains a single-mall recommendation. Half-day and full-day choices can support longer routes.
 
 **Why:** Two compact mall visits can fit in a short shopping window, while 1–2 hours should prioritize a single destination.

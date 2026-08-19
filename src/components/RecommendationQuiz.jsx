@@ -65,6 +65,12 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
     });
   }
 
+  function applyRecommendedOrder() {
+    if (routeAnalysis?.recommendedOrderIds?.length) {
+      setSelectedIds(routeAnalysis.recommendedOrderIds);
+    }
+  }
+
   function toggleRouteMall(mallId) {
     setSelectedIds(current =>
       current.includes(mallId)
@@ -181,12 +187,25 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                       </div>
                       {selectedMalls.length >= 2 ? (
                         <div className={`rounded-xl px-3 py-2.5 ${routeAnalysis.orderRecommended ? "bg-leaf/10 text-leaf" : "bg-gold/15 text-gold"}`}>
-                          <p className="font-extrabold">
-                            {routeAnalysis.orderRecommended ? q.routeOrderRecommended : q.routeOrderReview}
-                          </p>
-                          <p className="mt-0.5 text-[10px] font-semibold opacity-75">
-                            {routeAnalysis.orderRecommended ? q.routeOrderRecommendedHint : q.routeOrderReviewHint}
-                          </p>
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="min-w-0">
+                              <p className="font-extrabold">
+                                {routeAnalysis.orderRecommended ? q.routeOrderRecommended : q.routeOrderReview}
+                              </p>
+                              <p className="mt-0.5 text-[10px] font-semibold opacity-75">
+                                {routeAnalysis.orderRecommended ? q.routeOrderRecommendedHint : q.routeOrderReviewHint}
+                              </p>
+                            </div>
+                            {!routeAnalysis.orderRecommended && (
+                              <button
+                                type="button"
+                                onClick={applyRecommendedOrder}
+                                className="shrink-0 rounded-lg bg-gold px-3 py-1.5 text-[10px] font-extrabold text-white transition hover:bg-gold/90"
+                              >
+                                {q.routeChangeOrder}
+                              </button>
+                            )}
+                          </div>
                         </div>
                       ) : (
                         <p className="text-[10px] font-bold text-coral/75">{q.routeOrderPending}</p>

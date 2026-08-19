@@ -56,15 +56,17 @@ export function analyzeMallRoute(malls, origin, timeKey) {
       shoppingTime: formatRange(shopping.min, shopping.max),
       fitsTime: shopping.max <= (timeWindows[timeKey] || Infinity),
       orderRecommended: null,
+      recommendedOrderIds: malls.map(mall => mall.id),
       orderDistanceKm: 0,
       idealDistanceKm: 0,
     };
   }
 
   const orderDistanceKm = routeDistance(malls, origin);
-  const idealDistanceKm = Math.min(
-    ...permutations(malls).map(order => routeDistance(order, origin))
+  const bestOrder = permutations(malls).reduce((best, order) =>
+    routeDistance(order, origin) < routeDistance(best, origin) ? order : best
   );
+  const idealDistanceKm = routeDistance(bestOrder, origin);
   const orderRecommended =
     orderDistanceKm <= idealDistanceKm * 1.15 || orderDistanceKm - idealDistanceKm <= 1;
 
@@ -72,6 +74,7 @@ export function analyzeMallRoute(malls, origin, timeKey) {
     shoppingTime: formatRange(shopping.min, shopping.max),
     fitsTime: shopping.max <= (timeWindows[timeKey] || Infinity),
     orderRecommended,
+    recommendedOrderIds: bestOrder.map(mall => mall.id),
     orderDistanceKm: Math.round(orderDistanceKm * 10) / 10,
     idealDistanceKm: Math.round(idealDistanceKm * 10) / 10,
   };
