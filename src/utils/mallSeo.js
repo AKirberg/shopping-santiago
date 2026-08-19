@@ -36,8 +36,13 @@ function setMeta(selector, attr, value) {
   if (el) el.setAttribute(attr, value);
 }
 
+/**
+ * Returns canonical URL for a mall using /malls/:id or /outlets/:id.
+ * No ?lang suffix — canonical URLs are language-neutral.
+ */
 export function mallUrl(mall) {
-  return `${SITE_URL}/mall/${mall.id}`;
+  const segment = mall.outlet ? "outlets" : "malls";
+  return `${SITE_URL}/${segment}/${mall.id}/`;
 }
 
 export function buildMallJsonLd(mall) {
@@ -77,7 +82,8 @@ export function buildMallJsonLd(mall) {
 
 export function applyMallSeo(mall, lang = "es") {
   const url = mallUrl(mall);
-  const canonicalUrl = lang === "es" ? url : `${url}?lang=${lang}`;
+  // Canonical is always the clean URL without ?lang
+  const canonicalUrl = url;
   const localizedMall = localizeMall(mall, lang);
   const titleSuffix = lang === "pt"
     ? "Lojas, horários e como chegar"
@@ -110,7 +116,8 @@ export function applyMallSeo(mall, lang = "es") {
 
 export function resetSeo(lang = "es") {
   const seo = HOME_SEO[lang] || HOME_SEO.es;
-  const localizedUrl = lang === "es" ? `${SITE_URL}/` : `${SITE_URL}/?lang=${lang}`;
+  // Home canonical is always clean — no ?lang suffix
+  const localizedUrl = `${SITE_URL}/`;
   document.title = seo.title;
   setMeta('meta[name="description"]', "content", seo.description);
   setMeta('link[rel="canonical"]', "href", localizedUrl);

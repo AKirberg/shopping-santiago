@@ -1,5 +1,13 @@
 User-agent: *
 Allow: /
-Allow: /mall/
+Allow: /malls/
+Allow: /outlets/
+Allow: /rutas/
+Allow: /guias/
+Allow: /comparar/
+Allow: /pt-br/
+
+# Legacy /mall/ URLs remain crawlable so bots can read their noindex,
+# canonical and redirect. They are intentionally excluded from the sitemap.
 
 Sitemap: https://www.shopeando.cl/sitemap.xml

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "donde-comprar-en-santiago",
+    "title": "Dónde comprar en Santiago: guía completa de malls y zonas comerciales",
+    "description": "Guía editorial con los mejores centros comerciales de Santiago de Chile según tu zona, presupuesto y tiempo disponible. Incluye malls premium, opciones familiares y alternativas por sector.",
+    "publishedAt": "2026-08-19",
+    "modifiedAt": "2026-08-19",
+    "imageUrl": "/images/malls/costanera-center.jpg",
+    "sections": [
+      {
+        "heading": "Los malls más visitados por turistas",
+        "body": "Santiago tiene más de 25 centros comerciales activos. Para una primera visita, Costanera Center en Providencia y Parque Arauco en Las Condes son los dos puntos de partida más recomendados: ambos concentran marcas internacionales, buena oferta gastronómica y fácil acceso desde los principales sectores de alojamiento turístico."
+      },
+      {
+        "heading": "Sector oriente: Las Condes y Vitacura",
+        "body": "El eje Kennedy concentra la mayor oferta premium de la ciudad. Parque Arauco, Alto Las Condes y Casacostanera forman un circuito natural para quienes buscan marcas internacionales, gastronomía de nivel y una experiencia de compra más tranquila. Mall Sport complementa este circuito para quienes buscan ropa deportiva o equipamiento outdoor."
+      },
+      {
+        "heading": "Sector sur y suroriente",
+        "body": "Florida Center y Mallplaza Vespucio son las opciones más completas del suroriente. Ambos tienen conexión de metro y buena variedad. Para el sector poniente, Mallplaza Alameda y Mall Arauco Maipú cubren bien las necesidades de compras variadas con acceso conveniente."
+      },
+      {
+        "heading": "Opciones más accesibles y locales",
+        "body": "Para compras más cotidianas o con menor presupuesto, Mallplaza Norte en Independencia, Paseo Quilín en Macul y los formatos de barrio como Apumanque en Las Condes son opciones prácticas que también permiten conocer la vida local del sector."
+      }
+    ],
+    "relatedMalls": ["costanera-center", "parque-arauco", "alto-las-condes", "casacostanera", "mall-sport"],
+    "schema": "Article"
+  },
+  {
+    "id": "outlets-en-santiago",
+    "title": "Outlets en Santiago: guía para comprar con descuento",
+    "description": "Todo sobre los outlets de Santiago de Chile: Easton Outlet Mall y Arauco Premium Outlet Buenaventura. Cómo llegar, qué marcas encontrar y cuándo ir para aprovechar mejor los descuentos.",
+    "publishedAt": "2026-08-19",
+    "modifiedAt": "2026-08-19",
+    "imageUrl": "/images/malls/easton-outlet-mall.jpg",
+    "sections": [
+      {
+        "heading": "Qué es un outlet y cómo funciona en Chile",
+        "body": "Los outlets en Chile venden ropa, calzado y accesorios de temporadas anteriores con descuentos de entre el 30% y el 70% sobre el precio de tienda. A diferencia de los malls tradicionales, la experiencia está orientada completamente a la búsqueda de ofertas: hay que ir con tiempo y, si es posible, con una lista de marcas que te interesen."
+      },
+      {
+        "heading": "Easton Outlet Mall (Quilicura)",
+        "body": "Easton es uno de los dos grandes outlets de Santiago. Está ubicado en Quilicura, al norponiente de la ciudad, y se accede mejor en auto o Uber. Concentra marcas de moda y deporte como Zara Outlet, H&M Outlet, Adidas Outlet, Nike Outlet y Puma Outlet, además de tiendas de ropa casual como Basement y Americanino. El patio de comidas es funcional aunque no es el punto fuerte."
+      },
+      {
+        "heading": "Arauco Premium Outlet Buenaventura (Quilicura)",
+        "body": "A pocos minutos de Easton se encuentra el Arauco Premium Outlet, que apunta a marcas de gama media-alta: Polo Ralph Lauren, Tommy Hilfiger, Calvin Klein, Lacoste y Guess son algunas de las más buscadas. También tiene Nike y Adidas Outlet, Skechers y Swarovski. Es la opción más cercana a lo que en otros países se llama factory outlet premium."
+      },
+      {
+        "heading": "Consejos para tu visita a los outlets",
+        "body": "Planifica el día con al menos 4 a 6 horas disponibles si quieres visitar ambos outlets. Confirma los horarios oficiales antes de salir, ya que pueden variar según temporada. Lleva efectivo y tarjeta, revisa las políticas de cambio y devolución por tienda, y considera ir entre semana para evitar la mayor afluencia de los fines de semana."
+      }
+    ],
+    "relatedMalls": ["easton-outlet-mall", "arauco-premium-outlet-buenaventura"],
+    "schema": "Article"
+  },
+  {
+    "id": "compras-en-santiago-para-turistas",
+    "title": "Compras en Santiago para turistas: qué comprar, dónde y cómo moverse",
+    "description": "Guía práctica para turistas que visitan Santiago y quieren comprar ropa, recuerdos, tecnología o artesanía. Incluye consejos de transporte, zonas recomendadas y qué esperar de los malls chilenos.",
+    "publishedAt": "2026-08-19",
+    "modifiedAt": "2026-08-19",
+    "imageUrl": "/images/malls/parque-arauco.jpg",
+    "sections": [
+      {
+        "heading": "Por qué Santiago es buen destino de compras",
+        "body": "Santiago concentra la mayor oferta comercial de Chile y una de las más completas de Sudamérica. Los malls son modernos, seguros y bien conectados por metro. Encontrarás marcas internacionales como Zara, H&M, Nike, Adidas, Calvin Klein y Tommy Hilfiger a precios que pueden ser competitivos respecto a otros países de la región, especialmente en marcas europeas y en los outlets."
+      },
+      {
+        "heading": "Qué comprar en Santiago",
+        "body": "Las compras más populares entre turistas incluyen ropa y calzado de marcas internacionales, tecnología (especialmente en Costanera Center y Alto Las Condes), cosméticos en tiendas como Sephora, y productos locales como vino, artesanía mapuche y textiles en los mercados del centro. Para recuerdos más auténticos, el Mercado Central, la Vega Central y el barrio Bellavista complementan bien el circuito de malls."
+      },
+      {
+        "heading": "Cómo moverse entre malls",
+        "body": "El metro de Santiago conecta directamente con Costanera Center (estación Tobalaba), Mallplaza Vespucio (estación Bellavista de La Florida) y Florida Center (estación Mirador). Para Mallplaza Norte, Parque Arauco, Alto Las Condes y Casacostanera conviene combinar metro con bus, Uber o taxi. Los outlets de Quilicura se acceden mejor en auto o Uber directo."
+      },
+      {
+        "heading": "Consejos prácticos",
+        "body": "Los malls en Chile abren típicamente de 10:00 a 21:00 los días de semana y hasta las 22:00 los fines de semana, aunque conviene confirmar en el sitio oficial de cada uno. Para pagos, la mayoría de tiendas acepta tarjetas internacionales Visa y Mastercard. La temporada de liquidaciones más intensa es enero-febrero y julio."
+      }
+    ],
+    "relatedMalls": ["costanera-center", "parque-arauco", "alto-las-condes"],
+    "schema": "Article"
+  },
+  {
+    "id": "galerias-del-centro-de-santiago",
+    "title": "Galerías del centro de Santiago: compras locales y cultura urbana",
+    "description": "Las galerías comerciales del centro histórico de Santiago son una alternativa auténtica a los malls modernos. Ropa local, artículos de segunda mano, tecnología usada y mucho color urbano.",
+    "publishedAt": "2026-08-19",
+    "modifiedAt": "2026-08-19",
+    "imageUrl": "/images/malls/mallplaza-alameda.jpg",
+    "sections": [
+      {
+        "heading": "Las galerías del centro como experiencia cultural",
+        "body": "A diferencia de los grandes malls del sector oriente, las galerías del centro histórico de Santiago ofrecen una experiencia de compra más local y auténtica. Son pasajes interiores con locales pequeños que venden desde ropa y calzado hasta tecnología, artículos de colección, servicios y comida rápida popular. Recorrerlas forma parte del ambiente propio del centro de la ciudad."
+      },
+      {
+        "heading": "Principales galerías y qué encontrar",
+        "body": "La Galería España, cerca de la Alameda, es referencia para tecnología usada y accesorios. El Pasaje Matte y el Pasaje Phillips en el microcentro concentran locales de ropa, zapatería y artesanía. La zona de Paseo Ahumada y Paseo Huérfanos conecta varias galerías con oferta variada. Mallplaza Alameda es la versión más formal de este sector, con tiendas de cadena y cine."
+      },
+      {
+        "heading": "Artesanía y productos locales",
+        "body": "Para artesanía chilena, el Centro Artesanal Los Dominicos en Las Condes y el Mercado Central son los puntos más reconocidos. En el centro, la Feria Artesanal de la Plaza de Armas y los stands del barrio Lastarria ofrecen productos más orientados al turista, incluyendo tejidos, madera tallada y cerámica con motivos mapuche."
+      },
+      {
+        "heading": "Cómo llegar y cuándo ir",
+        "body": "El centro histórico es accesible desde múltiples estaciones de metro: Plaza de Armas, Santa Lucía, Universidad de Chile y Baquedano. Conviene ir entre semana en horario de mañana para evitar la mayor concentración de gente. El fin de semana el ambiente es diferente: más tranquilo en algunas zonas, pero con algunas galerías con horario reducido."
+      }
+    ],
+    "relatedMalls": ["mallplaza-alameda"],
+    "schema": "Article"
+  }
+]

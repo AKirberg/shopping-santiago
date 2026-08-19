@@ -3,18 +3,23 @@ import { MapPin, Menu, ShoppingBag, X } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "../i18n/LanguageContext";
 
-function Header() {
+function Header({ isPublicPage = false }) {
   const [open, setOpen] = useState(false);
   const { t } = useLanguage();
   const nav = t.header.nav;
+
+  // When on a public SEO page, anchor links must include /#section to return home
+  const prefix = isPublicPage ? "/" : "";
   const navItems = [
-    [nav.quiz, "#quiz"],
-    [nav.routes, "#rutas"],
-    [nav.galleries, "#galerias"],
-    [nav.malls, "#malls"],
-    [nav.compare, "#comparar"],
-    [nav.tips, "#consejos"],
+    [nav.quiz, `${prefix}#quiz`],
+    [nav.routes, `${prefix}#rutas`],
+    [nav.galleries, `${prefix}#galerias`],
+    [nav.malls, `${prefix}#malls`],
+    [nav.compare, `${prefix}#comparar`],
+    [nav.tips, `${prefix}#consejos`],
   ];
+
+  const logoHref = isPublicPage ? "/" : "#inicio";
 
   return (
     <header className="sm:sticky sm:top-0 z-40 border-b border-ink/8 bg-[#f8faf6]">
@@ -23,7 +28,7 @@ function Header() {
           <div className="hidden items-center rounded-xl bg-ink px-2 py-1.5 sm:flex">
             <LanguageSwitcher />
           </div>
-          <a href="#inicio" className="flex items-center gap-3">
+          <a href={logoHref} className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-ink text-white">
               <ShoppingBag size={18} />
             </span>
@@ -36,18 +41,24 @@ function Header() {
           </a>
         </div>
 
-        <nav className="hidden items-center gap-7 text-sm font-bold text-ink/60 md:flex">
+        <nav className="hidden items-center gap-7 text-sm font-bold text-ink/60 md:flex" aria-label="Navegación principal">
           {navItems.map(([label, href]) => (
             <a key={href} href={href} className="transition hover:text-leaf">{label}</a>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <a className="primary-button hidden py-2.5 text-xs sm:inline-flex" href="#quiz">{t.header.cta}</a>
+          <a
+            className="primary-button hidden py-2.5 text-xs sm:inline-flex"
+            href={`${prefix}#quiz`}
+          >
+            {t.header.cta}
+          </a>
           <button
             className="icon-button h-11 w-11 md:hidden"
             onClick={() => setOpen(v => !v)}
             aria-label="Menu"
+            aria-expanded={open}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -55,7 +66,7 @@ function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-ink/8 bg-white px-4 py-3 md:hidden">
+        <nav className="border-t border-ink/8 bg-white px-4 py-3 md:hidden" aria-label="Menú móvil">
           <div className="mx-auto grid max-w-7xl gap-1">
             <div className="flex items-center gap-2 rounded-xl bg-ink px-4 py-2.5 mb-1">
               <LanguageSwitcher />

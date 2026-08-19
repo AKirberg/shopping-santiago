@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "start": "vite --host 0.0.0.0",
-    "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender-malls.js && node scripts/validate-umami-analytics.js",
+    "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender-seo-pages.js && node scripts/validate-seo-pages.js && node scripts/validate-umami-analytics.js",
     "preview": "vite preview",
-    "sitemap": "node scripts/generate-sitemap.js"
+    "sitemap": "node scripts/generate-sitemap.js",
+    "prerender": "node scripts/prerender-seo-pages.js",
+    "validate-seo": "node scripts/validate-seo-pages.js"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

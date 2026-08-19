@@ -4,12 +4,17 @@ import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
 import { mallMapsUrl } from "../utils/maps";
 
+function mallCanonicalHref(mall) {
+  return mall.outlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
+}
+
 function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRoute }) {
   const { t, lang } = useLanguage();
   const md = t.mallDetail;
   const lm = localizeMall(mall, lang);
   const relatedRoute = routes.find(r => r.stops.some(s => s.mallId === mall.id));
   const mapsUrl = mallMapsUrl(mall);
+  const canonicalHref = mallCanonicalHref(mall);
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -158,10 +163,16 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
         </div>
 
         {/* Sticky close button – always visible on mobile */}
-        <div className="sticky bottom-0 border-t border-ink/8 bg-white/95 px-6 py-3 backdrop-blur-sm">
+        <div className="sticky bottom-0 border-t border-ink/8 bg-white/95 px-6 py-3 backdrop-blur-sm flex gap-2">
+          <a
+            href={canonicalHref}
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-leaf/20 py-3 text-sm font-semibold text-leaf/70 transition hover:border-leaf hover:text-leaf"
+          >
+            <ExternalLink size={14} /> Ver página completa
+          </a>
           <button
             onClick={onClose}
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-ink/12 py-3 text-sm font-extrabold text-ink/60 transition hover:border-ink/30 hover:text-ink"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-ink/12 py-3 text-sm font-extrabold text-ink/60 transition hover:border-ink/30 hover:text-ink"
           >
             <X size={15} /> {md.close ?? "Cerrar"}
           </button>

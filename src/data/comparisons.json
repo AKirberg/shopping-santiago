@@ -1,0 +1,80 @@
+[
+  {
+    "id": "parque-arauco-vs-costanera-center",
+    "title": "Parque Arauco vs Costanera Center: ¿cuál es mejor para ti?",
+    "description": "Comparación detallada entre Parque Arauco y Costanera Center: marcas, gastronomía, transporte, precios y experiencia general. Descubre cuál se adapta mejor a tu visita.",
+    "publishedAt": "2026-08-19",
+    "modifiedAt": "2026-08-19",
+    "imageUrl": "/images/malls/parque-arauco.jpg",
+    "mallIds": ["parque-arauco", "costanera-center"],
+    "intro": "Parque Arauco y Costanera Center son los dos malls más populares entre turistas en Santiago de Chile. Ambos concentran marcas internacionales, buena gastronomía y están bien posicionados en el sector oriente. Pero tienen diferencias importantes que pueden definir cuál se adapta mejor a tu visita.",
+    "criteria": [
+      {
+        "name": "Marcas y variedad",
+        "mallA": "Parque Arauco destaca por su oferta premium y marcas de lujo: Louis Vuitton, Gucci, Ralph Lauren, Hugo Boss y Calvin Klein tienen presencia aquí. La experiencia de compra es más espaciosa y menos aglomerada.",
+        "mallB": "Costanera Center tiene mayor cantidad de tiendas totales y combina bien marcas de rango medio con algunas internacionales. Zara, H&M, Mango, Bershka y Pull&Bear son de las más buscadas."
+      },
+      {
+        "name": "Gastronomía",
+        "mallA": "El nivel gastronómico de Parque Arauco es alto, con restaurantes de cocina internacional, opciones de autor y un patio de comidas amplio. Ideal para combinar compras con una buena comida.",
+        "mallB": "Costanera Center tiene una oferta gastronómica muy completa con opciones para todos los presupuestos: desde el patio de comidas con cadenas internacionales hasta restaurantes en pisos superiores con vista."
+      },
+      {
+        "name": "Transporte y acceso",
+        "mallA": "Requiere combinar metro con caminata, bus o un viaje corto en taxi/Uber desde estaciones cercanas. Tiene estacionamiento amplio para quienes van en auto.",
+        "mallB": "Es el mall mejor conectado de Santiago: la estación Tobalaba del metro queda a pocos minutos caminando. Ideal para turistas sin auto alojados en Providencia o Las Condes."
+      },
+      {
+        "name": "Ambiente y experiencia",
+        "mallA": "Más pausado, con áreas exteriores agradables y una sensación general más premium. Mejor si quieres una tarde de compras sin prisa.",
+        "mallB": "Más animado y concurrido, especialmente los fines de semana y en hora punta. Bueno para quien quiere resolver compras rápido y tiene poco tiempo."
+      },
+      {
+        "name": "Atracciones adicionales",
+        "mallA": "Cerca del Parque Araucano y del distrito de restaurantes de Las Condes, lo que permite extender fácilmente la salida.",
+        "mallB": "Sky Costanera, el mirador más alto de Sudamérica, está en el mismo edificio. Un plus importante para turistas que visitan la ciudad por primera vez."
+      }
+    ],
+    "conclusion": "Si es tu primera vez en Santiago y quieres maximizar el tiempo, elige Costanera Center por su acceso en metro y el añadido de Sky Costanera. Si prefieres una experiencia más tranquila, marcas premium y buena gastronomía, Parque Arauco es la mejor opción.",
+    "schema": "WebPage"
+  },
+  {
+    "id": "easton-vs-arauco-premium-outlet",
+    "title": "Easton Outlet Mall vs Arauco Premium Outlet: ¿cuál outlet conviene más?",
+    "description": "Comparamos los dos grandes outlets de Santiago: Easton Outlet Mall y Arauco Premium Outlet Buenaventura. Marcas, precios, distancia y qué esperar de cada uno.",
+    "publishedAt": "2026-08-19",
+    "modifiedAt": "2026-08-19",
+    "imageUrl": "/images/malls/arauco-premium-outlet-buenaventura.jpg",
+    "mallIds": ["easton-outlet-mall", "arauco-premium-outlet-buenaventura"],
+    "intro": "Los dos grandes outlets de Santiago están en Quilicura, a pocos kilómetros de distancia entre sí. Muchos visitantes los combinan en el mismo día. Pero si tienes tiempo solo para uno, esta comparación te ayuda a decidir según qué marcas buscas y qué tipo de experiencia esperas.",
+    "criteria": [
+      {
+        "name": "Marcas disponibles",
+        "mallA": "Easton es fuerte en moda masiva a precios de outlet: Zara Outlet, H&M Outlet, Mango Outlet, Basement y Americanino. En deporte tiene Adidas, Nike, Puma y Fila con descuentos sobre colecciones anteriores.",
+        "mallB": "Arauco Premium apunta a un nivel superior: Polo Ralph Lauren, Tommy Hilfiger, Calvin Klein, Lacoste, Guess y Levi's. En deporte también tiene Nike, Adidas y New Balance Outlet, más Under Armour."
+      },
+      {
+        "name": "Nivel de precios",
+        "mallA": "Los descuentos en Easton son atractivos en moda casual y deportiva. Es la opción más económica entre ambos outlets para marcas de rango medio.",
+        "mallB": "Los precios en Arauco Premium son más altos por el tipo de marcas, pero los descuentos sobre el precio original pueden ser significativos en marcas como Ralph Lauren o Tommy Hilfiger."
+      },
+      {
+        "name": "Gastronomía",
+        "mallA": "Patio de comidas funcional con Starbucks, McDonald's y Telepizza. No es el punto fuerte, pero cubre bien una jornada de compras.",
+        "mallB": "Similar al de Easton: Starbucks y Subway disponibles. Tampoco es un destino gastronómico, pero permite recargar energías sin salir del recinto."
+      },
+      {
+        "name": "Cómo llegar",
+        "mallA": "Ambos están en Quilicura y se acceden mejor en auto o Uber desde el centro o el sector oriente. Easton queda ligeramente más al poniente.",
+        "mallB": "A pocos minutos de Easton, también en Quilicura. Si vas a los dos en el mismo día, el trayecto entre uno y otro no supera los 10 minutos en auto."
+      },
+      {
+        "name": "Tiempo recomendado",
+        "mallA": "3 a 5 horas para recorrerlo con calma. Si lo combinas con Arauco Premium, planifica al menos 6 a 8 horas en total.",
+        "mallB": "3 a 5 horas por separado. La combinación de ambos en un 'outlet day' es una alternativa popular que merece dedicarle el día completo."
+      }
+    ],
+    "conclusion": "Para moda casual y deportiva al mejor precio de los dos, elige Easton. Para marcas de gama media-alta como Ralph Lauren, Calvin Klein o Lacoste con descuentos de outlet, opta por Arauco Premium. Lo ideal es combinarlos en el mismo día si tienes tiempo.",
+    "schema": "WebPage"
+  }
+]

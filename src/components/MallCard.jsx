@@ -15,19 +15,38 @@ function parseMinHours(timeStr) {
   return match ? parseInt(match[1]) : 2;
 }
 
+/** Returns the canonical SEO path for a mall (used by crawlable links) */
+function mallCanonicalHref(mall) {
+  return mall.outlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
+}
+
 function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
   const { t, lang } = useLanguage();
   const mc = t.mallCard;
   const lm = localizeMall(mall, lang);
   const mapsUrl = mallMapsUrl(mall);
+  const canonicalHref = mallCanonicalHref(mall);
   const minHours = parseMinHours(mall.recommendedTime);
   const tooLong = availableHours !== null && availableHours !== undefined && availableHours < minHours;
+
+  function handleCardClick(e) {
+    // If onSelect is provided (home context), open modal and prevent navigation
+    if (onSelect) {
+      e.preventDefault();
+      onSelect(mall);
+    }
+    // Otherwise allow normal <a> navigation to canonical page
+  }
 
   return (
     <article className={`group flex h-full flex-col overflow-hidden rounded-2xl border bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft ${
       tooLong ? "border-coral/30" : "border-ink/8"
     }`}>
-      <button onClick={() => onSelect(mall)} className="relative block h-44 w-full overflow-hidden bg-ink/8">
+      <a
+        href={canonicalHref}
+        onClick={handleCardClick}
+        className="relative block h-44 w-full overflow-hidden bg-ink/8"
+      >
         {mall.imageUrl ? (
           <img
             src={mall.imageUrl}
@@ -55,7 +74,7 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
             <AlertTriangle size={10} /> {mc.timeTight}
           </div>
         )}
-      </button>
+      </a>
 
       <div className="flex flex-1 flex-col p-4">
         <div className="flex flex-wrap items-center gap-1.5">
@@ -110,9 +129,14 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
         </div>
 
         <div className="mt-4 flex items-center gap-2 border-t border-ink/6 pt-3.5">
-          <button onClick={() => onSelect(mall)} className="primary-button flex-1 py-2 text-xs">
+          {/* Canonical crawlable link — opens modal on home via onClick */}
+          <a
+            href={canonicalHref}
+            onClick={handleCardClick}
+            className="primary-button flex-1 py-2 text-xs justify-center"
+          >
             {mc.viewDetails}
-          </button>
+          </a>
           <a
             href={mapsUrl}
             target="_blank"
@@ -124,13 +148,13 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
             <ExternalLink size={15} />
           </a>
           <button
-            onClick={() => onCompare(mall.id)}
+            onClick={() => onCompare?.(mall.id)}
             className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition ${
               isComparing
                 ? "border-leaf bg-leaf text-white"
                 : "border-ink/10 text-ink/50 hover:border-leaf/40 hover:text-leaf"
             }`}
-            aria-label={mc.viewDetails}
+            aria-label="Comparar"
             title="Comparar"
           >
             <BadgeCheck size={15} />

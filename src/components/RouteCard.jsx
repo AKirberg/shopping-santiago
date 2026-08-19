@@ -7,6 +7,11 @@ const gradients = [
   "from-gold to-leaf", "from-night to-leaf", "from-leaf to-coral",
 ];
 
+function mallCanonicalHref(mall) {
+  if (!mall) return null;
+  return mall.outlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
+}
+
 function RouteCard({ route, mallMap, index = 0 }) {
   const { t } = useLanguage();
   const r = t.routes;
@@ -28,7 +33,10 @@ function RouteCard({ route, mallMap, index = 0 }) {
               <span className="text-ink/20">·</span>
               <span className="text-xs font-bold text-ink/40">{stopCount} {stopLabel}</span>
             </div>
-            <h3 className="mt-1.5 font-display text-xl font-extrabold leading-tight">{route.title}</h3>
+            {/* Canonical link to route page */}
+            <a href={`/rutas/${route.id}/`} className="block hover:text-leaf transition">
+              <h3 className="mt-1.5 font-display text-xl font-extrabold leading-tight">{route.title}</h3>
+            </a>
           </div>
           <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-mist">
             <MapPinned size={18} className="text-leaf" />
@@ -45,6 +53,7 @@ function RouteCard({ route, mallMap, index = 0 }) {
           {route.stops.map((stop, i) => {
             const mall = mallMap[stop.mallId];
             const isLast = i === route.stops.length - 1;
+            const canonicalHref = mallCanonicalHref(mall);
             return (
               <div key={`${route.id}-${stop.mallId}-${i}`} className="grid grid-cols-[32px_1fr] gap-3">
                 <div className="flex flex-col items-center">
@@ -59,7 +68,13 @@ function RouteCard({ route, mallMap, index = 0 }) {
                   </p>
                   <p className="mt-1 flex items-center gap-1.5 text-sm font-extrabold">
                     <Navigation size={12} className="shrink-0 text-coral" />
-                    {mall?.name || stop.mallId}
+                    {canonicalHref ? (
+                      <a href={canonicalHref} className="hover:text-leaf transition">
+                        {mall?.name || stop.mallId}
+                      </a>
+                    ) : (
+                      mall?.name || stop.mallId
+                    )}
                   </p>
                   <p className="mt-1 text-xs leading-5 text-ink/50">{stop.note}</p>
                 </div>
@@ -92,6 +107,14 @@ function RouteCard({ route, mallMap, index = 0 }) {
             {stopCount > 1 ? r.mapsRoute : r.mapsOne}
           </a>
         )}
+
+        {/* Canonical SEO link to route detail page */}
+        <a
+          href={`/rutas/${route.id}/`}
+          className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl border border-ink/10 bg-transparent px-4 py-2.5 text-sm font-semibold text-ink/50 transition hover:border-leaf/25 hover:text-leaf"
+        >
+          Ver ficha de ruta →
+        </a>
       </div>
     </article>
   );

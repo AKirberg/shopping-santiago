@@ -19,8 +19,10 @@ import TouristTips from "./components/TouristTips";
 import MallDetail from "./components/MallDetail";
 import GalleriesSection from "./components/GalleriesSection";
 import Footer from "./components/Footer";
+import PublicSeoPage, { matchPublicRoute } from "./components/PublicSeoPage";
 
-function mallFromPath(pathname) {
+// Legacy /mall/:id path parser (for home modal only — actual routing handled by matchPublicRoute)
+function mallFromLegacyPath(pathname) {
   const match = pathname.match(/^\/mall\/([^/]+)\/?$/);
   return match ? malls.find(m => m.id === match[1]) ?? null : null;
 }
@@ -33,8 +35,19 @@ const defaultFilters = {
 
 function App() {
   const { t, lang } = useLanguage();
+
+  // Determine if current path is a public SEO page
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const publicMatch = useMemo(() => matchPublicRoute(currentPath), [currentPath]);
+
   const [filters, setFilters] = useState(defaultFilters);
-  const [selectedMall, setSelectedMall] = useState(() => mallFromPath(window.location.pathname));
+  const [selectedMall, setSelectedMall] = useState(() => {
+    // Only open modal for legacy paths when NOT handled as public SEO page
+    if (!matchPublicRoute(window.location.pathname)) {
+      return mallFromLegacyPath(window.location.pathname);
+    }
+    return null;
+  });
   const [compareIds, setCompareIds] = useState(["costanera-center", "parque-arauco"]);
   const [flightTime, setFlightTime] = useState("");
   const [minutesToAirport, setMinutesToAirport] = useState(45);
@@ -46,15 +59,25 @@ function App() {
   const returnToLastMinute = useRef(false);
 
   useEffect(() => {
-    const onPopState = () => setSelectedMall(mallFromPath(window.location.pathname));
+    const onPopState = () => {
+      setCurrentPath(window.location.pathname);
+      // Only update selectedMall for home/legacy paths
+      if (!matchPublicRoute(window.location.pathname)) {
+        setSelectedMall(mallFromLegacyPath(window.location.pathname));
+      } else {
+        setSelectedMall(null);
+      }
+    };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
   useEffect(() => {
-    if (selectedMall) applyMallSeo(selectedMall, lang);
-    else resetSeo(lang);
-  }, [selectedMall, lang]);
+    if (!publicMatch) {
+      if (selectedMall) applyMallSeo(selectedMall, lang);
+      else resetSeo(lang);
+    }
+  }, [selectedMall, lang, publicMatch]);
 
   /* Reopen LastMinutePanel after user sets address from within it */
   useEffect(() => {
@@ -65,16 +88,19 @@ function App() {
   }, [userAddress]);
 
   function openMall(mall) {
-    setSelectedMall(mall);
-    if (window.location.pathname !== `/mall/${mall.id}`) {
-      window.history.pushState({}, "", `/mall/${mall.id}`);
+    const canonicalPath = mall.outlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
+    if (window.location.pathname !== canonicalPath) {
+      window.history.pushState({}, "", canonicalPath);
     }
+    setSelectedMall(null);
+    setCurrentPath(canonicalPath);
   }
 
   function closeMall() {
     setSelectedMall(null);
-    if (window.location.pathname.startsWith("/mall/")) {
+    if (window.location.pathname.startsWith("/mall/") || window.location.pathname.startsWith("/malls/") || window.location.pathname.startsWith("/outlets/")) {
       window.history.pushState({}, "", "/");
+      setCurrentPath("/");
     }
   }
 
@@ -120,6 +146,12 @@ function App() {
 
   const app = t.app;
 
+  // ── Render public SEO pages ────────────────────────────────────────────────
+  if (publicMatch) {
+    return <PublicSeoPage match={publicMatch} />;
+  }
+
+  // ── Render home ────────────────────────────────────────────────────────────
   return (
     <div className="min-h-screen bg-[#f8faf6] text-ink">
       <Header />
