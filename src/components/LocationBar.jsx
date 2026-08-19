@@ -558,13 +558,14 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                 </div>
               )}
 
-              {/* Volver — al fondo */}
+              {/* Recomendador — al fondo */}
               <div className="px-5 pb-5 pt-3">
                 <button
-                  onClick={closeModal}
-                  className="flex w-full items-center justify-center gap-2 rounded-2xl border border-ink/12 bg-ink/3 px-4 py-3 text-sm font-extrabold text-ink/50 transition hover:bg-ink/6 hover:text-ink/70"
+                  onClick={scrollToQuiz}
+                  className="flex w-full items-center justify-center gap-2 rounded-2xl bg-coral px-4 py-3.5 text-sm font-extrabold text-white shadow-md transition hover:bg-coral/90 hover:shadow-lg active:scale-[0.98]"
                 >
-                  Volver
+                  <Navigation size={15} />
+                  {lb.quizCta}
                 </button>
               </div>
 
