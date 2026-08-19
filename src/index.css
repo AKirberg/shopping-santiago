@@ -15,6 +15,9 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 48px; /* LocationBar sticky en móvil */
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @media (min-width: 640px) {
@@ -27,6 +30,21 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.location-bar-shell {
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 button,

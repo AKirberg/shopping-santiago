@@ -267,7 +267,7 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
   /* ── Sticky trigger bar ── */
   return (
     <>
-      <div className="sticky top-0 sm:top-[64px] z-30 w-full min-w-0 overflow-x-clip border-b border-ink/8 bg-white shadow-sm">
+      <div className="location-bar-shell sticky top-0 sm:top-[64px] z-30 min-w-0 overflow-x-clip border-b border-ink/8 bg-white shadow-sm">
         <div className="mx-auto flex w-full min-w-0 max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
 
 
