@@ -271,27 +271,6 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
         <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
 
 
-          {/* GPS quick button — visible when no location yet */}
-          {!userCoords && (
-            <button
-              onClick={handleGPS}
-              disabled={gpsLoading}
-              className={`shrink-0 flex items-center justify-center gap-1.5 h-10 rounded-2xl border px-3 text-[11px] font-extrabold whitespace-nowrap transition ${
-                gpsLoading
-                  ? "border-leaf/20 bg-leaf/5 text-leaf/40 cursor-wait"
-                  : "border-leaf/30 bg-leaf/6 text-leaf hover:bg-leaf hover:text-white hover:border-leaf"
-              }`}
-              aria-label={lb.gpsBtn}
-              title={lb.gpsBtn}
-            >
-              {gpsLoading
-                ? <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-leaf/30 border-t-leaf" />
-                : <Crosshair size={15} />
-              }
-              <span>{gpsLoading ? lb.gpsLoading : lb.gpsBtn}</span>
-            </button>
-          )}
-
           {/* Trigger button — whole row is clickable */}
           <button
             onClick={() => setOpen(true)}
