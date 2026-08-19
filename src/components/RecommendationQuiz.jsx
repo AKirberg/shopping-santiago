@@ -104,9 +104,9 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
             </button>
           </div>
         ) : (
-          <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
-            <div className="grid gap-6">
-              <div className="flex items-start gap-3 rounded-2xl border border-leaf/30 bg-leaf/6 px-4 py-3">
+          <div className="grid min-w-0 gap-10 lg:grid-cols-[1fr_1fr]">
+            <div className="grid min-w-0 gap-6">
+              <div className="flex min-w-0 max-w-full items-start gap-3 overflow-hidden rounded-2xl border border-leaf/30 bg-leaf/6 px-4 py-3">
                 <Navigation size={15} className="mt-0.5 shrink-0 text-leaf" />
                 <div className="min-w-0">
                   <p className="text-[10px] font-extrabold uppercase tracking-widest text-leaf/70">{q.locationLabel}</p>
@@ -140,7 +140,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
               ))}
             </div>
 
-            <div>
+            <div className="min-w-0">
               <div className="mb-5 flex items-center gap-3">
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-leaf text-white">
                   <Sparkles size={17} />
@@ -152,9 +152,9 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
               </div>
 
               {canBuildRoute && (
-                <div className="mb-4 rounded-2xl border border-coral/25 bg-coral/6 px-4 py-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
+                <div className="mb-4 min-w-0 max-w-full overflow-hidden rounded-2xl border border-coral/25 bg-coral/6 px-4 py-3">
+                  <div className="flex min-w-0 items-start justify-between gap-3">
+                    <div className="min-w-0">
                       <p className="text-xs font-extrabold text-coral">{q.routeModeTitle}</p>
                       <p className="mt-1 text-xs leading-5 text-ink/55">{q.routeModeHint}</p>
                     </div>
@@ -186,7 +186,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                         </p>
                       </div>
                       {selectedMalls.length >= 2 ? (
-                        <div className={`rounded-xl px-3 py-2.5 ${routeAnalysis.orderRecommended ? "bg-leaf/10 text-leaf" : "bg-gold/15 text-gold"}`}>
+                        <div className={`min-w-0 rounded-xl px-3 py-2.5 ${routeAnalysis.orderRecommended ? "bg-leaf/10 text-leaf" : "bg-gold/15 text-gold"}`}>
                           <div className="flex items-start justify-between gap-3">
                             <div className="min-w-0">
                               <p className="font-extrabold">
@@ -234,7 +234,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                     key={mall.id}
                     onClick={() => canBuildRoute ? toggleRouteMall(mall.id) : onSelect(mall)}
                     aria-pressed={canBuildRoute ? selectedIds.includes(mall.id) : undefined}
-                    className={`group rounded-2xl border p-4 text-left transition hover:shadow-card ${
+                    className={`group w-full min-w-0 max-w-full overflow-hidden rounded-2xl border p-4 text-left transition hover:shadow-card ${
                       canBuildRoute && selectedIds.includes(mall.id)
                         ? "border-coral/50 bg-coral/6 hover:bg-coral/10"
                         : mall.isNearest
@@ -242,8 +242,8 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                         : "border-ink/8 bg-[#f8faf6] hover:border-leaf/30 hover:bg-white"
                     }`}
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="flex items-start gap-3">
+                    <div className="flex min-w-0 items-start justify-between gap-3">
+                      <div className="flex min-w-0 flex-1 items-start gap-3">
                         <span className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold text-white ${
                           canBuildRoute && selectedIds.includes(mall.id)
                             ? "bg-coral"
@@ -253,7 +253,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                             ? selectedIds.indexOf(mall.id) + 1
                             : index + 1}
                         </span>
-                        <div>
+                        <div className="min-w-0 flex-1">
                           <div className="flex flex-wrap items-center gap-2">
                             <p className="font-extrabold leading-tight">{mall.name}</p>
                             {mall.isNearest && (
@@ -270,7 +270,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                           </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex shrink-0 items-center gap-2">
                         <span className="rounded-full bg-ink px-2.5 py-1 text-xs font-extrabold text-white">
                           {mall.recommendationScore}
                         </span>
@@ -280,7 +280,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                     {mall.reasons?.length > 0 && (
                       <div className="mt-3 flex flex-wrap gap-1.5">
                         {mall.reasons.slice(0, 3).map(r => (
-                          <span key={r} className="rounded-full border border-ink/10 bg-white px-2.5 py-1 text-xs font-bold text-ink/55">
+                          <span key={r} className="min-w-0 max-w-full whitespace-normal break-words rounded-full border border-ink/10 bg-white px-2.5 py-1 text-xs font-bold text-ink/55">
                             {r}
                           </span>
                         ))}
