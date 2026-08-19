@@ -118,7 +118,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
               {q.fields.map(({ key, label, options }) => (
               <div key={key}>
                 <p className="mb-2.5 text-xs font-extrabold uppercase tracking-wider text-ink/45">{label}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                   {options.map(({ v, l }) => {
                     const selected = key === "category"
                       ? answers.category.includes(v)
@@ -129,7 +129,7 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                       key={v}
                       onClick={() => key === "category" ? toggleCategory(v) : set(key, v)}
                       aria-pressed={selected}
-                      className={selected ? "quiz-pill-active" : "quiz-pill"}
+                      className={`${selected ? "quiz-pill-active" : "quiz-pill"} flex w-full items-center justify-start sm:w-auto`}
                     >
                       {l}
                     </button>
