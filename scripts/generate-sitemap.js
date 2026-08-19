@@ -26,6 +26,12 @@ const staticUrls = [
     changefreq: "monthly",
     priority: "1.0",
   },
+  {
+    loc: `${BASE_URL}/pt-br/`,
+    lastmod: today,
+    changefreq: "monthly",
+    priority: "0.9",
+  },
 ];
 
 const mallUrls = malls.map((mall) => ({
@@ -57,4 +63,4 @@ ${urlEntries}
 const outPath = resolve(ROOT, "public/sitemap.xml");
 writeFileSync(outPath, xml, "utf-8");
 console.log(`✅ Sitemap written to ${outPath}`);
-console.log(`   ${allUrls.length} URLs (1 static + ${mallUrls.length} malls)`);
+console.log(`   ${allUrls.length} URLs (${staticUrls.length} static + ${mallUrls.length} malls)`);

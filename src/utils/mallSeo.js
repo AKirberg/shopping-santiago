@@ -1,9 +1,34 @@
+import { localizeMall } from "../i18n/mallContent";
+
 const SITE_URL = "https://www.shopeando.cl";
 const JSONLD_ID = "mall-jsonld";
 
-const DEFAULT_TITLE = "Shopeando · Guía de malls y compras en Santiago de Chile";
-const DEFAULT_DESCRIPTION =
-  "Shopeando: encuentra el mejor mall, outlet o ruta de compras según tu ubicación, presupuesto y tiempo disponible. Guía para turistas en Santiago de Chile.";
+const HOME_SEO = {
+  es: {
+    title: "Shopeando · Guía de malls y compras en Santiago de Chile",
+    description: "Shopeando: encuentra el mejor mall, outlet o ruta de compras según tu ubicación, presupuesto y tiempo disponible. Guía para turistas en Santiago de Chile.",
+    ogTitle: "Shopeando · Guía de malls en Santiago de Chile",
+    ogDescription: "Encuentra el mejor mall, outlet o ruta de compras según tu ubicación y tiempo. Gratis, sin registro.",
+    twitterTitle: "Shopeando · Guía de malls en Santiago",
+    twitterDescription: "Encuentra el mejor mall según tu ubicación y tiempo. Guía turística de compras en Santiago de Chile.",
+  },
+  pt: {
+    title: "Compras em Santiago: shoppings e outlets | Shopeando",
+    description: "Planeje suas compras em Santiago do Chile: encontre shoppings, outlets e rotas perto de você. Guia gratuito em português para turistas brasileiros.",
+    ogTitle: "Compras em Santiago do Chile | Shopeando",
+    ogDescription: "Encontre shoppings, outlets e rotas de compras em Santiago. Gratuito, sem cadastro e em português.",
+    twitterTitle: "Compras em Santiago do Chile | Shopeando",
+    twitterDescription: "Guia de shoppings e outlets em Santiago para turistas brasileiros.",
+  },
+  en: {
+    title: "Shopping in Santiago: malls and outlets | Shopeando",
+    description: "Plan your shopping in Santiago, Chile: find malls, outlets and routes near you. A free guide for visitors.",
+    ogTitle: "Shopping in Santiago, Chile | Shopeando",
+    ogDescription: "Find malls, outlets and shopping routes in Santiago. Free and no sign-up required.",
+    twitterTitle: "Shopping in Santiago, Chile | Shopeando",
+    twitterDescription: "A free guide to malls and outlets in Santiago for visitors.",
+  },
+};
 
 function setMeta(selector, attr, value) {
   const el = document.head.querySelector(selector);
@@ -49,15 +74,22 @@ export function buildMallJsonLd(mall) {
   return jsonLd;
 }
 
-export function applyMallSeo(mall) {
+export function applyMallSeo(mall, lang = "es") {
   const url = mallUrl(mall);
-  const title = `${mall.name} · Horarios, tiendas y cómo llegar | Shopeando`;
-  const description = mall.description;
+  const canonicalUrl = lang === "es" ? url : `${url}?lang=${lang}`;
+  const localizedMall = localizeMall(mall, lang);
+  const titleSuffix = lang === "pt"
+    ? "Lojas, horários e como chegar"
+    : lang === "en"
+      ? "Stores, hours and directions"
+      : "Horarios, tiendas y cómo llegar";
+  const title = `${mall.name} · ${titleSuffix} | Shopeando`;
+  const description = localizedMall.description || mall.description;
 
   document.title = title;
   setMeta('meta[name="description"]', "content", description);
-  setMeta('link[rel="canonical"]', "href", url);
-  setMeta('meta[property="og:url"]', "content", url);
+  setMeta('link[rel="canonical"]', "href", canonicalUrl);
+  setMeta('meta[property="og:url"]', "content", canonicalUrl);
   setMeta('meta[property="og:title"]', "content", title);
   setMeta('meta[property="og:description"]', "content", description);
   if (mall.imageUrl) setMeta('meta[property="og:image"]', "content", `${SITE_URL}${mall.imageUrl}`);
@@ -75,16 +107,18 @@ export function applyMallSeo(mall) {
   script.textContent = JSON.stringify(buildMallJsonLd(mall));
 }
 
-export function resetSeo() {
-  document.title = DEFAULT_TITLE;
-  setMeta('meta[name="description"]', "content", DEFAULT_DESCRIPTION);
-  setMeta('link[rel="canonical"]', "href", `${SITE_URL}/`);
-  setMeta('meta[property="og:url"]', "content", `${SITE_URL}/`);
-  setMeta('meta[property="og:title"]', "content", "Shopeando · Guía de malls en Santiago de Chile");
-  setMeta('meta[property="og:description"]', "content", "Encuentra el mejor mall, outlet o ruta de compras según tu ubicación y tiempo. Gratis, sin registro.");
+export function resetSeo(lang = "es") {
+  const seo = HOME_SEO[lang] || HOME_SEO.es;
+  const localizedUrl = lang === "es" ? `${SITE_URL}/` : `${SITE_URL}/?lang=${lang}`;
+  document.title = seo.title;
+  setMeta('meta[name="description"]', "content", seo.description);
+  setMeta('link[rel="canonical"]', "href", localizedUrl);
+  setMeta('meta[property="og:url"]', "content", localizedUrl);
+  setMeta('meta[property="og:title"]', "content", seo.ogTitle);
+  setMeta('meta[property="og:description"]', "content", seo.ogDescription);
   setMeta('meta[property="og:image"]', "content", `${SITE_URL}/images/og-image.png`);
-  setMeta('meta[name="twitter:title"]', "content", "Shopeando · Guía de malls en Santiago");
-  setMeta('meta[name="twitter:description"]', "content", "Encuentra el mejor mall según tu ubicación y tiempo. Guía turística de compras en Santiago de Chile.");
+  setMeta('meta[name="twitter:title"]', "content", seo.twitterTitle);
+  setMeta('meta[name="twitter:description"]', "content", seo.twitterDescription);
   setMeta('meta[name="twitter:image"]', "content", `${SITE_URL}/images/og-image.png`);
   document.getElementById(JSONLD_ID)?.remove();
 }

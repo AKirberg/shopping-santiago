@@ -1,2 +1,3 @@
 - [Food gastronomy levels](food-gastronomy.md) — malls have foodLevel:"gastronomico"|"patio"; filter "gastronomico" is separate from "food" toggle.
 - [Mall list canon](mall-list.md) — 32 malls as of June 2026; see file for IDs and communes.
+- [Brazilian SEO entry point](brazilian-seo.md) — Portuguese discovery relies on a static `/pt-br/` landing, not only client-side locale switching.

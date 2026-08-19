@@ -32,7 +32,7 @@ const defaultFilters = {
 };
 
 function App() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [filters, setFilters] = useState(defaultFilters);
   const [selectedMall, setSelectedMall] = useState(() => mallFromPath(window.location.pathname));
   const [compareIds, setCompareIds] = useState(["costanera-center", "parque-arauco"]);
@@ -52,9 +52,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (selectedMall) applyMallSeo(selectedMall);
-    else resetSeo();
-  }, [selectedMall]);
+    if (selectedMall) applyMallSeo(selectedMall, lang);
+    else resetSeo(lang);
+  }, [selectedMall, lang]);
 
   /* Reopen LastMinutePanel after user sets address from within it */
   useEffect(() => {
