@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, Check, ExternalLink, MapPin, Navigation, Sparkles } from "lucide-react";
+import { ArrowRight, ExternalLink, MapPin, Navigation, Sparkles } from "lucide-react";
 import { getRecommendations } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 import { routeMapsUrl } from "../utils/maps";
+import { analyzeMallRoute } from "../utils/routePlanning";
 
 const initialAnswers = {
   category: "ropa",
@@ -35,6 +36,10 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
     const mallMap = Object.fromEntries(malls.map(mall => [mall.id, mall]));
     return routeMapsUrl(selectedMalls.map(mall => ({ mallId: mall.id })), mallMap, userCoords);
   }, [malls, selectedMalls, userCoords]);
+  const routeAnalysis = useMemo(
+    () => canBuildRoute ? analyzeMallRoute(selectedMalls, userCoords, answers.time) : null,
+    [answers.time, canBuildRoute, selectedMalls, userCoords]
+  );
 
   useEffect(() => {
     setSelectedIds(current => current.filter(id => recommendations.some(mall => mall.id === id)));
@@ -132,6 +137,43 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                       {selectedMalls.length}
                     </span>
                   </div>
+                  {selectedMalls.length > 0 && (
+                    <div className="mt-3 rounded-xl bg-white/75 px-3 py-2.5">
+                      <p className="text-[10px] font-extrabold uppercase tracking-widest text-coral/70">{q.routeOrderLabel}</p>
+                      <ol className="mt-2 grid gap-1.5">
+                        {selectedMalls.map((mall, index) => (
+                          <li key={mall.id} className="flex items-center gap-2 text-xs font-extrabold text-ink/70">
+                            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-coral text-[10px] text-white">
+                              {index + 1}
+                            </span>
+                            <span className="truncate">{mall.name}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+                  {routeAnalysis && (
+                    <div className="mt-3 grid gap-2 text-xs">
+                      <div className={`rounded-xl px-3 py-2.5 ${routeAnalysis.fitsTime ? "bg-leaf/10 text-leaf" : "bg-gold/15 text-gold"}`}>
+                        <p className="font-extrabold">{q.routeTimeLabel}: {routeAnalysis.shoppingTime}</p>
+                        <p className="mt-0.5 text-[10px] font-semibold opacity-75">
+                          {routeAnalysis.fitsTime ? q.routeFitsTime : q.routeExceedsTime}
+                        </p>
+                      </div>
+                      {selectedMalls.length >= 2 ? (
+                        <div className={`rounded-xl px-3 py-2.5 ${routeAnalysis.orderRecommended ? "bg-leaf/10 text-leaf" : "bg-gold/15 text-gold"}`}>
+                          <p className="font-extrabold">
+                            {routeAnalysis.orderRecommended ? q.routeOrderRecommended : q.routeOrderReview}
+                          </p>
+                          <p className="mt-0.5 text-[10px] font-semibold opacity-75">
+                            {routeAnalysis.orderRecommended ? q.routeOrderRecommendedHint : q.routeOrderReviewHint}
+                          </p>
+                        </div>
+                      ) : (
+                        <p className="text-[10px] font-bold text-coral/75">{q.routeOrderPending}</p>
+                      )}
+                    </div>
+                  )}
                   {routeUrl ? (
                     <a
                       href={routeUrl}
@@ -169,7 +211,9 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                             ? "bg-coral"
                             : index === 0 ? "bg-leaf" : "bg-ink/25"
                         }`}>
-                          {canBuildRoute && selectedIds.includes(mall.id) ? <Check size={14} /> : index + 1}
+                          {canBuildRoute && selectedIds.includes(mall.id)
+                            ? selectedIds.indexOf(mall.id) + 1
+                            : index + 1}
                         </span>
                         <div>
                           <div className="flex flex-wrap items-center gap-2">
