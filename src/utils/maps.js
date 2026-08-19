@@ -32,7 +32,7 @@ export function mallMapsUrl(mall, origin) {
   return `${GOOGLE_MAPS_SEARCH}?${new URLSearchParams({ api: "1", query }).toString()}`;
 }
 
-export function routeMapsUrl(stops, mallMap) {
+export function routeMapsUrl(stops, mallMap, origin) {
   const malls = stops.map(stop => mallMap[stop.mallId]).filter(Boolean);
   if (malls.length === 0) return null;
 
@@ -44,6 +44,10 @@ export function routeMapsUrl(stops, mallMap) {
     destination: coordinatesFor(destination),
     travelmode: "driving",
   });
+
+  if (hasCoordinates(origin)) {
+    params.set("origin", coordinatesFor(origin));
+  }
 
   if (malls.length > 1) {
     params.set("waypoints", malls.slice(0, -1).map(coordinatesFor).join("|"));

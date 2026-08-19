@@ -101,6 +101,10 @@ export const translations = {
       locationRequired: "Necesitamos tu dirección o ubicación para calcular la cercanía y habilitar el recomendador.",
       locationCta: "Agregar mi ubicación",
       nearest: "Más cercano",
+      routeModeTitle: "Arma una ruta de compras",
+      routeModeHint: "Como tienes medio día o el día completo, puedes elegir 2 o más malls de estos resultados.",
+      routeSelectMore: "Selecciona al menos 2 malls para crear la ruta.",
+      routeCta: "Crear ruta en Google Maps",
       fields: [
         { key: "category", label: "¿Qué buscas comprar?", options: [
           { v: "ropa", l: "Ropa" }, { v: "zapatillas", l: "Zapatillas" },
@@ -316,6 +320,10 @@ export const translations = {
       locationRequired: "Precisamos do seu endereço ou localização para calcular a proximidade e habilitar o recomendador.",
       locationCta: "Adicionar minha localização",
       nearest: "Mais próximo",
+      routeModeTitle: "Monte uma rota de compras",
+      routeModeHint: "Como você tem meio dia ou o dia inteiro, pode escolher 2 ou mais malls destes resultados.",
+      routeSelectMore: "Selecione pelo menos 2 malls para criar a rota.",
+      routeCta: "Criar rota no Google Maps",
       fields: [
         { key: "category", label: "O que você quer comprar?", options: [
           { v: "ropa", l: "Roupas" }, { v: "zapatillas", l: "Tênis" },
@@ -531,6 +539,10 @@ export const translations = {
       locationRequired: "We need your address or location to calculate distance and enable the recommender.",
       locationCta: "Add my location",
       nearest: "Nearest",
+      routeModeTitle: "Build a shopping route",
+      routeModeHint: "With half a day or a full day, you can choose 2 or more malls from these results.",
+      routeSelectMore: "Select at least 2 malls to create the route.",
+      routeCta: "Create route in Google Maps",
       fields: [
         { key: "category", label: "What are you shopping for?", options: [
           { v: "ropa", l: "Clothing" }, { v: "zapatillas", l: "Sneakers" },

@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
-import { ArrowRight, MapPin, Navigation, Sparkles } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ArrowRight, Check, ExternalLink, MapPin, Navigation, Sparkles } from "lucide-react";
 import { getRecommendations } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
+import { routeMapsUrl } from "../utils/maps";
 
 const initialAnswers = {
   category: "ropa",
@@ -13,17 +14,46 @@ const initialAnswers = {
 
 function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLocation }) {
   const [answers, setAnswers] = useState(initialAnswers);
+  const [selectedIds, setSelectedIds] = useState([]);
   const { t } = useLanguage();
   const q = t.quiz;
   const hasLocation = Boolean(userCoords && address?.trim());
+  const canBuildRoute = answers.time === "medio día" || answers.time === "día completo";
 
   const recommendations = useMemo(
     () => hasLocation ? getRecommendations(malls, answers, userCoords).slice(0, 4) : [],
     [answers, malls, userCoords, hasLocation]
   );
+  const selectedMalls = useMemo(
+    () => selectedIds
+      .map(id => recommendations.find(mall => mall.id === id))
+      .filter(Boolean),
+    [selectedIds, recommendations]
+  );
+  const routeUrl = useMemo(() => {
+    if (selectedMalls.length < 2) return null;
+    const mallMap = Object.fromEntries(malls.map(mall => [mall.id, mall]));
+    return routeMapsUrl(selectedMalls.map(mall => ({ mallId: mall.id })), mallMap, userCoords);
+  }, [malls, selectedMalls, userCoords]);
+
+  useEffect(() => {
+    setSelectedIds(current => current.filter(id => recommendations.some(mall => mall.id === id)));
+  }, [recommendations]);
+
+  useEffect(() => {
+    if (!canBuildRoute) setSelectedIds([]);
+  }, [canBuildRoute]);
 
   function set(key, value) {
     setAnswers(prev => ({ ...prev, [key]: value }));
+  }
+
+  function toggleRouteMall(mallId) {
+    setSelectedIds(current =>
+      current.includes(mallId)
+        ? current.filter(id => id !== mallId)
+        : [...current, mallId]
+    );
   }
 
   return (
@@ -91,13 +121,43 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                 </div>
               </div>
 
+              {canBuildRoute && (
+                <div className="mb-4 rounded-2xl border border-coral/25 bg-coral/6 px-4 py-3">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="text-xs font-extrabold text-coral">{q.routeModeTitle}</p>
+                      <p className="mt-1 text-xs leading-5 text-ink/55">{q.routeModeHint}</p>
+                    </div>
+                    <span className="shrink-0 rounded-full bg-white px-2.5 py-1 text-[10px] font-extrabold text-coral">
+                      {selectedMalls.length}
+                    </span>
+                  </div>
+                  {routeUrl ? (
+                    <a
+                      href={routeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 flex items-center justify-center gap-2 rounded-xl bg-coral px-4 py-2.5 text-xs font-extrabold text-white transition hover:bg-coral/90"
+                    >
+                      <ExternalLink size={14} />
+                      {q.routeCta}
+                    </a>
+                  ) : (
+                    <p className="mt-3 text-[11px] font-bold text-coral/75">{q.routeSelectMore}</p>
+                  )}
+                </div>
+              )}
+
               <div className="grid gap-3">
                 {recommendations.map((mall, index) => (
                   <button
                     key={mall.id}
-                    onClick={() => onSelect(mall)}
+                    onClick={() => canBuildRoute ? toggleRouteMall(mall.id) : onSelect(mall)}
+                    aria-pressed={canBuildRoute ? selectedIds.includes(mall.id) : undefined}
                     className={`group rounded-2xl border p-4 text-left transition hover:shadow-card ${
-                      mall.isNearest
+                      canBuildRoute && selectedIds.includes(mall.id)
+                        ? "border-coral/50 bg-coral/6 hover:bg-coral/10"
+                        : mall.isNearest
                         ? "border-leaf/40 bg-leaf/5 hover:bg-white"
                         : "border-ink/8 bg-[#f8faf6] hover:border-leaf/30 hover:bg-white"
                     }`}
@@ -105,9 +165,11 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-start gap-3">
                         <span className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold text-white ${
-                          index === 0 ? "bg-leaf" : "bg-ink/25"
+                          canBuildRoute && selectedIds.includes(mall.id)
+                            ? "bg-coral"
+                            : index === 0 ? "bg-leaf" : "bg-ink/25"
                         }`}>
-                          {index + 1}
+                          {canBuildRoute && selectedIds.includes(mall.id) ? <Check size={14} /> : index + 1}
                         </span>
                         <div>
                           <div className="flex flex-wrap items-center gap-2">
