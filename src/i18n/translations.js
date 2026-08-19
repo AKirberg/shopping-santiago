@@ -115,7 +115,7 @@ export const translations = {
       routeSelectMore: "Selecciona al menos 2 malls para crear la ruta.",
       routeCta: "Crear ruta en Google Maps",
       fields: [
-        { key: "category", label: "¿Qué buscas comprar?", options: [
+        { key: "category", label: "¿Qué buscas comprar? (puedes elegir varias)", options: [
           { v: "ropa", l: "Ropa" }, { v: "zapatillas", l: "Zapatillas" },
           { v: "tecnología", l: "Tecnología" }, { v: "lujo", l: "Lujo" },
           { v: "deporte", l: "Deporte" }, { v: "supermercado", l: "Supermercado" },
@@ -344,7 +344,7 @@ export const translations = {
       routeSelectMore: "Selecione pelo menos 2 malls para criar a rota.",
       routeCta: "Criar rota no Google Maps",
       fields: [
-        { key: "category", label: "O que você quer comprar?", options: [
+        { key: "category", label: "O que você quer comprar? (você pode escolher várias)", options: [
           { v: "ropa", l: "Roupas" }, { v: "zapatillas", l: "Tênis" },
           { v: "tecnología", l: "Tecnologia" }, { v: "lujo", l: "Luxo" },
           { v: "deporte", l: "Esporte" }, { v: "supermercado", l: "Supermercado" },
@@ -573,7 +573,7 @@ export const translations = {
       routeSelectMore: "Select at least 2 malls to create the route.",
       routeCta: "Create route in Google Maps",
       fields: [
-        { key: "category", label: "What are you shopping for?", options: [
+        { key: "category", label: "What are you shopping for? (you can choose more than one)", options: [
           { v: "ropa", l: "Clothing" }, { v: "zapatillas", l: "Sneakers" },
           { v: "tecnología", l: "Technology" }, { v: "lujo", l: "Luxury" },
           { v: "deporte", l: "Sports" }, { v: "supermercado", l: "Supermarket" },

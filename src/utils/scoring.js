@@ -42,15 +42,17 @@ export function haversineKm(lat1, lng1, lat2, lng2) {
 export function scoreMall(mall, answers = {}, userCoords = null) {
   let score = mall.touristScore || 0;
   const reasons = [];
-  const category = normalize(answers.category);
+  const categories = (Array.isArray(answers.category) ? answers.category : [answers.category])
+    .map(normalize)
+    .filter(Boolean);
   const goal = normalize(answers.goal);
 
-  if (category && mall.categories.some((item) => normalize(item) === category)) {
+  if (categories.some(category => mall.categories.some((item) => normalize(item) === category))) {
     score += 8;
     reasons.push("Coincide con lo que quieres comprar");
   }
 
-  if (category === "outlet" && mall.outlet) {
+  if (categories.includes("outlet") && mall.outlet) {
     score += 12;
     reasons.push("Especialmente fuerte para outlet");
   }

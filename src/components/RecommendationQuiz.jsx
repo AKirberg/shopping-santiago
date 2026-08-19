@@ -6,7 +6,7 @@ import { routeMapsUrl } from "../utils/maps";
 import { analyzeMallRoute } from "../utils/routePlanning";
 
 const initialAnswers = {
-  category: "ropa",
+  category: ["ropa"],
   time: "3-4 horas",
   transport: "Metro",
   withKids: "No",
@@ -51,6 +51,18 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
 
   function set(key, value) {
     setAnswers(prev => ({ ...prev, [key]: value }));
+  }
+
+  function toggleCategory(value) {
+    setAnswers(prev => {
+      const categories = Array.isArray(prev.category) ? prev.category : [prev.category];
+      if (categories.includes(value)) {
+        return categories.length > 1
+          ? { ...prev, category: categories.filter(category => category !== value) }
+          : prev;
+      }
+      return { ...prev, category: [...categories, value] };
+    });
   }
 
   function toggleRouteMall(mallId) {
@@ -101,15 +113,22 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
               <div key={key}>
                 <p className="mb-2.5 text-xs font-extrabold uppercase tracking-wider text-ink/45">{label}</p>
                 <div className="flex flex-wrap gap-2">
-                  {options.map(({ v, l }) => (
+                  {options.map(({ v, l }) => {
+                    const selected = key === "category"
+                      ? answers.category.includes(v)
+                      : answers[key] === v;
+
+                    return (
                     <button
                       key={v}
-                      onClick={() => set(key, v)}
-                      className={answers[key] === v ? "quiz-pill-active" : "quiz-pill"}
+                      onClick={() => key === "category" ? toggleCategory(v) : set(key, v)}
+                      aria-pressed={selected}
+                      className={selected ? "quiz-pill-active" : "quiz-pill"}
                     >
                       {l}
                     </button>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
               ))}

@@ -4,3 +4,4 @@
 - [Mall Maps destinations](mall-maps-links.md) — outbound Maps links use verified coordinates, not only place-name searches.
 - [Recommender location](recommender-location.md) — the mall recommender requires the confirmed top-bar location; it never asks for a second zone.
 - [Recommender routes](recommender-routes.md) — half-day and full-day results support a multi-mall route beginning at the confirmed location.
+- [Recommender categories](recommender-categories.md) — shopping categories are multi-select and jointly influence the ranking.
