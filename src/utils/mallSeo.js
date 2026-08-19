@@ -1,4 +1,5 @@
 import { localizeMall } from "../i18n/mallContent";
+import { mallMapsUrl } from "./maps";
 
 const SITE_URL = "https://www.shopeando.cl";
 const JSONLD_ID = "mall-jsonld";
@@ -54,7 +55,7 @@ export function buildMallJsonLd(mall) {
       addressRegion: "Región Metropolitana",
       addressCountry: "CL",
     },
-    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || `${mall.name} Santiago`)}`,
+    hasMap: mallMapsUrl(mall),
     isAccessibleForFree: true,
   };
   if (typeof mall.lat === "number" && typeof mall.lng === "number") {

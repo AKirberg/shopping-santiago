@@ -4,6 +4,7 @@ import { haversineKm } from "../utils/scoring";
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
 import { loadGoogleMaps } from "../utils/googleMaps";
+import { mallMapsUrl } from "../utils/maps";
 
 const HISTORY_KEY = "ss-addr-history";
 const HISTORY_MAX = 3;
@@ -579,9 +580,7 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
 function MallDetail({ mall, userCoords, lb, onBack, onQuiz }) {
   const { lang } = useLanguage();
   const lm = localizeMall(mall, lang);
-  const mapsUrl = userCoords
-    ? `https://www.google.com/maps/dir/?api=1&origin=${userCoords.lat},${userCoords.lng}&destination=${mall.lat},${mall.lng}&travelmode=driving`
-    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
+  const mapsUrl = mallMapsUrl(mall, userCoords);
 
   const typeIcons = { metro: "🚇", tourist: "🌍", outlet: "🏷️", premium: "💎", family: "👨‍👩‍👧", quick: "⚡", food: "🍽️" };
 

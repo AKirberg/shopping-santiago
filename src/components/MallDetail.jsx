@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, ShoppingBag, TrainFront, Utensils, X } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
+import { mallMapsUrl } from "../utils/maps";
 
 function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRoute }) {
   const { t, lang } = useLanguage();
   const md = t.mallDetail;
   const lm = localizeMall(mall, lang);
   const relatedRoute = routes.find(r => r.stops.some(s => s.mallId === mall.id));
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
+  const mapsUrl = mallMapsUrl(mall);
 
   useEffect(() => {
     const prev = document.body.style.overflow;

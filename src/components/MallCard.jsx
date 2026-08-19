@@ -1,6 +1,7 @@
 import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, Star, TrainFront, Utensils } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
+import { mallMapsUrl } from "../utils/maps";
 
 function accentColor(mall) {
   if (mall.premium) return "bg-gold";
@@ -18,7 +19,7 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
   const { t, lang } = useLanguage();
   const mc = t.mallCard;
   const lm = localizeMall(mall, lang);
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mall.mapsQuery || mall.name + " Santiago")}`;
+  const mapsUrl = mallMapsUrl(mall);
   const minHours = parseMinHours(mall.recommendedTime);
   const tooLong = availableHours !== null && availableHours !== undefined && availableHours < minHours;
 

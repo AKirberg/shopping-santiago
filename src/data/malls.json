@@ -986,7 +986,7 @@
     "id": "mallplaza-egana",
     "name": "Mallplaza Egana",
     "commune": "La Reina",
-    "mapsQuery": "Mallplaza Egana La Reina Santiago",
+    "mapsQuery": "Mallplaza Egaña, Avenida Larraín 5862, La Reina, Santiago",
     "type": [
       "metro",
       "family",
@@ -1031,8 +1031,8 @@
     "imageUrl": "/images/malls/mallplaza-egana.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "turistico",
-    "lat": -33.4476,
-    "lng": -70.5623,
+    "lat": -33.4527278,
+    "lng": -70.5698297,
     "stores": [
       {
         "name": "Falabella",
@@ -1426,8 +1426,8 @@
   {
     "id": "mallplaza-norte",
     "name": "Mallplaza Norte",
-    "commune": "Independencia",
-    "mapsQuery": "Mallplaza Norte Independencia Santiago",
+    "commune": "Huechuraba",
+    "mapsQuery": "Mallplaza Norte, Avenida Américo Vespucio 1737, Huechuraba, Santiago",
     "type": [
       "metro",
       "family",
@@ -1477,8 +1477,8 @@
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
     "airportRoute": true,
-    "lat": -33.4014,
-    "lng": -70.6608,
+    "lat": -33.3658358,
+    "lng": -70.6798569,
     "stores": [
       {
         "name": "Falabella",
@@ -1579,7 +1579,7 @@
     "id": "apumanque",
     "name": "Apumanque",
     "commune": "Las Condes",
-    "mapsQuery": "Apumanque Las Condes Santiago",
+    "mapsQuery": "Centro Comercial Apumanque, Avenida Manquehue Sur 31, Las Condes, Santiago",
     "type": [
       "boutique",
       "fashion",
@@ -1624,8 +1624,8 @@
     "imageUrl": "/images/malls/apumanque.jpg",
     "foodLevel": "patio",
     "touristZone": "turistico",
-    "lat": -33.4134,
-    "lng": -70.5727,
+    "lat": -33.4098751,
+    "lng": -70.567896,
     "stores": [
       {
         "name": "Falabella",
@@ -2218,7 +2218,7 @@
     "id": "mallplaza-los-dominicos",
     "name": "Mallplaza Los Dominicos",
     "commune": "Las Condes",
-    "mapsQuery": "Mallplaza Los Dominicos Las Condes Santiago",
+    "mapsQuery": "Mallplaza Los Dominicos, Avenida Padre Hurtado Sur 875, Las Condes, Santiago",
     "type": [
       "variety",
       "fashion",
@@ -2264,8 +2264,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-los-dominicos.jpg",
     "touristZone": "turistico",
-    "lat": -33.4171,
-    "lng": -70.5269,
+    "lat": -33.4155,
+    "lng": -70.5408,
     "stores": [
       {
         "name": "Falabella",
@@ -2441,7 +2441,7 @@
     "id": "paseo-quilin",
     "name": "Paseo Quilín",
     "commune": "Macul",
-    "mapsQuery": "Paseo Quilin Macul Santiago",
+    "mapsQuery": "Paseo Quilín, Avenida Américo Vespucio 3300, Macul, Santiago",
     "type": [
       "variety",
       "metro",
@@ -2486,8 +2486,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/paseo-quilin.jpg",
     "touristZone": "alternativo",
-    "lat": -33.4924,
-    "lng": -70.5935,
+    "lat": -33.4878429,
+    "lng": -70.5769684,
     "stores": [
       {
         "name": "Falabella",
@@ -2543,8 +2543,8 @@
   {
     "id": "mallplaza-tobalaba",
     "name": "Mallplaza Tobalaba",
-    "commune": "Las Condes",
-    "mapsQuery": "Mallplaza Tobalaba Providencia Santiago",
+    "commune": "Puente Alto",
+    "mapsQuery": "Mallplaza Tobalaba, Avenida Camilo Henríquez 3296, Puente Alto, Santiago",
     "type": [
       "tourist",
       "variety",
@@ -2590,8 +2590,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-tobalaba.jpg",
     "touristZone": "turistico",
-    "lat": -33.4304,
-    "lng": -70.5841,
+    "lat": -33.5693029,
+    "lng": -70.5574865,
     "stores": [
       {
         "name": "Falabella",
@@ -2680,7 +2680,7 @@
     "id": "espacio-urbano-gran-avenida",
     "name": "Espacio Urbano Gran Avenida",
     "commune": "San Miguel",
-    "mapsQuery": "Espacio Urbano Gran Avenida San Miguel Santiago",
+    "mapsQuery": "Espacio Urbano Gran Avenida, Gran Avenida José Miguel Carrera 6150, San Miguel, Santiago",
     "type": [
       "variety",
       "quick",
@@ -2725,8 +2725,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/espacio-urbano-gran-avenida.jpg",
     "touristZone": "alternativo",
-    "lat": -33.4917,
-    "lng": -70.6456,
+    "lat": -33.5125768,
+    "lng": -70.6559244,
     "stores": [
       {
         "name": "Líder",
@@ -2771,7 +2771,7 @@
     "id": "midmall-maipu",
     "name": "MidMall Maipú",
     "commune": "Maipú",
-    "mapsQuery": "MidMall Maipu Santiago",
+    "mapsQuery": "MidMall Maipú, Camino a Melipilla 15900, Maipú, Santiago",
     "type": [
       "variety",
       "food",
@@ -2816,8 +2816,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/midmall-maipu.jpg",
     "touristZone": "alternativo",
-    "lat": -33.5103,
-    "lng": -70.7401,
+    "lat": -33.5388514,
+    "lng": -70.7711881,
     "stores": [
       {
         "name": "Unimarc",
@@ -2862,7 +2862,7 @@
     "id": "mallplaza-alameda",
     "name": "Mallplaza Alameda",
     "commune": "Santiago",
-    "mapsQuery": "Mallplaza Alameda Santiago Centro",
+    "mapsQuery": "Mallplaza Alameda, Avenida Libertador Bernardo O'Higgins 3470, Estación Central, Santiago",
     "type": [
       "variety",
       "metro",
@@ -2912,8 +2912,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-alameda.jpg",
     "touristZone": "turistico",
-    "lat": -33.4573,
-    "lng": -70.6715,
+    "lat": -33.4529572,
+    "lng": -70.6822093,
     "stores": [
       {
         "name": "Falabella",
@@ -2994,7 +2994,7 @@
     "id": "mall-barrio-independencia",
     "name": "Mall Barrio Independencia",
     "commune": "Independencia",
-    "mapsQuery": "Mall Barrio Independencia Santiago",
+    "mapsQuery": "Mall Barrio Independencia, Avenida Independencia 565, Independencia, Santiago",
     "type": [
       "variety",
       "metro",
@@ -3041,8 +3041,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-barrio-independencia.jpg",
     "touristZone": "alternativo",
-    "lat": -33.4118,
-    "lng": -70.6571,
+    "lat": -33.424704,
+    "lng": -70.6536873,
     "stores": [
       {
         "name": "Unimarc",
@@ -3087,7 +3087,7 @@
     "id": "mall-arauco-quilicura",
     "name": "Mall Arauco Quilicura",
     "commune": "Quilicura",
-    "mapsQuery": "Arauco Quilicura Santiago",
+    "mapsQuery": "Mall Arauco Quilicura, Avenida Bernardo O'Higgins 581, Quilicura, Santiago",
     "type": [
       "variety",
       "food",
@@ -3132,8 +3132,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-arauco-quilicura.jpg",
     "touristZone": "alternativo",
-    "lat": -33.3559,
-    "lng": -70.7026,
+    "lat": -33.3681337,
+    "lng": -70.7300472,
     "stores": [
       {
         "name": "Falabella",
@@ -3202,7 +3202,7 @@
     "id": "paseo-san-bernardo",
     "name": "Paseo San Bernardo",
     "commune": "San Bernardo",
-    "mapsQuery": "Paseo San Bernardo Santiago",
+    "mapsQuery": "Mall Paseo San Bernardo, Eyzaguirre, San Bernardo, Santiago",
     "type": [
       "variety",
       "quick",
@@ -3246,8 +3246,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/paseo-san-bernardo.jpg",
     "touristZone": "alternativo",
-    "lat": -33.5933,
-    "lng": -70.6992,
+    "lat": -33.5954891,
+    "lng": -70.7074791,
     "stores": [
       {
         "name": "Falabella",
@@ -3295,8 +3295,8 @@
   {
     "id": "mut-mercado-urbano-tobalaba",
     "name": "MUT Mercado Urbano Tobalaba",
-    "commune": "Vitacura",
-    "mapsQuery": "MUT Mercado Urbano Tobalaba Santiago",
+    "commune": "Las Condes",
+    "mapsQuery": "Mercado Urbano Tobalaba, Avenida Apoquindo 2750, Las Condes, Santiago",
     "type": [
       "tourist",
       "food",
@@ -3343,8 +3343,8 @@
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg",
     "touristZone": "turistico",
-    "lat": -33.3873,
-    "lng": -70.5874,
+    "lat": -33.4172801,
+    "lng": -70.6011321,
     "stores": [
       {
         "name": "Boutiques de diseñador",

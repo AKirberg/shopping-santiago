@@ -1,26 +1,17 @@
 import { Clock3, ExternalLink, MapPinned, Navigation } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { routeMapsUrl } from "../utils/maps";
 
 const gradients = [
   "from-leaf to-night", "from-night to-coral", "from-coral to-gold",
   "from-gold to-leaf", "from-night to-leaf", "from-leaf to-coral",
 ];
 
-function buildMapsUrl(stops, mallMap) {
-  const queries = stops
-    .map(s => mallMap[s.mallId]?.mapsQuery)
-    .filter(Boolean)
-    .map(q => encodeURIComponent(q));
-  if (queries.length === 0) return null;
-  if (queries.length === 1) return `https://www.google.com/maps/search/?api=1&query=${queries[0]}`;
-  return `https://www.google.com/maps/dir/${queries.join("/")}`;
-}
-
 function RouteCard({ route, mallMap, index = 0 }) {
   const { t } = useLanguage();
   const r = t.routes;
   const gradient = gradients[index % gradients.length];
-  const mapsUrl = buildMapsUrl(route.stops, mallMap);
+  const mapsUrl = routeMapsUrl(route.stops, mallMap);
   const stopCount = route.stops.length;
   const stopLabel = stopCount === 1 ? r.stop : r.stops;
 
