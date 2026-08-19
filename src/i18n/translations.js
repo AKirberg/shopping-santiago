@@ -225,6 +225,8 @@ export const translations = {
         "mercado-central":   "Mercado Central",
       },
       stats: { galleries: "galerías", zones: "zonas", center: "centro histórico", walking: "peatonal" },
+      expandCta: "Explorar galerías",
+      collapseCta: "Ocultar galerías",
     },
   },
 
@@ -455,6 +457,8 @@ export const translations = {
         "mercado-central":   "Mercado Central",
       },
       stats: { galleries: "galerias", zones: "zonas", center: "centro histórico", walking: "pedonal" },
+      expandCta: "Explorar galerias",
+      collapseCta: "Ocultar galerias",
     },
   },
 
@@ -685,6 +689,8 @@ export const translations = {
         "mercado-central":   "Central Market",
       },
       stats: { galleries: "galleries", zones: "zones", center: "historic centre", walking: "pedestrian" },
+      expandCta: "Explore galleries",
+      collapseCta: "Hide galleries",
     },
   },
 };

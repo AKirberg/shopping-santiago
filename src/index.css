@@ -70,3 +70,8 @@ select {
 .quiz-pill-active {
   @apply rounded-full border border-ink bg-ink px-4 py-2.5 text-xs font-bold text-white;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

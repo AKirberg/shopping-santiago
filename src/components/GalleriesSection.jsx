@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Building2, MapPin, Navigation, Footprints } from "lucide-react";
+import { Building2, ChevronDown, MapPin, Navigation, Footprints } from "lucide-react";
 import galleries from "../data/galleries.json";
 import { useLanguage } from "../i18n/LanguageContext";
 import GalleriesMap from "./GalleriesMap";
@@ -27,6 +27,7 @@ export default function GalleriesSection() {
 
   const [activeZone, setActiveZone] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const filtered = useMemo(
     () => activeZone ? galleries.filter(g => g.zone === activeZone) : galleries,
@@ -45,41 +46,60 @@ export default function GalleriesSection() {
   }
 
   const touristCount  = galleries.filter(g => g.touristFriendly).length;
-  const historicCount = galleries.filter(g => g.historic).length;
 
   return (
     <section id="galerias" className="bg-mist/40">
-      <div className="section-shell">
-
-        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="eyebrow">{gl.eyebrow}</p>
-            <h2 className="mt-3 font-display text-4xl font-extrabold leading-tight">{gl.title}</h2>
-            <p className="mt-3 max-w-2xl text-base text-ink/55 leading-relaxed">{gl.subtitle}</p>
+      <div className={`section-shell ${isExpanded ? "" : "!py-5 lg:!py-6"}`}>
+        <button
+          type="button"
+          onClick={() => setIsExpanded(prev => !prev)}
+          aria-expanded={isExpanded}
+          className="group w-full rounded-3xl border border-ink/8 bg-white/90 px-5 py-4 text-left shadow-sm transition hover:border-leaf/35 hover:shadow-card sm:px-6 sm:py-5"
+        >
+          <div className="flex items-center gap-4">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-leaf/10 text-leaf">
+              <Building2 size={20} />
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="eyebrow">{gl.eyebrow}</p>
+              <h2 className="mt-1 font-display text-2xl font-extrabold leading-tight sm:text-3xl">{gl.title}</h2>
+              <p className="mt-1 line-clamp-1 max-w-3xl text-sm text-ink/50">{gl.subtitle}</p>
+            </div>
+            <div className="hidden shrink-0 items-center gap-4 lg:flex">
+              <span className="flex items-center gap-1.5 text-xs font-extrabold text-ink/55">
+                <Building2 size={14} className="text-leaf" />
+                {galleries.length} {gl.stats.galleries}
+              </span>
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-ink/45">
+                <MapPin size={13} className="text-gold" />
+                {ZONES.length} {gl.stats.zones}
+              </span>
+              <span className="flex items-center gap-1.5 text-xs font-semibold text-ink/45">
+                <Footprints size={13} className="text-coral" />
+                {touristCount} {gl.stats.walking}
+              </span>
+            </div>
+            <span className="flex shrink-0 items-center gap-2 rounded-full bg-ink px-3 py-2 text-xs font-extrabold text-white transition group-hover:bg-leaf sm:px-4">
+              <span className="hidden sm:inline">{isExpanded ? gl.collapseCta : gl.expandCta}</span>
+              <ChevronDown size={16} className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+            </span>
           </div>
-          <div className="flex shrink-0 flex-col gap-1.5 text-right">
-            <div className="flex items-center justify-end gap-2 text-sm font-extrabold">
-              <Building2 size={16} className="text-leaf" />
-              <span>{galleries.length} {gl.stats.galleries}</span>
-            </div>
-            <div className="flex items-center justify-end gap-2 text-sm font-semibold text-ink/50">
-              <MapPin size={14} className="text-gold" />
-              <span>{ZONES.length} {gl.stats.zones}</span>
-            </div>
-            <div className="flex items-center justify-end gap-2 text-sm font-semibold text-ink/50">
-              <Footprints size={14} className="text-coral" />
-              <span>{touristCount} {gl.stats.walking}</span>
-            </div>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 pl-[3.75rem] text-[11px] font-semibold text-ink/45 lg:hidden">
+            <span>{galleries.length} {gl.stats.galleries}</span>
+            <span>{ZONES.length} {gl.stats.zones}</span>
+            <span>{touristCount} {gl.stats.walking}</span>
           </div>
-        </div>
+        </button>
 
-        <GalleriesMap
-          galleries={galleries}
-          selectedId={selectedId}
-          onSelect={handleSelect}
-        />
+        {isExpanded && (
+          <div className="mt-6 animate-[fadeIn_300ms_ease-out]">
+            <GalleriesMap
+              galleries={galleries}
+              selectedId={selectedId}
+              onSelect={handleSelect}
+            />
 
-        <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-6 flex flex-wrap gap-2">
           <button
             onClick={() => { setActiveZone(null); setSelectedId(null); }}
             className={`rounded-full px-4 py-1.5 text-sm font-bold transition ${
@@ -104,9 +124,9 @@ export default function GalleriesSection() {
               {gl.zones[zone]}
             </button>
           ))}
-        </div>
+            </div>
 
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((gallery, i) => (
             <div key={gallery.id} id={`gallery-card-${gallery.id}`}>
               <GalleryCard
@@ -117,9 +137,9 @@ export default function GalleriesSection() {
               />
             </div>
           ))}
-        </div>
+            </div>
 
-        <div className="mt-10 rounded-2xl border border-ink/8 bg-white/80 p-6 text-center">
+            <div className="mt-10 rounded-2xl border border-ink/8 bg-white/80 p-6 text-center">
           <Navigation size={20} className="mx-auto mb-2 text-leaf" />
           <p className="text-sm font-semibold text-ink/55 max-w-lg mx-auto">
             {lang === "es"
@@ -128,7 +148,9 @@ export default function GalleriesSection() {
               ? "Todas as galerias ficam no centro histórico, a menos de 15 minutos a pé entre elas. Metrô: linhas L1 e L2."
               : "All galleries are in the historic centre, within 15 minutes' walk of each other. Metro: lines L1 and L2."}
           </p>
-        </div>
+            </div>
+          </div>
+        )}
 
       </div>
     </section>
