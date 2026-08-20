@@ -101,7 +101,7 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
                 </div>
               </div>
             )}
-            <ReviewSection mallId={mall.id} />
+            <ReviewSection mallId={mall.id} mall={mall} />
           </div>
 
           <aside>

@@ -342,7 +342,7 @@ function MallDetailPage({ mall, isOutlet }) {
             </div>
 
             <StoreList stores={mall.stores} />
-            <ReviewSection mallId={mall.id} />
+            <ReviewSection mallId={mall.id} mall={mall} />
 
             {/* Related routes */}
             {relatedRoutes.length > 0 && (
@@ -573,7 +573,7 @@ function MallListCard({ mall, href, badge }) {
         </div>
       </a>
       <div className="border-b border-ink/6 bg-white px-4 py-2.5">
-        <ReviewSummary mallId={mall.id} />
+        <ReviewSummary mallId={mall.id} mall={mall} />
       </div>
       <div className="p-4">
         <p className="text-sm leading-relaxed text-ink/55 line-clamp-2">{mall.description}</p>

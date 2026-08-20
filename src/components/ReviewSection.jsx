@@ -1,12 +1,58 @@
 import { useCallback, useEffect, useState } from "react";
 import { ShoppingBag } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { loadGoogleMaps } from "../utils/googleMaps";
 
 function formatAverage(average, lang) {
   return new Intl.NumberFormat(lang === "pt" ? "pt-BR" : lang === "en" ? "en-US" : "es-CL", {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   }).format(average);
+}
+
+export function useGoogleRating(mall) {
+  const [googleRating, setGoogleRating] = useState(null);
+  const [googleLoading, setGoogleLoading] = useState(Boolean(mall?.mapsQuery));
+
+  useEffect(() => {
+    let active = true;
+    if (!mall?.mapsQuery) {
+      setGoogleLoading(false);
+      return () => { active = false; };
+    }
+
+    setGoogleLoading(true);
+    loadGoogleMaps()
+      .then((maps) => {
+        const Place = maps.places?.Place;
+        if (!Place?.searchByText) throw new Error("Google Place search unavailable");
+        return Place.searchByText({
+          textQuery: mall.mapsQuery,
+          fields: ["displayName", "rating", "userRatingCount"],
+          maxResultCount: 1,
+        });
+      })
+      .then(({ places = [] }) => {
+        if (!active) return;
+        const place = places[0];
+        setGoogleRating(
+          place?.rating
+            ? { rating: Number(place.rating), count: Number(place.userRatingCount || 0) }
+            : null,
+        );
+        setGoogleLoading(false);
+      })
+      .catch(() => {
+        if (active) {
+          setGoogleRating(null);
+          setGoogleLoading(false);
+        }
+      });
+
+    return () => { active = false; };
+  }, [mall]);
+
+  return { googleRating, googleLoading };
 }
 
 function BagRating({ value, onChange, disabled, labels, inputName }) {
@@ -39,9 +85,10 @@ function BagRating({ value, onChange, disabled, labels, inputName }) {
   );
 }
 
-export function ReviewSummary({ mallId }) {
+export function ReviewSummary({ mallId, mall }) {
   const { t, lang } = useLanguage();
   const [summary, setSummary] = useState(null);
+  const { googleRating, googleLoading } = useGoogleRating(mall);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -54,26 +101,29 @@ export function ReviewSummary({ mallId }) {
 
   const average = summary?.average || 0;
   const count = summary?.count || 0;
+  const hasOwnReviews = count > 0;
+  const displayAverage = hasOwnReviews ? average : googleRating?.rating || 0;
+  const source = hasOwnReviews ? t.reviews.shopeandoSource : googleRating ? t.reviews.googleSource : googleLoading ? t.reviews.loading : t.reviews.noReviews;
   return (
     <div
       className="flex items-center gap-2"
-      aria-label={count
-        ? t.reviews.summary.replace("{average}", formatAverage(average, lang)).replace("{count}", count)
-        : t.reviews.noReviews}
+      aria-label={displayAverage
+        ? t.reviews.sourceSummary.replace("{average}", formatAverage(displayAverage, lang)).replace("{source}", source)
+        : source}
     >
       <span className="flex items-center gap-0.5 text-gold" aria-hidden="true">
         {[1, 2, 3, 4, 5].map((score) => (
-          <ShoppingBag key={score} size={13} fill={score <= Math.round(average) ? "currentColor" : "none"} />
+          <ShoppingBag key={score} size={13} fill={score <= Math.round(displayAverage) ? "currentColor" : "none"} />
         ))}
       </span>
       <span className="text-xs font-bold text-ink/50">
-        {count ? `${formatAverage(average, lang)} · ${count}` : t.reviews.noReviews}
+        {displayAverage ? `${formatAverage(displayAverage, lang)} · ${source}` : source}
       </span>
     </div>
   );
 }
 
-export default function ReviewSection({ mallId }) {
+export default function ReviewSection({ mallId, mall }) {
   const { t, lang } = useLanguage();
   const labels = t.reviews;
   const [data, setData] = useState(null);
@@ -81,6 +131,7 @@ export default function ReviewSection({ mallId }) {
   const [comment, setComment] = useState("");
   const [status, setStatus] = useState("loading");
   const [message, setMessage] = useState("");
+  const { googleRating, googleLoading } = useGoogleRating(mall);
 
   const loadReviews = useCallback(async (signal) => {
     setStatus("loading");
@@ -138,6 +189,15 @@ export default function ReviewSection({ mallId }) {
   }
 
   const summary = data?.summary;
+  const hasOwnReviews = Boolean(summary?.count);
+  const displayAverage = hasOwnReviews ? summary.average : googleRating?.rating || 0;
+  const displaySource = hasOwnReviews
+    ? labels.shopeandoSource
+    : googleRating
+      ? labels.googleSource
+      : googleLoading
+        ? labels.loading
+        : labels.noReviews;
   return (
     <section className="mt-8 rounded-2xl border border-ink/8 bg-white p-5 sm:p-6" aria-labelledby={`reviews-${mallId}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -145,10 +205,10 @@ export default function ReviewSection({ mallId }) {
           <h2 id={`reviews-${mallId}`} className="font-display text-xl font-extrabold text-ink">{labels.title}</h2>
           <p className="mt-1 text-sm text-ink/50">{labels.subtitle}</p>
         </div>
-        {summary?.count > 0 && (
+        {displayAverage > 0 && (
           <div className="rounded-xl bg-gold/12 px-3 py-2 text-right">
-            <p className="text-lg font-extrabold text-gold">{formatAverage(summary.average, lang)} / 5</p>
-            <p className="text-[11px] font-bold text-ink/45">{labels.count.replace("{count}", summary.count)}</p>
+            <p className="text-lg font-extrabold text-gold">{formatAverage(displayAverage, lang)} / 5</p>
+            <p className="text-[11px] font-bold text-ink/45">{displaySource}</p>
           </div>
         )}
       </div>
