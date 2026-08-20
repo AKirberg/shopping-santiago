@@ -169,7 +169,9 @@ app.use(express.json({ limit: "2kb" }));
 configureReviewsApi(app);
 
 if (isProduction) {
-  app.use(express.static(path.join(__dirname, "dist"), { index: false }));
+  // Canonical SEO URLs map to pre-rendered directory index files. Static
+  // middleware must handle those files before the SPA fallback.
+  app.use(express.static(path.join(__dirname, "dist")));
   app.use((req, res) => res.sendFile(path.join(__dirname, "dist", "index.html")));
 } else {
   const vite = await createViteServer({
@@ -180,5 +182,7 @@ if (isProduction) {
 }
 
 httpServer.listen(PORT, "0.0.0.0", () => {
-  console.log(`Shopeando is listening on port ${PORT}`);
+  const address = httpServer.address();
+  const activePort = typeof address === "object" && address ? address.port : PORT;
+  console.log(`Shopeando is listening on port ${activePort}`);
 });

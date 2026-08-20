@@ -3,7 +3,7 @@ import { Car, CheckCircle2, Clock, ExternalLink, MapPin, Route, ShoppingBag, Tra
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
 import { mallMapsUrl } from "../utils/maps";
-import ReviewSection from "./ReviewSection";
+import ReviewSection, { GoogleMapsRating } from "./ReviewSection";
 
 function mallCanonicalHref(mall) {
   return mall.outlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
@@ -101,7 +101,10 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
                 </div>
               </div>
             )}
-            <ReviewSection mallId={mall.id} mall={mall} />
+            <div className="mt-8 grid gap-4">
+              <GoogleMapsRating mall={mall} mapsUrl={mapsUrl} />
+              <ReviewSection mallId={mall.id} mall={mall} />
+            </div>
           </div>
 
           <aside>

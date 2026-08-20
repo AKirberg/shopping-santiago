@@ -2,24 +2,29 @@ import { useState } from "react";
 import { MapPin, Menu, ShoppingBag, X } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "../i18n/LanguageContext";
+import { localizedPath } from "../utils/publicLocales";
 
 function Header({ isPublicPage = false }) {
   const [open, setOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const nav = t.header.nav;
 
-  // When on a public SEO page, anchor links must include /#section to return home
-  const prefix = isPublicPage ? "/" : "";
-  const navItems = [
-    [nav.quiz, `${prefix}#quiz`],
-    [nav.routes, `${prefix}#rutas`],
-    [nav.malls, `${prefix}#malls`],
-    [nav.compare, `${prefix}#comparar`],
-    [nav.galleries, `${prefix}#galerias`],
-    [nav.tips, `${prefix}#consejos`],
+  // Public SEO pages use real, localized destinations; the home page retains section anchors.
+  const navItems = isPublicPage ? [
+    [nav.routes, localizedPath("/rutas/", lang)],
+    [nav.malls, localizedPath("/malls/", lang)],
+    [nav.compare, localizedPath("/comparar/", lang)],
+    [nav.tips, localizedPath("/guias/", lang)],
+  ] : [
+    [nav.quiz, "#quiz"],
+    [nav.routes, "#rutas"],
+    [nav.galleries, "#galerias"],
+    [nav.malls, "#malls"],
+    [nav.compare, "#comparar"],
+    [nav.tips, "#consejos"],
   ];
 
-  const logoHref = isPublicPage ? "/" : "#inicio";
+  const logoHref = isPublicPage ? localizedPath("/", lang) : "#inicio";
 
   return (
     <header className="sm:sticky sm:top-0 z-40 border-b border-ink/8 bg-[#f8faf6]">
@@ -50,7 +55,7 @@ function Header({ isPublicPage = false }) {
         <div className="flex items-center gap-2">
           <a
             className="primary-button hidden py-2.5 text-xs sm:inline-flex"
-            href={`${prefix}#quiz`}
+            href={isPublicPage ? localizedPath("/malls/", lang) : "#quiz"}
           >
             {t.header.cta}
           </a>

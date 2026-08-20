@@ -1,10 +1,13 @@
 // @refresh reset
 import { createContext, useContext, useEffect, useState } from "react";
 import { translations } from "./translations";
+import { localizedPath } from "../utils/publicLocales";
 
 const LanguageContext = createContext();
 
 function initialLanguage() {
+  if (/^\/pt-br(?:\/|$)/.test(window.location.pathname)) return "pt";
+  if (/^\/en(?:\/|$)/.test(window.location.pathname)) return "en";
   const queryLanguage = new URLSearchParams(window.location.search).get("lang");
   if (queryLanguage === "pt" || queryLanguage === "pt-BR") return "pt";
   if (queryLanguage === "en") return "en";
@@ -33,6 +36,11 @@ export function LanguageProvider({ children }) {
     try { localStorage.setItem("ss-lang", l); } catch {}
 
     const url = new URL(window.location.href);
+    const basePath = url.pathname.replace(/^\/(pt-br|en)(?=\/|$)/, "") || "/";
+    if (/^\/(malls|outlets|rutas|guias|comparar)(?:\/|$)/.test(basePath)) {
+      window.location.assign(localizedPath(basePath, l));
+      return;
+    }
     if (l === "es") url.searchParams.delete("lang");
     else url.searchParams.set("lang", l);
     window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);

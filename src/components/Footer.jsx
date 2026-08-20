@@ -1,22 +1,23 @@
 import { useState } from "react";
 import { MapPin } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+import { localizedCopy, localizedPath } from "../utils/publicLocales";
 import PrivacyPolicy from "./PrivacyPolicy";
 
 const PRIVACY_LABEL = { es: "Política de privacidad", en: "Privacy policy", pt: "Política de privacidade" };
 
 const HUB_LINKS = [
-  { href: "/malls/", label: "Malls" },
-  { href: "/outlets/", label: "Outlets" },
-  { href: "/rutas/", label: "Rutas" },
-  { href: "/guias/", label: "Guías" },
-  { href: "/comparar/", label: "Comparar" },
+  ["malls", "/malls/"],
+  ["outlets", "/outlets/"],
+  ["routes", "/rutas/"],
+  ["guides", "/guias/"],
+  ["comparisons", "/comparar/"],
 ];
 
 function Footer() {
-  const { t, locale } = useLanguage();
+  const { t, lang } = useLanguage();
   const [showPrivacy, setShowPrivacy] = useState(false);
-  const lang = locale === "pt" ? "pt" : locale === "en" ? "en" : "es";
+  const copy = localizedCopy[lang] || localizedCopy.es;
 
   return (
     <>
@@ -24,13 +25,13 @@ function Footer() {
         {/* Hub links */}
         <div className="border-b border-ink/6">
           <div className="mx-auto flex max-w-7xl flex-wrap gap-x-6 gap-y-2 px-4 py-4 sm:px-6 lg:px-8">
-            {HUB_LINKS.map(({ href, label }) => (
+            {HUB_LINKS.map(([labelKey, href]) => (
               <a
                 key={href}
-                href={href}
+                href={localizedPath(href, lang)}
                 className="text-xs font-semibold text-ink/45 transition hover:text-leaf hover:underline underline-offset-2"
               >
-                {label}
+                {copy[labelKey]}
               </a>
             ))}
           </div>

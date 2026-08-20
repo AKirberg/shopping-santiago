@@ -66,8 +66,12 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
               {mall.name}
             </h3>
           </div>
-          <span className="flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm">
-            <Star size={10} fill="currentColor" /> {mall.touristScore}
+          <span
+            className="flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm"
+            title={`${mc.shopeandoScore}: ${mall.touristScore}/10`}
+            aria-label={`${mc.shopeandoScore}: ${mall.touristScore}/10`}
+          >
+            <Star size={10} fill="currentColor" /> {mc.shopeandoScore} · {mall.touristScore}/10
           </span>
         </div>
         {tooLong && (

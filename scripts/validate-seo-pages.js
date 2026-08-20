@@ -13,6 +13,8 @@
 import { readFileSync, existsSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { spawn } from "child_process";
+import { localizedPath, publicAlternates } from "../src/utils/publicLocales.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -29,12 +31,26 @@ const outletPages = malls.filter((m) => m.outlet);
 
 const SITE_URL = "https://www.shopeando.cl";
 
+const translatablePages = [
+  { path: "malls/index.html", urlPath: "/malls/" },
+  { path: "outlets/index.html", urlPath: "/outlets/" },
+  { path: "rutas/index.html", urlPath: "/rutas/" },
+  { path: "guias/index.html", urlPath: "/guias/" },
+  { path: "comparar/index.html", urlPath: "/comparar/" },
+  ...mallPages.map((m) => ({ path: `malls/${m.id}/index.html`, urlPath: `/malls/${m.id}/` })),
+  ...outletPages.map((m) => ({ path: `outlets/${m.id}/index.html`, urlPath: `/outlets/${m.id}/` })),
+  ...routes.map((r) => ({ path: `rutas/${r.id}/index.html`, urlPath: `/rutas/${r.id}/` })),
+  ...guides.map((g) => ({ path: `guias/${g.id}/index.html`, urlPath: `/guias/${g.id}/` })),
+  ...comparisons.map((c) => ({ path: `comparar/${c.id}/index.html`, urlPath: `/comparar/${c.id}/` })),
+];
+
 // ── expected pages ─────────────────────────────────────────────────────────
 
 const canonicalPages = [
   // Static
   { path: "dist/index.html", url: `${SITE_URL}/`, noindex: false },
   { path: "dist/pt-br/index.html", url: `${SITE_URL}/pt-br/`, noindex: false },
+  { path: "dist/en/index.html", url: `${SITE_URL}/en/`, noindex: false },
   // Indexes
   { path: "dist/malls/index.html", url: `${SITE_URL}/malls/`, noindex: false },
   { path: "dist/outlets/index.html", url: `${SITE_URL}/outlets/`, noindex: false },
@@ -71,6 +87,11 @@ const canonicalPages = [
     url: `${SITE_URL}/comparar/${c.id}/`,
     noindex: false,
   })),
+  ...["pt", "en"].flatMap((locale) => translatablePages.map((page) => ({
+    path: `dist${localizedPath(`/${page.path.replace(/index\.html$/, "")}`, locale)}index.html`,
+    url: `${SITE_URL}${localizedPath(page.urlPath, locale)}`,
+    noindex: false,
+  }))),
   // Legacy noindex redirects
   ...malls.map((m) => ({
     path: `dist/mall/${m.id}/index.html`,
@@ -175,7 +196,7 @@ function checkPage(page) {
       err(`${page.path}: missing JSON-LD`);
     }
 
-    const generatedPage = !["dist/index.html", "dist/pt-br/index.html"].includes(page.path);
+    const generatedPage = !["dist/index.html", "dist/pt-br/index.html", "dist/en/index.html"].includes(page.path);
     if (generatedPage) {
       if (!html.includes('data-prerendered="true"')) {
         err(`${page.path}: missing prerendered initial HTML`);
@@ -189,13 +210,116 @@ function checkPage(page) {
       if (!html.includes('"@type": "BreadcrumbList"')) {
         err(`${page.path}: missing BreadcrumbList JSON-LD`);
       }
-      if (/\bhreflang=["']/i.test(html)) {
-        err(`${page.path}: inherits hreflang without an equivalent localized page`);
+    }
+
+    const basePath = new URL(page.url).pathname.replace(/^\/(pt-br|en)(?=\/|$)/, "") || "/";
+    const expectedAlternates = [
+      ...publicAlternates(basePath).map(({ hreflang, path }) => ({ hreflang, href: `${SITE_URL}${path}` })),
+      { hreflang: "x-default", href: `${SITE_URL}${localizedPath(basePath, "es")}` },
+    ];
+    for (const alternate of expectedAlternates) {
+      const alternatePattern = new RegExp(
+        `<link[^>]+hreflang=["']${alternate.hreflang}["'][^>]+href=["']${alternate.href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["'][^>]*>|` +
+        `<link[^>]+href=["']${alternate.href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["'][^>]+hreflang=["']${alternate.hreflang}["'][^>]*>`,
+        "i",
+      );
+      if (!alternatePattern.test(html)) {
+        err(`${page.path}: missing hreflang ${alternate.hreflang} → ${alternate.href}`);
       }
+    }
+
+    const expectedLang = page.url.includes("/pt-br/") ? "pt-BR" : page.url.includes("/en/") ? "en" : null;
+    if (expectedLang && !new RegExp(`<html[^>]+lang=["']${expectedLang}["']`, "i").test(html)) {
+      err(`${page.path}: html lang should be ${expectedLang}`);
     }
   }
 
   checked++;
+}
+
+function titleFromHtml(html) {
+  return html.match(/<title>([^<]+)<\/title>/i)?.[1]?.trim() ?? "";
+}
+
+async function startProductionServer() {
+  const child = spawn(process.execPath, ["server.mjs"], {
+    cwd: ROOT,
+    env: { ...process.env, NODE_ENV: "production", PORT: "0", DATABASE_URL: "" },
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  let output = "";
+
+  const port = await new Promise((resolvePort, reject) => {
+    const timeout = setTimeout(() => reject(new Error(`production server did not start: ${output}`)), 10000);
+    const onOutput = (chunk) => {
+      output += chunk.toString();
+      const match = output.match(/Shopeando is listening on port (\d+)/);
+      if (match) {
+        clearTimeout(timeout);
+        resolvePort(Number(match[1]));
+      }
+    };
+    child.stdout.on("data", onOutput);
+    child.stderr.on("data", onOutput);
+    child.once("error", (error) => {
+      clearTimeout(timeout);
+      reject(error);
+    });
+    child.once("exit", (code) => {
+      clearTimeout(timeout);
+      reject(new Error(`production server exited early (${code}): ${output}`));
+    });
+  });
+
+  return { child, port };
+}
+
+async function validateProductionRoutes() {
+  console.log("🌐 Verifying canonical URLs through the production server...");
+  let server;
+  try {
+    server = await startProductionServer();
+    for (const page of canonicalPages.filter((candidate) => !candidate.noindex)) {
+      const urlPath = new URL(page.url).pathname;
+      const response = await fetch(`http://127.0.0.1:${server.port}${urlPath}`);
+      if (!response.ok) {
+        err(`${urlPath}: production server returned ${response.status}`);
+        continue;
+      }
+
+      const html = await response.text();
+      const expectedHtml = readFileSync(resolve(ROOT, page.path), "utf-8");
+      if (titleFromHtml(html) !== titleFromHtml(expectedHtml)) {
+        err(`${urlPath}: production server did not return its prerendered title`);
+      }
+      if (!html.includes(`rel="canonical" href="${page.url}"`)) {
+        err(`${urlPath}: production server did not return its canonical URL`);
+      }
+
+      const basePath = new URL(page.url).pathname.replace(/^\/(pt-br|en)(?=\/|$)/, "") || "/";
+      for (const alternate of publicAlternates(basePath)) {
+        const expectedHref = `${SITE_URL}${alternate.path}`;
+        if (!html.includes(`hreflang="${alternate.hreflang}" href="${expectedHref}"`)) {
+          err(`${urlPath}: production server missing hreflang ${alternate.hreflang}`);
+        }
+      }
+      if (!html.includes(`hreflang="x-default" href="${SITE_URL}${localizedPath(basePath, "es")}"`)) {
+        err(`${urlPath}: production server missing x-default hreflang`);
+      }
+
+      const generatedPage = !["dist/index.html", "dist/pt-br/index.html", "dist/en/index.html"].includes(page.path);
+      if (generatedPage && !html.includes('data-prerendered="true"')) {
+        err(`${urlPath}: production server did not return prerendered body`);
+      }
+    }
+  } catch (error) {
+    err(`Could not verify production SEO routes: ${error.message}`);
+  } finally {
+    if (server?.child && !server.child.killed) {
+      server.child.kill("SIGTERM");
+      await new Promise((resolveExit) => server.child.once("exit", resolveExit));
+    }
+  }
 }
 
 console.log("🔍 Validating SEO pages...\n");
@@ -249,6 +373,8 @@ if (existsSync(sitemapPath)) {
 } else {
   warn("public/sitemap.xml not found");
 }
+
+await validateProductionRoutes();
 
 // ── summary ────────────────────────────────────────────────────────────────
 

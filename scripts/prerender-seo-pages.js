@@ -16,12 +16,17 @@
  *   dist/comparar/index.html           — WebPage index
  *   dist/mall/:id/index.html           — noindex redirect → /malls/:id or /outlets/:id (legacy)
  *
- * React mounts into #root and hydrates/replaces the pre-rendered content.
+ * React mounts into #root and replaces the pre-rendered content for interactive visits.
  */
 
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { alternateLinkTags, localizedCopy, localizedPath, PUBLIC_LOCALES } from "../src/utils/publicLocales.js";
+import { localizeMall } from "../src/i18n/mallContent.js";
+import { localizeRoute } from "../src/i18n/routeContent.js";
+import { localizeGuide } from "../src/i18n/guideContent.js";
+import { localizeComparison } from "../src/i18n/comparisonContent.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -150,8 +155,6 @@ function addMetaRefresh(html, targetUrl) {
 
 function buildHead(opts) {
   const { html: base, title, description, canonical, ogImage, noindex, jsonLd, metaRefreshUrl } = opts;
-  // Detail and hub pages have no translated equivalents yet. Do not inherit
-  // the home page's hreflang annotations, which would point to unrelated URLs.
   let html = stripHomeHreflang(base);
   html = replaceTitle(html, title);
   html = setMetaContent(html, 'name="description"', description);
@@ -166,6 +169,12 @@ function buildHead(opts) {
   if (jsonLd) html = replaceJsonLd(html, jsonLd);
   if (noindex) html = injectNoIndex(html);
   if (metaRefreshUrl) html = addMetaRefresh(html, metaRefreshUrl);
+  if (!noindex) {
+    const path = new URL(canonical).pathname.replace(/^\/(pt-br|en)(?=\/|$)/, "") || "/";
+    const locale = canonical.includes("/pt-br/") ? "pt-BR" : canonical.includes("/en/") ? "en" : "es-CL";
+    html = html.replace(/<html\b[^>]*\blang=["'][^"']+["']/, `<html lang="${locale}"`);
+    html = html.replace("</head>", `    ${alternateLinkTags(SITE_URL, path)}\n  </head>`);
+  }
   return html;
 }
 
@@ -191,6 +200,46 @@ function pageGraphJsonLd(primaryEntity, breadcrumbItems) {
     "@context": "https://schema.org",
     "@graph": [primaryNode, breadcrumbNode],
   };
+}
+
+function buildLocalizedBody({ locale, title, description, entity, hub, items = [], relatedLinks = [] }) {
+  const copy = localizedCopy[locale];
+  const label = hub ? copy.hub[hub][0] : title;
+  const crumbs = `<nav aria-label="Breadcrumb"><a href="${escAttr(localizedPath("/", locale))}">${escHtml(copy.home)}</a> › ${escHtml(label)}</nav>`;
+  const intro = entity?.intro || entity?.description || entity?.summary || description;
+  const sections = entity?.sections?.map((section) =>
+    `<section><h2>${escHtml(section.heading)}</h2><p>${escHtml(section.body)}</p></section>`
+  ).join("") || "";
+  const criteria = entity?.criteria?.map((criterion) =>
+    `<section><h2>${escHtml(criterion.name)}</h2><p>${escHtml(criterion.mallA)}</p><p>${escHtml(criterion.mallB)}</p></section>`
+  ).join("") || "";
+  const routeStops = entity?.stops?.map((stop) => {
+    const mall = mallById[stop.mallId];
+    return `<li>${mall ? `<a href="${escAttr(localizedPath(mallCanonicalPath(mall), locale))}">${escHtml(mall.name)}</a>` : ""}${stop.note ? ` — ${escHtml(stop.note)}` : ""}</li>`;
+  }).join("") || "";
+  const bestFor = entity?.bestFor?.length ? `<section><h2>${escHtml(copy.bestFor)}</h2><ul>${entity.bestFor.map((item) => `<li>${escHtml(item)}</li>`).join("")}</ul></section>` : "";
+  const notIdealFor = entity?.notIdealFor?.length ? `<section><h2>${escHtml(copy.notIdealFor)}</h2><ul>${entity.notIdealFor.map((item) => `<li>${escHtml(item)}</li>`).join("")}</ul></section>` : "";
+  const tips = entity?.tips?.length ? `<section><h2>${escHtml(copy.tips)}</h2><ul>${entity.tips.map((tip) => `<li>${escHtml(tip)}</li>`).join("")}</ul></section>` : "";
+  const transport = entity?.transport?.metro ? `<section><h2>${escHtml(copy.transport)}</h2><p>${escHtml(entity.transport.metro)}</p>${entity.recommendedTime ? `<p><strong>${escHtml(copy.duration)}:</strong> ${escHtml(entity.recommendedTime)}</p>` : ""}</section>` : "";
+  const nearby = entity?.nearbyAttractions?.length ? `<section><h2>${escHtml(copy.nearby)}</h2><ul>${entity.nearbyAttractions.map((place) => `<li>${escHtml(place)}</li>`).join("")}</ul></section>` : "";
+  const stores = entity?.stores?.length ? `<section><h2>${escHtml(copy.stores)}</h2><ul>${entity.stores.map((store) => `<li>${escHtml(store.name)}</li>`).join("")}</ul></section>` : "";
+  const linkedMallIds = entity?.relatedMalls || entity?.mallIds || [];
+  const relatedMalls = linkedMallIds.length ? `<section><h2>${escHtml(copy.relatedMalls)}</h2><ul>${linkedMallIds.map((mallId) => mallById[mallId]).filter(Boolean).map((mall) =>
+    `<li><a href="${escAttr(localizedPath(mallCanonicalPath(mall), locale))}">${escHtml(mall.name)}</a></li>`
+  ).join("")}</ul></section>` : "";
+  const itemList = items.length ? `<section><ul>${items.map((item) =>
+    `<li><a href="${escAttr(item.url)}">${escHtml(item.name)}</a>${item.description ? `<p>${escHtml(item.description)}</p>` : ""}</li>`
+  ).join("")}</ul></section>` : "";
+  const related = relatedLinks.map(({ label, items: relatedItems }) => relatedItems.length
+    ? `<section><h2>${escHtml(label)}</h2><ul>${relatedItems.map((item) => `<li><a href="${escAttr(item.url)}">${escHtml(item.name)}</a></li>`).join("")}</ul></section>`
+    : ""
+  ).join("");
+  const mapsUrl = entity?.stops ? routeMapsUrl(entity) : entity?.id && entity?.lat != null ? mallMapsUrl(entity) : null;
+  const actions = `${mapsUrl ? `<p><a href="${escAttr(mapsUrl)}" target="_blank" rel="noopener noreferrer">${escHtml(copy.map)}</a></p>` : ""}${entity?.officialUrl ? `<p><a href="${escAttr(entity.officialUrl)}" target="_blank" rel="noopener noreferrer">${escHtml(copy.official)}</a></p>` : ""}`;
+  const publicNav = `<nav aria-label="Primary"><a href="${localizedPath("/malls/", locale)}">${escHtml(copy.malls)}</a> · <a href="${localizedPath("/outlets/", locale)}">${escHtml(copy.outlets)}</a> · <a href="${localizedPath("/rutas/", locale)}">${escHtml(copy.routes)}</a> · <a href="${localizedPath("/guias/", locale)}">${escHtml(copy.guides)}</a> · <a href="${localizedPath("/comparar/", locale)}">${escHtml(copy.comparisons)}</a></nav>`;
+  return `<main id="root" data-prerendered="true" style="font-family:sans-serif;max-width:800px;margin:0 auto;padding:1rem 1.5rem">
+    ${publicNav}${crumbs}<article><h1>${escHtml(title)}</h1><p>${escHtml(description)}</p>${entity && intro !== description ? `<p>${escHtml(intro)}</p>` : ""}${itemList}${sections}${criteria}${routeStops ? `<ol>${routeStops}</ol>` : ""}${bestFor}${notIdealFor}${transport}${nearby}${stores}${tips}${relatedMalls}${related}${entity?.conclusion ? `<p>${escHtml(entity.conclusion)}</p>` : ""}${actions}</article>
+  </main>`;
 }
 
 function breadcrumbHtml(items) {
@@ -978,6 +1027,122 @@ for (const mall of malls) {
   count++;
 }
 
+// ── 12. Portuguese and English public equivalents ───────────────────────────
+const localizedPages = [
+  ...mallPages.map((mall) => ({ entity: mall, path: `/malls/${mall.id}/`, kind: "mall" })),
+  ...outletPages.map((mall) => ({ entity: mall, path: `/outlets/${mall.id}/`, kind: "mall" })),
+  ...routes.map((route) => ({ entity: route, path: `/rutas/${route.id}/` })),
+  ...guides.map((guide) => ({ entity: guide, path: `/guias/${guide.id}/` })),
+  ...comparisons.map((comparison) => ({ entity: comparison, path: `/comparar/${comparison.id}/` })),
+];
+const localizedHubs = ["malls", "outlets", "rutas", "guias", "comparar"];
+
+// English home page. The Portuguese home page is a dedicated editorial file
+// copied from public/pt-br/index.html by Vite.
+{
+  const locale = "en";
+  const pageUrl = `${SITE_URL}/en/`;
+  const title = "Shopping in Santiago, Chile: mall and outlet guide";
+  const description = "A free English-language guide to malls, outlets and shopping routes in Santiago, Chile, with practical advice for international visitors.";
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description,
+    url: pageUrl,
+    inLanguage: "en",
+  };
+  let html = buildHead({ html: template, title: `${title} | Shopeando`, description, canonical: pageUrl, ogImage: defaultOgImage, jsonLd });
+  const items = [
+    { name: localizedCopy.en.hub.malls[0], url: `${SITE_URL}/en/malls/`, description: localizedCopy.en.hub.malls[1] },
+    { name: localizedCopy.en.hub.rutas[0], url: `${SITE_URL}/en/rutas/`, description: localizedCopy.en.hub.rutas[1] },
+    { name: localizedCopy.en.hub.guias[0], url: `${SITE_URL}/en/guias/`, description: localizedCopy.en.hub.guias[1] },
+  ];
+  html = replaceBody(html, buildLocalizedBody({ locale, title, description, items }));
+  writeHtml("dist/en/index.html", html);
+  count++;
+}
+
+for (const locale of ["pt", "en"]) {
+  for (const hub of localizedHubs) {
+    const path = `/${hub}/`;
+    const [title, description] = localizedCopy[locale].hub[hub];
+    const pageUrl = `${SITE_URL}${localizedPath(path, locale)}`;
+    const hubSourceItems = hub === "malls" ? mallPages
+      : hub === "outlets" ? outletPages
+        : hub === "rutas" ? routes
+          : hub === "guias" ? guides : comparisons;
+    const hubItems = hubSourceItems.map((item) => {
+      const localizedItem = hub === "malls" || hub === "outlets" ? localizeMall(item, locale)
+        : hub === "rutas" ? localizeRoute(item, locale)
+          : hub === "guias" ? localizeGuide(item, locale)
+            : localizeComparison(item, locale);
+      const itemPath = hub === "malls" ? `/malls/${item.id}/`
+        : hub === "outlets" ? `/outlets/${item.id}/`
+          : hub === "rutas" ? `/rutas/${item.id}/`
+            : hub === "guias" ? `/guias/${item.id}/` : `/comparar/${item.id}/`;
+      return {
+        name: localizedItem.title || localizedItem.name,
+        description: localizedItem.description || localizedItem.summary,
+        url: `${SITE_URL}${localizedPath(itemPath, locale)}`,
+      };
+    });
+    const jsonLd = pageGraphJsonLd(
+      { "@context": "https://schema.org", "@type": "WebPage", name: title, description, url: pageUrl, inLanguage: PUBLIC_LOCALES[locale].hreflang },
+      [{ name: "Shopeando", url: `${SITE_URL}${localizedPath("/", locale)}` }, { name: title, url: pageUrl }],
+    );
+    let html = buildHead({ html: template, title: `${title} | Shopeando`, description, canonical: pageUrl, ogImage: defaultOgImage, jsonLd });
+    html = replaceBody(html, buildLocalizedBody({ locale, title, description, hub, items: hubItems }));
+    writeHtml(`dist${localizedPath(path, locale)}index.html`, html);
+    count++;
+  }
+  for (const { entity: sourceEntity, path, kind } of localizedPages) {
+    const entity = path.startsWith("/malls/") || path.startsWith("/outlets/") ? localizeMall(sourceEntity, locale)
+      : path.startsWith("/rutas/") ? localizeRoute(sourceEntity, locale)
+        : path.startsWith("/guias/") ? localizeGuide(sourceEntity, locale)
+          : localizeComparison(sourceEntity, locale);
+    const title = entity.title || entity.name;
+    const description = entity.description || entity.summary || "";
+    const pageUrl = `${SITE_URL}${localizedPath(path, locale)}`;
+    const typeKey = path.startsWith("/outlets/") ? "outlet"
+      : path.startsWith("/malls/") ? "mall"
+        : path.startsWith("/rutas/") ? "route"
+          : path.startsWith("/guias/") ? "guide" : "comparison";
+    const seoTitle = `${title} · ${localizedCopy[locale].seoSuffix[typeKey]}`;
+    const jsonLd = pageGraphJsonLd(
+      { "@context": "https://schema.org", "@type": entity.sections ? "Article" : "WebPage", name: title, description, url: pageUrl, inLanguage: PUBLIC_LOCALES[locale].hreflang },
+      [{ name: "Shopeando", url: `${SITE_URL}${localizedPath("/", locale)}` }, { name: title, url: pageUrl }],
+    );
+    let html = buildHead({ html: template, title: `${seoTitle} | Shopeando`, description, canonical: pageUrl, ogImage: entity.imageUrl ? `${SITE_URL}${entity.imageUrl}` : defaultOgImage, jsonLd });
+    const relatedLinks = kind === "mall" ? [
+      {
+        label: localizedCopy[locale].relatedRoutes,
+        items: routes.filter((route) => route.stops.some((stop) => stop.mallId === sourceEntity.id)).map((route) => ({
+          name: localizeRoute(route, locale).title,
+          url: `${SITE_URL}${localizedPath(`/rutas/${route.id}/`, locale)}`,
+        })),
+      },
+      {
+        label: localizedCopy[locale].relatedGuides,
+        items: guides.filter((guide) => guide.relatedMalls?.includes(sourceEntity.id)).map((guide) => ({
+          name: localizeGuide(guide, locale).title,
+          url: `${SITE_URL}${localizedPath(`/guias/${guide.id}/`, locale)}`,
+        })),
+      },
+      {
+        label: localizedCopy[locale].relatedComparisons,
+        items: comparisons.filter((comparison) => comparison.mallIds?.includes(sourceEntity.id)).map((comparison) => ({
+          name: localizeComparison(comparison, locale).title,
+          url: `${SITE_URL}${localizedPath(`/comparar/${comparison.id}/`, locale)}`,
+        })),
+      },
+    ] : [];
+    html = replaceBody(html, buildLocalizedBody({ locale, title, description, entity, path, relatedLinks }));
+    writeHtml(`dist${localizedPath(path, locale)}index.html`, html);
+    count++;
+  }
+}
+
 console.log(`✅ Pre-rendered ${count} pages total:`);
 console.log(`   ${mallPages.length} mall pages → dist/malls/[id]/`);
 console.log(`   ${outletPages.length} outlet pages → dist/outlets/[id]/`);
@@ -989,3 +1154,4 @@ console.log(`   1 guias index`);
 console.log(`   ${comparisons.length} comparison pages → dist/comparar/[id]/`);
 console.log(`   1 comparar index`);
 console.log(`   ${malls.length} legacy noindex redirects → dist/mall/[id]/`);
+console.log(`   Portuguese and English equivalents → dist/pt-br/ and dist/en/`);

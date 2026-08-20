@@ -14,9 +14,15 @@ import guides from "../data/guides.json";
 import comparisons from "../data/comparisons.json";
 import { mallMapsUrl, routeMapsUrl } from "../utils/maps";
 import { comparisonPath, guidePath, mallPath, routePath } from "../utils/publicRoutes";
+import { localizedCopy, localizedPath, normalizeLocale, publicAlternates } from "../utils/publicLocales";
+import { localizeMall } from "../i18n/mallContent";
+import { localizeRoute } from "../i18n/routeContent";
+import { localizeGuide } from "../i18n/guideContent";
+import { localizeComparison } from "../i18n/comparisonContent";
+import { useLanguage } from "../i18n/LanguageContext";
 import Header from "./Header";
 import Footer from "./Footer";
-import ReviewSection, { ReviewSummary } from "./ReviewSection";
+import ReviewSection, { GoogleMapsRating, ReviewSummary } from "./ReviewSection";
 
 const SITE_URL = "https://www.shopeando.cl";
 const HAS_PRERENDERED_HEAD =
@@ -48,6 +54,22 @@ function setPageSeo({ title, description, canonical, ogImage }) {
   if (ogImage) setMeta('meta[property="og:image"]', "content", ogImage);
   setMeta('meta[name="twitter:title"]', "content", title);
   setMeta('meta[name="twitter:description"]', "content", description);
+  document.head.querySelectorAll('link[rel="alternate"][hreflang]').forEach((link) => link.remove());
+  const basePath = new URL(normalizedCanonical).pathname.replace(/^\/(pt-br|en)(?=\/|$)/, "") || "/";
+  for (const alternate of publicAlternates(basePath)) {
+    const link = document.createElement("link");
+    link.rel = "alternate";
+    link.hreflang = alternate.hreflang;
+    link.href = `${SITE_URL}${alternate.path}`;
+    link.dataset.publicHreflang = "true";
+    document.head.appendChild(link);
+  }
+  const xDefault = document.createElement("link");
+  xDefault.rel = "alternate";
+  xDefault.hreflang = "x-default";
+  xDefault.href = `${SITE_URL}${localizedPath(basePath, "es")}`;
+  xDefault.dataset.publicHreflang = "true";
+  document.head.appendChild(xDefault);
 
   // Remove any old JSON-LD from mall modal
   document.getElementById("mall-jsonld")?.remove();
@@ -78,44 +100,48 @@ const mallMap = Object.fromEntries(malls.map((m) => [m.id, m]));
 
 export function matchPublicRoute(pathname) {
   // Strip trailing slash for matching (except root)
-  const p = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+  const rawPath = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+  const localeMatch = rawPath.match(/^\/(pt-br|en)(?:\/|$)/);
+  const locale = localeMatch?.[1] === "pt-br" ? "pt" : localeMatch?.[1] === "en" ? "en" : "es";
+  const p = localeMatch ? (rawPath.slice(localeMatch[0].length - 1) || "/") : rawPath;
+  const localized = (match) => ({ ...match, locale });
 
   // Hub indexes
-  if (p === "/malls") return { type: "hub", hub: "malls" };
-  if (p === "/outlets") return { type: "hub", hub: "outlets" };
-  if (p === "/rutas") return { type: "hub", hub: "rutas" };
-  if (p === "/guias") return { type: "hub", hub: "guias" };
-  if (p === "/comparar") return { type: "hub", hub: "comparar" };
+  if (p === "/malls") return localized({ type: "hub", hub: "malls" });
+  if (p === "/outlets") return localized({ type: "hub", hub: "outlets" });
+  if (p === "/rutas") return localized({ type: "hub", hub: "rutas" });
+  if (p === "/guias") return localized({ type: "hub", hub: "guias" });
+  if (p === "/comparar") return localized({ type: "hub", hub: "comparar" });
 
   // Detail pages
   const mallMatch = p.match(/^\/malls\/([^/]+)$/);
   if (mallMatch) {
     const mall = mallPages.find((m) => m.id === mallMatch[1]);
-    if (mall) return { type: "mall-detail", mall, isOutlet: false };
+    if (mall) return localized({ type: "mall-detail", mall, isOutlet: false });
   }
 
   const outletMatch = p.match(/^\/outlets\/([^/]+)$/);
   if (outletMatch) {
     const mall = outletPages.find((m) => m.id === outletMatch[1]);
-    if (mall) return { type: "mall-detail", mall, isOutlet: true };
+    if (mall) return localized({ type: "mall-detail", mall, isOutlet: true });
   }
 
   const rutaMatch = p.match(/^\/rutas\/([^/]+)$/);
   if (rutaMatch) {
     const route = routes.find((r) => r.id === rutaMatch[1]);
-    if (route) return { type: "ruta-detail", route };
+    if (route) return localized({ type: "ruta-detail", route });
   }
 
   const guiaMatch = p.match(/^\/guias\/([^/]+)$/);
   if (guiaMatch) {
     const guide = guides.find((g) => g.id === guiaMatch[1]);
-    if (guide) return { type: "guia-detail", guide };
+    if (guide) return localized({ type: "guia-detail", guide });
   }
 
   const compMatch = p.match(/^\/comparar\/([^/]+)$/);
   if (compMatch) {
     const comparison = comparisons.find((c) => c.id === compMatch[1]);
-    if (comparison) return { type: "comparar-detail", comparison };
+    if (comparison) return localized({ type: "comparar-detail", comparison });
   }
 
   // Legacy /mall/:id → redirect silently (treat as mall detail)
@@ -130,7 +156,8 @@ export function matchPublicRoute(pathname) {
 
 // ─── Shared layout ────────────────────────────────────────────────────────────
 
-function PageShell({ children, breadcrumbs }) {
+function PageShell({ children, breadcrumbs, locale = "es" }) {
+  const copy = localizedCopy[normalizeLocale(locale)];
   return (
     <div className="min-h-screen bg-[#f8faf6] text-ink">
       <Header isPublicPage />
@@ -138,7 +165,7 @@ function PageShell({ children, breadcrumbs }) {
         {breadcrumbs && (
           <nav aria-label="Breadcrumb" className="border-b border-ink/8 bg-white">
             <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-1 px-4 py-2.5 text-xs font-semibold text-ink/50 sm:px-6 lg:px-8">
-              <a href="/" className="hover:text-leaf transition">Inicio</a>
+              <a href={localizedPath("/", locale)} className="hover:text-leaf transition">{copy.home}</a>
               {breadcrumbs.map((crumb, i) => (
                 <span key={i} className="flex items-center gap-1">
                   <ChevronRight size={12} />
@@ -203,6 +230,7 @@ function StoreList({ stores }) {
 // ─── Mall/Outlet Detail Page ──────────────────────────────────────────────────
 
 function MallDetailPage({ mall, isOutlet }) {
+  const { t } = useLanguage();
   const hubPath = isOutlet ? "/outlets/" : "/malls/";
   const hubLabel = isOutlet ? "Outlets" : "Malls";
   const canonicalPath = isOutlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
@@ -271,8 +299,11 @@ function MallDetailPage({ mall, isOutlet }) {
             {mall.premium && (
               <span className="rounded-full bg-gold/80 px-3 py-1 text-xs font-extrabold text-white backdrop-blur-sm">Premium</span>
             )}
-            <span className="flex items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm">
-              <Star size={10} fill="currentColor" /> {mall.touristScore}
+            <span
+              className="flex items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm"
+              title={`${t.mallCard.shopeandoScore}: ${mall.touristScore}/10`}
+            >
+              <Star size={10} fill="currentColor" /> {t.mallCard.shopeandoScore} · {mall.touristScore}/10
             </span>
           </div>
         </div>
@@ -342,7 +373,10 @@ function MallDetailPage({ mall, isOutlet }) {
             </div>
 
             <StoreList stores={mall.stores} />
-            <ReviewSection mallId={mall.id} mall={mall} />
+            <div className="mt-8 grid gap-4">
+              <GoogleMapsRating mall={mall} mapsUrl={mapsUrl} />
+              <ReviewSection mallId={mall.id} mall={mall} />
+            </div>
 
             {/* Related routes */}
             {relatedRoutes.length > 0 && (
@@ -1157,8 +1191,124 @@ function LegacyMallRedirect({ mall }) {
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 
+function LocalizedSeoPage({ match }) {
+  const locale = normalizeLocale(match.locale);
+  const copy = localizedCopy[locale];
+  const { type } = match;
+  const isHub = type === "hub";
+  const sourceEntity = match.mall || match.route || match.guide || match.comparison;
+  const entity = type === "mall-detail" ? localizeMall(sourceEntity, locale)
+    : type === "ruta-detail" ? localizeRoute(sourceEntity, locale)
+      : type === "guia-detail" ? localizeGuide(sourceEntity, locale)
+        : type === "comparar-detail" ? localizeComparison(sourceEntity, locale) : sourceEntity;
+  const hubKey = match.hub;
+  const entityTitle = entity?.title || entity?.name;
+  const title = isHub ? copy.hub[hubKey][0] : entityTitle;
+  const description = isHub ? copy.hub[hubKey][1] : (entity?.description || entity?.summary || "");
+  const basePath = isHub
+    ? `/${hubKey}/`
+    : type === "mall-detail" ? (match.isOutlet ? `/outlets/${entity.id}/` : `/malls/${entity.id}/`)
+      : type === "ruta-detail" ? `/rutas/${entity.id}/`
+        : type === "guia-detail" ? `/guias/${entity.id}/`
+          : `/comparar/${entity.id}/`;
+  const canonical = `${SITE_URL}${localizedPath(basePath, locale)}`;
+  const typeKey = type === "mall-detail" ? (match.isOutlet ? "outlet" : "mall")
+    : type === "ruta-detail" ? "route"
+      : type === "guia-detail" ? "guide" : "comparison";
+  const seoTitle = isHub ? title : `${title} · ${copy.seoSuffix[typeKey]}`;
+
+  useEffect(() => {
+    document.documentElement.lang = locale === "pt" ? "pt-BR" : "en";
+    setPageSeo({ title: `${seoTitle} | Shopeando`, description, canonical, ogImage: entity?.imageUrl ? `${SITE_URL}${entity.imageUrl}` : undefined });
+  }, [locale, seoTitle, description, canonical, entity?.imageUrl]);
+
+  const sourceItems = isHub
+    ? hubKey === "malls" ? mallPages
+      : hubKey === "outlets" ? outletPages
+        : hubKey === "rutas" ? routes
+          : hubKey === "guias" ? guides : comparisons
+    : [];
+  const items = sourceItems.map((item) =>
+    hubKey === "malls" || hubKey === "outlets" ? localizeMall(item, locale)
+      : hubKey === "rutas" ? localizeRoute(item, locale)
+        : hubKey === "guias" ? localizeGuide(item, locale)
+          : localizeComparison(item, locale)
+  );
+  const itemPath = (item) => hubKey === "malls" ? `/malls/${item.id}/`
+    : hubKey === "outlets" ? `/outlets/${item.id}/`
+      : hubKey === "rutas" ? `/rutas/${item.id}/`
+        : hubKey === "guias" ? `/guias/${item.id}/` : `/comparar/${item.id}/`;
+  const relatedRoutes = type === "mall-detail"
+    ? routes.filter((route) => route.stops.some((stop) => stop.mallId === entity.id)).map((route) => localizeRoute(route, locale))
+    : [];
+  const relatedGuides = type === "mall-detail"
+    ? guides.filter((guide) => guide.relatedMalls?.includes(entity.id)).map((guide) => localizeGuide(guide, locale))
+    : [];
+  const relatedComparisons = type === "mall-detail"
+    ? comparisons.filter((comparison) => comparison.mallIds?.includes(entity.id)).map((comparison) => localizeComparison(comparison, locale))
+    : [];
+
+  return (
+    <PageShell locale={locale} breadcrumbs={[{ label: title }]}>
+      <div className="section-shell">
+        {entity?.imageUrl && <img src={entity.imageUrl} alt={title} className="mb-8 h-52 w-full rounded-2xl object-cover sm:h-72" />}
+        <p className="eyebrow">{isHub ? copy.guides : type === "ruta-detail" ? copy.shoppingRoute : type === "comparar-detail" ? copy.comparison : copy.editorial}</p>
+        <h1 className="mt-3 font-display text-4xl font-extrabold">{title}</h1>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-ink/65">{description}</p>
+        {isHub ? (
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {items.map((item) => (
+              <a key={item.id} href={localizedPath(itemPath(item), locale)} className="rounded-xl border border-ink/8 bg-white p-5 transition hover:border-leaf/40">
+                <h2 className="font-display text-lg font-extrabold">{item.title || item.name}</h2>
+                <p className="mt-2 text-sm leading-6 text-ink/60">{item.description || item.summary}</p>
+                <span className="mt-4 inline-flex text-sm font-bold text-leaf">{copy.read} →</span>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <article className="mt-8 max-w-3xl">
+            {entity?.sections?.map((section) => <section key={section.heading} className="mb-6"><h2 className="font-display text-xl font-extrabold">{section.heading}</h2><p className="mt-3 text-sm leading-7 text-ink/68">{section.body}</p></section>)}
+            {entity?.bestFor?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.bestFor}</h2><ul className="mt-3 grid gap-2">{entity.bestFor.map((item) => <li key={item} className="text-sm text-ink/68">{item}</li>)}</ul></section>}
+            {entity?.notIdealFor?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.notIdealFor}</h2><ul className="mt-3 grid gap-2">{entity.notIdealFor.map((item) => <li key={item} className="text-sm text-ink/68">{item}</li>)}</ul></section>}
+            {entity?.transport?.metro && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.transport}</h2><p className="mt-3 text-sm text-ink/68">{entity.transport.metro}</p>{entity.recommendedTime && <p className="mt-2 text-sm text-ink/68"><strong>{copy.duration}:</strong> {entity.recommendedTime}</p>}</section>}
+            {entity?.nearbyAttractions?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.nearby}</h2><ul className="mt-3 grid gap-2">{entity.nearbyAttractions.map((place) => <li key={place} className="text-sm text-ink/68">{place}</li>)}</ul></section>}
+            {entity?.stores?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.stores}</h2><ul className="mt-3 flex flex-wrap gap-2">{entity.stores.map((store) => <li key={store.name} className="tag">{store.name}</li>)}</ul></section>}
+            {entity?.tips?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.tips}</h2><ul className="mt-3 grid gap-2">{entity.tips.map((tip) => <li key={tip} className="text-sm leading-7 text-ink/68">{tip}</li>)}</ul></section>}
+            {entity?.intro && <p className="text-sm leading-7 text-ink/68">{entity.intro}</p>}
+            {entity?.mallIds?.length > 0 && <div className="my-6 grid gap-3 sm:grid-cols-2">{entity.mallIds.map((mallId) => mallMap[mallId]).filter(Boolean).map((mall) => <a key={mall.id} href={mallPath(mall, locale)} className="rounded-xl border border-ink/8 bg-white p-4 font-bold hover:text-leaf">{mall.name}</a>)}</div>}
+            {entity?.criteria?.map((criterion) => <section key={criterion.name} className="mt-6"><h2 className="font-display text-xl font-extrabold">{criterion.name}</h2><p className="mt-2 text-sm leading-7 text-ink/68">{criterion.mallA}</p><p className="mt-2 text-sm leading-7 text-ink/68">{criterion.mallB}</p></section>)}
+            {entity?.conclusion && <p className="mt-6 text-sm leading-7 text-ink/68">{entity.conclusion}</p>}
+            {type === "ruta-detail" && entity.stops?.map((stop, index) => {
+              const mall = mallMap[stop.mallId];
+              return <p key={`${stop.mallId}-${index}`} className="mt-4 text-sm text-ink/68">{index + 1}. {mall ? <a href={mallPath(mall, locale)} className="font-bold hover:text-leaf">{mall.name}</a> : stop.note} — {stop.note}</p>;
+            })}
+            {entity?.relatedMalls?.length > 0 && <section className="mt-8"><h2 className="font-display text-xl font-extrabold">{copy.relatedMalls}</h2><div className="mt-3 grid gap-3">{entity.relatedMalls.map((mallId) => mallMap[mallId]).filter(Boolean).map((mall) => <a key={mall.id} href={mallPath(mall, locale)} className="rounded-xl border border-ink/8 bg-white p-4 font-bold hover:text-leaf">{mall.name}</a>)}</div></section>}
+            {relatedRoutes.length > 0 && <LocalizedRelatedLinks label={copy.relatedRoutes} items={relatedRoutes} getPath={(route) => routePath(route, locale)} />}
+            {relatedGuides.length > 0 && <LocalizedRelatedLinks label={copy.relatedGuides} items={relatedGuides} getPath={(guide) => guidePath(guide, locale)} />}
+            {relatedComparisons.length > 0 && <LocalizedRelatedLinks label={copy.relatedComparisons} items={relatedComparisons} getPath={(comparison) => comparisonPath(comparison, locale)} />}
+            {(type === "mall-detail" || type === "ruta-detail") && <a href={type === "mall-detail" ? mallMapsUrl(entity) : routeMapsUrl(entity.stops, mallMap)} target="_blank" rel="noopener noreferrer" className="primary-button mt-8">{copy.map}</a>}
+            {entity?.officialUrl && <a href={entity.officialUrl} target="_blank" rel="noopener noreferrer" className="secondary-button mt-4">{copy.official}</a>}
+          </article>
+        )}
+      </div>
+    </PageShell>
+  );
+}
+
+function LocalizedRelatedLinks({ label, items, getPath }) {
+  return (
+    <section className="mt-8">
+      <h2 className="font-display text-xl font-extrabold">{label}</h2>
+      <div className="mt-3 grid gap-3">
+        {items.map((item) => <a key={item.id} href={getPath(item)} className="rounded-xl border border-ink/8 bg-white p-4 font-bold hover:text-leaf">{item.title || item.name}</a>)}
+      </div>
+    </section>
+  );
+}
+
 export default function PublicSeoPage({ match }) {
   const { type } = match;
+  if (match.locale && match.locale !== "es") return <LocalizedSeoPage match={match} />;
 
   if (type === "hub") {
     const { hub } = match;

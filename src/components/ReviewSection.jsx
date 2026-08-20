@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { ShoppingBag } from "lucide-react";
+import { ExternalLink, ShoppingBag, Star } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { loadGoogleMaps } from "../utils/googleMaps";
 
@@ -10,49 +10,84 @@ function formatAverage(average, lang) {
   }).format(average);
 }
 
-export function useGoogleRating(mall) {
-  const [googleRating, setGoogleRating] = useState(null);
-  const [googleLoading, setGoogleLoading] = useState(Boolean(mall?.mapsQuery));
+function formatGoogleRating(rating, lang) {
+  return new Intl.NumberFormat(lang === "pt" ? "pt-BR" : lang === "en" ? "en-US" : "es-CL", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(rating);
+}
+
+export function GoogleMapsRating({ mall, mapsUrl }) {
+  const { t, lang } = useLanguage();
+  const labels = t.reviews;
+  const [placeData, setPlaceData] = useState(null);
+  const [status, setStatus] = useState("loading");
 
   useEffect(() => {
     let active = true;
-    if (!mall?.mapsQuery) {
-      setGoogleLoading(false);
-      return () => { active = false; };
-    }
-
-    setGoogleLoading(true);
+    setStatus("loading");
+    setPlaceData(null);
     loadGoogleMaps()
-      .then((maps) => {
-        const Place = maps.places?.Place;
-        if (!Place?.searchByText) throw new Error("Google Place search unavailable");
-        return Place.searchByText({
-          textQuery: mall.mapsQuery,
+      .then(async (googleMaps) => {
+        const Place = googleMaps?.places?.Place;
+        if (!Place?.searchByText) throw new Error("places_unavailable");
+        const { places = [] } = await Place.searchByText({
+          textQuery: mall.mapsQuery || `${mall.name}, ${mall.commune}, Santiago, Chile`,
           fields: ["displayName", "rating", "userRatingCount"],
           maxResultCount: 1,
         });
-      })
-      .then(({ places = [] }) => {
-        if (!active) return;
         const place = places[0];
-        setGoogleRating(
-          place?.rating
-            ? { rating: Number(place.rating), count: Number(place.userRatingCount || 0) }
-            : null,
-        );
-        setGoogleLoading(false);
+        if (!active) return;
+        if (typeof place?.rating === "number") {
+          setPlaceData({ rating: place.rating, count: place.userRatingCount || 0 });
+          setStatus("ready");
+        } else {
+          setStatus("unavailable");
+        }
       })
       .catch(() => {
-        if (active) {
-          setGoogleRating(null);
-          setGoogleLoading(false);
-        }
+        if (active) setStatus("unavailable");
       });
-
     return () => { active = false; };
   }, [mall]);
 
-  return { googleRating, googleLoading };
+  return (
+    <div id="google-maps-rating" className="rounded-2xl border border-blue-200/70 bg-blue-50/45 p-5" aria-live="polite">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h2 className="font-display text-xl font-extrabold text-ink">{labels.googleTitle}</h2>
+          <p className="mt-1 text-sm text-ink/50">{labels.googleSubtitle}</p>
+        </div>
+        {status === "ready" && (
+          <div className="rounded-xl bg-white px-3 py-2 text-right shadow-sm">
+            <p className="flex items-center justify-end gap-1 text-lg font-extrabold text-amber-500">
+              <Star size={16} fill="currentColor" aria-hidden="true" />
+              {formatGoogleRating(placeData.rating, lang)} / 5
+            </p>
+            {placeData.count > 0 && (
+              <p className="text-[11px] font-bold text-ink/45">
+                {labels.googleCount.replace("{count}", placeData.count)}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+      {status === "loading" && <p className="mt-4 text-sm font-medium text-ink/45">{labels.googleLoading}</p>}
+      {status === "unavailable" && (
+        <p className="mt-4 text-sm font-medium text-ink/50">
+          {labels.googleUnavailable}{" "}
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="font-bold text-leaf underline">
+            {labels.googleOpen}
+          </a>
+        </p>
+      )}
+      {status === "ready" && (
+        <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-leaf hover:underline">
+          <ExternalLink size={13} /> {labels.googleOpen}
+        </a>
+      )}
+    </div>
+  );
 }
 
 function BagRating({ value, onChange, disabled, labels, inputName }) {
@@ -85,10 +120,9 @@ function BagRating({ value, onChange, disabled, labels, inputName }) {
   );
 }
 
-export function ReviewSummary({ mallId, mall }) {
+export function ReviewSummary({ mallId }) {
   const { t, lang } = useLanguage();
   const [summary, setSummary] = useState(null);
-  const { googleRating, googleLoading } = useGoogleRating(mall);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -101,29 +135,26 @@ export function ReviewSummary({ mallId, mall }) {
 
   const average = summary?.average || 0;
   const count = summary?.count || 0;
-  const hasOwnReviews = count > 0;
-  const displayAverage = hasOwnReviews ? average : googleRating?.rating || 0;
-  const source = hasOwnReviews ? t.reviews.shopeandoSource : googleRating ? t.reviews.googleSource : googleLoading ? t.reviews.loading : t.reviews.noReviews;
   return (
     <div
       className="flex items-center gap-2"
-      aria-label={displayAverage
-        ? t.reviews.sourceSummary.replace("{average}", formatAverage(displayAverage, lang)).replace("{source}", source)
-        : source}
+      aria-label={count
+        ? t.reviews.shopeandoSummary.replace("{average}", formatAverage(average, lang)).replace("{count}", count)
+        : t.reviews.shopeandoNoReviews}
     >
       <span className="flex items-center gap-0.5 text-gold" aria-hidden="true">
         {[1, 2, 3, 4, 5].map((score) => (
-          <ShoppingBag key={score} size={13} fill={score <= Math.round(displayAverage) ? "currentColor" : "none"} />
+          <ShoppingBag key={score} size={13} fill={score <= Math.round(average) ? "currentColor" : "none"} />
         ))}
       </span>
       <span className="text-xs font-bold text-ink/50">
-        {displayAverage ? `${formatAverage(displayAverage, lang)} · ${source}` : source}
+        {count ? `${t.reviews.shopeandoLabel}: ${formatAverage(average, lang)} · ${count}` : t.reviews.shopeandoNoReviews}
       </span>
     </div>
   );
 }
 
-export default function ReviewSection({ mallId, mall }) {
+export default function ReviewSection({ mallId }) {
   const { t, lang } = useLanguage();
   const labels = t.reviews;
   const [data, setData] = useState(null);
@@ -131,7 +162,6 @@ export default function ReviewSection({ mallId, mall }) {
   const [comment, setComment] = useState("");
   const [status, setStatus] = useState("loading");
   const [message, setMessage] = useState("");
-  const { googleRating, googleLoading } = useGoogleRating(mall);
 
   const loadReviews = useCallback(async (signal) => {
     setStatus("loading");
@@ -189,26 +219,17 @@ export default function ReviewSection({ mallId, mall }) {
   }
 
   const summary = data?.summary;
-  const hasOwnReviews = Boolean(summary?.count);
-  const displayAverage = hasOwnReviews ? summary.average : googleRating?.rating || 0;
-  const displaySource = hasOwnReviews
-    ? labels.shopeandoSource
-    : googleRating
-      ? labels.googleSource
-      : googleLoading
-        ? labels.loading
-        : labels.noReviews;
   return (
     <section className="mt-8 rounded-2xl border border-ink/8 bg-white p-5 sm:p-6" aria-labelledby={`reviews-${mallId}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 id={`reviews-${mallId}`} className="font-display text-xl font-extrabold text-ink">{labels.title}</h2>
+          <h2 id={`reviews-${mallId}`} className="font-display text-xl font-extrabold text-ink">{labels.shopeandoTitle}</h2>
           <p className="mt-1 text-sm text-ink/50">{labels.subtitle}</p>
         </div>
-        {displayAverage > 0 && (
+        {summary?.count > 0 && (
           <div className="rounded-xl bg-gold/12 px-3 py-2 text-right">
-            <p className="text-lg font-extrabold text-gold">{formatAverage(displayAverage, lang)} / 5</p>
-            <p className="text-[11px] font-bold text-ink/45">{displaySource}</p>
+            <p className="text-lg font-extrabold text-gold">{formatAverage(summary.average, lang)} / 5</p>
+            <p className="text-[11px] font-bold text-ink/45">{labels.count.replace("{count}", summary.count)}</p>
           </div>
         )}
       </div>

@@ -11,6 +11,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { localizedPath } from "../src/utils/publicLocales.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
@@ -35,6 +36,7 @@ const outletPages = malls.filter((m) => m.outlet);
 const staticUrls = [
   { loc: `${BASE_URL}/`,          lastmod: CONTENT_DATE, changefreq: "monthly", priority: "1.0" },
   { loc: `${BASE_URL}/pt-br/`,    lastmod: CONTENT_DATE, changefreq: "monthly", priority: "0.9" },
+  { loc: `${BASE_URL}/en/`,       lastmod: CONTENT_DATE, changefreq: "monthly", priority: "0.9" },
   { loc: `${BASE_URL}/malls/`,    lastmod: CONTENT_DATE, changefreq: "monthly", priority: "0.8" },
   { loc: `${BASE_URL}/outlets/`,  lastmod: CONTENT_DATE, changefreq: "monthly", priority: "0.8" },
   { loc: `${BASE_URL}/rutas/`,    lastmod: CONTENT_DATE, changefreq: "monthly", priority: "0.7" },
@@ -77,6 +79,21 @@ const comparisonUrls = comparisons.map((c) => ({
   priority: "0.7",
 }));
 
+const translatablePaths = [
+  "/malls/", "/outlets/", "/rutas/", "/guias/", "/comparar/",
+  ...mallPages.map((m) => `/malls/${m.id}/`),
+  ...outletPages.map((m) => `/outlets/${m.id}/`),
+  ...routes.map((r) => `/rutas/${r.id}/`),
+  ...guides.map((g) => `/guias/${g.id}/`),
+  ...comparisons.map((c) => `/comparar/${c.id}/`),
+];
+const localizedUrls = ["pt", "en"].flatMap((locale) => translatablePaths.map((path) => ({
+  loc: `${BASE_URL}${localizedPath(path, locale)}`,
+  lastmod: CONTENT_DATE,
+  changefreq: "monthly",
+  priority: path.split("/").filter(Boolean).length <= 1 ? "0.7" : "0.6",
+})));
+
 // Combine all canonical URLs — sorted deterministically by loc
 const allUrls = [
   ...staticUrls,
@@ -85,6 +102,7 @@ const allUrls = [
   ...routeUrls,
   ...guideUrls,
   ...comparisonUrls,
+  ...localizedUrls,
 ].sort((a, b) => a.loc.localeCompare(b.loc));
 
 // ── render XML ──────────────────────────────────────────────────────────────
