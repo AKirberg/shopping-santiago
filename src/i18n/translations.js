@@ -228,6 +228,17 @@ export const translations = {
       empty: "No hay malls para esos filtros.",
       emptyHint: "Prueba quitando algún filtro.",
     },
+    reviews: {
+      title: "Opiniones de visitantes", subtitle: "Comparte tu experiencia para ayudar a otros viajeros.",
+      ratingLabel: "Tu puntuación de 1 a 5", ratingOption: "{score} de 5 bolsitas",
+      summary: "{average} de 5 según {count} opiniones", count: "{count} opiniones",
+      yourRating: "Tu evaluación", commentLabel: "Tu opinión (opcional)",
+      commentPlaceholder: "¿Qué fue lo mejor de tu visita?", publicNotice: "Tu comentario será público",
+      submit: "Publicar opinión", submitting: "Publicando…", success: "¡Gracias! Tu opinión ya es pública.",
+      loading: "Cargando opiniones…", empty: "Aún no hay opiniones. Sé la primera persona en evaluar este lugar.",
+      loadError: "No pudimos cargar las opiniones.", submitError: "No pudimos publicar tu opinión. Intenta nuevamente.",
+      rateLimited: "Has enviado varias opiniones. Intenta de nuevo en unos minutos.", commentTooLong: "La opinión puede tener hasta 600 caracteres.", retry: "Reintentar",
+    },
     app: {
       featuredEyebrow: "Selecciones iniciales",
       featuredTitle: "Malls destacados",
@@ -492,6 +503,17 @@ export const translations = {
       empty: "Nenhum mall para esses filtros.",
       emptyHint: "Tente remover algum filtro.",
     },
+    reviews: {
+      title: "Opiniões de visitantes", subtitle: "Compartilhe sua experiência e ajude outros viajantes.",
+      ratingLabel: "Sua nota de 1 a 5", ratingOption: "{score} de 5 sacolas",
+      summary: "{average} de 5 em {count} opiniões", count: "{count} opiniões",
+      yourRating: "Sua avaliação", commentLabel: "Sua opinião (opcional)",
+      commentPlaceholder: "O que você mais gostou na sua visita?", publicNotice: "Seu comentário será público",
+      submit: "Publicar opinião", submitting: "Publicando…", success: "Obrigado! Sua opinião já está pública.",
+      loading: "Carregando opiniões…", empty: "Ainda não há opiniões. Seja a primeira pessoa a avaliar este lugar.",
+      loadError: "Não foi possível carregar as opiniões.", submitError: "Não foi possível publicar sua opinião. Tente novamente.",
+      rateLimited: "Você enviou várias opiniões. Tente novamente em alguns minutos.", commentTooLong: "A opinião pode ter até 600 caracteres.", retry: "Tentar novamente",
+    },
     app: {
       featuredEyebrow: "Destaques iniciais",
       featuredTitle: "Malls em destaque",
@@ -755,6 +777,17 @@ export const translations = {
     mallGrid: {
       empty: "No malls match those filters.",
       emptyHint: "Try removing a filter.",
+    },
+    reviews: {
+      title: "Visitor reviews", subtitle: "Share your experience to help other travellers.",
+      ratingLabel: "Your rating from 1 to 5", ratingOption: "{score} out of 5 bags",
+      summary: "{average} out of 5 from {count} reviews", count: "{count} reviews",
+      yourRating: "Your rating", commentLabel: "Your review (optional)",
+      commentPlaceholder: "What did you enjoy most about your visit?", publicNotice: "Your comment will be public",
+      submit: "Publish review", submitting: "Publishing…", success: "Thank you! Your review is now public.",
+      loading: "Loading reviews…", empty: "There are no reviews yet. Be the first to rate this place.",
+      loadError: "We could not load the reviews.", submitError: "We could not publish your review. Please try again.",
+      rateLimited: "You have sent several reviews. Please try again in a few minutes.", commentTooLong: "Reviews can be up to 600 characters.", retry: "Try again",
     },
     app: {
       featuredEyebrow: "Top picks",

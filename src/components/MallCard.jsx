@@ -2,6 +2,7 @@ import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, Star, Trai
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
 import { mallMapsUrl } from "../utils/maps";
+import { ReviewSummary } from "./ReviewSection";
 
 function accentColor(mall) {
   if (mall.premium) return "bg-gold";
@@ -126,6 +127,9 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
               {t.foodLevel[mall.foodLevel]}
             </span>
           )}
+        </div>
+        <div className="mt-2">
+          <ReviewSummary mallId={mall.id} />
         </div>
 
         <div className="mt-4 flex items-center gap-2 border-t border-ink/6 pt-3.5">

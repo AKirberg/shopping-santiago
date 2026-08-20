@@ -30,11 +30,15 @@ const CONTENT = {
             sub: "c) Opciones del quiz de recomendación y planificador de vuelo",
             detail: `Las respuestas que ingresas en el quiz y los malls de la ruta se guardan en el almacenamiento local de tu navegador para retomar el recomendador tras recargar. Los datos del planificador de último minuto existen únicamente durante la sesión. Ninguno de estos datos se envía a nuestros servidores.\n\nFinalidad: generar recomendaciones personalizadas localmente en tu dispositivo.`,
           },
+          {
+            sub: "d) Opiniones públicas de malls y outlets",
+            detail: `Al publicar una opinión guardamos el puntaje, el comentario opcional y la fecha de publicación en nuestra base de datos. No solicitamos nombre, correo ni cuenta de usuario. Para limitar el abuso recibimos la dirección IP de la conexión y almacenamos junto a la opinión una huella criptográfica irreversible, no la IP en texto. El contenido que publiques será visible para otros visitantes; no incluyas datos personales tuyos ni de terceros.\n\nFinalidad: mostrar experiencias de compra compartidas y prevenir envíos abusivos. Base de legitimación: consentimiento manifestado al publicar la opinión e interés legítimo de proteger el servicio.`,
+          },
         ],
       },
       {
         heading: "4. Datos que NO recopilamos",
-        body: `El Sitio no recopila ni procesa: nombres, correos electrónicos, teléfonos, documentos de identidad, datos de pago ni información sensible según la ley chilena. La ubicación GPS solo se solicita si eliges explícitamente usarla; las coordenadas se procesan mediante los servicios de geocodificación descritos en la sección 6 y la copia confirmada se conserva en tu navegador.`,
+        body: `El Sitio no solicita nombres, correos electrónicos, teléfonos, documentos de identidad, datos de pago ni información sensible. Las opiniones pueden contener datos personales si el propio visitante los escribe, por lo que pedimos no incluirlos. La ubicación GPS solo se solicita si eliges explícitamente usarla; las coordenadas se procesan mediante los servicios de geocodificación descritos en la sección 6 y la copia confirmada se conserva en tu navegador.`,
       },
       {
         heading: "5. Cookies y tecnologías similares",
@@ -67,15 +71,15 @@ const CONTENT = {
       },
       {
         heading: "8. Plazo de conservación",
-        body: `La ubicación confirmada y las opciones del recomendador se conservan solamente en tu navegador hasta que borres el almacenamiento local. La hora de vuelo no se conserva. Puedes eliminar estos datos desde la configuración de almacenamiento de tu navegador.`,
+        body: `La ubicación confirmada y las opciones del recomendador se conservan solamente en tu navegador hasta que borres el almacenamiento local. La hora de vuelo no se conserva. Las opiniones públicas se mantienen mientras sean útiles para la guía; puedes solicitar la eliminación de una opinión escribiendo a contacto@shopeando.cl e indicando el mall, fecha aproximada y texto publicado.`,
       },
       {
         heading: "9. Tus derechos",
-        body: `De acuerdo con la Ley N° 21.719, tienes los siguientes derechos respecto de tus datos personales:\n\n• Acceso: conocer qué datos tenemos sobre ti.\n• Rectificación: corregir datos inexactos.\n• Supresión: solicitar la eliminación de tus datos.\n• Oposición: oponerte a ciertos tratamientos.\n• Portabilidad: recibir tus datos en formato estructurado.\n• Revocación del consentimiento: cuando el tratamiento se base en él.\n\nDado que el Sitio no almacena datos personales identificables en servidores propios, el ejercicio práctico de estos derechos se limita al dato de preferencia de idioma, que puedes borrar directamente desde la configuración de tu navegador (Herramientas > Almacenamiento > Local Storage).\n\nPara consultas formales, escríbenos a: contacto@shopeando.cl`,
+        body: `De acuerdo con la Ley N° 21.719, tienes los siguientes derechos respecto de tus datos personales:\n\n• Acceso: conocer qué datos tenemos sobre ti.\n• Rectificación: corregir datos inexactos.\n• Supresión: solicitar la eliminación de tus datos.\n• Oposición: oponerte a ciertos tratamientos.\n• Portabilidad: recibir tus datos en formato estructurado.\n• Revocación del consentimiento: cuando el tratamiento se base en él.\n\nPuedes borrar el idioma y ubicación local desde la configuración de tu navegador. Para solicitar la eliminación de una opinión, escríbenos indicando el mall, fecha aproximada y texto publicado, lo que nos permitirá encontrarla sin necesitar una cuenta.\n\nPara consultas formales, escríbenos a: contacto@shopeando.cl`,
       },
       {
         heading: "10. Seguridad",
-        body: `El Sitio opera íntegramente en el lado del cliente (navegador). Al no existir una base de datos propia ni cuentas de usuario, el riesgo de filtración de datos personales es mínimo. Las comunicaciones con los servicios de terceros mencionados se realizan a través de conexiones HTTPS cifradas.`,
+        body: `El Sitio utiliza una base de datos para guardar opiniones públicas, con acceso restringido a la API del Sitio. No existen cuentas de usuario ni guardamos nombres o datos de contacto para las opiniones. Las comunicaciones con el Sitio y los servicios de terceros se realizan mediante conexiones HTTPS cifradas.`,
       },
       {
         heading: "11. Modificaciones a esta política",
@@ -114,11 +118,15 @@ const CONTENT = {
             sub: "c) Quiz answers and flight planner data",
             detail: `Your quiz answers and route selections are stored in your browser's local storage so you can resume the recommender after a refresh. Last-minute planner data remains session-only. None of this information is sent to our servers.\n\nPurpose: generate personalized recommendations locally on your device.`,
           },
+          {
+            sub: "d) Public mall and outlet reviews",
+            detail: `When you publish a review, we store its rating, optional comment, and publication date in our database. We do not ask for your name, email, or user account. To limit abuse, we receive the connection IP address and store an irreversible cryptographic fingerprint with the review, not the plain IP address. What you publish is visible to other visitors; do not include your own or anyone else’s personal information.\n\nPurpose: show shared shopping experiences and prevent abusive submissions. Legal basis: consent shown by publishing the review and legitimate interest in protecting the service.`,
+          },
         ],
       },
       {
         heading: "4. Data we do NOT collect",
-        body: `The Site does not collect or process names, email addresses, phone numbers, identity documents, payment data, or sensitive information under Chilean law. GPS location is requested only if you explicitly choose it; coordinates are processed by the geocoding providers described in section 6 and the confirmed copy remains in your browser.`,
+        body: `The Site does not ask for names, email addresses, phone numbers, identity documents, payment data, or sensitive information. Reviews may contain personal data if a visitor writes it, so we ask visitors not to include it. GPS location is requested only if you explicitly choose it; coordinates are processed by the geocoding providers described in section 6 and the confirmed copy remains in your browser.`,
       },
       {
         heading: "5. Cookies and similar technologies",
@@ -151,15 +159,15 @@ const CONTENT = {
       },
       {
         heading: "8. Retention Period",
-        body: `Confirmed location and recommender choices remain only in your browser until you clear local storage. Flight time is not retained. You can delete these data from your browser's storage settings.`,
+        body: `Confirmed location and recommender choices remain only in your browser until you clear local storage. Flight time is not retained. Public reviews are kept while useful to the guide; you may request removal by contacting contacto@shopeando.cl with the mall, approximate date, and published text.`,
       },
       {
         heading: "9. Your Rights",
-        body: `Under Law No. 21.719, you have the following rights regarding your personal data:\n\n• Access: know what data we hold about you.\n• Rectification: correct inaccurate data.\n• Erasure: request deletion of your data.\n• Objection: object to certain processing activities.\n• Portability: receive your data in a structured format.\n• Withdrawal of consent: where processing is based on consent.\n\nSince the Site does not store identifiable personal data on its own servers, exercising these rights is practically limited to the language preference, which you can delete directly from your browser settings (Tools > Storage > Local Storage).\n\nFor formal inquiries: contacto@shopeando.cl`,
+        body: `Under Law No. 21.719, you have the following rights regarding your personal data:\n\n• Access: know what data we hold about you.\n• Rectification: correct inaccurate data.\n• Erasure: request deletion of your data.\n• Objection: object to certain processing activities.\n• Portability: receive your data in a structured format.\n• Withdrawal of consent: where processing is based on consent.\n\nYou can delete local language and location data from your browser settings. To request removal of a review, contact us with the mall, approximate date, and published text; this lets us locate it without requiring an account.\n\nFor formal inquiries: contacto@shopeando.cl`,
       },
       {
         heading: "10. Security",
-        body: `The Site operates entirely client-side (in the browser). With no own database or user accounts, the risk of personal data leakage is minimal. Communications with the third-party services mentioned are carried out over encrypted HTTPS connections.`,
+        body: `The Site uses a database to store public reviews, with access limited to the Site API. There are no user accounts and we do not collect names or contact information for reviews. Communications with the Site and third-party services use encrypted HTTPS connections.`,
       },
       {
         heading: "11. Policy Updates",
@@ -198,11 +206,15 @@ const CONTENT = {
             sub: "c) Respostas do quiz e dados do planejador de voo",
             detail: `As suas respostas no quiz e os malls da rota ficam no armazenamento local do navegador para retomar o recomendador depois de recarregar. Os dados do planejador de última hora permanecem apenas na sessão. Nenhum dado é enviado aos nossos servidores.\n\nFinalidade: gerar recomendações personalizadas localmente no seu dispositivo.`,
           },
+          {
+            sub: "d) Opiniões públicas de malls e outlets",
+            detail: `Ao publicar uma opinião, guardamos a nota, o comentário opcional e a data de publicação na nossa base de dados. Não solicitamos nome, e-mail nem conta de utilizador. Para limitar abusos, recebemos o endereço IP da conexão e guardamos junto à opinião uma impressão criptográfica irreversível, não o IP em texto. O conteúdo publicado fica visível para outros visitantes; não inclua dados pessoais seus nem de terceiros.\n\nFinalidade: mostrar experiências de compras compartilhadas e prevenir envios abusivos. Base legal: consentimento manifestado ao publicar a opinião e interesse legítimo em proteger o serviço.`,
+          },
         ],
       },
       {
         heading: "4. Dados que NÃO recolhemos",
-        body: `O Site não recolhe nem processa nomes, emails, telefones, documentos de identidade, dados de pagamento ou informações sensíveis. A localização GPS só é solicitada se você a escolher explicitamente; as coordenadas são processadas pelos serviços de geocodificação descritos na secção 6 e a cópia confirmada permanece no seu navegador.`,
+        body: `O Site não solicita nomes, emails, telefones, documentos de identidade, dados de pagamento ou informações sensíveis. As opiniões podem conter dados pessoais se o próprio visitante os escrever, por isso pedimos que não os inclua. A localização GPS só é solicitada se você a escolher explicitamente; as coordenadas são processadas pelos serviços de geocodificação descritos na secção 6 e a cópia confirmada permanece no seu navegador.`,
       },
       {
         heading: "5. Cookies e tecnologias similares",
@@ -235,15 +247,15 @@ const CONTENT = {
       },
       {
         heading: "8. Prazo de conservação",
-        body: `A localização confirmada e as escolhas do recomendador permanecem apenas no seu navegador até você limpar o armazenamento local. A hora do voo não é conservada. Você pode excluir esses dados nas configurações de armazenamento do navegador.`,
+        body: `A localização confirmada e as escolhas do recomendador permanecem apenas no seu navegador até você limpar o armazenamento local. A hora do voo não é conservada. As opiniões públicas permanecem enquanto forem úteis para o guia; você pode solicitar a remoção escrevendo para contacto@shopeando.cl e informando o mall, a data aproximada e o texto publicado.`,
       },
       {
         heading: "9. Os seus direitos",
-        body: `Ao abrigo da Lei N° 21.719, tem os seguintes direitos relativamente aos seus dados pessoais:\n\n• Acesso: saber que dados temos sobre si.\n• Retificação: corrigir dados inexatos.\n• Supressão: solicitar a eliminação dos seus dados.\n• Oposição: opor-se a certos tratamentos.\n• Portabilidade: receber os seus dados em formato estruturado.\n• Revogação do consentimento: quando o tratamento se baseie nele.\n\nPara consultas formais: contacto@shopeando.cl`,
+        body: `Ao abrigo da Lei N° 21.719, tem os seguintes direitos relativamente aos seus dados pessoais:\n\n• Acesso: saber que dados temos sobre si.\n• Retificação: corrigir dados inexatos.\n• Supressão: solicitar a eliminação dos seus dados.\n• Oposição: opor-se a certos tratamentos.\n• Portabilidade: receber os seus dados em formato estruturado.\n• Revogação do consentimento: quando o tratamento se baseie nele.\n\nPode apagar o idioma e a localização local nas configurações do navegador. Para solicitar a remoção de uma opinião, escreva-nos indicando o mall, data aproximada e texto publicado; isso permite encontrá-la sem exigir uma conta.\n\nPara consultas formais: contacto@shopeando.cl`,
       },
       {
         heading: "10. Segurança",
-        body: `O Site funciona inteiramente no lado do cliente (navegador). Sem base de dados própria nem contas de utilizador, o risco de vazamento de dados pessoais é mínimo. As comunicações com os serviços de terceiros mencionados são realizadas através de ligações HTTPS cifradas.`,
+        body: `O Site utiliza uma base de dados para guardar opiniões públicas, com acesso limitado à API do Site. Não há contas de utilizador e não guardamos nomes ou dados de contacto para as opiniões. As comunicações com o Site e os serviços de terceiros são realizadas através de ligações HTTPS cifradas.`,
       },
       {
         heading: "11. Atualizações desta política",

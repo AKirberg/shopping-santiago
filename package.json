@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "start": "vite --host 0.0.0.0",
+    "dev": "node server.mjs",
+    "start": "NODE_ENV=production node server.mjs",
     "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender-seo-pages.js && node scripts/validate-seo-pages.js && node scripts/validate-umami-analytics.js",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.js",
@@ -13,8 +13,10 @@
     "validate-seo": "node scripts/validate-seo-pages.js"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.468.0",
+    "pg": "^8.23.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-leaflet": "^5.0.0"

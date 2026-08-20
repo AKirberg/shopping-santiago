@@ -16,6 +16,7 @@ import { mallMapsUrl, routeMapsUrl } from "../utils/maps";
 import { comparisonPath, guidePath, mallPath, routePath } from "../utils/publicRoutes";
 import Header from "./Header";
 import Footer from "./Footer";
+import ReviewSection from "./ReviewSection";
 
 const SITE_URL = "https://www.shopeando.cl";
 const HAS_PRERENDERED_HEAD =
@@ -341,6 +342,7 @@ function MallDetailPage({ mall, isOutlet }) {
             </div>
 
             <StoreList stores={mall.stores} />
+            <ReviewSection mallId={mall.id} />
 
             {/* Related routes */}
             {relatedRoutes.length > 0 && (

@@ -1,5 +1,5 @@
 run = "npm run dev"
-modules = ["nodejs-20", "python-base-3.13"]
+modules = ["nodejs-20", "python-base-3.13", "postgresql-16"]
 
 [nix]
 channel = "stable-24_05"
@@ -56,9 +56,10 @@ args = "npm run dev"
 waitForPort = 5000
 
 [deployment]
-deploymentTarget = "static"
+deploymentTarget = "autoscale"
 build = ["npm", "run", "build"]
 publicDir = "dist"
+run = ["npm", "run", "start"]
 
 [postMerge]
 path = "scripts/post-merge.sh"
