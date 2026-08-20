@@ -52,12 +52,24 @@ export function ReviewSummary({ mallId }) {
     return () => controller.abort();
   }, [mallId]);
 
-  if (!summary?.count) return null;
+  const average = summary?.average || 0;
+  const count = summary?.count || 0;
   return (
-    <span className="flex items-center gap-1 text-xs font-bold text-gold" aria-label={t.reviews.summary.replace("{average}", formatAverage(summary.average, lang)).replace("{count}", summary.count)}>
-      <ShoppingBag size={12} fill="currentColor" aria-hidden="true" />
-      {formatAverage(summary.average, lang)} <span className="text-ink/35">({summary.count})</span>
-    </span>
+    <div
+      className="flex items-center gap-2"
+      aria-label={count
+        ? t.reviews.summary.replace("{average}", formatAverage(average, lang)).replace("{count}", count)
+        : t.reviews.noReviews}
+    >
+      <span className="flex items-center gap-0.5 text-gold" aria-hidden="true">
+        {[1, 2, 3, 4, 5].map((score) => (
+          <ShoppingBag key={score} size={13} fill={score <= Math.round(average) ? "currentColor" : "none"} />
+        ))}
+      </span>
+      <span className="text-xs font-bold text-ink/50">
+        {count ? `${formatAverage(average, lang)} · ${count}` : t.reviews.noReviews}
+      </span>
+    </div>
   );
 }
 

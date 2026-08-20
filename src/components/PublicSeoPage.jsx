@@ -16,7 +16,7 @@ import { mallMapsUrl, routeMapsUrl } from "../utils/maps";
 import { comparisonPath, guidePath, mallPath, routePath } from "../utils/publicRoutes";
 import Header from "./Header";
 import Footer from "./Footer";
-import ReviewSection from "./ReviewSection";
+import ReviewSection, { ReviewSummary } from "./ReviewSection";
 
 const SITE_URL = "https://www.shopeando.cl";
 const HAS_PRERENDERED_HEAD =
@@ -572,6 +572,9 @@ function MallListCard({ mall, href, badge }) {
           )}
         </div>
       </a>
+      <div className="border-b border-ink/6 bg-white px-4 py-2.5">
+        <ReviewSummary mallId={mall.id} />
+      </div>
       <div className="p-4">
         <p className="text-sm leading-relaxed text-ink/55 line-clamp-2">{mall.description}</p>
         <div className="mt-3 flex items-center gap-2 border-t border-ink/6 pt-3">

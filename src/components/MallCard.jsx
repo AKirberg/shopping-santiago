@@ -77,6 +77,10 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
         )}
       </a>
 
+      <div className="border-b border-ink/6 bg-white px-4 py-2.5">
+        <ReviewSummary mallId={mall.id} />
+      </div>
+
       <div className="flex flex-1 flex-col p-4">
         <div className="flex flex-wrap items-center gap-1.5">
           {mall.touristZone === "turistico" && (
@@ -128,10 +132,6 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
             </span>
           )}
         </div>
-        <div className="mt-2">
-          <ReviewSummary mallId={mall.id} />
-        </div>
-
         <div className="mt-4 flex items-center gap-2 border-t border-ink/6 pt-3.5">
           {/* Canonical crawlable link — opens modal on home via onClick */}
           <a
