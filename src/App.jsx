@@ -225,7 +225,6 @@ function App() {
           onRequestLocation={() => setTriggerAddressOpen(true)}
         />
         <RoutesSection routes={routes} malls={malls} />
-        <GalleriesSection />
 
         <section id="malls" className="section-shell">
           <div className="mb-8 grid gap-5 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
@@ -245,6 +244,7 @@ function App() {
         </section>
 
         <CompareMalls malls={malls} selectedIds={compareIds} setSelectedIds={setCompareIds} />
+        <GalleriesSection />
         <TouristTips />
       </main>
       <Footer />

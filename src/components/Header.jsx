@@ -13,9 +13,9 @@ function Header({ isPublicPage = false }) {
   const navItems = [
     [nav.quiz, `${prefix}#quiz`],
     [nav.routes, `${prefix}#rutas`],
-    [nav.galleries, `${prefix}#galerias`],
     [nav.malls, `${prefix}#malls`],
     [nav.compare, `${prefix}#comparar`],
+    [nav.galleries, `${prefix}#galerias`],
     [nav.tips, `${prefix}#consejos`],
   ];
 
