@@ -2,109 +2,143 @@
   {
     "id": "primera-vez-santiago",
     "title": "Primera vez en Santiago",
-    "summary": "Una ruta simple para combinar compras, vista urbana y comida en una zona facil de ubicar para visitantes.",
-    "duration": "3-5 horas",
-    "bestFor": ["Turistas", "Primera visita", "Compras + paseo"],
+    "summary": "Ruta de compras, gastronomía y vista panorámica en Cenco Costanera.",
+    "duration": null,
+    "bestFor": [
+      "Compras",
+      "Gastronomía",
+      "Vista panorámica"
+    ],
     "stops": [
       {
         "mallId": "costanera-center",
-        "note": "Empieza con compras variadas y deja tiempo para subir a Sky Costanera si quieres sumar una vista panoramica."
+        "note": "Cenco Costanera permite combinar compras y comida con Sky Costanera, un mirador 360° dentro del complejo."
       }
     ],
-    "tips": ["Funciona muy bien si estas alojando en Providencia o Las Condes."]
+    "tips": [
+      "Considera Sky Costanera si quieres añadir una vista panorámica a la ruta."
+    ]
   },
   {
     "id": "compras-premium",
     "title": "Compras premium",
-    "summary": "Circuito para quienes buscan marcas, gastronomia y una experiencia mas sofisticada en el sector oriente.",
-    "duration": "4-7 horas",
-    "bestFor": ["Premium", "Moda", "Gastronomia"],
+    "summary": "Ruta que combina la moda internacional, el Distrito de Lujo y el Boulevard de Parque Arauco con la experiencia boutique de Casacostanera.",
+    "duration": null,
+    "bestFor": [
+      "Moda internacional",
+      "Compras boutique",
+      "Gastronomía"
+    ],
     "stops": [
       {
         "mallId": "parque-arauco",
-        "note": "Base principal para moda, comida y una experiencia completa."
+        "note": "Parque Arauco ofrece moda internacional, Distrito de Lujo y Boulevard gastronómico."
       },
       {
         "mallId": "casacostanera",
-        "note": "Escala boutique para combinar con Nueva Costanera o Alonso de Cordova."
+        "note": "Casacostanera reúne más de 80 tiendas con moda, belleza, decoración y gastronomía en formato boutique."
       }
     ],
-    "tips": ["Conviene usar taxi/Uber entre puntos si tienes poco tiempo."]
+    "tips": [
+      "Consulta los directorios oficiales porque la oferta de tiendas puede cambiar."
+    ]
   },
   {
     "id": "outlet-day",
-    "title": "Outlet Day",
-    "summary": "Dia orientado a descuentos, ideal para ir con lista de compras y transporte planificado.",
-    "duration": "5-8 horas",
-    "bestFor": ["Descuentos", "Outlet", "Compras planificadas"],
+    "title": "Día de outlets",
+    "summary": "Ruta por dos centros outlet de moda y deporte con descuentos.",
+    "duration": null,
+    "bestFor": [
+      "Outlets",
+      "Descuentos",
+      "Moda y deporte"
+    ],
     "stops": [
       {
         "mallId": "easton-outlet-mall",
-        "note": "Comienza comparando marcas y tallas sin apuro."
+        "note": "Easton incluye marcas como Nike, Adidas, Puma y Skechers."
       },
       {
         "mallId": "arauco-premium-outlet-buenaventura",
-        "note": "Complementa la busqueda de precios y revisa politicas de cambio por tienda."
+        "note": "Buenaventura declara una mezcla de moda, deporte y hogar con descuentos."
       }
     ],
-    "tips": ["Considera taxi/Uber o auto, y confirma horarios oficiales antes de salir."]
+    "tips": [
+      "Consulta horarios y directorios oficiales, ya que el inventario y las ofertas son volátiles."
+    ]
   },
   {
     "id": "familia-con-ninos",
     "title": "Familia con niños",
-    "summary": "Ruta comoda para mezclar compras, comida y una experiencia mas activa para niños.",
-    "duration": "4-6 horas",
-    "bestFor": ["Familias", "Niños", "Compras + actividad"],
+    "summary": "Ruta que combina la experiencia familiar de Parque Arauco con el foco deportivo, los eventos y Laguna Mall Sport.",
+    "duration": null,
+    "bestFor": [
+      "Familias",
+      "Deporte",
+      "Eventos"
+    ],
     "stops": [
       {
         "mallId": "parque-arauco",
-        "note": "Buena base para compras, comida y paseo."
+        "note": "Parque Arauco presenta una experiencia familiar con compras y gastronomía."
       },
       {
         "mallId": "mall-sport",
-        "note": "Agrega foco deportivo y actividades para cambiar el ritmo del dia."
+        "note": "Mall Sport aporta tiendas deportivas, eventos y Laguna Mall Sport."
       }
     ],
-    "tips": ["Evita horas punta si vas en auto por el sector oriente."]
+    "tips": [
+      "Revisa la programación vigente de Mall Sport antes de visitar."
+    ]
   },
   {
     "id": "dia-de-lluvia",
-    "title": "Dia de lluvia",
-    "summary": "Opciones cubiertas para resolver compras, comida y paseo sin depender del clima.",
-    "duration": "3-5 horas",
-    "bestFor": ["Lluvia", "Familias", "Compras comodas"],
+    "title": "Compras y gastronomía",
+    "summary": "Ruta que combina la variedad de Cenco Costanera con Alto Diseño y Mirador en Cenco Alto las Condes.",
+    "duration": null,
+    "bestFor": [
+      "Compras",
+      "Gastronomía",
+      "Variedad de tiendas"
+    ],
     "stops": [
       {
         "mallId": "costanera-center",
-        "note": "Practico si priorizas metro y ubicacion central."
+        "note": "Cenco Costanera ofrece compras y gastronomía."
       },
       {
         "mallId": "alto-las-condes",
-        "note": "Comodo si estas en el sector oriente y vas en auto o taxi/Uber."
+        "note": "Cenco Alto las Condes cuenta con Alto Diseño, Mirador y tiendas como Falabella, Jumbo y Paris."
       }
     ],
-    "tips": ["Elige segun tu zona de alojamiento para no perder tiempo en traslados."]
+    "tips": []
   },
   {
     "id": "compras-rapidas-cerca-de-hotel",
-    "title": "Compras rapidas cerca de hotel",
-    "summary": "Una ruta flexible para resolver compras en pocas horas segun donde estes alojando.",
-    "duration": "1-3 horas",
-    "bestFor": ["Poco tiempo", "Hoteles", "Compras practicas"],
+    "title": "Selección de compras especializadas",
+    "summary": "Ruta de variedad en Cenco Costanera, deporte en Mall Sport y experiencia boutique en Casacostanera.",
+    "duration": null,
+    "bestFor": [
+      "Variedad",
+      "Deporte",
+      "Compras boutique"
+    ],
     "stops": [
       {
         "mallId": "costanera-center",
-        "note": "Providencia o Las Condes: opcion directa y facil de explicar."
+        "note": "Cenco Costanera ofrece tiendas y gastronomía."
       },
       {
         "mallId": "mall-sport",
-        "note": "Las Condes / Kennedy: Mall Sport cubre bien el eje Kennedy."
+        "note": "Mall Sport se especializa en categorías deportivas y equipamiento."
       },
       {
         "mallId": "casacostanera",
-        "note": "Vitacura: escala breve para compras boutique o comida."
+        "note": "Casacostanera ofrece moda, belleza, decoración y gastronomía en formato boutique."
       }
     ],
-    "tips": ["Prioriza el mall mas cercano si solo tienes 3 horas o menos."]
+    "tips": [
+      "Elige las paradas según la categoría de compra que buscas."
+    ]
   }
 ]

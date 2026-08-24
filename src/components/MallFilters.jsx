@@ -7,8 +7,8 @@ const defaultFilters = { query: "", commune: "Todas", category: "Todas", outlet:
 function MallFilters({ filters, setFilters, malls }) {
   const { t } = useLanguage();
   const f = t.filters;
-  const communes = [f.all, ...new Set(malls.map(m => m.commune))];
-  const categories = [f.all, ...new Set(malls.flatMap(m => m.categories))].sort();
+  const communes = [f.all, ...new Set(malls.map(m => m.commune).filter(Boolean))];
+  const categories = [f.all, ...new Set(malls.flatMap(m => Array.isArray(m.categories) ? m.categories : []).filter(Boolean))].sort();
 
   return (
     <div className="rounded-2xl border border-ink/8 bg-white p-4 shadow-card">

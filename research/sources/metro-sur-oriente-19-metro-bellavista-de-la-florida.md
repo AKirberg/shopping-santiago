@@ -1,0 +1,10 @@
+Source: https://www.metro.cl/el-viaje/estaciones/?estacion=BLF
+Title: Estaciones - El Viaje - Metro de Santiago
+Fetched: 2026-08-24T15:52:58.576Z
+
+Estaciones
+
+Ver ficha estación
+
+
+San PabloNeptunoPajaritosLas RejasEcuadorSan Alberto HurtadoUniversidad de SantiagoEstación CentralULARepúblicaLos HéroesLa MonedaUniversidad de ChileSanta LucíaUniversidad CatólicaBaquedanoSalvadorManuel MonttPedro de ValdiviaLos LeonesTobalabaEl GolfAlcántaraEscuela MilitarManquehueHernando de MagallanesLos DominicosHospital El PinoCopa Lo MartinezObservatorioEl BosqueLa CisternaEl ParrónLo OvalleCiudad del NiñoDepartamentalLo VialSan MiguelEl LlanoFranklinRondizzoniParque O'HigginsToescaLos HéroesSanta AnaPuente Cal y CantoPatronatoCerro BlancoCementeriosEinsteinDorsalZapadoresVespucio NortePlaza QuilicuraLo CruzatFerrocarrilLos LibertadoresCardenal CaroVivacetaConchalíPlaza ChacabucoHospitalesPuente Cal y Canto L3Plaza de Armas L3Universidad de Chile L3Parque AlmagroMattaIrarrázaval L3Monseñor EyzaguirreÑuñoa L3Chile-EspañaVilla FreiPlaza Egaña L3Fernando Castillo VelascoTobalabaCristóbal ColónFrancisco BilbaoPríncipe de GalesSimón BolivarPlaza EgañaLos OrientalesGreciaLos PresidentesQuilínLas TorresMaculVicuña MackennaVicente ValdésRojas MagallanesTrinidadSan José de la EstrellaLos QuillayesElisa CorreaHospital Sótero del RíoProtectora de la InfanciaLas MercedesPlaza de Puente AltoVicuña MackennaSanta JuliaLa GranjaSanta RosaSan RamónLa CisternaPlaza de MaipúSantiago BuerasDel SolMonte TaborLas ParcelasLaguna SurBarrancasPudahuelSan PabloLo PradoBlanqueadoGruta de LourdesQuinta NormalCummingSanta AnaPlaza de ArmasBellas ArtesBaquedanoParque BustamanteSanta IsabelIrarrázavalÑubleRodrigo de ArayaCarlos ValdovinosCamino AgrícolaSan JoaquínPedreroMiradorBellavista de La FloridaVicente ValdésCerrillosLo ValledorPedro Aguirre CerdaFranklinBío BíoÑubleEstadio NacionalÑuñoaInés de SuárezLos Leones

@@ -1,26 +1,23 @@
 [
   {
     "id": "costanera-center",
-    "name": "Costanera Center",
+    "name": "Cenco Costanera",
     "commune": "Providencia",
-    "mapsQuery": "Costanera Center Santiago",
+    "mapsQuery": "Cenco Costanera, Andrés Bello 2425, Providencia",
     "type": [
       "tourist",
       "variety",
-      "metro",
       "fashion",
       "food",
       "quick"
     ],
-    "description": "Uno de los malls mas reconocibles para turistas, con mucha variedad, conexion conveniente y una mezcla practica de compras, comida y paseo urbano.",
+    "description": "Centro comercial de seis niveles con más de 300 tiendas, supermercado Jumbo y 12 salas de cine. Sky Costanera funciona dentro del complejo.",
     "bestFor": [
-      "Primera visita",
-      "Compras rapidas",
-      "Turistas sin auto"
+      "Variedad de tiendas",
+      "Cine",
+      "Sky Costanera"
     ],
-    "notIdealFor": [
-      "Quienes buscan tranquilidad en hora punta"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "tecnologia",
@@ -29,13 +26,13 @@
       "regalos"
     ],
     "transport": {
-      "metro": "Cercano a estacion Tobalaba.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "2-4 horas",
-    "priceLevel": "medio",
-    "touristScore": 9,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
@@ -44,7 +41,7 @@
       "Sky Costanera"
     ],
     "tips": [
-      "Ideal si estas alojando en Providencia o Las Condes."
+      "Consulta los horarios oficiales, que pueden variar por local."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/costanera-center.jpg",
@@ -54,15 +51,19 @@
     "lng": -70.6055,
     "stores": [
       {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "Abercrombie & Fitch",
+        "cat": "other"
+      },
+      {
+        "name": "Aldo",
+        "cat": "other"
+      },
+      {
         "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
         "cat": "anchor"
       },
       {
@@ -70,107 +71,15 @@
         "cat": "anchor"
       },
       {
-        "name": "Zara",
-        "cat": "fashion"
+        "name": "Paris",
+        "cat": "anchor"
       },
       {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Forever 21",
-        "cat": "fashion"
-      },
-      {
-        "name": "Bershka",
-        "cat": "fashion"
-      },
-      {
-        "name": "Pull&Bear",
-        "cat": "fashion"
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "New Balance",
-        "cat": "sport"
-      },
-      {
-        "name": "Fila",
-        "cat": "sport"
-      },
-      {
-        "name": "iShop (Apple)",
-        "cat": "tech"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Falabella Tech",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Juan Valdez",
-        "cat": "food"
-      },
-      {
-        "name": "TGI Fridays",
-        "cat": "food"
-      },
-      {
-        "name": "Sephora",
-        "cat": "other"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Tous",
-        "cat": "other"
+        "name": "Ripley",
+        "cat": "anchor"
       }
     ],
-    "officialUrl": "https://www.costaneracenter.cl"
+    "officialUrl": "https://www.cencomalls.cl/costanera"
   },
   {
     "id": "parque-arauco",
@@ -184,15 +93,13 @@
       "food",
       "tourist"
     ],
-    "description": "Una experiencia de compra completa y mas pausada, con buena oferta gastronomica, marcas reconocidas y espacios comodos para combinar compras y paseo.",
+    "description": "Centro comercial de Las Condes con tiendas, gastronomía, eventos y estacionamiento. Su oferta oficial incluye Piso Diseño, Distrito de Lujo, Bazar Gourmet y Boulevard.",
     "bestFor": [
-      "Marcas premium",
-      "Comer bien",
-      "Familias"
+      "Distrito de Lujo",
+      "Gastronomía",
+      "Eventos"
     ],
-    "notIdealFor": [
-      "Visitas muy cortas sin transporte flexible"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "lujo",
@@ -201,23 +108,20 @@
       "deporte"
     ],
     "transport": {
-      "metro": "Requiere combinar metro con caminata, bus o viaje corto en taxi/Uber.",
-      "uber": true,
+      "metro": null,
+      "uber": null,
       "parking": true
     },
     "recommendedTime": "3-5 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 9,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": true,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Parque Araucano",
-      "Distrito de restaurantes de Las Condes"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "Buen punto para una tarde de compras con comida incluida."
+      "La futura estación Parque Araucano de la Línea 7 aún no está operativa."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/parque-arauco.jpg",
@@ -225,134 +129,27 @@
     "touristZone": "turistico",
     "lat": -33.4023,
     "lng": -70.5773,
-    "stores": [
-      {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Forever 21",
-        "cat": "fashion"
-      },
-      {
-        "name": "Lacoste",
-        "cat": "fashion"
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "cat": "fashion"
-      },
-      {
-        "name": "Hugo Boss",
-        "cat": "fashion"
-      },
-      {
-        "name": "Calvin Klein",
-        "cat": "fashion"
-      },
-      {
-        "name": "Ralph Lauren",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "Under Armour",
-        "cat": "sport"
-      },
-      {
-        "name": "iShop (Apple)",
-        "cat": "tech"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Sushi Pop",
-        "cat": "food"
-      },
-      {
-        "name": "Louis Vuitton",
-        "cat": "other"
-      },
-      {
-        "name": "Gucci",
-        "cat": "other"
-      },
-      {
-        "name": "Sephora",
-        "cat": "other"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      }
-    ],
-    "officialUrl": "https://www.parqueArauco.cl"
+    "stores": [],
+    "officialUrl": "https://www.parquearauco.cl/"
   },
   {
     "id": "alto-las-condes",
-    "name": "Alto Las Condes",
+    "name": "Cenco Alto las Condes",
     "commune": "Las Condes",
-    "mapsQuery": "Alto Las Condes Santiago",
+    "mapsQuery": "Cenco Alto las Condes, Av. Presidente Kennedy Lateral 9001, Las Condes",
     "type": [
       "family",
       "variety",
       "food",
       "parking"
     ],
-    "description": "Mall amplio y comodo para compras planificadas, familias y quienes se mueven en auto por el sector oriente.",
+    "description": "Centro comercial de Las Condes con los espacios Alto Diseño y Mirador. Tiene accesos por Presidente Kennedy Lateral, Padre Hurtado y Gilberto Fuenzalida.",
     "bestFor": [
-      "Familias",
-      "Dia de lluvia",
-      "Compras tranquilas"
+      "Alto Diseño",
+      "Mirador",
+      "Compras en tiendas ancla"
     ],
-    "notIdealFor": [
-      "Turistas que dependen solo de metro"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "tecnologia",
@@ -361,22 +158,20 @@
       "supermercado/farmacia"
     ],
     "transport": {
-      "metro": "No es la opcion mas directa en metro; conviene combinar con taxi/Uber o auto.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "3-5 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 7,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Sector cordillera de Las Condes"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "Conveniente si estas alojando hacia Las Condes alto o vas en auto."
+      "Consulta los horarios oficiales, que pueden variar por local."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/alto-las-condes.jpg",
@@ -386,15 +181,19 @@
     "lng": -70.5461,
     "stores": [
       {
+        "name": "Adidas",
+        "cat": "sport"
+      },
+      {
+        "name": "American Eagle",
+        "cat": "fashion"
+      },
+      {
+        "name": "Aldo",
+        "cat": "other"
+      },
+      {
         "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
         "cat": "anchor"
       },
       {
@@ -402,99 +201,11 @@
         "cat": "anchor"
       },
       {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Louis Vuitton",
-        "cat": "fashion"
-      },
-      {
-        "name": "Hermès",
-        "cat": "fashion"
-      },
-      {
-        "name": "Prada",
-        "cat": "fashion"
-      },
-      {
-        "name": "Michael Kors",
-        "cat": "fashion"
-      },
-      {
-        "name": "Armani",
-        "cat": "fashion"
-      },
-      {
-        "name": "Valentino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "The North Face",
-        "cat": "sport"
-      },
-      {
-        "name": "iShop (Apple)",
-        "cat": "tech"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Crepería del Alto",
-        "cat": "food"
-      },
-      {
-        "name": "Osaka",
-        "cat": "food"
-      },
-      {
-        "name": "Cartier",
-        "cat": "other"
-      },
-      {
-        "name": "Bulgari",
-        "cat": "other"
-      },
-      {
-        "name": "Sephora",
-        "cat": "other"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
+        "name": "Paris",
+        "cat": "anchor"
       }
     ],
-    "officialUrl": "https://www.altolascondes.cl"
+    "officialUrl": "https://www.cencomalls.cl/altolascondes"
   },
   {
     "id": "casacostanera",
@@ -507,15 +218,13 @@
       "food",
       "calm"
     ],
-    "description": "Formato boutique y sofisticado, pensado para una experiencia mas tranquila, con foco en moda, diseno, lifestyle y gastronomia.",
+    "description": "Centro comercial de Vitacura con más de 80 tiendas y una experiencia boutique de moda, belleza, decoración, entretención y gastronomía. Incluye un paseo al aire libre y estacionamiento.",
     "bestFor": [
-      "Experiencia premium",
       "Compras boutique",
-      "Paseo en Vitacura"
+      "Moda y decoración",
+      "Paseo al aire libre"
     ],
-    "notIdealFor": [
-      "Quienes buscan maxima variedad en poco tiempo"
-    ],
+    "notIdealFor": [],
     "categories": [
       "lujo",
       "ropa",
@@ -523,23 +232,20 @@
       "regalos"
     ],
     "transport": {
-      "metro": "Conviene llegar en taxi/Uber o auto desde estaciones cercanas.",
-      "uber": true,
+      "metro": null,
+      "uber": null,
       "parking": true
     },
     "recommendedTime": "1-3 horas",
-    "priceLevel": "alto",
-    "touristScore": 7,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": false,
     "premium": true,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Nueva Costanera",
-      "Alonso de Cordova"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "Muy buena escala si buscas un circuito premium en Vitacura."
+      "Dispone de lactancia, sillas de ruedas y lockers."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/casacostanera.jpg",
@@ -549,67 +255,23 @@
     "lng": -70.5986,
     "stores": [
       {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "cat": "fashion"
-      },
-      {
-        "name": "Guess",
-        "cat": "fashion"
-      },
-      {
-        "name": "Calzedonia",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "PizzaPizza",
-        "cat": "food"
-      },
-      {
-        "name": "Sushi Itto",
-        "cat": "food"
-      },
-      {
-        "name": "Tous",
+        "name": "Artesanías de Chile",
         "cat": "other"
       },
       {
-        "name": "Pandora",
+        "name": "Banana Republic",
+        "cat": "other"
+      },
+      {
+        "name": "Bimba y Lola",
+        "cat": "other"
+      },
+      {
+        "name": "Casaideas",
+        "cat": "other"
+      },
+      {
+        "name": "Cinépolis",
         "cat": "other"
       }
     ],
@@ -619,21 +281,21 @@
     "id": "mall-sport",
     "name": "Mall Sport",
     "commune": "Las Condes",
-    "mapsQuery": "Mall Sport Las Condes Santiago",
+    "mapsQuery": "Mall Sport, Av. Las Condes 13451, Las Condes",
     "type": [
       "sport",
       "family",
       "experience",
       "parking"
     ],
-    "description": "Centro enfocado en deporte, actividades y tiendas especializadas. Funciona bien para familias y compras de outdoor, zapatillas o equipamiento.",
+    "description": "Centro comercial especializado en deporte, con categorías de acuático, alta montaña, ciclismo, escalada, ski/snowboard y surf. Laguna Mall Sport forma parte de su programación oficial.",
     "bestFor": [
-      "Deporte",
-      "Familias con ninos",
-      "Experiencias activas"
+      "Equipamiento deportivo",
+      "Ciclismo y montaña",
+      "Laguna Mall Sport"
     ],
     "notIdealFor": [
-      "Quienes buscan moda general o lujo"
+      "Compras generales no deportivas"
     ],
     "categories": [
       "deporte",
@@ -642,22 +304,20 @@
       "comida"
     ],
     "transport": {
-      "metro": "Conviene combinar con taxi/Uber o llegar en auto.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "2-4 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 7,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Sector oriente de Las Condes"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "Buena alternativa para cortar una ruta familiar con algo mas entretenido."
+      "Revisa la programación oficial de Laguna Mall Sport antes de visitar."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-sport.jpg",
@@ -667,43 +327,11 @@
     "lng": -70.5067,
     "stores": [
       {
-        "name": "Decathlon",
-        "cat": "anchor"
-      },
-      {
-        "name": "Columbia",
-        "cat": "fashion"
-      },
-      {
         "name": "The North Face",
-        "cat": "fashion"
-      },
-      {
-        "name": "Patagonia",
-        "cat": "fashion"
-      },
-      {
-        "name": "Quiksilver",
-        "cat": "fashion"
-      },
-      {
-        "name": "Billabong",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
         "cat": "sport"
       },
       {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "New Balance",
-        "cat": "sport"
-      },
-      {
-        "name": "Reebok",
+        "name": "Sparta",
         "cat": "sport"
       },
       {
@@ -711,40 +339,12 @@
         "cat": "sport"
       },
       {
-        "name": "Puma",
+        "name": "Trek Bicycle Store",
         "cat": "sport"
       },
       {
-        "name": "Asics",
+        "name": "Patagonia",
         "cat": "sport"
-      },
-      {
-        "name": "Skechers",
-        "cat": "sport"
-      },
-      {
-        "name": "Brooks",
-        "cat": "sport"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Juan Valdez",
-        "cat": "food"
-      },
-      {
-        "name": "GoPro",
-        "cat": "other"
-      },
-      {
-        "name": "Leatherman",
-        "cat": "other"
       }
     ],
     "officialUrl": "https://www.mallsport.cl"
@@ -752,23 +352,20 @@
   {
     "id": "easton-outlet-mall",
     "name": "Easton Outlet Mall",
-    "commune": "Quilicura",
-    "mapsQuery": "Easton Outlet Mall Quilicura Santiago",
+    "commune": null,
+    "mapsQuery": "Easton Outlet Mall, Salida San Ignacio, Ruta 5 Norte",
     "type": [
       "outlet",
       "discount",
       "fashion",
       "parking"
     ],
-    "description": "Opcion de outlet para dedicar varias horas a buscar oportunidades, especialmente si el objetivo principal es precio.",
+    "description": "Centro comercial en formato outlet, con acceso principal por Salida San Ignacio en Ruta 5 Norte. Cuenta con estacionamiento gratuito.",
     "bestFor": [
-      "Descuentos",
-      "Outlet day",
-      "Compras con auto"
+      "Compras outlet",
+      "Moda y deporte con descuento"
     ],
-    "notIdealFor": [
-      "Visitas muy cortas o sin transporte flexible"
-    ],
+    "notIdealFor": [],
     "categories": [
       "outlet",
       "ropa",
@@ -776,20 +373,20 @@
       "deporte"
     ],
     "transport": {
-      "metro": "No es la opcion mas directa en metro; conviene planificar taxi/Uber o auto.",
-      "uber": true,
+      "metro": null,
+      "uber": null,
       "parking": true
     },
     "recommendedTime": "3-5 horas",
-    "priceLevel": "bajo-medio",
-    "touristScore": 7,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": true,
     "foodExperience": false,
     "nearbyAttractions": [],
     "tips": [
-      "Conviene ir con lista de marcas y revisar politicas de cambio por tienda."
+      "Consulta el directorio y los horarios oficiales antes de visitar."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/easton-outlet-mall.jpg",
@@ -799,71 +396,35 @@
     "lng": -70.7122,
     "stores": [
       {
-        "name": "Falabella Outlet",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley Outlet",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara Outlet",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M Outlet",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango Outlet",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Kevingston",
-        "cat": "fashion"
-      },
-      {
         "name": "Adidas Outlet",
         "cat": "sport"
       },
       {
-        "name": "Nike Outlet",
+        "name": "Calvin Klein",
+        "cat": "fashion"
+      },
+      {
+        "name": "Nike",
         "cat": "sport"
       },
       {
-        "name": "Puma Outlet",
+        "name": "Puma",
         "cat": "sport"
       },
       {
-        "name": "Fila Outlet",
+        "name": "New Balance",
         "cat": "sport"
       },
       {
-        "name": "Starbucks",
-        "cat": "food"
+        "name": "Skechers",
+        "cat": "sport"
       },
       {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "Telepizza",
-        "cat": "food"
-      },
-      {
-        "name": "Skechers Outlet",
-        "cat": "other"
+        "name": "Tommy Hilfiger",
+        "cat": "fashion"
       }
     ],
-    "officialUrl": "https://www.eastonoutlet.cl"
+    "officialUrl": "https://www.eastonmallsantiago.cl/"
   },
   {
     "id": "arauco-premium-outlet-buenaventura",
@@ -876,15 +437,12 @@
       "fashion",
       "parking"
     ],
-    "description": "Ruta clasica para quienes priorizan descuentos y quieren comparar varias tiendas en formato outlet.",
+    "description": "Outlet de Quilicura con diseño abierto y una mezcla de moda, deporte y hogar, que presenta marcas de lujo con descuentos. Ofrece bicicletero, lockers, wifi y estacionamiento accesible.",
     "bestFor": [
-      "Outlet",
-      "Mejor precio",
-      "Compras planificadas"
+      "Marcas con descuento",
+      "Moda, deporte y hogar"
     ],
-    "notIdealFor": [
-      "Experiencia premium o paseo gastronomico"
-    ],
+    "notIdealFor": [],
     "categories": [
       "outlet",
       "ropa",
@@ -893,20 +451,20 @@
       "regalos"
     ],
     "transport": {
-      "metro": "Conviene taxi/Uber o auto; revisar alternativas antes de salir.",
-      "uber": true,
+      "metro": null,
+      "uber": null,
       "parking": true
     },
     "recommendedTime": "3-5 horas",
-    "priceLevel": "bajo-medio",
-    "touristScore": 7,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": true,
     "foodExperience": false,
     "nearbyAttractions": [],
     "tips": [
-      "Combina bien con Easton si quieres dedicar un dia a outlets."
+      "Consulta el directorio oficial, ya que la oferta puede cambiar."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/arauco-premium-outlet-buenaventura.jpg",
@@ -916,231 +474,41 @@
     "lng": -70.704,
     "stores": [
       {
-        "name": "Polo Ralph Lauren",
-        "cat": "fashion"
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "cat": "fashion"
-      },
-      {
         "name": "Calvin Klein",
         "cat": "fashion"
       },
       {
-        "name": "Lacoste",
-        "cat": "fashion"
-      },
-      {
         "name": "Guess",
-        "cat": "fashion"
-      },
-      {
-        "name": "Levi's",
-        "cat": "fashion"
-      },
-      {
-        "name": "Benetton",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas Outlet",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike Outlet",
-        "cat": "sport"
-      },
-      {
-        "name": "New Balance Outlet",
-        "cat": "sport"
-      },
-      {
-        "name": "Under Armour Outlet",
-        "cat": "sport"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Skechers Outlet",
         "cat": "other"
-      },
-      {
-        "name": "Swarovski",
-        "cat": "other"
-      },
-      {
-        "name": "Tous",
-        "cat": "other"
-      }
-    ],
-    "officialUrl": "https://www.araucooutlet.cl"
-  },
-  {
-    "id": "mallplaza-egana",
-    "name": "Mallplaza Egana",
-    "commune": "La Reina",
-    "mapsQuery": "Mallplaza Egaña, Avenida Larraín 5862, La Reina, Santiago",
-    "type": [
-      "metro",
-      "family",
-      "variety",
-      "food"
-    ],
-    "description": "Mall practico y bien conectado para compras variadas, comida y una salida comoda si estas hacia Nunoa, La Reina o Providencia oriente.",
-    "bestFor": [
-      "Conexion en metro",
-      "Familias",
-      "Compras de medio dia"
-    ],
-    "notIdealFor": [
-      "Quienes buscan lujo o outlet"
-    ],
-    "categories": [
-      "ropa",
-      "tecnologia",
-      "comida",
-      "supermercado/farmacia",
-      "regalos"
-    ],
-    "transport": {
-      "metro": "Cercano a estacion Plaza Egana.",
-      "uber": true,
-      "parking": true
-    },
-    "recommendedTime": "2-4 horas",
-    "priceLevel": "medio",
-    "touristScore": 7,
-    "familyFriendly": true,
-    "premium": false,
-    "outlet": false,
-    "foodExperience": true,
-    "nearbyAttractions": [
-      "Plaza Egana"
-    ],
-    "tips": [
-      "Buena alternativa si quieres evitar sectores mas turisticos."
-    ],
-    "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-egana.jpg",
-    "foodLevel": "gastronomico",
-    "touristZone": "turistico",
-    "lat": -33.4527278,
-    "lng": -70.5698297,
-    "stores": [
-      {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
-        "cat": "anchor"
-      },
-      {
-        "name": "Jumbo",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
-        "name": "Chevignon",
-        "cat": "fashion"
       },
       {
         "name": "Adidas",
         "cat": "sport"
       },
       {
-        "name": "Nike",
+        "name": "Asics",
         "cat": "sport"
-      },
-      {
-        "name": "Fila",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Falabella Tech",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Telepizza",
-        "cat": "food"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Pharmaton",
-        "cat": "other"
       }
     ],
-    "officialUrl": "https://mallplaza.cl/mallplaza-egana"
+    "officialUrl": "https://www.araucopremiumoutletbuenaventura.cl/"
   },
   {
-    "id": "florida-center",
-    "name": "Florida Center",
-    "commune": "La Florida",
-    "mapsQuery": "Florida Center La Florida Santiago",
+    "id": "mallplaza-egana",
+    "name": "Mallplaza Egaña",
+    "commune": "La Reina",
+    "mapsQuery": "Mallplaza Egaña, La Reina",
     "type": [
       "metro",
       "family",
       "variety",
-      "services"
+      "food"
     ],
-    "description": "Mall amplio del sector suroriente, util para compras variadas, servicios y visitas familiares con buena conexion urbana.",
+    "description": "Centro comercial de La Reina con Cinépolis, gastronomía, entretención y servicio Click & Collect. La estación Plaza Egaña combina las líneas 3 y 4 y tiene acceso señalizado como Mall.",
     "bestFor": [
-      "Familias",
-      "Variedad",
-      "Compras practicas"
+      "Conexión con Metro L3 y L4",
+      "Cine y entretención"
     ],
-    "notIdealFor": [
-      "Turistas alojados lejos con poco tiempo"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "tecnologia",
@@ -1149,20 +517,67 @@
       "regalos"
     ],
     "transport": {
-      "metro": "Cercano a estacion Mirador.",
-      "uber": true,
-      "parking": true
+      "metro": "Estación Plaza Egaña, combinación de líneas 3 y 4, con acceso Mall.",
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "2-4 horas",
-    "priceLevel": "medio",
-    "touristScore": 6,
+    "priceLevel": null,
+    "touristScore": null,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "nearbyAttractions": [],
+    "tips": [],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/mallplaza-egana.jpg",
+    "foodLevel": "gastronomico",
+    "touristZone": "turistico",
+    "lat": -33.4527278,
+    "lng": -70.5698297,
+    "stores": [],
+    "officialUrl": "https://www.mallplaza.com/cl/egana/index.html"
+  },
+  {
+    "id": "florida-center",
+    "name": "Cenco Florida",
+    "commune": "La Florida",
+    "mapsQuery": "Cenco Florida, Av. Vicuña Mackenna, La Florida",
+    "type": [
+      "family",
+      "variety",
+      "services"
+    ],
+    "description": "Centro comercial de La Florida con Mirador Florida, Auto City, vacunatorio, servicios para bicicletas y oferta gastronómica.",
+    "bestFor": [
+      "Mirador Florida",
+      "Auto City",
+      "Servicios y gastronomía"
+    ],
+    "notIdealFor": [],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "supermercado/farmacia",
+      "regalos"
+    ],
+    "transport": {
+      "metro": null,
+      "uber": null,
+      "parking": null
+    },
+    "recommendedTime": "2-4 horas",
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "nearbyAttractions": [],
     "tips": [
-      "Conveniente si estas alojando o visitando La Florida."
+      "Los horarios se publican por local y pueden variar."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/florida-center.jpg",
@@ -1172,165 +587,12 @@
     "lng": -70.6066,
     "stores": [
       {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
-        "cat": "anchor"
-      },
-      {
-        "name": "Tottus",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
         "name": "Adidas",
         "cat": "sport"
       },
       {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "New Balance",
-        "cat": "sport"
-      },
-      {
-        "name": "Fila",
-        "cat": "sport"
-      },
-      {
-        "name": "iShop (Apple)",
-        "cat": "tech"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Falabella Tech",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Juan Valdez",
-        "cat": "food"
-      },
-      {
-        "name": "Sephora",
-        "cat": "other"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
-        "cat": "other"
-      }
-    ],
-    "officialUrl": "https://www.floridacenter.cl"
-  },
-  {
-    "id": "mallplaza-vespucio",
-    "name": "Mallplaza Vespucio",
-    "commune": "La Florida",
-    "mapsQuery": "Mallplaza Vespucio La Florida Santiago",
-    "type": [
-      "metro",
-      "family",
-      "variety",
-      "food"
-    ],
-    "description": "Gran mall del sector suroriente, con alta variedad y buena conectividad para compras familiares o de dia completo.",
-    "bestFor": [
-      "Variedad",
-      "Familias",
-      "Compras de dia completo"
-    ],
-    "notIdealFor": [
-      "Experiencia boutique o premium"
-    ],
-    "categories": [
-      "ropa",
-      "tecnologia",
-      "comida",
-      "deporte",
-      "supermercado/farmacia"
-    ],
-    "transport": {
-      "metro": "Cercano a estacion Bellavista de La Florida.",
-      "uber": true,
-      "parking": true
-    },
-    "recommendedTime": "3-5 horas",
-    "priceLevel": "medio",
-    "touristScore": 6,
-    "familyFriendly": true,
-    "premium": false,
-    "outlet": false,
-    "foodExperience": true,
-    "nearbyAttractions": [],
-    "tips": [
-      "Buena opcion si tu ruta esta en el suroriente de Santiago."
-    ],
-    "checkOfficialHours": true,
-    "imageUrl": "/images/malls/mallplaza-vespucio.jpg",
-    "foodLevel": "gastronomico",
-    "touristZone": "alternativo",
-    "lat": -33.5176,
-    "lng": -70.5984,
-    "stores": [
-      {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
+        "name": "Americanino",
+        "cat": "fashion"
       },
       {
         "name": "Paris",
@@ -1341,109 +603,82 @@
         "cat": "anchor"
       },
       {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Bershka",
-        "cat": "fashion"
-      },
-      {
-        "name": "Pull&Bear",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "Puma",
-        "cat": "sport"
-      },
-      {
-        "name": "Fila",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Falabella Tech",
-        "cat": "tech"
-      },
-      {
         "name": "Starbucks",
-        "cat": "food"
+        "cat": "other"
       },
       {
         "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Pandora",
         "cat": "other"
       },
       {
-        "name": "Sephora",
-        "cat": "other"
-      },
-      {
-        "name": "Farmacia Ahumada",
+        "name": "Farmacia Cruz Verde",
         "cat": "other"
       }
     ],
-    "officialUrl": "https://mallplaza.cl/mallplaza-vespucio"
+    "officialUrl": "https://www.cencomalls.cl/florida"
+  },
+  {
+    "id": "mallplaza-vespucio",
+    "name": "Mallplaza Vespucio",
+    "commune": "La Florida",
+    "mapsQuery": "Mallplaza Vespucio La Florida Santiago",
+    "type": [
+      "family",
+      "variety",
+      "food"
+    ],
+    "description": "Centro comercial de La Florida con Cinemark, gastronomía, entretención y servicio Click & Collect.",
+    "bestFor": [
+      "Cine",
+      "Gastronomía y entretención"
+    ],
+    "notIdealFor": [],
+    "categories": [
+      "ropa",
+      "tecnologia",
+      "comida",
+      "deporte",
+      "supermercado/farmacia"
+    ],
+    "transport": {
+      "metro": null,
+      "uber": null,
+      "parking": null
+    },
+    "recommendedTime": "3-5 horas",
+    "priceLevel": null,
+    "touristScore": null,
+    "familyFriendly": true,
+    "premium": false,
+    "outlet": false,
+    "foodExperience": true,
+    "nearbyAttractions": [],
+    "tips": [],
+    "checkOfficialHours": true,
+    "imageUrl": "/images/malls/mallplaza-vespucio.jpg",
+    "foodLevel": "gastronomico",
+    "touristZone": "alternativo",
+    "lat": -33.5176,
+    "lng": -70.5984,
+    "stores": [],
+    "officialUrl": "https://www.mallplaza.com/cl/vespucio/index.html"
   },
   {
     "id": "mallplaza-norte",
     "name": "Mallplaza Norte",
     "commune": "Huechuraba",
-    "mapsQuery": "Mallplaza Norte, Avenida Américo Vespucio 1737, Huechuraba, Santiago",
+    "mapsQuery": "Mallplaza Norte, Huechuraba",
     "type": [
-      "metro",
       "family",
       "variety",
-      "food",
-      "tourist"
+      "food"
     ],
-    "description": "Uno de los malls mas grandes de Santiago, bien conectado por metro y con oferta completa de tiendas, gastronomia y servicios para un dia de compras.",
+    "description": "Centro comercial de Huechuraba con Cinemark, gastronomía, entretención y servicio Click & Collect.",
     "bestFor": [
-      "Primer dia en Santiago",
-      "Familias",
-      "Turistas sin auto"
+      "Cine",
+      "Gastronomía y entretención"
     ],
-    "notIdealFor": [
-      "Quienes buscan marcas premium o boutique"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "tecnologia",
@@ -1453,148 +688,44 @@
       "supermercado/farmacia"
     ],
     "transport": {
-      "metro": "Muy bien conectado, cerca de estacion Dorsal.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "3-5 horas",
-    "priceLevel": "medio",
-    "touristScore": 8,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Barrio Patronato",
-      "Cementerio General"
-    ],
-    "tips": [
-      "Una de las mejores opciones si llegas al centro o norte de la ciudad.",
-      "Facil de combinar con una visita al barrio Patronato para ropa al por mayor."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-norte.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
-    "airportRoute": true,
     "lat": -33.3658358,
     "lng": -70.6798569,
-    "stores": [
-      {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
-        "cat": "anchor"
-      },
-      {
-        "name": "Jumbo",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
-        "name": "Chevignon",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "New Balance",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Falabella Tech",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Domino's",
-        "cat": "food"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
-        "cat": "other"
-      },
-      {
-        "name": "Levi's",
-        "cat": "other"
-      }
-    ],
-    "officialUrl": "https://mallplaza.cl/mallplaza-norte"
+    "stores": [],
+    "officialUrl": "https://www.mallplaza.com/cl/norte/index.html"
   },
   {
     "id": "apumanque",
     "name": "Apumanque",
     "commune": "Las Condes",
-    "mapsQuery": "Centro Comercial Apumanque, Avenida Manquehue Sur 31, Las Condes, Santiago",
+    "mapsQuery": "Apumanque, Manquehue Sur 31, Las Condes",
     "type": [
       "boutique",
       "fashion",
-      "quick",
-      "metro"
+      "quick"
     ],
-    "description": "Centro comercial clasico del sector oriente, con tiendas de moda, servicios y un formato mas compacto que los grandes malls. Ubicado en pleno eje Apoquindo.",
+    "description": "Centro comercial de Las Condes que se presenta oficialmente como el primer mall de Chile. Su directorio organiza oferta de moda, joyas, salud y belleza, hogar, infantil, hobbies y gastronomía.",
     "bestFor": [
-      "Compras especificas",
       "Formato compacto",
-      "Sector oriente"
+      "Moda, hogar y hobbies"
     ],
-    "notIdealFor": [
-      "Quienes buscan gran variedad o gastronomia de destino"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "moda",
@@ -1602,24 +733,19 @@
       "comida"
     ],
     "transport": {
-      "metro": "Muy cercano a estacion El Golf.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "1-2 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 6,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Eje Apoquindo",
-      "El Golf"
-    ],
-    "tips": [
-      "Buen complemento si ya estas en la zona de El Golf o Isidora Goyenechea."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/apumanque.jpg",
     "foodLevel": "patio",
@@ -1628,71 +754,7 @@
     "lng": -70.567896,
     "stores": [
       {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "cat": "fashion"
-      },
-      {
-        "name": "Lacoste",
-        "cat": "fashion"
-      },
-      {
-        "name": "Escada",
-        "cat": "fashion"
-      },
-      {
-        "name": "Carolina Herrera",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "iShop (Apple)",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "Sushi Itto",
-        "cat": "food"
-      },
-      {
-        "name": "Il Posto",
-        "cat": "food"
-      },
-      {
-        "name": "Tous",
-        "cat": "other"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Farmacia Ahumada",
+        "name": "Mirax",
         "cat": "other"
       }
     ],
@@ -1700,24 +762,22 @@
   },
   {
     "id": "portal-la-dehesa",
-    "name": "Portal La Dehesa",
+    "name": "Cenco Portal La Dehesa",
     "commune": "Lo Barnechea",
-    "mapsQuery": "Portal La Dehesa Lo Barnechea Santiago",
+    "mapsQuery": "Cenco Portal La Dehesa, Av. La Dehesa 1445, Lo Barnechea",
     "type": [
       "family",
       "food",
       "parking",
       "calm"
     ],
-    "description": "Mall comodo del sector alto oriente, pensado para familias con auto. Buen ambiente para compras tranquilas, comida y paseo sin el bullicio del centro.",
+    "description": "Centro comercial de Lo Barnechea con cine, plaza de juegos, estacionamiento, bicicletero y sala de lactancia.",
     "bestFor": [
-      "Familias con auto",
-      "Compras tranquilas",
-      "Sector alto oriente"
+      "Cine",
+      "Plaza de juegos",
+      "Compras en tiendas ancla"
     ],
-    "notIdealFor": [
-      "Turistas que dependen del metro"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "comida",
@@ -1726,24 +786,19 @@
       "deporte"
     ],
     "transport": {
-      "metro": "Sin acceso directo en metro; conviene ir en auto o taxi/Uber.",
-      "uber": true,
+      "metro": null,
+      "uber": null,
       "parking": true
     },
     "recommendedTime": "2-4 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 6,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Camino El Alba",
-      "Sector cordillera Lo Barnechea"
-    ],
-    "tips": [
-      "Ideal si estas alojando en La Dehesa o el sector alto de Las Condes."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/portal-la-dehesa.jpg",
     "foodLevel": "patio",
@@ -1756,77 +811,21 @@
         "cat": "anchor"
       },
       {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
         "name": "Jumbo",
         "cat": "anchor"
       },
       {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "The North Face",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Juan Valdez",
-        "cat": "food"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
-        "cat": "other"
+        "name": "Paris",
+        "cat": "anchor"
       }
     ],
-    "officialUrl": "https://www.portallaDehesa.cl"
+    "officialUrl": "https://www.cencomalls.cl/ladehesa"
   },
   {
     "id": "mallplaza-oeste",
     "name": "Mallplaza Oeste",
-    "commune": "Pudahuel",
-    "mapsQuery": "Mallplaza Oeste Pudahuel Santiago",
+    "commune": "Cerrillos",
+    "mapsQuery": "Mallplaza Oeste, Cerrillos",
     "type": [
       "family",
       "variety",
@@ -1834,15 +833,13 @@
       "parking",
       "quick"
     ],
-    "description": "Gran mall del sector poniente, muy bien ubicado para turistas que salen o llegan al aeropuerto. Excelente para ultimas compras antes del vuelo o para compras practicas recien aterrizando.",
+    "description": "Centro comercial de Cerrillos con Cinemark, gastronomía, entretención y Happyland Park.",
     "bestFor": [
-      "Antes o despues del vuelo",
-      "Familias",
-      "Compras de camino al aeropuerto"
+      "Cine",
+      "Happyland Park",
+      "Gastronomía"
     ],
-    "notIdealFor": [
-      "Quienes buscan lujo o boutique"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "tecnologia",
@@ -1852,123 +849,45 @@
       "regalos"
     ],
     "transport": {
-      "metro": "Cercano a estacion Pudahuel, Linea 5.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "2-4 horas",
-    "priceLevel": "medio",
-    "touristScore": 7,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Aeropuerto Internacional Arturo Merino Benitez (SCL)"
-    ],
-    "tips": [
-      "Muy conveniente si tienes tiempo libre antes de tu vuelo.",
-      "Considera el traslado al aeropuerto desde ahi: unos 15-20 minutos en Uber segun el trafico."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-oeste.jpg",
     "foodLevel": "gastronomico",
     "touristZone": "alternativo",
     "lat": -33.4502,
     "lng": -70.7563,
-    "stores": [
-      {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
-        "cat": "anchor"
-      },
-      {
-        "name": "Tottus",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "Fila",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
-        "cat": "other"
-      }
-    ],
-    "officialUrl": "https://mallplaza.cl/mallplaza-oeste"
+    "stores": [],
+    "officialUrl": "https://www.mallplaza.com/cl/oeste"
   },
   {
     "id": "arauco-maipu",
-    "name": "Mall Arauco Maipú",
-    "commune": "Maipu",
-    "mapsQuery": "Arauco Maipu Santiago",
+    "name": "Arauco Maipú",
+    "commune": "Maipú",
+    "mapsQuery": "Arauco Maipú, Maipú",
     "type": [
       "family",
       "variety",
       "food",
-      "metro",
       "parking"
     ],
-    "description": "Gran mall del sector poniente, referente de compras para familias en Maipu y Cerrillos. Mucha variedad de tiendas, gastronomia y servicios para un dia completo.",
+    "description": "Centro comercial con identidad maipucina y oferta de tiendas, servicios, cine y juegos, presentado como punto de encuentro familiar.",
     "bestFor": [
-      "Familias",
-      "Variedad",
-      "Sector poniente"
+      "Cine y juegos",
+      "Encuentro familiar"
     ],
-    "notIdealFor": [
-      "Turistas alojados en el sector oriente sin tiempo"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "tecnologia",
@@ -1978,23 +897,19 @@
       "regalos"
     ],
     "transport": {
-      "metro": "Cercano a estacion Las Parcelas, Linea 5.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "3-5 horas",
-    "priceLevel": "medio",
-    "touristScore": 6,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
-    "nearbyAttractions": [
-      "Plaza de Maipu"
-    ],
-    "tips": [
-      "Conveniente si estas alojando o visitando el sector poniente de Santiago."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/arauco-maipu.webp",
     "foodLevel": "gastronomico",
@@ -2003,23 +918,7 @@
     "lng": -70.7512,
     "stores": [
       {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
-        "cat": "anchor"
-      },
-      {
-        "name": "Jumbo",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
+        "name": "Americanino",
         "cat": "fashion"
       },
       {
@@ -2027,76 +926,8 @@
         "cat": "fashion"
       },
       {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Bershka",
-        "cat": "fashion"
-      },
-      {
         "name": "Adidas",
         "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "New Balance",
-        "cat": "sport"
-      },
-      {
-        "name": "Fila",
-        "cat": "sport"
-      },
-      {
-        "name": "iShop (Apple)",
-        "cat": "tech"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Falabella Tech",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Sephora",
-        "cat": "other"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Farmacia Ahumada",
-        "cat": "other"
       }
     ],
     "officialUrl": "https://www.araucomaipu.cl"
@@ -2104,137 +935,60 @@
   {
     "id": "parque-arauco-oriente",
     "name": "Parque Arauco Oriente",
+    "entityStatus": "integrated",
+    "integratedInto": "parque-arauco",
     "commune": "Las Condes",
-    "mapsQuery": "Parque Arauco Oriente Las Condes Santiago",
-    "type": [
-      "premium",
-      "fashion",
-      "variety"
-    ],
-    "description": "Sector oriente y expansion de Parque Arauco, con enfasis en moda premium, marcas internacionales y un ambiente mas tranquilo para compras sin aglomeracion.",
+    "mapsQuery": "Parque Arauco, Las Condes",
+    "type": [],
+    "description": "Esta entrada no corresponde a una ficha separada vigente: la oferta oficial se presenta dentro de Parque Arauco. El sitio oficial identifica allí Piso Diseño, Distrito de Lujo, Bazar Gourmet y Boulevard.",
     "bestFor": [
-      "Moda y marcas premium",
-      "Ambiente mas tranquilo",
-      "Complementar visita a Parque Arauco"
+      "Consultar la oferta integrada de Parque Arauco"
     ],
     "notIdealFor": [
-      "Quienes buscan gran variedad de categorias",
-      "Presupuesto ajustado"
+      "Quienes busquen un centro separado"
     ],
-    "categories": [
-      "ropa",
-      "lujo",
-      "moda"
-    ],
+    "categories": [],
     "transport": {
-      "metro": "Acceso via bus desde Tobalaba o El Golf.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
-    "recommendedTime": "1-2 horas",
-    "priceLevel": "alto",
-    "touristScore": 7,
+    "recommendedTime": null,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": false,
-    "premium": true,
+    "premium": false,
     "outlet": false,
-    "foodExperience": true,
-    "foodLevel": "patio",
-    "nearbyAttractions": [
-      "Parque Arauco"
-    ],
+    "foodExperience": false,
+    "foodLevel": null,
+    "nearbyAttractions": [],
     "tips": [
-      "Conectado con Parque Arauco principal, ideal para combinar la visita."
+      "Usa el directorio oficial de Parque Arauco; no existe una sección vigente denominada Oriente."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/parque-arauco-oriente.jpg",
-    "touristZone": "turistico",
-    "lat": -33.4012,
-    "lng": -70.5754,
-    "stores": [
-      {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Guess",
-        "cat": "fashion"
-      },
-      {
-        "name": "Calvin Klein",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "Sushi Pop",
-        "cat": "food"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Tous",
-        "cat": "other"
-      }
-    ],
-    "officialUrl": "https://www.parqueArauco.cl/oriente"
+    "touristZone": null,
+    "lat": null,
+    "lng": null,
+    "stores": [],
+    "officialUrl": "https://www.parquearauco.cl/"
   },
   {
     "id": "mallplaza-los-dominicos",
     "name": "Mallplaza Los Dominicos",
     "commune": "Las Condes",
-    "mapsQuery": "Mallplaza Los Dominicos, Avenida Padre Hurtado Sur 875, Las Condes, Santiago",
+    "mapsQuery": "Mallplaza Los Dominicos, Las Condes",
     "type": [
       "variety",
       "fashion",
-      "food",
-      "metro"
+      "food"
     ],
-    "description": "Mall de tamano mediano en la zona alta de Las Condes, cercano al barrio Los Dominicos. Buena oferta de tiendas, gastronomia y servicios para residentes y visitantes de la zona oriente.",
+    "description": "Centro comercial de Las Condes con Cinépolis, gastronomía y entretención. Sus servicios incluyen FONASA y AFEX.",
     "bestFor": [
-      "Sector Los Dominicos",
-      "Compras variadas",
-      "Visita en familia"
+      "Cine y entretención",
+      "Servicios FONASA y AFEX"
     ],
-    "notIdealFor": [
-      "Quienes buscan mall de gran formato",
-      "Turistas alojados en el centro"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "comida",
@@ -2242,118 +996,44 @@
       "tecnologia"
     ],
     "transport": {
-      "metro": "Bus desde estaciones Las Condes o Escuela Militar.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "2-3 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 5,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "gastronomico",
-    "nearbyAttractions": [
-      "Barrio Los Dominicos",
-      "Zona alta Las Condes"
-    ],
-    "tips": [
-      "Menos aglomerado que los grandes malls del sector, buena opcion para dias de semana."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-los-dominicos.jpg",
     "touristZone": "turistico",
     "lat": -33.4155,
     "lng": -70.5408,
-    "stores": [
-      {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "The North Face",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Juan Valdez",
-        "cat": "food"
-      },
-      {
-        "name": "Pandora",
-        "cat": "other"
-      },
-      {
-        "name": "Farmacia Ahumada",
-        "cat": "other"
-      }
-    ],
-    "officialUrl": "https://mallplaza.cl/mallplaza-los-dominicos"
+    "stores": [],
+    "officialUrl": "https://www.mallplaza.com/cl/losdominicos"
   },
   {
     "id": "vivo-los-trapenses",
     "name": "Vivo Los Trapenses",
-    "commune": "Lo Barnechea",
-    "mapsQuery": "Vivo Los Trapenses Lo Barnechea Santiago",
+    "commune": null,
+    "mapsQuery": "VIVO Los Trapenses, Av. José Alcalde Délano 10492",
     "type": [
       "variety",
       "quick",
       "calm"
     ],
-    "description": "Centro comercial de barrio en Lo Barnechea, pensado para residentes de la zona alta. Oferta practica de supermercado, servicios, comida y algunas tiendas de vestuario.",
+    "description": "Centro comercial con Unimarc, wifi, estacionamiento gratuito, lockers, carga eléctrica y política Pet Friendly. Su entretención incluye Chuck E. Cheese's y Coney Jump.",
     "bestFor": [
-      "Residentes de Lo Barnechea",
-      "Compras rapidas de la zona",
-      "Servicios cotidianos"
+      "Servicios cotidianos",
+      "Entretención familiar"
     ],
-    "notIdealFor": [
-      "Turistas",
-      "Quienes buscan gran variedad o marcas premium"
-    ],
+    "notIdealFor": [],
     "categories": [
       "supermercado",
       "servicios",
@@ -2361,24 +1041,21 @@
       "ropa"
     ],
     "transport": {
-      "metro": "Sin acceso directo al metro. Se llega en auto o bus.",
-      "uber": true,
+      "metro": null,
+      "uber": null,
       "parking": true
     },
     "recommendedTime": "1-2 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 3,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "patio",
-    "nearbyAttractions": [
-      "Camino Las Vertientes",
-      "Zona cordillerana"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "Util si estas de paso por Lo Barnechea o alojando en la zona."
+      "Dispone de lockers y carga para vehículos eléctricos."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/vivo-los-trapenses.jpg",
@@ -2387,77 +1064,41 @@
     "lng": -70.5401,
     "stores": [
       {
-        "name": "Jumbo",
-        "cat": "anchor"
+        "name": "5asec",
+        "cat": "other"
       },
       {
-        "name": "Zara",
+        "name": "Amano",
+        "cat": "other"
+      },
+      {
+        "name": "Caffarena",
         "cat": "fashion"
       },
       {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Tommy Hilfiger",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "Juan Valdez",
-        "cat": "food"
-      },
-      {
-        "name": "Pandora",
+        "name": "LEGO Store",
         "cat": "other"
       }
     ],
-    "officialUrl": "https://www.vivoloslapenses.cl"
+    "officialUrl": "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/"
   },
   {
     "id": "paseo-quilin",
-    "name": "Paseo Quilín",
-    "commune": "Macul",
-    "mapsQuery": "Paseo Quilín, Avenida Américo Vespucio 3300, Macul, Santiago",
+    "name": "Mall Paseo Quilín",
+    "commune": "Peñalolén",
+    "mapsQuery": "Mall Paseo Quilín, Peñalolén",
     "type": [
       "variety",
       "metro",
       "quick",
       "food"
     ],
-    "description": "Mall de tamano mediano en la comuna de Macul, con buena conectividad por metro linea 4. Practico para compras de barrio, servicios y comida rapida para quienes se mueven por el sector sur-oriente.",
+    "description": "Centro comercial de Peñalolén con acceso por la estación Quilín de la Línea 4. Su oferta incluye terrazas, Cineplanet, Boulevard Gastronómico y patio de comidas.",
     "bestFor": [
-      "Sector Quilin",
-      "Conexion metro L4",
-      "Compras practicas"
+      "Acceso por Metro L4",
+      "Compras y gastronomía"
     ],
-    "notIdealFor": [
-      "Turistas sin auto ni metro L4",
-      "Quienes buscan marcas internacionales"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "comida",
@@ -2465,24 +1106,20 @@
       "supermercado"
     ],
     "transport": {
-      "metro": "Cercano a estacion Quilin, Linea 4.",
-      "uber": true,
-      "parking": true
+      "metro": "Estación Quilín, Línea 4.",
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "1-2 horas",
-    "priceLevel": "medio",
-    "touristScore": 3,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "patio",
-    "nearbyAttractions": [
-      "Sector Macul"
-    ],
-    "tips": [
-      "Buena opcion de paso si te mueves por la linea 4."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/paseo-quilin.jpg",
     "touristZone": "alternativo",
@@ -2490,76 +1127,44 @@
     "lng": -70.5769684,
     "stores": [
       {
-        "name": "Falabella",
+        "name": "La Polar",
         "cat": "anchor"
       },
       {
-        "name": "Unimarc",
-        "cat": "anchor"
-      },
-      {
-        "name": "Americanino",
+        "name": "Bata",
         "cat": "fashion"
       },
       {
-        "name": "Basement",
-        "cat": "fashion"
+        "name": "Casa Royal",
+        "cat": "other"
       },
       {
-        "name": "Levi's",
-        "cat": "fashion"
+        "name": "Cineplanet",
+        "cat": "other"
       },
       {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Telepizza",
-        "cat": "food"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
+        "name": "Banco de Chile",
         "cat": "other"
       }
     ],
-    "officialUrl": "https://www.paseoQuilin.cl"
+    "officialUrl": "https://www.paseoquilin.cl/"
   },
   {
     "id": "mallplaza-tobalaba",
     "name": "Mallplaza Tobalaba",
     "commune": "Puente Alto",
-    "mapsQuery": "Mallplaza Tobalaba, Avenida Camilo Henríquez 3296, Puente Alto, Santiago",
+    "mapsQuery": "Mallplaza Tobalaba, Puente Alto",
     "type": [
-      "tourist",
       "variety",
       "food",
       "fashion"
     ],
-    "description": "Mall moderno en pleno sector Tobalaba-Providencia, con excelente conexion al metro y cercania a Costanera Center. Ofrece una propuesta equilibrada de moda, gastronomia y entretenimiento en una de las zonas mas dinamicas de Santiago.",
+    "description": "Centro comercial de Puente Alto con Falabella, Pandora y Levi's. Su oferta de entretención incluye Cinemark, Happyland y Rally Kart.",
     "bestFor": [
-      "Turistas en Providencia o Las Condes",
-      "Conexion con Costanera Center",
-      "Buena gastronomia"
+      "Cine y entretención",
+      "Compras en tiendas seleccionadas"
     ],
-    "notIdealFor": [
-      "Quienes buscan outlet o precios bajos"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "comida",
@@ -2567,26 +1172,20 @@
       "entretenimiento"
     ],
     "transport": {
-      "metro": "Sin metro cercano. Accesible en Transantiago, Uber o auto por Av. Tobalaba.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "2-3 horas",
-    "priceLevel": "medio",
-    "touristScore": 7,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "gastronomico",
-    "nearbyAttractions": [
-      "Costanera Center",
-      "Sky Costanera",
-      "Sector El Golf"
-    ],
-    "tips": [
-      "Ideal para combinar con Costanera Center al estar en la misma zona del metro."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-tobalaba.jpg",
     "touristZone": "turistico",
@@ -2598,104 +1197,32 @@
         "cat": "anchor"
       },
       {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Paris",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Mango",
-        "cat": "fashion"
-      },
-      {
-        "name": "Forever 21",
-        "cat": "fashion"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "Puma",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Falabella Tech",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
         "name": "Pandora",
         "cat": "other"
       },
       {
-        "name": "Farmacia Cruz Verde",
-        "cat": "other"
+        "name": "Levi's",
+        "cat": "fashion"
       }
     ],
-    "officialUrl": "https://mallplaza.cl/mallplaza-tobalaba"
+    "officialUrl": "https://www.mallplaza.com/cl/tobalaba"
   },
   {
     "id": "espacio-urbano-gran-avenida",
     "name": "Espacio Urbano Gran Avenida",
     "commune": "San Miguel",
-    "mapsQuery": "Espacio Urbano Gran Avenida, Gran Avenida José Miguel Carrera 6150, San Miguel, Santiago",
+    "mapsQuery": "Espacio Urbano Gran Avenida, José Miguel Carrera 6150, San Miguel",
     "type": [
       "variety",
-      "quick",
-      "metro"
+      "quick"
     ],
-    "description": "Centro comercial urbano sobre Gran Avenida en San Miguel, con acceso conveniente desde la linea 2 del metro. Practico para compras rapidas de servicios, supermercado y vestuario en el eje sur de la ciudad.",
+    "description": "Centro comercial de San Miguel con cine, comida, entretención, supermercado y servicios. Cuenta con talleres y una Sala Comunitaria Gran Avenida gratuita.",
     "bestFor": [
-      "Residentes de San Miguel",
-      "Compras rapidas en Gran Avenida",
-      "Acceso desde metro L2"
+      "Servicios",
+      "Talleres",
+      "Sala comunitaria"
     ],
-    "notIdealFor": [
-      "Turistas",
-      "Quienes buscan mall de gran formato"
-    ],
+    "notIdealFor": [],
     "categories": [
       "supermercado",
       "servicios",
@@ -2703,25 +1230,20 @@
       "comida"
     ],
     "transport": {
-      "metro": "Cercano a estaciones de Linea 2 por Gran Avenida.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "1-2 horas",
-    "priceLevel": "medio",
-    "touristScore": 2,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": false,
     "foodLevel": "patio",
-    "nearbyAttractions": [
-      "Gran Avenida",
-      "Sector San Miguel"
-    ],
-    "tips": [
-      "Buen recurso local, no especialmente orientado a turistas."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/espacio-urbano-gran-avenida.jpg",
     "touristZone": "alternativo",
@@ -2729,64 +1251,44 @@
     "lng": -70.6559244,
     "stores": [
       {
-        "name": "Líder",
-        "cat": "anchor"
-      },
-      {
-        "name": "Americanino",
+        "name": "Bata",
         "cat": "fashion"
       },
       {
-        "name": "Basement",
+        "name": "Belsport",
+        "cat": "sport"
+      },
+      {
+        "name": "Bubble Gummers",
         "cat": "fashion"
       },
       {
-        "name": "Adidas",
-        "cat": "sport"
+        "name": "Chilexpress",
+        "cat": "other"
       },
       {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Telepizza",
-        "cat": "food"
-      },
-      {
-        "name": "Farmacia Ahumada",
+        "name": "Dunkin'",
         "cat": "other"
       }
     ],
-    "officialUrl": "https://www.espaciourbano.cl"
+    "officialUrl": "https://www.espaciourbano.cl/centro-comercial/gran-avenida"
   },
   {
     "id": "midmall-maipu",
-    "name": "MidMall Maipú",
+    "name": "Centro Comercial Midmall",
     "commune": "Maipú",
-    "mapsQuery": "MidMall Maipú, Camino a Melipilla 15900, Maipú, Santiago",
+    "mapsQuery": "Centro Comercial Midmall, Av. Camino a Melipilla 15900, Maipú",
     "type": [
-      "variety",
+      "outlet",
       "food",
       "quick"
     ],
-    "description": "Mall de tamano intermedio en Maipu, orientado a compras practicas con supermercado, patio de comidas y tiendas de vestuario y servicios para los vecinos de la zona poniente.",
+    "description": "Outlet de Maipú con salas de cine, restaurantes y gimnasio. Su oferta oficial incluye patio de comidas, Family Park, Coney Jump y Rally Kart.",
     "bestFor": [
-      "Residentes de Maipu",
-      "Compras de barrio",
-      "Patio de comidas"
+      "Compras outlet",
+      "Cine y entretención"
     ],
-    "notIdealFor": [
-      "Turistas",
-      "Quienes buscan gran variedad o mall de formato mayor"
-    ],
+    "notIdealFor": [],
     "categories": [
       "supermercado",
       "ropa",
@@ -2794,25 +1296,20 @@
       "comida"
     ],
     "transport": {
-      "metro": "Sin metro directo. Bus o auto.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "1-2 horas",
-    "priceLevel": "medio",
-    "touristScore": 2,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "patio",
-    "nearbyAttractions": [
-      "Arauco Maipu",
-      "Vivo Outlet Maipu"
-    ],
-    "tips": [
-      "Practico si estas en Maipu y necesitas resolver compras rapidas."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/midmall-maipu.jpg",
     "touristZone": "alternativo",
@@ -2820,39 +1317,23 @@
     "lng": -70.7711881,
     "stores": [
       {
-        "name": "Unimarc",
-        "cat": "anchor"
+        "name": "Cannon",
+        "cat": "other"
       },
       {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
+        "name": "Ellesse",
         "cat": "sport"
       },
       {
-        "name": "Nike",
+        "name": "Everlast",
         "cat": "sport"
       },
       {
-        "name": "McDonald's",
-        "cat": "food"
+        "name": "Ferouch",
+        "cat": "other"
       },
       {
-        "name": "Burger King",
-        "cat": "food"
-      },
-      {
-        "name": "Telepizza",
-        "cat": "food"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
+        "name": "Lápiz López",
         "cat": "other"
       }
     ],
@@ -2861,7 +1342,7 @@
   {
     "id": "mallplaza-alameda",
     "name": "Mallplaza Alameda",
-    "commune": "Santiago",
+    "commune": "Estación Central",
     "mapsQuery": "Mallplaza Alameda, Avenida Libertador Bernardo O'Higgins 3470, Estación Central, Santiago",
     "type": [
       "variety",
@@ -2870,16 +1351,13 @@
       "tourist",
       "fashion"
     ],
-    "description": "Mall de gran formato en el corazon de Santiago Centro, sobre la Alameda Bernardo O Higgins. Excelente conectividad por metro con variada oferta de tiendas, gastronomia y entretenimiento en el eje central de la ciudad.",
+    "description": "Centro comercial de Estación Central con Ripley, H&M, Tottus y Puma. También ofrece Registro Civil, IntegraMédica, Autoplaza, Happyland y Cineplanet.",
     "bestFor": [
-      "Turistas en Santiago Centro",
-      "Acceso desde cualquier punto via metro",
-      "Compras variadas"
+      "Servicios",
+      "Cine y entretención",
+      "Acceso por Metro L1"
     ],
-    "notIdealFor": [
-      "Quienes buscan malls premium o tranquilos",
-      "Dias de semana en hora punta"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "comida",
@@ -2888,26 +1366,21 @@
       "zapatillas"
     ],
     "transport": {
-      "metro": "Acceso desde multiples estaciones de Linea 1, Linea 2 y Linea 3.",
-      "uber": true,
-      "parking": true
+      "metro": "Estación Central, Línea 1.",
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "2-4 horas",
-    "priceLevel": "medio",
-    "touristScore": 6,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "gastronomico",
-    "nearbyAttractions": [
-      "La Moneda",
-      "Barrio Lastarria",
-      "Centro Historico",
-      "Plaza de Armas"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "Buena opcion para turistas alojados en el centro. La Moneda queda a pocos minutos caminando."
+      "Se accede por la estación Estación Central de la Línea 1."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mallplaza-alameda.jpg",
@@ -2916,79 +1389,23 @@
     "lng": -70.6822093,
     "stores": [
       {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
         "name": "Ripley",
         "cat": "anchor"
-      },
-      {
-        "name": "Paris",
-        "cat": "anchor"
-      },
-      {
-        "name": "Tottus",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
       },
       {
         "name": "H&M",
         "cat": "fashion"
       },
       {
-        "name": "Americanino",
-        "cat": "fashion"
+        "name": "Tottus",
+        "cat": "anchor"
       },
       {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
-        "name": "Levi's",
-        "cat": "fashion"
-      },
-      {
-        "name": "Adidas",
+        "name": "Puma",
         "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "Fila",
-        "cat": "sport"
-      },
-      {
-        "name": "Samsung",
-        "cat": "tech"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Farmacia Ahumada",
-        "cat": "other"
       }
     ],
-    "officialUrl": "https://mallplaza.cl/mallplaza-alameda"
+    "officialUrl": "https://www.mallplaza.com/cl/alameda/index.html"
   },
   {
     "id": "mall-barrio-independencia",
@@ -3001,16 +1418,13 @@
       "food",
       "tourist"
     ],
-    "description": "Mall moderno en Independencia, un barrio con identidad propia al norte del centro. Ofrece buena variedad de tiendas, opciones de comida y entretenimiento en una zona cada vez mas popular entre jovenes y visitantes.",
+    "description": "Centro comercial de Independencia con cine, cowork, Fonasa, RedSalud, juegos modulares gratuitos y estacionamientos. La estación Hospitales de la Línea 3 está a 800 metros.",
     "bestFor": [
-      "Sector norte de Santiago",
-      "Combinacion con barrio Independencia",
-      "Gastronomia variada"
+      "Servicios de salud",
+      "Cine",
+      "Juegos infantiles"
     ],
-    "notIdealFor": [
-      "Quienes buscan marcas premium",
-      "Turistas alojados en sector oriente sin transporte"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "comida",
@@ -3018,25 +1432,21 @@
       "tecnologia"
     ],
     "transport": {
-      "metro": "Cercano a estaciones de Linea 3 en Independencia.",
-      "uber": true,
+      "metro": "Estación Hospitales, Línea 3, a 800 m.",
+      "uber": null,
       "parking": true
     },
     "recommendedTime": "2-3 horas",
-    "priceLevel": "medio",
-    "touristScore": 4,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "gastronomico",
-    "nearbyAttractions": [
-      "Barrio Italia",
-      "Barrio Yungay",
-      "Parque de los Reyes"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "El barrio tiene vida propia fuera del mall, vale la pena explorar los alrededores."
+      "Cuenta con bicicletero y estacionamientos."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-barrio-independencia.jpg",
@@ -3045,39 +1455,19 @@
     "lng": -70.6536873,
     "stores": [
       {
-        "name": "Unimarc",
-        "cat": "anchor"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
         "name": "Adidas",
         "cat": "sport"
       },
       {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
+        "name": "Bata",
+        "cat": "fashion"
       },
       {
         "name": "Burger King",
-        "cat": "food"
+        "cat": "other"
       },
       {
-        "name": "Telepizza",
-        "cat": "food"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
+        "name": "A3D",
         "cat": "other"
       }
     ],
@@ -3087,22 +1477,19 @@
     "id": "mall-arauco-quilicura",
     "name": "Mall Arauco Quilicura",
     "commune": "Quilicura",
-    "mapsQuery": "Mall Arauco Quilicura, Avenida Bernardo O'Higgins 581, Quilicura, Santiago",
+    "mapsQuery": "Mall Arauco Quilicura, Quilicura",
     "type": [
       "variety",
       "food",
       "fashion"
     ],
-    "description": "Mall Arauco en Quilicura, zona norponiente de Santiago cercana al aeropuerto. Ofrece una propuesta completa de tiendas, gastronomia y entretenimiento para los residentes del sector y quienes se mueven por ese corredor.",
+    "description": "Centro comercial de Quilicura presentado como un punto de encuentro familiar renovado, con cines, tiendas y servicios. Cuenta con Cinépolis, bicicletero y servicios accesibles.",
     "bestFor": [
-      "Residentes de Quilicura",
-      "Sector nor-poniente",
-      "Paso cercano al aeropuerto"
+      "Encuentro familiar",
+      "Cine",
+      "Servicios"
     ],
-    "notIdealFor": [
-      "Turistas de otras zonas sin auto",
-      "Quienes buscan malls de lujo"
-    ],
+    "notIdealFor": [],
     "categories": [
       "ropa",
       "comida",
@@ -3111,23 +1498,21 @@
       "tecnologia"
     ],
     "transport": {
-      "metro": "Sin metro directo al mall. Acceso en bus o auto.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "2-3 horas",
-    "priceLevel": "medio",
-    "touristScore": 3,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "patio",
-    "nearbyAttractions": [
-      "Aeropuerto Arturo Merino Benitez"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "Si tienes un vuelo con tiempo y quieres hacer compras, queda cerca del aeropuerto."
+      "El centro declara una política Pet Friendly."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mall-arauco-quilicura.jpg",
@@ -3136,63 +1521,23 @@
     "lng": -70.7300472,
     "stores": [
       {
-        "name": "Falabella",
-        "cat": "anchor"
-      },
-      {
-        "name": "Ripley",
-        "cat": "anchor"
-      },
-      {
-        "name": "Tottus",
-        "cat": "anchor"
-      },
-      {
-        "name": "Zara",
-        "cat": "fashion"
-      },
-      {
-        "name": "H&M",
-        "cat": "fashion"
-      },
-      {
-        "name": "Americanino",
-        "cat": "fashion"
-      },
-      {
-        "name": "Basement",
-        "cat": "fashion"
-      },
-      {
         "name": "Adidas",
         "cat": "sport"
       },
       {
-        "name": "Nike",
-        "cat": "sport"
+        "name": "Salcobrand",
+        "cat": "other"
       },
       {
-        "name": "Samsung",
-        "cat": "tech"
+        "name": "Tricot",
+        "cat": "other"
       },
       {
-        "name": "Starbucks",
-        "cat": "food"
+        "name": "Preunic",
+        "cat": "other"
       },
       {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Subway",
-        "cat": "food"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
+        "name": "Sportlife",
         "cat": "other"
       }
     ],
@@ -3200,24 +1545,21 @@
   },
   {
     "id": "paseo-san-bernardo",
-    "name": "Paseo San Bernardo",
+    "name": "Mall Paseo San Bernardo",
     "commune": "San Bernardo",
-    "mapsQuery": "Mall Paseo San Bernardo, Eyzaguirre, San Bernardo, Santiago",
+    "mapsQuery": "Mall Paseo San Bernardo, Eyzaguirre 650, San Bernardo",
     "type": [
       "variety",
       "quick",
       "food"
     ],
-    "description": "Centro comercial en San Bernardo, ciudad independiente al sur del Gran Santiago. Ofrece servicios basicos de supermercado, patio de comidas, vestuario y entretenimiento para los vecinos del municipio.",
+    "description": "Centro comercial de San Bernardo con accesos por Eyzaguirre 650, Urmeneta 661 y San José 672. Incluye Cinépolis, Family Park, gimnasio y patio de comidas.",
     "bestFor": [
-      "Residentes de San Bernardo",
-      "Compras cotidianas",
-      "Patio de comidas local"
+      "Cine",
+      "Family Park",
+      "Compras en tiendas seleccionadas"
     ],
-    "notIdealFor": [
-      "Turistas",
-      "Quienes visitan Santiago desde el centro o el oriente"
-    ],
+    "notIdealFor": [],
     "categories": [
       "supermercado",
       "ropa",
@@ -3225,24 +1567,20 @@
       "comida"
     ],
     "transport": {
-      "metro": "Sin metro directo. Bus o auto desde Santiago.",
-      "uber": true,
-      "parking": true
+      "metro": null,
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "1-2 horas",
-    "priceLevel": "medio",
-    "touristScore": 2,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "patio",
-    "nearbyAttractions": [
-      "Centro de San Bernardo"
-    ],
-    "tips": [
-      "Demasiado lejos del centro turistico para recomendarlo como destino de compras."
-    ],
+    "nearbyAttractions": [],
+    "tips": [],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/paseo-san-bernardo.jpg",
     "touristZone": "alternativo",
@@ -3250,43 +1588,27 @@
     "lng": -70.7074791,
     "stores": [
       {
-        "name": "Falabella",
+        "name": "Paris",
         "cat": "anchor"
       },
       {
-        "name": "Unimarc",
+        "name": "Hites",
         "cat": "anchor"
       },
       {
-        "name": "Americanino",
+        "name": "Cinépolis",
+        "cat": "other"
+      },
+      {
+        "name": "Bata",
         "cat": "fashion"
       },
       {
-        "name": "Basement",
-        "cat": "fashion"
+        "name": "CasaIdeas",
+        "cat": "other"
       },
       {
-        "name": "Adidas",
-        "cat": "sport"
-      },
-      {
-        "name": "Nike",
-        "cat": "sport"
-      },
-      {
-        "name": "McDonald's",
-        "cat": "food"
-      },
-      {
-        "name": "KFC",
-        "cat": "food"
-      },
-      {
-        "name": "Telepizza",
-        "cat": "food"
-      },
-      {
-        "name": "Farmacia Cruz Verde",
+        "name": "Casa Royal",
         "cat": "other"
       }
     ],
@@ -3294,24 +1616,22 @@
   },
   {
     "id": "mut-mercado-urbano-tobalaba",
-    "name": "MUT Mercado Urbano Tobalaba",
+    "name": "MUT / Mercado Urbano Tobalaba",
     "commune": "Las Condes",
-    "mapsQuery": "Mercado Urbano Tobalaba, Avenida Apoquindo 2750, Las Condes, Santiago",
+    "mapsQuery": "MUT, Apoquindo 2730, Las Condes",
     "type": [
       "tourist",
       "food",
       "variety",
       "calm"
     ],
-    "description": "Concepto urbano moderno entre mall y mercado, con foco en gastronomia, marcas locales, diseno y lifestyle. Un espacio mas curado y relajado que los grandes malls, muy popular entre jovenes y turistas que buscan algo distinto.",
+    "description": "Proyecto mixto que se presenta como el primer mercado urbano de Chile, con intercambio comercial y cultural y foco en sustentabilidad. Tiene conexión directa con Tobalaba, líneas 1 y 4.",
     "bestFor": [
-      "Gastronomia variada",
-      "Diseno y marcas locales",
-      "Ambiente moderno"
+      "Gastronomía",
+      "Intercambio comercial y cultural",
+      "Conexión directa con Metro"
     ],
-    "notIdealFor": [
-      "Quienes buscan grandes cadenas o compras masivas"
-    ],
+    "notIdealFor": [],
     "categories": [
       "comida",
       "ropa",
@@ -3320,25 +1640,21 @@
       "turismo"
     ],
     "transport": {
-      "metro": "Sin metro cercano. Accesible en auto o Uber desde Providencia/Las Condes.",
-      "uber": true,
-      "parking": true
+      "metro": "Conexión directa con estación Tobalaba, líneas 1 y 4.",
+      "uber": null,
+      "parking": null
     },
     "recommendedTime": "1-3 horas",
-    "priceLevel": "medio-alto",
-    "touristScore": 8,
+    "priceLevel": null,
+    "touristScore": null,
     "familyFriendly": true,
     "premium": false,
     "outlet": false,
     "foodExperience": true,
     "foodLevel": "gastronomico",
-    "nearbyAttractions": [
-      "Costanera Center",
-      "Sector Tobalaba"
-    ],
+    "nearbyAttractions": [],
     "tips": [
-      "Excelente para comer bien en un ambiente distinto al mall clasico.",
-      "Combina bien con Costanera Center al estar en la misma zona."
+      "Dispone de bicicleteros en Roger de Flor 2725 y El Bosque Norte 50."
     ],
     "checkOfficialHours": true,
     "imageUrl": "/images/malls/mut-mercado-urbano-tobalaba.jpg",
@@ -3347,46 +1663,18 @@
     "lng": -70.6011321,
     "stores": [
       {
-        "name": "Boutiques de diseñador",
-        "cat": "fashion"
-      },
-      {
-        "name": "Marcas locales emergentes",
-        "cat": "fashion"
-      },
-      {
-        "name": "Restaurantes gourmet",
-        "cat": "food"
-      },
-      {
-        "name": "Starbucks",
-        "cat": "food"
-      },
-      {
-        "name": "Wine bar",
-        "cat": "food"
-      },
-      {
-        "name": "Panadería artesanal",
-        "cat": "food"
-      },
-      {
-        "name": "Café de especialidad",
-        "cat": "food"
-      },
-      {
-        "name": "Galería de arte",
+        "name": "Majen",
         "cat": "other"
       },
       {
-        "name": "Decoración y diseño",
+        "name": "Larry",
         "cat": "other"
       },
       {
-        "name": "Libros y papelería",
+        "name": "Toni Lautaro",
         "cat": "other"
       }
     ],
-    "officialUrl": "https://www.mut.cl"
+    "officialUrl": "https://mut.cl/es/"
   }
 ]

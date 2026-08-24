@@ -9,6 +9,14 @@ function mallCanonicalHref(mall) {
   return mall.outlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
 }
 
+function isValidExternalUrl(url) {
+  try {
+    return ["http:", "https:"].includes(new URL(url).protocol);
+  } catch {
+    return false;
+  }
+}
+
 function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRoute }) {
   const { t, lang } = useLanguage();
   const md = t.mallDetail;
@@ -48,7 +56,7 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
             <X size={17} />
           </button>
           <div className="absolute bottom-0 left-0 right-0 p-6">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-white/60">{mall.commune}</p>
+            {mall.commune && <p className="text-xs font-extrabold uppercase tracking-widest text-white/60">{mall.commune}</p>}
             <h2 className="mt-1 font-display text-3xl font-extrabold text-white drop-shadow">{mall.name}</h2>
             <div className="mt-3 flex flex-wrap gap-2">
               {mall.type.map(tag => (
@@ -60,13 +68,13 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
 
         <div className="grid gap-6 p-6 lg:grid-cols-[1.3fr_0.7fr]">
           <div>
-            <p className="text-sm leading-7 text-ink/68">{lm.description}</p>
-            <div className="mt-5 grid gap-5 sm:grid-cols-2">
+            {lm.description && <p className="text-sm leading-7 text-ink/68">{lm.description}</p>}
+            {[lm.bestFor, lm.notIdealFor, lm.tips, mall.nearbyAttractions].some((items) => items?.length > 0) && <div className="mt-5 grid gap-5 sm:grid-cols-2">
               <InfoList title={md.sections.bestFor} items={lm.bestFor} positive />
               <InfoList title={md.sections.notFor} items={lm.notIdealFor} />
               <InfoList title={md.sections.tips} items={lm.tips} positive />
-              <InfoList title={md.sections.nearby} items={mall.nearbyAttractions.length ? mall.nearbyAttractions : [md.sections.noData]} />
-            </div>
+              <InfoList title={md.sections.nearby} items={mall.nearbyAttractions} />
+            </div>}
 
             {mall.stores?.length > 0 && (
               <div className="mt-6">
@@ -109,13 +117,18 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
           <aside>
             <div className="rounded-xl bg-mist p-5">
               <div className="grid gap-3.5 text-sm font-semibold text-ink/70">
-                <span className="flex items-start gap-3"><TrainFront size={16} className="mt-0.5 shrink-0 text-leaf" />{lm.transport.metro}</span>
-                <span className="flex items-center gap-3">
-                  <Car size={16} className="shrink-0 text-leaf" />
-                  {md.parking}: {mall.transport.parking ? md.yes : md.no} · Uber: {mall.transport.uber ? md.yes : md.no}
-                </span>
-                <span className="flex items-center gap-3"><Clock size={16} className="shrink-0 text-leaf" />{lm.recommendedTime}</span>
-                <span className="flex items-center gap-3"><MapPin size={16} className="shrink-0 text-leaf" />{t.priceLabels?.[mall.priceLevel] ?? mall.priceLevel}</span>
+                {lm.transport?.metro && <span className="flex items-start gap-3"><TrainFront size={16} className="mt-0.5 shrink-0 text-leaf" />{lm.transport.metro}</span>}
+                {(typeof mall.transport?.parking === "boolean" || typeof mall.transport?.uber === "boolean") && (
+                  <span className="flex items-center gap-3">
+                    <Car size={16} className="shrink-0 text-leaf" />
+                    {[
+                      typeof mall.transport?.parking === "boolean" ? `${md.parking}: ${mall.transport.parking ? md.yes : md.no}` : null,
+                      typeof mall.transport?.uber === "boolean" ? `Uber: ${mall.transport.uber ? md.yes : md.no}` : null,
+                    ].filter(Boolean).join(" · ")}
+                  </span>
+                )}
+                {lm.recommendedTime && <span className="flex items-center gap-3"><Clock size={16} className="shrink-0 text-leaf" />{md.suggestedTime}: {lm.recommendedTime}</span>}
+                {mall.priceLevel && <span className="flex items-center gap-3"><MapPin size={16} className="shrink-0 text-leaf" />{t.priceLabels?.[mall.priceLevel] ?? mall.priceLevel}</span>}
               </div>
               <div className="mt-4 grid grid-cols-2 gap-2">
                 <Badge label={md.badges.family} active={mall.familyFriendly} />
@@ -126,10 +139,10 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
             </div>
 
             <div className="mt-4 grid gap-2.5">
-              <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
+              {isValidExternalUrl(mapsUrl) && <a href={mapsUrl} target="_blank" rel="noopener noreferrer"
                 className="primary-button justify-center bg-leaf hover:bg-leaf/85">
                 <ExternalLink size={15} /> {md.mapsBtn}
-              </a>
+              </a>}
               <button onClick={onCompare} className="secondary-button justify-center">
                 <CheckCircle2 size={15} />
                 {isComparing ? md.compareRemove : md.compareAdd}
@@ -187,6 +200,7 @@ function MallDetail({ mall, routes, isComparing, onCompare, onClose, onRelatedRo
 }
 
 function InfoList({ title, items, positive }) {
+  if (!items?.length) return null;
   return (
     <div>
       <h3 className="text-xs font-extrabold uppercase tracking-wider text-ink/40">{title}</h3>

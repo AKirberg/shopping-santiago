@@ -120,7 +120,8 @@ function warn(msg) {
 }
 
 function getAttribute(tag, attribute) {
-  return tag?.match(new RegExp(`${attribute}=[\"']([^\"']+)[\"']`, "i"))?.[1] ?? null;
+  const match = tag?.match(new RegExp(`${attribute}\\s*=\\s*(?:\"([^\"]*)\"|'([^']*)')`, "i"));
+  return match?.[1] ?? match?.[2] ?? null;
 }
 
 function checkPage(page) {
@@ -237,6 +238,49 @@ function checkPage(page) {
   checked++;
 }
 
+function checkIntegratedMallSeo() {
+  const pagePath = "dist/malls/parque-arauco-oriente/index.html";
+  const fullPath = resolve(ROOT, pagePath);
+  if (!existsSync(fullPath)) {
+    err(`${pagePath}: missing integrated entity page`);
+    return;
+  }
+
+  const html = readFileSync(fullPath, "utf-8");
+  const expectedCanonical = `${SITE_URL}/malls/parque-arauco-oriente/`;
+  const canonicalTag = html.match(/<link[^>]+rel=["']canonical["'][^>]*>/i)?.[0];
+  if (getAttribute(canonicalTag, "href") !== expectedCanonical) {
+    err(`${pagePath}: integrated entity canonical changed`);
+  }
+
+  const scripts = [...html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+  let nodes = [];
+  try {
+    nodes = scripts.flatMap((match) => {
+      const data = JSON.parse(match[1]);
+      return Array.isArray(data?.["@graph"]) ? data["@graph"] : [data];
+    });
+  } catch (error) {
+    err(`${pagePath}: invalid JSON-LD (${error.message})`);
+    return;
+  }
+
+  const webPage = nodes.find((node) => node?.["@type"] === "WebPage");
+  if (!webPage) err(`${pagePath}: integrated entity must use WebPage JSON-LD`);
+  if (nodes.some((node) => node?.["@type"] === "ShoppingCenter")) {
+    err(`${pagePath}: integrated entity must not declare an independent ShoppingCenter`);
+  }
+  for (const property of ["address", "geo", "containsPlace", "priceRange", "sameAs"]) {
+    if (webPage && Object.prototype.hasOwnProperty.call(webPage, property)) {
+      err(`${pagePath}: integrated WebPage must not include ${property}`);
+    }
+  }
+  const parentId = `${SITE_URL}/malls/parque-arauco/#shoppingcenter`;
+  if (webPage?.about?.["@id"] !== parentId || webPage?.isPartOf?.["@id"] !== parentId) {
+    err(`${pagePath}: integrated WebPage must link to canonical Parque Arauco ShoppingCenter`);
+  }
+}
+
 function titleFromHtml(html) {
   return html.match(/<title>([^<]+)<\/title>/i)?.[1]?.trim() ?? "";
 }
@@ -327,6 +371,7 @@ console.log("🔍 Validating SEO pages...\n");
 for (const page of canonicalPages) {
   checkPage(page);
 }
+checkIntegratedMallSeo();
 
 // ── sitemap validation ─────────────────────────────────────────────────────
 

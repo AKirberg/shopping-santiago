@@ -33,7 +33,12 @@ const HOME_SEO = {
 
 function setMeta(selector, attr, value) {
   const el = document.head.querySelector(selector);
-  if (el) el.setAttribute(attr, value);
+  if (!el) return;
+  if (value === null || value === undefined || value === "") {
+    el.removeAttribute(attr);
+    return;
+  }
+  el.setAttribute(attr, value);
 }
 
 /**
@@ -47,35 +52,57 @@ export function mallUrl(mall) {
 
 export function buildMallJsonLd(mall) {
   const url = mallUrl(mall);
+  if (mall.entityStatus === "integrated") {
+    const parentUrl = `${SITE_URL}/malls/${mall.integratedInto}/`;
+    const parent = {
+      "@id": `${parentUrl}#shoppingcenter`,
+      name: "Parque Arauco",
+      url: parentUrl,
+    };
+    const webPage = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      name: mall.name,
+      url,
+      about: parent,
+      isPartOf: parent,
+    };
+    if (mall.description) webPage.description = mall.description;
+    if (mall.imageUrl) webPage.image = `${SITE_URL}${mall.imageUrl}`;
+    return webPage;
+  }
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ShoppingCenter",
     "@id": `${url}#shoppingcenter`,
     name: mall.name,
-    description: mall.description,
     url,
-    address: {
+    hasMap: mallMapsUrl(mall),
+    isAccessibleForFree: true,
+  };
+  if (mall.description) jsonLd.description = mall.description;
+  if (mall.commune) {
+    jsonLd.address = {
       "@type": "PostalAddress",
       addressLocality: mall.commune,
       addressRegion: "Región Metropolitana",
       addressCountry: "CL",
-    },
-    hasMap: mallMapsUrl(mall),
-    isAccessibleForFree: true,
-  };
+    };
+  }
   if (typeof mall.lat === "number" && typeof mall.lng === "number") {
     jsonLd.geo = { "@type": "GeoCoordinates", latitude: mall.lat, longitude: mall.lng };
   }
   if (mall.imageUrl) jsonLd.image = `${SITE_URL}${mall.imageUrl}`;
   if (mall.officialUrl) jsonLd.sameAs = [mall.officialUrl];
-  if (mall.priceLevel) {
-    jsonLd.priceRange = mall.priceLevel === "alto" ? "$$$" : mall.priceLevel === "medio" ? "$$" : "$";
-  }
+  const priceRanges = { alto: "$$$", medio: "$$", bajo: "$" };
+  if (priceRanges[mall.priceLevel]) jsonLd.priceRange = priceRanges[mall.priceLevel];
   if (mall.stores?.length) {
-    jsonLd.containsPlace = mall.stores.slice(0, 20).map(store => ({
+    const stores = mall.stores.filter(store => store?.name).slice(0, 20).map(store => ({
       "@type": "Store",
       name: store.name,
     }));
+    if (stores.length) jsonLd.containsPlace = stores;
   }
   return jsonLd;
 }
@@ -91,7 +118,7 @@ export function applyMallSeo(mall, lang = "es") {
       ? "Stores, hours and directions"
       : "Horarios, tiendas y cómo llegar";
   const title = `${mall.name} · ${titleSuffix} | Shopeando`;
-  const description = localizedMall.description || mall.description;
+  const description = mall.description ? (localizedMall.description || mall.description) : null;
 
   document.title = title;
   setMeta('meta[name="description"]', "content", description);

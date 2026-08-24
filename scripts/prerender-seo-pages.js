@@ -39,8 +39,11 @@ const routes = JSON.parse(readFileSync(resolve(ROOT, "src/data/routes.json"), "u
 const guides = JSON.parse(readFileSync(resolve(ROOT, "src/data/guides.json"), "utf-8"));
 const comparisons = JSON.parse(readFileSync(resolve(ROOT, "src/data/comparisons.json"), "utf-8"));
 
+const isStandaloneMall = (mall) => mall?.entityStatus !== "integrated";
 const mallPages = malls.filter((m) => !m.outlet);
 const outletPages = malls.filter((m) => m.outlet);
+const standaloneMallPages = mallPages.filter(isStandaloneMall);
+const standaloneOutletPages = outletPages.filter(isStandaloneMall);
 const mallById = Object.fromEntries(malls.map((m) => [m.id, m]));
 
 // ── load dist template ──────────────────────────────────────────────────────
@@ -96,7 +99,7 @@ function mallMapsUrl(mall) {
 }
 
 function routeMapsUrl(route) {
-  const routeMalls = (route.stops || []).map((stop) => mallById[stop.mallId]).filter(Boolean);
+  const routeMalls = (route.stops || []).map((stop) => mallById[stop.mallId]).filter(isStandaloneMall);
   if (!routeMalls.length) return null;
   if (!routeMalls.every((mall) => Number.isFinite(mall.lat) && Number.isFinite(mall.lng))) {
     return mallMapsUrl(routeMalls[0]);
@@ -157,14 +160,21 @@ function buildHead(opts) {
   const { html: base, title, description, canonical, ogImage, noindex, jsonLd, metaRefreshUrl } = opts;
   let html = stripHomeHreflang(base);
   html = replaceTitle(html, title);
-  html = setMetaContent(html, 'name="description"', description);
+  if (description) {
+    html = setMetaContent(html, 'name="description"', description);
+    html = setMetaContent(html, 'property="og:description"', description);
+    html = setMetaContent(html, 'name="twitter:description"', description);
+  } else {
+    html = html
+      .replace(/\s*<meta[^>]*name=["']description["'][^>]*>/i, "")
+      .replace(/\s*<meta[^>]*property=["']og:description["'][^>]*>/i, "")
+      .replace(/\s*<meta[^>]*name=["']twitter:description["'][^>]*>/i, "");
+  }
   html = setMetaContent(html, 'rel="canonical"', canonical);
   html = setMetaContent(html, 'property="og:url"', canonical);
   html = setMetaContent(html, 'property="og:title"', title);
-  html = setMetaContent(html, 'property="og:description"', description);
   html = setMetaContent(html, 'property="og:image"', ogImage);
   html = setMetaContent(html, 'name="twitter:title"', title);
-  html = setMetaContent(html, 'name="twitter:description"', description);
   html = setMetaContent(html, 'name="twitter:image"', ogImage);
   if (jsonLd) html = replaceJsonLd(html, jsonLd);
   if (noindex) html = injectNoIndex(html);
@@ -213,18 +223,18 @@ function buildLocalizedBody({ locale, title, description, entity, hub, items = [
   const criteria = entity?.criteria?.map((criterion) =>
     `<section><h2>${escHtml(criterion.name)}</h2><p>${escHtml(criterion.mallA)}</p><p>${escHtml(criterion.mallB)}</p></section>`
   ).join("") || "";
-  const routeStops = entity?.stops?.map((stop) => {
+  const routeStops = entity?.stops?.filter((stop) => isStandaloneMall(mallById[stop.mallId])).map((stop) => {
     const mall = mallById[stop.mallId];
-    return `<li>${mall ? `<a href="${escAttr(localizedPath(mallCanonicalPath(mall), locale))}">${escHtml(mall.name)}</a>` : ""}${stop.note ? ` — ${escHtml(stop.note)}` : ""}</li>`;
+    return `<li><a href="${escAttr(localizedPath(mallCanonicalPath(mall), locale))}">${escHtml(mall.name)}</a>${stop.note ? ` — ${escHtml(stop.note)}` : ""}</li>`;
   }).join("") || "";
   const bestFor = entity?.bestFor?.length ? `<section><h2>${escHtml(copy.bestFor)}</h2><ul>${entity.bestFor.map((item) => `<li>${escHtml(item)}</li>`).join("")}</ul></section>` : "";
   const notIdealFor = entity?.notIdealFor?.length ? `<section><h2>${escHtml(copy.notIdealFor)}</h2><ul>${entity.notIdealFor.map((item) => `<li>${escHtml(item)}</li>`).join("")}</ul></section>` : "";
   const tips = entity?.tips?.length ? `<section><h2>${escHtml(copy.tips)}</h2><ul>${entity.tips.map((tip) => `<li>${escHtml(tip)}</li>`).join("")}</ul></section>` : "";
-  const transport = entity?.transport?.metro ? `<section><h2>${escHtml(copy.transport)}</h2><p>${escHtml(entity.transport.metro)}</p>${entity.recommendedTime ? `<p><strong>${escHtml(copy.duration)}:</strong> ${escHtml(entity.recommendedTime)}</p>` : ""}</section>` : "";
+  const transport = entity?.transport?.metro || entity?.recommendedTime ? `<section><h2>${escHtml(copy.transport)}</h2>${entity.transport?.metro ? `<p>${escHtml(entity.transport.metro)}</p>` : ""}${entity.recommendedTime ? `<p><strong>${escHtml(copy.duration)}:</strong> ${escHtml(entity.recommendedTime)}</p>` : ""}</section>` : "";
   const nearby = entity?.nearbyAttractions?.length ? `<section><h2>${escHtml(copy.nearby)}</h2><ul>${entity.nearbyAttractions.map((place) => `<li>${escHtml(place)}</li>`).join("")}</ul></section>` : "";
   const stores = entity?.stores?.length ? `<section><h2>${escHtml(copy.stores)}</h2><ul>${entity.stores.map((store) => `<li>${escHtml(store.name)}</li>`).join("")}</ul></section>` : "";
   const linkedMallIds = entity?.relatedMalls || entity?.mallIds || [];
-  const relatedMalls = linkedMallIds.length ? `<section><h2>${escHtml(copy.relatedMalls)}</h2><ul>${linkedMallIds.map((mallId) => mallById[mallId]).filter(Boolean).map((mall) =>
+  const relatedMalls = linkedMallIds.length ? `<section><h2>${escHtml(copy.relatedMalls)}</h2><ul>${linkedMallIds.map((mallId) => mallById[mallId]).filter(isStandaloneMall).map((mall) =>
     `<li><a href="${escAttr(localizedPath(mallCanonicalPath(mall), locale))}">${escHtml(mall.name)}</a></li>`
   ).join("")}</ul></section>` : "";
   const itemList = items.length ? `<section><ul>${items.map((item) =>
@@ -234,11 +244,11 @@ function buildLocalizedBody({ locale, title, description, entity, hub, items = [
     ? `<section><h2>${escHtml(label)}</h2><ul>${relatedItems.map((item) => `<li><a href="${escAttr(item.url)}">${escHtml(item.name)}</a></li>`).join("")}</ul></section>`
     : ""
   ).join("");
-  const mapsUrl = entity?.stops ? routeMapsUrl(entity) : entity?.id && entity?.lat != null ? mallMapsUrl(entity) : null;
+  const mapsUrl = entity?.stops ? routeMapsUrl(entity) : entity?.id && entity?.entityStatus !== "integrated" && entity?.lat != null ? mallMapsUrl(entity) : null;
   const actions = `${mapsUrl ? `<p><a href="${escAttr(mapsUrl)}" target="_blank" rel="noopener noreferrer">${escHtml(copy.map)}</a></p>` : ""}${entity?.officialUrl ? `<p><a href="${escAttr(entity.officialUrl)}" target="_blank" rel="noopener noreferrer">${escHtml(copy.official)}</a></p>` : ""}`;
   const publicNav = `<nav aria-label="Primary"><a href="${localizedPath("/malls/", locale)}">${escHtml(copy.malls)}</a> · <a href="${localizedPath("/outlets/", locale)}">${escHtml(copy.outlets)}</a> · <a href="${localizedPath("/rutas/", locale)}">${escHtml(copy.routes)}</a> · <a href="${localizedPath("/guias/", locale)}">${escHtml(copy.guides)}</a> · <a href="${localizedPath("/comparar/", locale)}">${escHtml(copy.comparisons)}</a></nav>`;
   return `<main id="root" data-prerendered="true" style="font-family:sans-serif;max-width:800px;margin:0 auto;padding:1rem 1.5rem">
-    ${publicNav}${crumbs}<article><h1>${escHtml(title)}</h1><p>${escHtml(description)}</p>${entity && intro !== description ? `<p>${escHtml(intro)}</p>` : ""}${itemList}${sections}${criteria}${routeStops ? `<ol>${routeStops}</ol>` : ""}${bestFor}${notIdealFor}${transport}${nearby}${stores}${tips}${relatedMalls}${related}${entity?.conclusion ? `<p>${escHtml(entity.conclusion)}</p>` : ""}${actions}</article>
+    ${publicNav}${crumbs}<article><h1>${escHtml(title)}</h1>${description ? `<p>${escHtml(description)}</p>` : ""}${entity && intro && intro !== description ? `<p>${escHtml(intro)}</p>` : ""}${itemList}${sections}${criteria}${routeStops ? `<ol>${routeStops}</ol>` : ""}${bestFor}${notIdealFor}${transport}${nearby}${stores}${tips}${relatedMalls}${related}${entity?.conclusion ? `<p>${escHtml(entity.conclusion)}</p>` : ""}${actions}</article>
   </main>`;
 }
 
@@ -259,8 +269,8 @@ function breadcrumbHtml(items) {
 function transportLines(transport) {
   const lines = [];
   if (transport?.metro) lines.push(`Metro: ${transport.metro}`);
-  if (transport?.uber) lines.push("Accesible en Uber / taxi");
-  if (transport?.parking) lines.push("Estacionamiento disponible");
+  if (typeof transport?.uber === "boolean") lines.push(`Uber / taxi: ${transport.uber ? "Sí" : "No"}`);
+  if (typeof transport?.parking === "boolean") lines.push(`Estacionamiento: ${transport.parking ? "Sí" : "No"}`);
   if (transport?.bus) lines.push(`Bus: ${transport.bus}`);
   return lines;
 }
@@ -293,17 +303,17 @@ function buildShoppingCenterJsonLd(mall, pageUrl) {
     "@type": "ShoppingCenter",
     "@id": `${pageUrl}#shoppingcenter`,
     name: mall.name,
-    description: mall.description,
     url: pageUrl,
-    address: {
+    hasMap: mallMapsUrl(mall),
+    isAccessibleForFree: true,
+  };
+  if (mall.description) obj.description = mall.description;
+  if (mall.commune) obj.address = {
       "@type": "PostalAddress",
       addressLocality: mall.commune,
       addressRegion: "Región Metropolitana",
       addressCountry: "CL",
-    },
-    hasMap: mallMapsUrl(mall),
-    isAccessibleForFree: true,
-  };
+    };
   if (typeof mall.lat === "number" && typeof mall.lng === "number") {
     obj.geo = { "@type": "GeoCoordinates", latitude: mall.lat, longitude: mall.lng };
   }
@@ -312,16 +322,38 @@ function buildShoppingCenterJsonLd(mall, pageUrl) {
   if (mall.priceLevel) {
     obj.priceRange = mall.priceLevel === "alto" || mall.priceLevel === "medio-alto" ? "$$$" : mall.priceLevel === "medio" ? "$$" : "$";
   }
-  if (mall.stores?.length) {
-    obj.containsPlace = mall.stores.slice(0, 20).map((s) => ({ "@type": "Store", name: s.name }));
+  const storesWithNames = mall.stores?.filter((store) => store?.name) || [];
+  if (storesWithNames.length) {
+    obj.containsPlace = storesWithNames.slice(0, 20).map((s) => ({ "@type": "Store", name: s.name }));
   }
+  return obj;
+}
+
+function buildIntegratedWebPageJsonLd(mall, pageUrl) {
+  const parentUrl = `${SITE_URL}/malls/${mall.integratedInto}/`;
+  const parent = {
+    "@id": `${parentUrl}#shoppingcenter`,
+    name: "Parque Arauco",
+    url: parentUrl,
+  };
+  const obj = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    name: mall.name,
+    url: pageUrl,
+    about: parent,
+    isPartOf: parent,
+  };
+  if (mall.description) obj.description = mall.description;
+  if (mall.imageUrl) obj.image = `${SITE_URL}${mall.imageUrl}`;
   return obj;
 }
 
 function buildMallOrOutletBody(mall, pageType) {
   const canonPath = mallCanonicalPath(mall);
   const pageUrl = `${SITE_URL}${canonPath}`;
-  const mapsUrl = mallMapsUrl(mall);
+  const mapsUrl = mall.entityStatus === "integrated" ? null : mallMapsUrl(mall);
   const indexPath = pageType === "outlet" ? "/outlets/" : "/malls/";
   const indexName = pageType === "outlet" ? "Outlets en Santiago" : "Malls en Santiago";
 
@@ -338,7 +370,7 @@ function buildMallOrOutletBody(mall, pageType) {
     body += `\n    <img src="${escAttr(SITE_URL + mall.imageUrl)}" alt="${escAttr(mall.name)}" width="800" height="400" style="width:100%;height:auto;border-radius:8px;object-fit:cover" loading="lazy" />`;
   }
   body += `\n    <h1 style="margin:.75rem 0 .25rem">${escHtml(mall.name)}</h1>`;
-  body += `\n    <p style="margin:0;color:#555">${escHtml(mall.commune)}, Santiago de Chile &nbsp;·&nbsp; <a href="${escAttr(mapsUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2563eb">Ver en Google Maps</a></p>`;
+  if (mall.commune || mapsUrl) body += `\n    <p style="margin:0;color:#555">${mall.commune ? `${escHtml(mall.commune)}, Santiago de Chile` : ""}${mall.commune && mapsUrl ? " &nbsp;·&nbsp; " : ""}${mapsUrl ? `<a href="${escAttr(mapsUrl)}" target="_blank" rel="noopener noreferrer" style="color:#2563eb">Ver en Google Maps</a>` : ""}</p>`;
   body += `\n  </header>`;
 
   if (mall.description) {
@@ -349,7 +381,7 @@ function buildMallOrOutletBody(mall, pageType) {
 
   // Key facts
   const facts = [];
-  if (mall.recommendedTime) facts.push(`<strong>Tiempo recomendado:</strong> ${escHtml(mall.recommendedTime)}`);
+  if (mall.recommendedTime) facts.push(`<strong>Tiempo sugerido por Shopeando:</strong> ${escHtml(mall.recommendedTime)}`);
   const priceLabel = priceLevelLabel(mall.priceLevel);
   if (priceLabel) facts.push(`<strong>Nivel de precios:</strong> ${escHtml(priceLabel)}`);
   if (mall.touristScore != null) facts.push(`<strong>Puntuación turística:</strong> ${mall.touristScore}/10`);
@@ -472,13 +504,13 @@ function buildIndexBody(opts) {
 // ══════════════════════════════════════════════════════════════════════════════
 
 function buildRouteJsonLd(route, pageUrl) {
-  const stopItems = (route.stops || []).map((stop, i) => {
+  const stopItems = (route.stops || []).filter((stop) => isStandaloneMall(mallById[stop.mallId])).map((stop, i) => {
     const mall = mallById[stop.mallId];
     return {
       "@type": "ListItem",
       position: i + 1,
-      name: mall ? mall.name : stop.mallId,
-      url: mall ? `${SITE_URL}${mallCanonicalPath(mall)}` : pageUrl,
+      name: mall.name,
+      url: `${SITE_URL}${mallCanonicalPath(mall)}`,
     };
   });
 
@@ -489,7 +521,6 @@ function buildRouteJsonLd(route, pageUrl) {
         "@type": "WebPage",
         "@id": `${pageUrl}#webpage`,
         name: route.title,
-        description: route.summary,
         url: pageUrl,
         inLanguage: "es-CL",
       },
@@ -508,6 +539,7 @@ function buildRouteJsonLd(route, pageUrl) {
       ]),
     ],
   };
+  if (route.summary) schema["@graph"][0].description = route.summary;
   return schema;
 }
 
@@ -524,7 +556,7 @@ function buildRouteBody(route) {
   body += `\n  ${breadcrumbHtml(bcItems)}`;
   body += `\n  <header style="margin-top:.5rem">`;
   body += `\n    <h1 style="margin:0 0 .5rem">${escHtml(route.title)}</h1>`;
-  body += `\n    <p style="color:#555;margin:0">${escHtml(route.summary)}</p>`;
+  if (route.summary) body += `\n    <p style="color:#555;margin:0">${escHtml(route.summary)}</p>`;
   body += `\n  </header>`;
 
   if (route.duration || route.bestFor?.length) {
@@ -536,17 +568,18 @@ function buildRouteBody(route) {
     body += `\n    </ul>\n  </section>`;
   }
 
-  if (route.stops?.length) {
+  const validStops = (route.stops || []).filter((stop) => isStandaloneMall(mallById[stop.mallId]));
+  if (validStops.length) {
     body += `\n  <section aria-label="Paradas" style="margin-top:1.25rem">`;
     body += `\n    <h2 style="font-size:1.1rem;margin-bottom:.75rem">Paradas de la ruta</h2>`;
     body += `\n    <ol style="padding-left:1.25rem;margin:0;display:flex;flex-direction:column;gap:1rem">`;
-    for (const stop of route.stops) {
+    for (const stop of validStops) {
       const mall = mallById[stop.mallId];
-      if (mall) {
+      if (isStandaloneMall(mall)) {
         const mallPath = mallCanonicalPath(mall);
         body += `\n      <li>`;
         body += `\n        <a href="${escAttr(SITE_URL + mallPath)}" style="color:#2563eb;font-weight:500">${escHtml(mall.name)}</a>`;
-        body += ` <span style="color:#6b7280;font-size:.875rem">(${escHtml(mall.commune)})</span>`;
+        if (mall.commune) body += ` <span style="color:#6b7280;font-size:.875rem">(${escHtml(mall.commune)})</span>`;
         if (stop.note) body += `\n        <p style="margin:.3rem 0 0;color:#555;font-size:.9rem">${escHtml(stop.note)}</p>`;
         body += `\n      </li>`;
       }
@@ -650,7 +683,7 @@ function buildGuideBody(guide) {
     body += `\n      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.4rem">`;
     for (const mallId of guide.relatedMalls) {
       const mall = mallById[mallId];
-      if (mall) {
+      if (isStandaloneMall(mall)) {
         const mallPath = mallCanonicalPath(mall);
         body += `\n        <li><a href="${escAttr(SITE_URL + mallPath)}" style="color:#2563eb">${escHtml(mall.name)}</a> <span style="color:#6b7280;font-size:.875rem">— ${escHtml(mall.commune)}</span></li>`;
       }
@@ -668,13 +701,15 @@ function buildGuideBody(guide) {
 // ══════════════════════════════════════════════════════════════════════════════
 
 function buildComparisonJsonLd(comparison, pageUrl) {
-  const mallItems = (comparison.mallIds || []).map((id, i) => {
-    const mall = mallById[id];
+  const mallItems = (comparison.mallIds || [])
+    .map((id) => mallById[id])
+    .filter(isStandaloneMall)
+    .map((mall, i) => {
     return {
       "@type": "ListItem",
       position: i + 1,
-      name: mall ? mall.name : id,
-      url: mall ? `${SITE_URL}${mallCanonicalPath(mall)}` : pageUrl,
+      name: mall.name,
+      url: `${SITE_URL}${mallCanonicalPath(mall)}`,
     };
   });
 
@@ -717,7 +752,7 @@ function buildComparisonBody(comparison) {
     { name: comparison.title, url: pageUrl },
   ];
 
-  const [mallA, mallB] = (comparison.mallIds || []).map((id) => mallById[id]);
+  const [mallA, mallB] = (comparison.mallIds || []).map((id) => mallById[id]).filter(isStandaloneMall);
 
   let body = `<main id="root" data-prerendered="true" style="font-family:sans-serif;max-width:800px;margin:0 auto;padding:1rem 1.5rem">`;
   body += `\n  ${breadcrumbHtml(bcItems)}`;
@@ -817,10 +852,13 @@ let count = 0;
 for (const mall of mallPages) {
   const canonPath = `/malls/${mall.id}/`;
   const pageUrl = `${SITE_URL}${canonPath}`;
-  const title = `${mall.name} · Horarios, tiendas y cómo llegar | Shopeando`;
+  const title = `${mall.name} · Información y cómo llegar | Shopeando`;
   const description = mall.description || "";
   const ogImage = mall.imageUrl ? `${SITE_URL}${mall.imageUrl}` : defaultOgImage;
-  const jsonLd = pageGraphJsonLd(buildShoppingCenterJsonLd(mall, pageUrl), [
+  const primaryJsonLd = mall.entityStatus === "integrated"
+    ? buildIntegratedWebPageJsonLd(mall, pageUrl)
+    : buildShoppingCenterJsonLd(mall, pageUrl);
+  const jsonLd = pageGraphJsonLd(primaryJsonLd, [
     { name: "Shopeando", url: `${SITE_URL}/` },
     { name: "Malls en Santiago", url: `${SITE_URL}/malls/` },
     { name: mall.name, url: pageUrl },
@@ -856,7 +894,7 @@ for (const mall of outletPages) {
   const pageUrl = `${SITE_URL}/malls/`;
   const title = "Malls en Santiago de Chile · Guía completa | Shopeando";
   const description = "Directorio de los mejores centros comerciales de Santiago de Chile. Encuentra el mall ideal según tu zona, presupuesto y tiempo disponible.";
-  const items = mallPages.map((m) => ({
+  const items = standaloneMallPages.map((m) => ({
     name: m.name,
     url: `${SITE_URL}/malls/${m.id}/`,
     description: m.description,
@@ -881,7 +919,7 @@ for (const mall of outletPages) {
   const pageUrl = `${SITE_URL}/outlets/`;
   const title = "Outlets en Santiago de Chile · Guía de descuentos | Shopeando";
   const description = "Los mejores outlets de Santiago de Chile: Easton Outlet Mall y Arauco Premium Outlet Buenaventura. Descuentos en moda, deporte y marcas internacionales.";
-  const items = outletPages.map((m) => ({
+  const items = standaloneOutletPages.map((m) => ({
     name: m.name,
     url: `${SITE_URL}/outlets/${m.id}/`,
     description: m.description,
@@ -1068,8 +1106,8 @@ for (const locale of ["pt", "en"]) {
     const path = `/${hub}/`;
     const [title, description] = localizedCopy[locale].hub[hub];
     const pageUrl = `${SITE_URL}${localizedPath(path, locale)}`;
-    const hubSourceItems = hub === "malls" ? mallPages
-      : hub === "outlets" ? outletPages
+    const hubSourceItems = hub === "malls" ? standaloneMallPages
+      : hub === "outlets" ? standaloneOutletPages
         : hub === "rutas" ? routes
           : hub === "guias" ? guides : comparisons;
     const hubItems = hubSourceItems.map((item) => {
@@ -1109,8 +1147,19 @@ for (const locale of ["pt", "en"]) {
         : path.startsWith("/rutas/") ? "route"
           : path.startsWith("/guias/") ? "guide" : "comparison";
     const seoTitle = `${title} · ${localizedCopy[locale].seoSuffix[typeKey]}`;
+    const localizedPrimaryNode = sourceEntity.entityStatus === "integrated" ? {
+      ...buildIntegratedWebPageJsonLd(entity, pageUrl),
+      inLanguage: PUBLIC_LOCALES[locale].hreflang,
+    } : {
+      "@context": "https://schema.org",
+      "@type": entity.sections ? "Article" : "WebPage",
+      name: title,
+      url: pageUrl,
+      inLanguage: PUBLIC_LOCALES[locale].hreflang,
+    };
+    if (description) localizedPrimaryNode.description = description;
     const jsonLd = pageGraphJsonLd(
-      { "@context": "https://schema.org", "@type": entity.sections ? "Article" : "WebPage", name: title, description, url: pageUrl, inLanguage: PUBLIC_LOCALES[locale].hreflang },
+      localizedPrimaryNode,
       [{ name: "Shopeando", url: `${SITE_URL}${localizedPath("/", locale)}` }, { name: title, url: pageUrl }],
     );
     let html = buildHead({ html: template, title: `${seoTitle} | Shopeando`, description, canonical: pageUrl, ogImage: entity.imageUrl ? `${SITE_URL}${entity.imageUrl}` : defaultOgImage, jsonLd });

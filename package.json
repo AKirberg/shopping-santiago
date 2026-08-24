@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "NODE_ENV=production node server.mjs",
-    "build": "node scripts/generate-sitemap.js && vite build && node scripts/prerender-seo-pages.js && node scripts/validate-seo-pages.js && node scripts/validate-umami-analytics.js",
+    "build": "node scripts/validate-content-audit.js && node scripts/generate-sitemap.js && vite build && node scripts/prerender-seo-pages.js && node scripts/validate-seo-pages.js && node scripts/validate-umami-analytics.js",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.js",
     "prerender": "node scripts/prerender-seo-pages.js",
-    "validate-seo": "node scripts/validate-seo-pages.js"
+    "validate-seo": "node scripts/validate-seo-pages.js",
+    "validate-content": "node scripts/validate-content-audit.js"
   },
   "dependencies": {
     "express": "^5.2.1",

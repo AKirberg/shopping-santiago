@@ -334,12 +334,17 @@ function RecommendationQuiz({ malls, onSelect, userCoords, address, onRequestLoc
                               </span>
                             )}
                           </div>
+                          {(mall.commune || mall.recommendedTime || mall.distanceKm != null) && (
                           <p className="mt-0.5 text-xs font-semibold text-ink/45">
-                            {mall.commune} · {mall.recommendedTime}
+                            {mall.commune}
+                            {mall.recommendedTime && <>{mall.commune ? " · " : ""}{mall.recommendedTime}</>}
                             {mall.distanceKm != null && (
-                              <span className="ml-2 text-leaf font-bold">· {mall.distanceKm} km</span>
+                              <span className={`${mall.commune || mall.recommendedTime ? "ml-2" : ""} text-leaf font-bold`}>
+                                {mall.commune || mall.recommendedTime ? "· " : ""}{mall.distanceKm} km
+                              </span>
                             )}
                           </p>
+                          )}
                         </div>
                       </div>
                       <div className="flex shrink-0 items-center gap-2">

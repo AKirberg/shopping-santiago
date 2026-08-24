@@ -33,11 +33,24 @@ function canonicalUrl(url) {
   return url.endsWith("/") ? url : `${url}/`;
 }
 
+function isValidExternalUrl(url) {
+  try {
+    return ["http:", "https:"].includes(new URL(url).protocol);
+  } catch {
+    return false;
+  }
+}
+
 // ─── SEO helpers ─────────────────────────────────────────────────────────────
 
 function setMeta(selector, attr, value) {
   const el = document.head.querySelector(selector);
-  if (el) el.setAttribute(attr, value);
+  if (!el) return;
+  if (value == null || value === "") {
+    el.remove();
+    return;
+  }
+  el.setAttribute(attr, value);
 }
 
 function setPageSeo({ title, description, canonical, ogImage }) {
@@ -94,8 +107,11 @@ function removeJsonLd(id) {
 
 // ─── Route parsing ────────────────────────────────────────────────────────────
 
+const isStandaloneMall = (mall) => mall?.entityStatus !== "integrated";
 const mallPages = malls.filter((m) => !m.outlet);
 const outletPages = malls.filter((m) => m.outlet);
+const standaloneMallPages = mallPages.filter(isStandaloneMall);
+const standaloneOutletPages = outletPages.filter(isStandaloneMall);
 const mallMap = Object.fromEntries(malls.map((m) => [m.id, m]));
 
 export function matchPublicRoute(pathname) {
@@ -235,44 +251,64 @@ function MallDetailPage({ mall, isOutlet }) {
   const hubLabel = isOutlet ? "Outlets" : "Malls";
   const canonicalPath = isOutlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
   const canonical = `${SITE_URL}${canonicalPath}`;
-  const mapsUrl = mallMapsUrl(mall);
+  const mapsUrl = mall.entityStatus === "integrated" ? null : mallMapsUrl(mall);
 
   // Related routes
-  const relatedRoutes = routes.filter((r) => r.stops.some((s) => s.mallId === mall.id));
+  const relatedRoutes = isStandaloneMall(mall) ? routes.filter((r) => r.stops.some((s) => s.mallId === mall.id)) : [];
   // Related guides
-  const relatedGuides = guides.filter((g) => g.relatedMalls?.includes(mall.id));
+  const relatedGuides = isStandaloneMall(mall) ? guides.filter((g) => g.relatedMalls?.includes(mall.id)) : [];
   // Related comparisons
-  const relatedComparisons = comparisons.filter((c) => c.mallIds?.includes(mall.id));
+  const relatedComparisons = isStandaloneMall(mall) ? comparisons.filter((c) => c.mallIds?.includes(mall.id)) : [];
 
   useEffect(() => {
     const titleSuffix = isOutlet
-      ? "Outlet · Horarios, tiendas y cómo llegar"
-      : "Horarios, tiendas y cómo llegar";
+      ? "Outlet · Información y cómo llegar"
+      : "Información y cómo llegar";
     const title = `${mall.name} · ${titleSuffix} | Shopeando`;
     const description = mall.description;
     setPageSeo({ title, description, canonical, ogImage: mall.imageUrl ? `${SITE_URL}${mall.imageUrl}` : undefined });
 
     // JSON-LD
-    const jsonLd = {
+    const jsonLd = mall.entityStatus === "integrated" ? {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      name: mall.name,
+      url: canonical,
+      description: mall.description,
+      about: {
+        "@id": `${SITE_URL}/malls/${mall.integratedInto}/#shoppingcenter`,
+        name: "Parque Arauco",
+        url: `${SITE_URL}/malls/${mall.integratedInto}/`,
+      },
+      isPartOf: {
+        "@id": `${SITE_URL}/malls/${mall.integratedInto}/#shoppingcenter`,
+        name: "Parque Arauco",
+        url: `${SITE_URL}/malls/${mall.integratedInto}/`,
+      },
+      ...(mall.imageUrl ? { image: `${SITE_URL}${mall.imageUrl}` } : {}),
+    } : {
       "@context": "https://schema.org",
       "@type": "ShoppingCenter",
       "@id": `${canonical}#shoppingcenter`,
       name: mall.name,
-      description: mall.description,
       url: canonical,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: mall.commune,
-        addressRegion: "Región Metropolitana",
-        addressCountry: "CL",
-      },
       hasMap: mapsUrl,
       isAccessibleForFree: true,
     };
-    if (mall.lat && mall.lng) jsonLd.geo = { "@type": "GeoCoordinates", latitude: mall.lat, longitude: mall.lng };
-    if (mall.imageUrl) jsonLd.image = `${SITE_URL}${mall.imageUrl}`;
-    if (mall.officialUrl) jsonLd.sameAs = [mall.officialUrl];
-    if (mall.stores?.length) jsonLd.containsPlace = mall.stores.slice(0, 20).map((s) => ({ "@type": "Store", name: s.name }));
+    if (mall.entityStatus !== "integrated" && mall.description) jsonLd.description = mall.description;
+    if (mall.entityStatus !== "integrated" && mall.commune) jsonLd.address = {
+      "@type": "PostalAddress",
+      addressLocality: mall.commune,
+      addressRegion: "Región Metropolitana",
+      addressCountry: "CL",
+    };
+    if (mall.entityStatus !== "integrated" && Number.isFinite(mall.lat) && Number.isFinite(mall.lng)) jsonLd.geo = { "@type": "GeoCoordinates", latitude: mall.lat, longitude: mall.lng };
+    if (mall.entityStatus !== "integrated" && mall.priceLevel) jsonLd.priceRange = mall.priceLevel;
+    if (mall.entityStatus !== "integrated" && mall.imageUrl) jsonLd.image = `${SITE_URL}${mall.imageUrl}`;
+    if (mall.entityStatus !== "integrated" && mall.officialUrl) jsonLd.sameAs = [mall.officialUrl];
+    const storesWithNames = mall.stores?.filter((store) => store?.name) || [];
+    if (mall.entityStatus !== "integrated" && storesWithNames.length) jsonLd.containsPlace = storesWithNames.slice(0, 20).map((s) => ({ "@type": "Store", name: s.name }));
     injectJsonLd("page-jsonld", jsonLd);
     return () => removeJsonLd("page-jsonld");
   }, [mall, isOutlet, canonical, mapsUrl]);
@@ -290,7 +326,7 @@ function MallDetailPage({ mall, isOutlet }) {
           <div className="relative h-40" style={{ background: "linear-gradient(135deg,#1f3144 0%,#12615b 70%,#e36b45 100%)" }} />
         )}
         <div className="absolute bottom-0 left-0 right-0 p-6">
-          <p className="text-xs font-extrabold uppercase tracking-widest text-white/60">{mall.commune}</p>
+          {mall.commune && <p className="text-xs font-extrabold uppercase tracking-widest text-white/60">{mall.commune}</p>}
           <h1 className="mt-1 font-display text-3xl font-extrabold text-white drop-shadow">{mall.name}</h1>
           {(isOutlet || mall.premium) && (
             <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -310,10 +346,10 @@ function MallDetailPage({ mall, isOutlet }) {
         <div className="grid gap-8 lg:grid-cols-[1.4fr_0.6fr]">
           {/* Main column */}
           <div>
-            <p className="text-sm leading-7 text-ink/68 mt-2">{mall.description}</p>
+            {mall.description && <p className="text-sm leading-7 text-ink/68 mt-2">{mall.description}</p>}
 
             {/* Info grid */}
-            <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {[mall.bestFor, mall.notIdealFor, mall.tips, mall.nearbyAttractions].some((items) => items?.length > 0) && <div className="mt-6 grid gap-5 sm:grid-cols-2">
               {mall.bestFor?.length > 0 && (
                 <div>
                   <h2 className="text-xs font-extrabold uppercase tracking-wider text-ink/40">Mejor para</h2>
@@ -366,7 +402,7 @@ function MallDetailPage({ mall, isOutlet }) {
                   </ul>
                 </div>
               )}
-            </div>
+            </div>}
 
             <StoreList stores={mall.stores} />
             <div className="mt-8 grid gap-4">
@@ -437,33 +473,36 @@ function MallDetailPage({ mall, isOutlet }) {
           <aside>
             <div className="rounded-xl bg-mist p-5 sticky top-20">
               <div className="grid gap-3.5 text-sm font-semibold text-ink/70">
-                <span className="flex items-start gap-3">
+                {mall.transport?.metro && <span className="flex items-start gap-3">
                   <TrainFront size={16} className="mt-0.5 shrink-0 text-leaf" />
-                  {mall.transport?.metro}
-                </span>
-                <span className="flex items-center gap-3">
+                  {mall.transport.metro}
+                </span>}
+                {(typeof mall.transport?.parking === "boolean" || typeof mall.transport?.uber === "boolean") && <span className="flex items-center gap-3">
                   <Car size={16} className="shrink-0 text-leaf" />
-                  Parking: {mall.transport?.parking ? "Sí" : "No"} · Uber: {mall.transport?.uber ? "Sí" : "No"}
-                </span>
-                <span className="flex items-center gap-3">
+                  {[
+                    typeof mall.transport?.parking === "boolean" ? `Parking: ${mall.transport.parking ? "Sí" : "No"}` : null,
+                    typeof mall.transport?.uber === "boolean" ? `Uber: ${mall.transport.uber ? "Sí" : "No"}` : null,
+                  ].filter(Boolean).join(" · ")}
+                </span>}
+                {mall.recommendedTime && <span className="flex items-center gap-3">
                   <Clock size={16} className="shrink-0 text-leaf" />
-                  {mall.recommendedTime}
-                </span>
-                <span className="flex items-center gap-3">
+                  <span>Tiempo sugerido por Shopeando: {mall.recommendedTime}</span>
+                </span>}
+                {mall.priceLevel && <span className="flex items-center gap-3">
                   <MapPin size={16} className="shrink-0 text-leaf" />
                   Precio: {mall.priceLevel}
-                </span>
+                </span>}
               </div>
 
               <div className="mt-4 grid gap-2.5">
-                <a
+                {isValidExternalUrl(mapsUrl) && <a
                   href={mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="primary-button justify-center bg-leaf hover:bg-leaf/85"
                 >
                   <ExternalLink size={15} /> Ver en Google Maps
-                </a>
+                </a>}
                 {mall.officialUrl && (
                   <a
                     href={mall.officialUrl}
@@ -520,7 +559,7 @@ function MallsHub() {
           </p>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {mallPages.map((mall) => (
+          {standaloneMallPages.map((mall) => (
             <MallListCard key={mall.id} mall={mall} href={mallPath(mall)} />
           ))}
         </div>
@@ -559,7 +598,7 @@ function OutletsHub() {
           </p>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {outletPages.map((mall) => (
+          {standaloneOutletPages.map((mall) => (
             <MallListCard key={mall.id} mall={mall} href={mallPath(mall)} badge="Outlet" />
           ))}
         </div>
@@ -602,7 +641,7 @@ function MallListCard({ mall, href, badge }) {
           <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
+              {mall.commune && <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>}
               <h2 className="mt-0.5 font-display text-lg font-extrabold leading-tight text-white drop-shadow">{mall.name}</h2>
             </div>
             {badge && (
@@ -615,12 +654,12 @@ function MallListCard({ mall, href, badge }) {
         </div>
       </div>
       <div className="p-4" hidden={!isExpanded}>
-        <p className="text-sm leading-relaxed text-ink/55 line-clamp-2">{mall.description}</p>
+        {mall.description && <p className="text-sm leading-relaxed text-ink/55 line-clamp-2">{mall.description}</p>}
         <div className="mt-3 flex items-center gap-2 border-t border-ink/6 pt-3">
           <a href={href} className="primary-button flex-1 py-2 text-xs justify-center">
             {t.mallCard.viewDetails}
           </a>
-          <a
+          {isValidExternalUrl(mapsUrl) && <a
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -628,7 +667,7 @@ function MallListCard({ mall, href, badge }) {
             aria-label={t.mallCard.mapsLabel}
           >
             <ExternalLink size={14} />
-          </a>
+          </a>}
         </div>
       </div>
     </article>
@@ -673,18 +712,19 @@ function RutasHub() {
 }
 
 function RouteListCard({ route, href }) {
-  const stopMalls = route.stops.map((s) => mallMap[s.mallId]).filter(Boolean);
-  const mapsUrl = routeMapsUrl(route.stops, mallMap);
+  const stopMalls = route.stops.map((s) => mallMap[s.mallId]).filter(isStandaloneMall);
+  const standaloneStops = route.stops.filter((stop) => isStandaloneMall(mallMap[stop.mallId]));
+  const mapsUrl = routeMapsUrl(standaloneStops, mallMap);
   return (
     <article className="overflow-hidden rounded-2xl border border-ink/8 bg-white shadow-card">
       <div className="h-1.5 bg-gradient-to-r from-leaf to-night" />
       <div className="p-5">
-        <p className="text-xs font-extrabold text-coral">{route.duration} · {route.stops.length} {route.stops.length === 1 ? "parada" : "paradas"}</p>
+        {(route.duration || stopMalls.length > 0) && <p className="text-xs font-extrabold text-coral">{[route.duration, stopMalls.length > 0 ? `${stopMalls.length} ${stopMalls.length === 1 ? "parada" : "paradas"}` : null].filter(Boolean).join(" · ")}</p>}
         <h2 className="mt-1.5 font-display text-lg font-extrabold">{route.title}</h2>
-        <p className="mt-2 text-sm text-ink/55 line-clamp-2">{route.summary}</p>
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        {route.summary && <p className="mt-2 text-sm text-ink/55 line-clamp-2">{route.summary}</p>}
+        {route.bestFor?.length > 0 && <div className="mt-3 flex flex-wrap gap-1.5">
           {route.bestFor.map((tag) => <span key={tag} className="tag">{tag}</span>)}
-        </div>
+        </div>}
         {stopMalls.length > 0 && (
           <ul className="mt-3 grid gap-1.5">
             {stopMalls.map((mall) => (
@@ -720,8 +760,8 @@ function RouteListCard({ route, href }) {
 
 function RutaDetailPage({ route }) {
   const canonical = `${SITE_URL}/rutas/${route.id}/`;
-  const mapsUrl = routeMapsUrl(route.stops, mallMap);
-  const stopMalls = route.stops.map((s) => ({ ...s, mall: mallMap[s.mallId] }));
+  const stopMalls = (route.stops || []).map((s) => ({ ...s, mall: mallMap[s.mallId] })).filter((stop) => isStandaloneMall(stop.mall));
+  const mapsUrl = routeMapsUrl(stopMalls, mallMap);
 
   useEffect(() => {
     setPageSeo({
@@ -738,22 +778,22 @@ function RutaDetailPage({ route }) {
         <div className="mb-8 max-w-2xl">
           <p className="eyebrow">Ruta de compras</p>
           <h1 className="mt-3 font-display text-4xl font-extrabold">{route.title}</h1>
-          <p className="mt-3 text-sm leading-6 text-ink/55">{route.summary}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <span className="tag text-coral font-extrabold">{route.duration}</span>
-            <span className="tag">{route.stops.length} {route.stops.length === 1 ? "parada" : "paradas"}</span>
-            {route.bestFor.map((tag) => <span key={tag} className="tag">{tag}</span>)}
-          </div>
+          {route.summary && <p className="mt-3 text-sm leading-6 text-ink/55">{route.summary}</p>}
+          {(route.duration || stopMalls.length > 0 || route.bestFor?.length > 0) && <div className="mt-4 flex flex-wrap gap-2">
+            {route.duration && <span className="tag text-coral font-extrabold">{route.duration}</span>}
+            {stopMalls.length > 0 && <span className="tag">{stopMalls.length} {stopMalls.length === 1 ? "parada" : "paradas"}</span>}
+            {route.bestFor?.map((tag) => <span key={tag} className="tag">{tag}</span>)}
+          </div>}
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.4fr_0.6fr]">
           <div>
             {/* Stops */}
-            <div className="grid gap-0">
+            {stopMalls.length > 0 && <div className="grid gap-0">
               {stopMalls.map(({ mall, note }, i) => {
                 const isLast = i === stopMalls.length - 1;
-                const mallHref = mall ? mallPath(mall) : null;
-                const stopMapsUrl = mall ? mallMapsUrl(mall) : null;
+                const mallHref = mallPath(mall);
+                const stopMapsUrl = mallMapsUrl(mall);
                 return (
                   <div key={i} className="grid grid-cols-[32px_1fr] gap-3">
                     <div className="flex flex-col items-center">
@@ -763,18 +803,14 @@ function RutaDetailPage({ route }) {
                       {!isLast && <span className="my-1 w-px flex-1 bg-ink/10" />}
                     </div>
                     <div className={`rounded-xl bg-[#f8faf6] p-4 ${isLast ? "" : "mb-3"}`}>
-                      {mall && (
+                      {mall.commune && (
                         <p className="text-xs font-extrabold uppercase tracking-wider text-ink/35">{mall.commune}</p>
                       )}
                       <p className="mt-1 font-extrabold text-sm">
-                        {mallHref ? (
-                          <a href={mallHref} className="hover:text-leaf transition">{mall?.name || note}</a>
-                        ) : (
-                          note
-                        )}
+                        <a href={mallHref} className="hover:text-leaf transition">{mall.name}</a>
                       </p>
-                      <p className="mt-1 text-xs leading-5 text-ink/50">{note}</p>
-                      {stopMapsUrl && (
+                      {note && <p className="mt-1 text-xs leading-5 text-ink/50">{note}</p>}
+                      {isValidExternalUrl(stopMapsUrl) && (
                         <a
                           href={stopMapsUrl}
                           target="_blank"
@@ -788,7 +824,7 @@ function RutaDetailPage({ route }) {
                   </div>
                 );
               })}
-            </div>
+            </div>}
 
             {/* Tips */}
             {route.tips?.length > 0 && (
@@ -805,7 +841,7 @@ function RutaDetailPage({ route }) {
             )}
 
             {/* Full route Maps */}
-            {mapsUrl && (
+            {isValidExternalUrl(mapsUrl) && (
               <a
                 href={mapsUrl}
                 target="_blank"
@@ -813,13 +849,13 @@ function RutaDetailPage({ route }) {
                 className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl border border-leaf/25 bg-leaf/8 px-4 py-3 text-sm font-extrabold text-leaf transition hover:bg-leaf/15"
               >
                 <ExternalLink size={15} />
-                {route.stops.length > 1 ? "Abrir ruta en Google Maps" : "Ver en Google Maps"}
+                {stopMalls.length > 1 ? "Abrir ruta en Google Maps" : "Ver en Google Maps"}
               </a>
             )}
           </div>
 
           {/* Sidebar: mall links */}
-          <aside>
+          {stopMalls.length > 0 && <aside>
             <div className="rounded-xl bg-mist p-5 sticky top-20">
               <h2 className="text-xs font-extrabold uppercase tracking-wider text-ink/40 mb-4">Paradas de la ruta</h2>
               <ul className="grid gap-2">
@@ -841,7 +877,7 @@ function RutaDetailPage({ route }) {
                 })}
               </ul>
             </div>
-          </aside>
+          </aside>}
         </div>
       </div>
     </PageShell>
@@ -917,7 +953,7 @@ function GuideListCard({ guide }) {
 
 function GuiaDetailPage({ guide }) {
   const canonical = `${SITE_URL}/guias/${guide.id}/`;
-  const relatedMallObjs = (guide.relatedMalls || []).map((id) => mallMap[id]).filter(Boolean);
+  const relatedMallObjs = (guide.relatedMalls || []).map((id) => mallMap[id]).filter(isStandaloneMall);
 
   useEffect(() => {
     setPageSeo({
@@ -1066,7 +1102,7 @@ function ComparisonListCard({ comparison }) {
 
 function CompararDetailPage({ comparison }) {
   const canonical = `${SITE_URL}/comparar/${comparison.id}/`;
-  const [mallA, mallB] = comparison.mallIds.map((id) => mallMap[id]);
+  const [mallA, mallB] = comparison.mallIds.map((id) => mallMap[id]).filter(isStandaloneMall);
 
   useEffect(() => {
     setPageSeo({
@@ -1228,8 +1264,8 @@ function LocalizedSeoPage({ match }) {
   }, [locale, seoTitle, description, canonical, entity?.imageUrl]);
 
   const sourceItems = isHub
-    ? hubKey === "malls" ? mallPages
-      : hubKey === "outlets" ? outletPages
+    ? hubKey === "malls" ? standaloneMallPages
+      : hubKey === "outlets" ? standaloneOutletPages
         : hubKey === "rutas" ? routes
           : hubKey === "guias" ? guides : comparisons
     : [];
@@ -1259,13 +1295,13 @@ function LocalizedSeoPage({ match }) {
         {entity?.imageUrl && <img src={entity.imageUrl} alt={title} className="mb-8 h-52 w-full rounded-2xl object-cover sm:h-72" />}
         <p className="eyebrow">{isHub ? copy.guides : type === "ruta-detail" ? copy.shoppingRoute : type === "comparar-detail" ? copy.comparison : copy.editorial}</p>
         <h1 className="mt-3 font-display text-4xl font-extrabold">{title}</h1>
-        <p className="mt-3 max-w-3xl text-sm leading-7 text-ink/65">{description}</p>
+        {description && <p className="mt-3 max-w-3xl text-sm leading-7 text-ink/65">{description}</p>}
         {isHub ? (
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {items.map((item) => (
               <a key={item.id} href={localizedPath(itemPath(item), locale)} className="rounded-xl border border-ink/8 bg-white p-5 transition hover:border-leaf/40">
                 <h2 className="font-display text-lg font-extrabold">{item.title || item.name}</h2>
-                <p className="mt-2 text-sm leading-6 text-ink/60">{item.description || item.summary}</p>
+                {(item.description || item.summary) && <p className="mt-2 text-sm leading-6 text-ink/60">{item.description || item.summary}</p>}
                 <span className="mt-4 inline-flex text-sm font-bold text-leaf">{copy.read} →</span>
               </a>
             ))}
@@ -1275,23 +1311,27 @@ function LocalizedSeoPage({ match }) {
             {entity?.sections?.map((section) => <section key={section.heading} className="mb-6"><h2 className="font-display text-xl font-extrabold">{section.heading}</h2><p className="mt-3 text-sm leading-7 text-ink/68">{section.body}</p></section>)}
             {entity?.bestFor?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.bestFor}</h2><ul className="mt-3 grid gap-2">{entity.bestFor.map((item) => <li key={item} className="text-sm text-ink/68">{item}</li>)}</ul></section>}
             {entity?.notIdealFor?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.notIdealFor}</h2><ul className="mt-3 grid gap-2">{entity.notIdealFor.map((item) => <li key={item} className="text-sm text-ink/68">{item}</li>)}</ul></section>}
-            {entity?.transport?.metro && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.transport}</h2><p className="mt-3 text-sm text-ink/68">{entity.transport.metro}</p>{entity.recommendedTime && <p className="mt-2 text-sm text-ink/68"><strong>{copy.duration}:</strong> {entity.recommendedTime}</p>}</section>}
+            {(entity?.transport?.metro || entity?.recommendedTime) && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.transport}</h2>{entity.transport?.metro && <p className="mt-3 text-sm text-ink/68">{entity.transport.metro}</p>}{entity.recommendedTime && <p className="mt-2 text-sm text-ink/68"><strong>{copy.duration}:</strong> {entity.recommendedTime}</p>}</section>}
             {entity?.nearbyAttractions?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.nearby}</h2><ul className="mt-3 grid gap-2">{entity.nearbyAttractions.map((place) => <li key={place} className="text-sm text-ink/68">{place}</li>)}</ul></section>}
             {entity?.stores?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.stores}</h2><ul className="mt-3 flex flex-wrap gap-2">{entity.stores.map((store) => <li key={store.name} className="tag">{store.name}</li>)}</ul></section>}
             {entity?.tips?.length > 0 && <section className="mb-6"><h2 className="font-display text-xl font-extrabold">{copy.tips}</h2><ul className="mt-3 grid gap-2">{entity.tips.map((tip) => <li key={tip} className="text-sm leading-7 text-ink/68">{tip}</li>)}</ul></section>}
             {entity?.intro && <p className="text-sm leading-7 text-ink/68">{entity.intro}</p>}
-            {entity?.mallIds?.length > 0 && <div className="my-6 grid gap-3 sm:grid-cols-2">{entity.mallIds.map((mallId) => mallMap[mallId]).filter(Boolean).map((mall) => <a key={mall.id} href={mallPath(mall, locale)} className="rounded-xl border border-ink/8 bg-white p-4 font-bold hover:text-leaf">{mall.name}</a>)}</div>}
+            {entity?.mallIds?.length > 0 && <div className="my-6 grid gap-3 sm:grid-cols-2">{entity.mallIds.map((mallId) => mallMap[mallId]).filter(isStandaloneMall).map((mall) => <a key={mall.id} href={mallPath(mall, locale)} className="rounded-xl border border-ink/8 bg-white p-4 font-bold hover:text-leaf">{mall.name}</a>)}</div>}
             {entity?.criteria?.map((criterion) => <section key={criterion.name} className="mt-6"><h2 className="font-display text-xl font-extrabold">{criterion.name}</h2><p className="mt-2 text-sm leading-7 text-ink/68">{criterion.mallA}</p><p className="mt-2 text-sm leading-7 text-ink/68">{criterion.mallB}</p></section>)}
             {entity?.conclusion && <p className="mt-6 text-sm leading-7 text-ink/68">{entity.conclusion}</p>}
-            {type === "ruta-detail" && entity.stops?.map((stop, index) => {
-              const mall = mallMap[stop.mallId];
-              return <p key={`${stop.mallId}-${index}`} className="mt-4 text-sm text-ink/68">{index + 1}. {mall ? <a href={mallPath(mall, locale)} className="font-bold hover:text-leaf">{mall.name}</a> : stop.note} — {stop.note}</p>;
-            })}
-            {entity?.relatedMalls?.length > 0 && <section className="mt-8"><h2 className="font-display text-xl font-extrabold">{copy.relatedMalls}</h2><div className="mt-3 grid gap-3">{entity.relatedMalls.map((mallId) => mallMap[mallId]).filter(Boolean).map((mall) => <a key={mall.id} href={mallPath(mall, locale)} className="rounded-xl border border-ink/8 bg-white p-4 font-bold hover:text-leaf">{mall.name}</a>)}</div></section>}
+            {type === "ruta-detail" && entity.stops?.map((stop) => ({ ...stop, mall: mallMap[stop.mallId] })).filter((stop) => isStandaloneMall(stop.mall)).map((stop, index) => (
+              <p key={`${stop.mallId}-${index}`} className="mt-4 text-sm text-ink/68">{index + 1}. <a href={mallPath(stop.mall, locale)} className="font-bold hover:text-leaf">{stop.mall.name}</a>{stop.note && <> — {stop.note}</>}</p>
+            ))}
+            {entity?.relatedMalls?.length > 0 && <section className="mt-8"><h2 className="font-display text-xl font-extrabold">{copy.relatedMalls}</h2><div className="mt-3 grid gap-3">{entity.relatedMalls.map((mallId) => mallMap[mallId]).filter(isStandaloneMall).map((mall) => <a key={mall.id} href={mallPath(mall, locale)} className="rounded-xl border border-ink/8 bg-white p-4 font-bold hover:text-leaf">{mall.name}</a>)}</div></section>}
             {relatedRoutes.length > 0 && <LocalizedRelatedLinks label={copy.relatedRoutes} items={relatedRoutes} getPath={(route) => routePath(route, locale)} />}
             {relatedGuides.length > 0 && <LocalizedRelatedLinks label={copy.relatedGuides} items={relatedGuides} getPath={(guide) => guidePath(guide, locale)} />}
             {relatedComparisons.length > 0 && <LocalizedRelatedLinks label={copy.relatedComparisons} items={relatedComparisons} getPath={(comparison) => comparisonPath(comparison, locale)} />}
-            {(type === "mall-detail" || type === "ruta-detail") && <a href={type === "mall-detail" ? mallMapsUrl(entity) : routeMapsUrl(entity.stops, mallMap)} target="_blank" rel="noopener noreferrer" className="primary-button mt-8">{copy.map}</a>}
+            {(type === "mall-detail" || type === "ruta-detail") && (() => {
+              const mapsUrl = type === "mall-detail"
+                ? (entity.entityStatus === "integrated" ? null : mallMapsUrl(entity))
+                : routeMapsUrl(entity.stops?.filter((stop) => isStandaloneMall(mallMap[stop.mallId])), mallMap);
+              return isValidExternalUrl(mapsUrl) ? <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="primary-button mt-8">{copy.map}</a> : null;
+            })()}
             {entity?.officialUrl && <a href={entity.officialUrl} target="_blank" rel="noopener noreferrer" className="secondary-button mt-4">{copy.official}</a>}
           </article>
         )}

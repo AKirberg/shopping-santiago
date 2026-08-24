@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import malls from "./data/malls.json";
+import allMalls from "./data/malls.json";
 import routes from "./data/routes.json";
 import { matchesMallFilters } from "./utils/scoring";
 import { computeTimeBreakdown } from "./utils/timeCalc";
@@ -24,8 +24,10 @@ import PublicSeoPage, { matchPublicRoute } from "./components/PublicSeoPage";
 // Legacy /mall/:id path parser (for home modal only — actual routing handled by matchPublicRoute)
 function mallFromLegacyPath(pathname) {
   const match = pathname.match(/^\/mall\/([^/]+)\/?$/);
-  return match ? malls.find(m => m.id === match[1]) ?? null : null;
+  return match ? allMalls.find(m => m.id === match[1]) ?? null : null;
 }
+
+const malls = allMalls.filter((mall) => mall.entityStatus !== "integrated");
 
 const defaultFilters = {
   query: "", commune: "Todas", category: "Todas",
@@ -140,7 +142,12 @@ function App() {
   const availableHours = timeBreakdown?.availableHours ?? null;
   const filteredMalls = useMemo(() => malls.filter(mall => matchesMallFilters(mall, filters)), [filters]);
   const featuredMalls = useMemo(
-    () => malls.filter(mall => mall.touristScore >= 8 || mall.premium || mall.outlet).slice(0, 3),
+    () => malls.filter(mall =>
+      (Number.isFinite(mall.touristScore) && mall.touristScore >= 8) ||
+      mall.premium ||
+      mall.outlet ||
+      mall.type?.includes("tourist")
+    ).slice(0, 3),
     []
   );
 

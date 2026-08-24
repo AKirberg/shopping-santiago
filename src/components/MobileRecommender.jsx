@@ -17,10 +17,17 @@ function ResultCard({ mall, index, q, selected, onAdd, onOpen, primary = false, 
             <h3 className="min-w-0 text-base font-extrabold leading-tight">{mall.name}</h3>
             {mall.isNearest && <span className="rounded-full bg-leaf px-2 py-0.5 text-[10px] font-extrabold text-white">{q.nearest}</span>}
           </div>
-          <p className="mt-1 text-xs font-semibold text-ink/50">
-            {mall.commune} · {mall.recommendedTime}
-            {mall.distanceKm != null && <span className="ml-1.5 font-bold text-leaf">· {mall.distanceKm} km</span>}
-          </p>
+          {(mall.commune || mall.recommendedTime || mall.distanceKm != null) && (
+            <p className="mt-1 text-xs font-semibold text-ink/50">
+              {mall.commune}
+              {mall.recommendedTime && <>{mall.commune ? " · " : ""}{mall.recommendedTime}</>}
+              {mall.distanceKm != null && (
+                <span className={`${mall.commune || mall.recommendedTime ? "ml-1.5" : ""} font-bold text-leaf`}>
+                  {mall.commune || mall.recommendedTime ? "· " : ""}{mall.distanceKm} km
+                </span>
+              )}
+            </p>
+          )}
         </div>
       </div>
 

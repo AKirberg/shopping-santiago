@@ -1,485 +1,708 @@
 /**
- * Locale-specific prose for each mall.
- * ES content lives in malls.json — only EN and PT are here.
- * localizeMall() merges this with the raw mall object.
+ * Locale-specific prose for each mall. ES content lives in malls.json.
  */
-
 const mallTranslations = {
-  en: {
+  "en": {
     "costanera-center": {
-      description: "One of the most recognisable malls for tourists, with great variety, convenient metro connections and a practical mix of shopping, food and urban strolling.",
-      bestFor: ["First visit", "Quick shopping", "Tourists without a car"],
-      notIdealFor: ["Those seeking peace during rush hour"],
-      tips: ["Ideal if you're staying in Providencia or Las Condes."],
-      metro: "Close to Tobalaba station.",
-      recommendedTime: "2–4 hours",
+      "description": "Six-level shopping centre with more than 300 stores, a Jumbo supermarket and 12 cinema screens. Sky Costanera operates inside the complex.",
+      "bestFor": [
+        "Store variety",
+        "Cinema",
+        "Sky Costanera"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Check the official opening hours, which may vary by store."
+      ],
+      "metro": null,
+      "recommendedTime": "2-4 hours"
     },
     "parque-arauco": {
-      description: "A complete and more leisurely shopping experience, with great dining options, well-known brands and comfortable spaces to combine shopping and strolling.",
-      bestFor: ["Premium brands", "Great dining", "Families"],
-      notIdealFor: ["Very short visits without flexible transport"],
-      tips: ["Great spot for an afternoon of shopping and dining."],
-      metro: "Requires combining metro with a walk, bus or short taxi/Uber ride.",
-      recommendedTime: "2–4 hours",
+      "description": "Las Condes shopping centre with stores, dining, events and parking. Its official offer includes Piso Diseño, Distrito de Lujo, Bazar Gourmet and Boulevard.",
+      "bestFor": [
+        "Distrito de Lujo",
+        "Dining",
+        "Events"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "The future Parque Araucano Line 7 station is not yet operational."
+      ],
+      "metro": null,
+      "recommendedTime": "3-5 hours"
     },
     "alto-las-condes": {
-      description: "Large and comfortable mall for planned shopping, families and those driving through the eastern area.",
-      bestFor: ["Families", "Rainy day", "Relaxed shopping"],
-      notIdealFor: ["Tourists relying only on metro"],
-      tips: ["Convenient if you're staying in upper Las Condes or travelling by car."],
-      metro: "Not the most direct metro option; best combined with taxi/Uber or car.",
-      recommendedTime: "2–4 hours",
+      "description": "Las Condes shopping centre with the Alto Diseño and Mirador spaces. It has access points on Presidente Kennedy Lateral, Padre Hurtado and Gilberto Fuenzalida.",
+      "bestFor": [
+        "Alto Diseño",
+        "Mirador",
+        "Shopping at anchor stores"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Check the official opening hours, which may vary by store."
+      ],
+      "metro": null,
+      "recommendedTime": "3-5 hours"
     },
     "casacostanera": {
-      description: "Boutique and sophisticated format, designed for a more relaxed experience, focusing on fashion, design, lifestyle and gastronomy.",
-      bestFor: ["Premium experience", "Boutique shopping", "Strolling in Vitacura"],
-      notIdealFor: ["Those seeking maximum variety in little time"],
-      tips: ["Great stop if you're looking for a premium circuit in Vitacura."],
-      metro: "Best reached by taxi/Uber or car from nearby stations.",
-      recommendedTime: "1–2 hours",
+      "description": "Vitacura shopping centre with more than 80 stores and a boutique experience covering fashion, beauty, décor, entertainment and dining. It includes an open-air promenade and parking.",
+      "bestFor": [
+        "Boutique shopping",
+        "Fashion and décor",
+        "Open-air promenade"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "It provides a nursing room, wheelchairs and lockers."
+      ],
+      "metro": null,
+      "recommendedTime": "1-3 hours"
     },
     "mall-sport": {
-      description: "Sports-focused centre with specialised stores. Works well for families and outdoor shopping, sneakers or sports equipment.",
-      bestFor: ["Sport", "Families with children", "Active experiences"],
-      notIdealFor: ["Those looking for general fashion or luxury"],
-      tips: ["Good alternative to add a fun stop on a family route."],
-      metro: "Best combined with taxi/Uber or car.",
-      recommendedTime: "1–2 hours",
+      "description": "Shopping centre specialising in sports, with aquatic, high mountain, cycling, climbing, ski/snowboard and surf categories. Laguna Mall Sport is part of its official programme.",
+      "bestFor": [
+        "Sports equipment",
+        "Cycling and mountain sports",
+        "Laguna Mall Sport"
+      ],
+      "notIdealFor": [
+        "General non-sports shopping"
+      ],
+      "tips": [
+        "Check the official Laguna Mall Sport programme before visiting."
+      ],
+      "metro": null,
+      "recommendedTime": "2-4 hours"
     },
     "easton-outlet-mall": {
-      description: "Outlet option for spending several hours hunting for deals, especially when the main goal is getting the best price.",
-      bestFor: ["Discounts", "Outlet day", "Shopping by car"],
-      notIdealFor: ["Very short visits or without flexible transport"],
-      tips: ["Worth going with a brand list and checking each store's return policy."],
-      metro: "Not the most direct metro option; plan on taxi/Uber or car.",
-      recommendedTime: "2–4 hours",
+      "description": "Outlet shopping centre whose main access is Salida San Ignacio on Ruta 5 Norte. It has free parking.",
+      "bestFor": [
+        "Outlet shopping",
+        "Discounted fashion and sportswear"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Check the official directory and opening hours before visiting."
+      ],
+      "metro": null,
+      "recommendedTime": "3-5 hours"
     },
     "arauco-premium-outlet-buenaventura": {
-      description: "Classic route for those who prioritise discounts and want to browse several stores in outlet format.",
-      bestFor: ["Outlet", "Best price", "Planned shopping"],
-      notIdealFor: ["Premium experience or food-focused visit"],
-      tips: ["Pairs well with Easton if you want to dedicate a full day to outlets."],
-      metro: "Best by taxi/Uber or car; check alternatives before leaving.",
-      recommendedTime: "2–4 hours",
+      "description": "Quilicura outlet with an open design and a mix of fashion, sports and homeware, presenting luxury brands at discounts. It offers bicycle parking, lockers, Wi-Fi and accessible parking.",
+      "bestFor": [
+        "Discounted brands",
+        "Fashion, sports and homeware"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Check the official directory because the offer may change."
+      ],
+      "metro": null,
+      "recommendedTime": "3-5 hours"
     },
     "mallplaza-egana": {
-      description: "Practical and well-connected mall for varied shopping, food and a comfortable outing if you're near Ñuñoa, La Reina or eastern Providencia.",
-      bestFor: ["Metro connection", "Families", "Half-day shopping"],
-      notIdealFor: ["Those looking for luxury or outlets"],
-      tips: ["Good alternative if you want to avoid more touristy areas."],
-      metro: "Close to Plaza Egaña station.",
-      recommendedTime: "1–3 hours",
+      "description": "La Reina shopping centre with Cinépolis, dining, entertainment and Click & Collect. Plaza Egaña station connects Lines 3 and 4 and has an access marked Mall.",
+      "bestFor": [
+        "Lines 3 and 4 Metro connection",
+        "Cinema and entertainment"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": "Plaza Egaña station, Lines 3 and 4 interchange, with Mall access.",
+      "recommendedTime": "2-4 hours"
     },
     "florida-center": {
-      description: "Large mall in the south-eastern area, useful for varied shopping, services and family outings with good urban connectivity.",
-      bestFor: ["Families", "Variety", "Practical shopping"],
-      notIdealFor: ["Tourists staying far away with little time"],
-      tips: ["Convenient if you're staying in or visiting La Florida."],
-      metro: "Close to Mirador station.",
-      recommendedTime: "2–3 hours",
+      "description": "La Florida shopping centre with Mirador Florida, Auto City, a vaccination centre, bicycle services and dining.",
+      "bestFor": [
+        "Mirador Florida",
+        "Auto City",
+        "Services and dining"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Opening hours are published by store and may vary."
+      ],
+      "metro": null,
+      "recommendedTime": "2-4 hours"
     },
     "mallplaza-vespucio": {
-      description: "Large south-eastern mall with wide variety and good connectivity for family or full-day shopping.",
-      bestFor: ["Variety", "Families", "Full-day shopping"],
-      notIdealFor: ["Boutique or premium experience"],
-      tips: ["Good option if your route is in the south-east of Santiago."],
-      metro: "Close to Bellavista de La Florida station.",
-      recommendedTime: "2–4 hours",
+      "description": "La Florida shopping centre with Cinemark, dining, entertainment and Click & Collect.",
+      "bestFor": [
+        "Cinema",
+        "Dining and entertainment"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "3-5 hours"
     },
     "mallplaza-norte": {
-      description: "One of the largest malls in Santiago, well connected by metro and with a full range of stores, dining and services for a day of shopping.",
-      bestFor: ["First day in Santiago", "Families", "Tourists without a car"],
-      notIdealFor: ["Those looking for premium or boutique brands"],
-      tips: [
-        "One of the best options if you arrive to the centre or north of the city.",
-        "Easy to combine with a visit to Patronato neighbourhood for wholesale clothing.",
+      "description": "Huechuraba shopping centre with Cinemark, dining, entertainment and Click & Collect.",
+      "bestFor": [
+        "Cinema",
+        "Dining and entertainment"
       ],
-      metro: "Very well connected, near Dorsal station.",
-      recommendedTime: "2–4 hours",
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "3-5 hours"
     },
     "apumanque": {
-      description: "Classic shopping centre in the eastern area, with fashion stores, services and a more compact format than large malls. Located on the main Apoquindo axis.",
-      bestFor: ["Specific purchases", "Compact format", "Eastern area"],
-      notIdealFor: ["Those seeking great variety or destination dining"],
-      tips: ["Good complement if you're already in the El Golf or Isidora Goyenechea area."],
-      metro: "Very close to El Golf station.",
-      recommendedTime: "1–2 hours",
+      "description": "Las Condes shopping centre that officially presents itself as Chile's first mall. Its directory organises fashion, jewellery, health and beauty, home, children's, hobby and dining offers.",
+      "bestFor": [
+        "Compact format",
+        "Fashion, home and hobbies"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "1-2 hours"
     },
     "portal-la-dehesa": {
-      description: "Comfortable mall in the upper eastern area, designed for families with a car. Great atmosphere for relaxed shopping, food and strolling without city-centre crowds.",
-      bestFor: ["Families with a car", "Relaxed shopping", "Upper eastern area"],
-      notIdealFor: ["Tourists depending on metro"],
-      tips: ["Ideal if you're staying in La Dehesa or upper Las Condes."],
-      metro: "No direct metro access; best by car or taxi/Uber.",
-      recommendedTime: "2–3 hours",
+      "description": "Lo Barnechea shopping centre with a cinema, play plaza, parking, bicycle parking and nursing room.",
+      "bestFor": [
+        "Cinema",
+        "Play plaza",
+        "Shopping at anchor stores"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "2-4 hours"
     },
     "mallplaza-oeste": {
-      description: "Large western-area mall, ideally located for tourists departing or arriving at the airport. Excellent for last-minute shopping before a flight or quick purchases just after landing.",
-      bestFor: ["Before or after a flight", "Families", "Shopping on the way to the airport"],
-      notIdealFor: ["Those looking for luxury or boutique"],
-      tips: [
-        "Very convenient if you have free time before your flight.",
-        "Factor in the transfer to the airport: about 15–20 minutes by Uber depending on traffic.",
+      "description": "Cerrillos shopping centre with Cinemark, dining, entertainment and Happyland Park.",
+      "bestFor": [
+        "Cinema",
+        "Happyland Park",
+        "Dining"
       ],
-      metro: "Close to Pudahuel station, Line 5.",
-      recommendedTime: "1–3 hours",
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "2-4 hours"
     },
     "arauco-maipu": {
-      description: "Large western-area mall, a key shopping destination for families in Maipú and Cerrillos. Wide variety of stores, dining and services for a full day out.",
-      bestFor: ["Families", "Variety", "Western area"],
-      notIdealFor: ["Tourists staying in the eastern area without time"],
-      tips: ["Convenient if you're staying in or visiting the western part of Santiago."],
-      metro: "Close to Las Parcelas station, Line 5.",
-      recommendedTime: "2–4 hours",
+      "description": "Shopping centre with a Maipú identity and an offer of stores, services, cinema and games, presented as a family meeting place.",
+      "bestFor": [
+        "Cinema and games",
+        "Family meeting place"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "3-5 hours"
     },
     "parque-arauco-oriente": {
-      description: "Eastern section and expansion of Parque Arauco, focusing on premium fashion, international brands and a calmer atmosphere for uncrowded shopping.",
-      bestFor: ["Premium fashion and brands", "Quieter atmosphere", "Complement a Parque Arauco visit"],
-      notIdealFor: ["Those seeking wide category variety", "Tight budget"],
-      tips: ["Connected to the main Parque Arauco, ideal to combine the visit."],
-      metro: "Access by bus from Tobalaba or El Golf.",
-      recommendedTime: "1–2 hours",
+      "description": "This entry does not correspond to a current separate listing: the official offer is presented within Parque Arauco. The official site identifies Piso Diseño, Distrito de Lujo, Bazar Gourmet and Boulevard there.",
+      "bestFor": [
+        "Consult Parque Arauco's integrated offer"
+      ],
+      "notIdealFor": [
+        "Those looking for a separate shopping centre"
+      ],
+      "tips": [
+        "Use Parque Arauco's official directory; there is no current section named Oriente."
+      ],
+      "metro": null,
+      "recommendedTime": null
     },
     "mallplaza-los-dominicos": {
-      description: "Mid-sized mall in the upper Las Condes area, near the Los Domínicos neighbourhood. Good range of stores, dining and services for residents and visitors in the eastern zone.",
-      bestFor: ["Los Domínicos area", "Varied shopping", "Family visit"],
-      notIdealFor: ["Those seeking a large-format mall", "Tourists based in the city centre"],
-      tips: ["Less crowded than the large malls in the area, a good option on weekdays."],
-      metro: "Bus from Las Condes or Escuela Militar stations.",
-      recommendedTime: "1–2 hours",
+      "description": "Las Condes shopping centre with Cinépolis, dining and entertainment. Its services include FONASA and AFEX.",
+      "bestFor": [
+        "Cinema and entertainment",
+        "FONASA and AFEX services"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "2-3 hours"
     },
     "vivo-los-trapenses": {
-      description: "Neighbourhood shopping centre in Lo Barnechea, designed for local residents. Practical range of supermarket, services, food and some clothing stores.",
-      bestFor: ["Lo Barnechea residents", "Quick local purchases", "Everyday services"],
-      notIdealFor: ["Tourists", "Those looking for wide variety or premium brands"],
-      tips: ["Useful if you're passing through Lo Barnechea or staying in the area."],
-      metro: "No direct metro access. Reached by car or bus.",
-      recommendedTime: "1 hour",
+      "description": "Shopping centre with Unimarc, Wi-Fi, free parking, lockers, electric charging and a Pet Friendly policy. Its entertainment includes Chuck E. Cheese's and Coney Jump.",
+      "bestFor": [
+        "Everyday services",
+        "Family entertainment"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "It provides lockers and electric-vehicle charging."
+      ],
+      "metro": null,
+      "recommendedTime": "1-2 hours"
     },
     "paseo-quilin": {
-      description: "Mid-sized mall in the Macul district, with good metro line 4 connectivity. Practical for neighbourhood shopping, services and fast food for those moving through the south-eastern area.",
-      bestFor: ["Quilín area", "Metro L4 connection", "Practical shopping"],
-      notIdealFor: ["Tourists without metro L4 or a car", "Those looking for international brands"],
-      tips: ["Good option en route if you're travelling on line 4."],
-      metro: "Close to Quilín station, Line 4.",
-      recommendedTime: "1–2 hours",
+      "description": "Peñalolén shopping centre with access from Quilín station on Line 4. Its offer includes terraces, Cineplanet, a dining boulevard and a food court.",
+      "bestFor": [
+        "Line 4 Metro access",
+        "Shopping and dining"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": "Quilín station, Line 4.",
+      "recommendedTime": "1-2 hours"
     },
     "mallplaza-tobalaba": {
-      description: "Modern mall in the heart of the Tobalaba-Providencia area, with excellent metro connections and close to Costanera Center. Offers a balanced mix of fashion, dining and entertainment in one of Santiago's most dynamic zones.",
-      bestFor: ["Tourists in Providencia or Las Condes", "Connection with Costanera Center", "Good dining"],
-      notIdealFor: ["Those looking for outlets or low prices"],
-      tips: ["Ideal to combine with Costanera Center as they share the same metro area."],
-      metro: "No nearby metro. Accessible by bus, Uber or car via Av. Tobalaba.",
-      recommendedTime: "1–3 hours",
+      "description": "Puente Alto shopping centre with Falabella, Pandora and Levi's. Its entertainment offer includes Cinemark, Happyland and Rally Kart.",
+      "bestFor": [
+        "Cinema and entertainment",
+        "Shopping at selected stores"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "2-3 hours"
     },
     "espacio-urbano-gran-avenida": {
-      description: "Urban shopping centre on Gran Avenida in San Miguel, with convenient metro line 2 access. Practical for quick services, supermarket and clothing on the city's southern axis.",
-      bestFor: ["San Miguel residents", "Quick shopping on Gran Avenida", "Metro L2 access"],
-      notIdealFor: ["Tourists", "Those looking for a large-format mall"],
-      tips: ["Good local resource, not especially geared toward tourists."],
-      metro: "Close to Line 2 stations along Gran Avenida.",
-      recommendedTime: "1 hour",
+      "description": "San Miguel shopping centre with cinema, food, entertainment, supermarket and services. It has workshops and a free Sala Comunitaria Gran Avenida.",
+      "bestFor": [
+        "Services",
+        "Workshops",
+        "Community room"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "1-2 hours"
     },
     "midmall-maipu": {
-      description: "Mid-sized mall in Maipú, focused on practical shopping with a supermarket, food court and clothing and service stores for residents of the western zone.",
-      bestFor: ["Maipú residents", "Neighbourhood shopping", "Food court"],
-      notIdealFor: ["Tourists", "Those looking for wide variety or larger-format malls"],
-      tips: ["Practical if you're in Maipú and need to get quick shopping done."],
-      metro: "No direct metro. Bus or car.",
-      recommendedTime: "1 hour",
+      "description": "Maipú outlet with cinema screens, restaurants and a gym. Its official offer includes a food court, Family Park, Coney Jump and Rally Kart.",
+      "bestFor": [
+        "Outlet shopping",
+        "Cinema and entertainment"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "1-2 hours"
     },
     "mallplaza-alameda": {
-      description: "Large-format mall in the heart of Santiago Centro, on Alameda Bernardo O'Higgins. Excellent metro connectivity with a wide range of stores, dining and entertainment on the city's main axis.",
-      bestFor: ["Tourists in Santiago Centro", "Access from anywhere by metro", "Varied shopping"],
-      notIdealFor: ["Those looking for premium or quiet malls", "Weekdays during rush hour"],
-      tips: ["Great option for tourists staying in the centre. La Moneda is just minutes away on foot."],
-      metro: "Access from multiple Line 1, Line 2 and Line 3 stations.",
-      recommendedTime: "2–3 hours",
+      "description": "Estación Central shopping centre with Ripley, H&M, Tottus and Puma. It also offers Registro Civil, IntegraMédica, Autoplaza, Happyland and Cineplanet.",
+      "bestFor": [
+        "Services",
+        "Cinema and entertainment",
+        "Line 1 Metro access"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Access is through Estación Central station on Line 1."
+      ],
+      "metro": "Estación Central station, Line 1.",
+      "recommendedTime": "2-4 hours"
     },
     "mall-barrio-independencia": {
-      description: "Modern mall in Independencia, a neighbourhood with its own identity north of the centre. Good variety of stores, food and entertainment in an area increasingly popular among young people and visitors.",
-      bestFor: ["Northern Santiago area", "Combining with Barrio Independencia", "Varied dining"],
-      notIdealFor: ["Those looking for premium brands", "Tourists staying in the eastern area without transport"],
-      tips: ["The neighbourhood has a life of its own beyond the mall — worth exploring the surroundings."],
-      metro: "Close to Line 3 stations in Independencia.",
-      recommendedTime: "1–2 hours",
+      "description": "Independencia shopping centre with cinema, coworking, Fonasa, RedSalud, free modular games and parking. Hospitales station on Line 3 is 800 metres away.",
+      "bestFor": [
+        "Health services",
+        "Cinema",
+        "Children's games"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "It has bicycle parking and car parking."
+      ],
+      "metro": "Hospitales station, Line 3, 800 m away.",
+      "recommendedTime": "2-3 hours"
     },
     "mall-arauco-quilicura": {
-      description: "Arauco Mall in Quilicura, in the north-western area close to the airport. Offers a full mix of stores, dining and entertainment for local residents and those moving along that corridor.",
-      bestFor: ["Quilicura residents", "North-western area", "Stop near the airport"],
-      notIdealFor: ["Tourists from other areas without a car", "Those looking for luxury malls"],
-      tips: ["If you have time before your flight and want to shop, it's close to the airport."],
-      metro: "No direct metro to the mall. Access by bus or car.",
-      recommendedTime: "1–2 hours",
+      "description": "Quilicura shopping centre presented as a renovated family meeting place, with cinemas, stores and services. It has Cinépolis, bicycle parking and accessible services.",
+      "bestFor": [
+        "Family meeting place",
+        "Cinema",
+        "Services"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "The centre states a Pet Friendly policy."
+      ],
+      "metro": null,
+      "recommendedTime": "2-3 hours"
     },
     "paseo-san-bernardo": {
-      description: "Shopping centre in San Bernardo, an independent city south of Greater Santiago. Offers basic supermarket, food court, clothing and entertainment services for local residents.",
-      bestFor: ["San Bernardo residents", "Everyday shopping", "Local food court"],
-      notIdealFor: ["Tourists", "Those visiting Santiago from the centre or the east"],
-      tips: ["Too far from the tourist centre to recommend as a shopping destination."],
-      metro: "No direct metro. Bus or car from Santiago.",
-      recommendedTime: "1 hour",
+      "description": "San Bernardo shopping centre with access points at Eyzaguirre 650, Urmeneta 661 and San José 672. It includes Cinépolis, Family Park, a gym and a food court.",
+      "bestFor": [
+        "Cinema",
+        "Family Park",
+        "Shopping at selected stores"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "1-2 hours"
     },
     "mut-mercado-urbano-tobalaba": {
-      description: "Modern urban concept between a mall and a market, focusing on dining, local brands, design and lifestyle. A more curated and relaxed space than large malls, very popular among young people and tourists looking for something different.",
-      bestFor: ["Varied dining", "Design and local brands", "Modern atmosphere"],
-      notIdealFor: ["Those looking for large chains or mass shopping"],
-      tips: [
-        "Excellent for a great meal in an atmosphere different from a classic mall.",
-        "Pairs well with Costanera Center as they are in the same area.",
+      "description": "Mixed-use project presented as Chile's first urban market, with commercial and cultural exchange and a sustainability focus. It connects directly to Tobalaba station on Lines 1 and 4.",
+      "bestFor": [
+        "Dining",
+        "Commercial and cultural exchange",
+        "Direct Metro connection"
       ],
-      metro: "No nearby metro. Accessible by car or Uber from Providencia/Las Condes.",
-      recommendedTime: "1–2 hours",
-    },
+      "notIdealFor": [],
+      "tips": [
+        "It has bicycle parking at Roger de Flor 2725 and El Bosque Norte 50."
+      ],
+      "metro": "Direct connection to Tobalaba station, Lines 1 and 4.",
+      "recommendedTime": "1-3 hours"
+    }
   },
-
-  pt: {
+  "pt": {
     "costanera-center": {
-      description: "Um dos shoppings mais reconhecidos para turistas, com grande variedade, conexão conveniente pelo metrô e uma mistura prática de compras, gastronomia e passeio urbano.",
-      bestFor: ["Primeira visita", "Compras rápidas", "Turistas sem carro"],
-      notIdealFor: ["Quem busca tranquilidade no horário de pico"],
-      tips: ["Ideal se você está hospedado em Providencia ou Las Condes."],
-      metro: "Perto da estação Tobalaba.",
-      recommendedTime: "2–4 horas",
+      "description": "Centro comercial de seis andares com mais de 300 lojas, supermercado Jumbo e 12 salas de cinema. O Sky Costanera funciona dentro do complexo.",
+      "bestFor": [
+        "Variedade de lojas",
+        "Cinema",
+        "Sky Costanera"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Consulte os horários oficiais, que podem variar por loja."
+      ],
+      "metro": null,
+      "recommendedTime": "2-4 horas"
     },
     "parque-arauco": {
-      description: "Uma experiência de compras completa e mais tranquila, com boa oferta gastronômica, marcas reconhecidas e espaços confortáveis para combinar compras e passeio.",
-      bestFor: ["Marcas premium", "Boa gastronomia", "Famílias"],
-      notIdealFor: ["Visitas muito curtas sem transporte flexível"],
-      tips: ["Ótimo ponto para uma tarde de compras com gastronomia incluída."],
-      metro: "É necessário combinar metrô com caminhada, ônibus ou táxi/Uber.",
-      recommendedTime: "2–4 horas",
+      "description": "Centro comercial de Las Condes com lojas, gastronomia, eventos e estacionamento. Sua oferta oficial inclui Piso Diseño, Distrito de Lujo, Bazar Gourmet e Boulevard.",
+      "bestFor": [
+        "Distrito de Lujo",
+        "Gastronomia",
+        "Eventos"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "A futura estação Parque Araucano da Linha 7 ainda não está operacional."
+      ],
+      "metro": null,
+      "recommendedTime": "3-5 horas"
     },
     "alto-las-condes": {
-      description: "Shopping amplo e confortável para compras planejadas, famílias e quem se move de carro pela zona leste.",
-      bestFor: ["Famílias", "Dia de chuva", "Compras tranquilas"],
-      notIdealFor: ["Turistas que dependem só do metrô"],
-      tips: ["Conveniente se você está hospedado em Las Condes alto ou vai de carro."],
-      metro: "Não é a opção mais direta de metrô; convém combinar com táxi/Uber ou carro.",
-      recommendedTime: "2–4 horas",
+      "description": "Centro comercial de Las Condes com os espaços Alto Diseño e Mirador. Tem acessos por Presidente Kennedy Lateral, Padre Hurtado e Gilberto Fuenzalida.",
+      "bestFor": [
+        "Alto Diseño",
+        "Mirador",
+        "Compras em lojas âncora"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Consulte os horários oficiais, que podem variar por loja."
+      ],
+      "metro": null,
+      "recommendedTime": "3-5 horas"
     },
     "casacostanera": {
-      description: "Formato boutique e sofisticado, pensado para uma experiência mais tranquila, com foco em moda, design, lifestyle e gastronomia.",
-      bestFor: ["Experiência premium", "Compras boutique", "Passeio em Vitacura"],
-      notIdealFor: ["Quem busca máxima variedade em pouco tempo"],
-      tips: ["Ótima escala se você busca um circuito premium em Vitacura."],
-      metro: "Convém chegar de táxi/Uber ou carro das estações próximas.",
-      recommendedTime: "1–2 horas",
+      "description": "Centro comercial de Vitacura com mais de 80 lojas e uma experiência boutique de moda, beleza, decoração, entretenimento e gastronomia. Inclui um passeio ao ar livre e estacionamento.",
+      "bestFor": [
+        "Compras boutique",
+        "Moda e decoração",
+        "Passeio ao ar livre"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Dispõe de sala de amamentação, cadeiras de rodas e lockers."
+      ],
+      "metro": null,
+      "recommendedTime": "1-3 horas"
     },
     "mall-sport": {
-      description: "Centro focado em esporte, atividades e lojas especializadas. Funciona bem para famílias e compras de outdoor, tênis ou equipamentos.",
-      bestFor: ["Esporte", "Famílias com crianças", "Experiências ativas"],
-      notIdealFor: ["Quem busca moda geral ou luxo"],
-      tips: ["Boa alternativa para incluir uma parada divertida numa rota familiar."],
-      metro: "Convém combinar com táxi/Uber ou chegar de carro.",
-      recommendedTime: "1–2 horas",
+      "description": "Centro comercial especializado em esporte, com categorias aquático, alta montanha, ciclismo, escalada, ski/snowboard e surf. Laguna Mall Sport faz parte de sua programação oficial.",
+      "bestFor": [
+        "Equipamento esportivo",
+        "Ciclismo e montanha",
+        "Laguna Mall Sport"
+      ],
+      "notIdealFor": [
+        "Compras gerais não esportivas"
+      ],
+      "tips": [
+        "Consulte a programação oficial da Laguna Mall Sport antes da visita."
+      ],
+      "metro": null,
+      "recommendedTime": "2-4 horas"
     },
     "easton-outlet-mall": {
-      description: "Opção de outlet para dedicar várias horas a encontrar oportunidades, especialmente quando o objetivo principal é preço.",
-      bestFor: ["Descontos", "Dia de outlet", "Compras com carro"],
-      notIdealFor: ["Visitas muito curtas ou sem transporte flexível"],
-      tips: ["Vale ir com lista de marcas e verificar as políticas de troca por loja."],
-      metro: "Não é a opção mais direta de metrô; planeje táxi/Uber ou carro.",
-      recommendedTime: "2–4 horas",
+      "description": "Centro comercial em formato outlet, com acesso principal pela Salida San Ignacio na Ruta 5 Norte. Tem estacionamento gratuito.",
+      "bestFor": [
+        "Compras outlet",
+        "Moda e esporte com desconto"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Consulte o diretório e os horários oficiais antes da visita."
+      ],
+      "metro": null,
+      "recommendedTime": "3-5 horas"
     },
     "arauco-premium-outlet-buenaventura": {
-      description: "Rota clássica para quem prioriza descontos e quer comparar várias lojas em formato outlet.",
-      bestFor: ["Outlet", "Melhor preço", "Compras planejadas"],
-      notIdealFor: ["Experiência premium ou passeio gastronômico"],
-      tips: ["Combina bem com o Easton se você quiser dedicar um dia inteiro a outlets."],
-      metro: "Convém táxi/Uber ou carro; verifique alternativas antes de sair.",
-      recommendedTime: "2–4 horas",
+      "description": "Outlet de Quilicura com design aberto e uma mistura de moda, esporte e casa, que apresenta marcas de luxo com descontos. Oferece bicicletário, lockers, Wi-Fi e estacionamento acessível.",
+      "bestFor": [
+        "Marcas com desconto",
+        "Moda, esporte e casa"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Consulte o diretório oficial, pois a oferta pode mudar."
+      ],
+      "metro": null,
+      "recommendedTime": "3-5 horas"
     },
     "mallplaza-egana": {
-      description: "Shopping prático e bem conectado para compras variadas, gastronomia e uma saída confortável se você está em Ñuñoa, La Reina ou Providencia leste.",
-      bestFor: ["Conexão de metrô", "Famílias", "Compras de meio dia"],
-      notIdealFor: ["Quem busca luxo ou outlet"],
-      tips: ["Boa alternativa se você quer evitar zonas mais turísticas."],
-      metro: "Perto da estação Plaza Egaña.",
-      recommendedTime: "1–3 horas",
+      "description": "Centro comercial de La Reina com Cinépolis, gastronomia, entretenimento e Click & Collect. A estação Plaza Egaña combina as linhas 3 e 4 e tem um acesso sinalizado como Mall.",
+      "bestFor": [
+        "Conexão com o metrô L3 e L4",
+        "Cinema e entretenimento"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": "Estação Plaza Egaña, combinação das linhas 3 e 4, com acesso Mall.",
+      "recommendedTime": "2-4 horas"
     },
     "florida-center": {
-      description: "Shopping amplo na zona sul-leste, útil para compras variadas, serviços e visitas em família com boa conectividade urbana.",
-      bestFor: ["Famílias", "Variedade", "Compras práticas"],
-      notIdealFor: ["Turistas hospedados longe com pouco tempo"],
-      tips: ["Conveniente se você está hospedado ou visitando La Florida."],
-      metro: "Perto da estação Mirador.",
-      recommendedTime: "2–3 horas",
+      "description": "Centro comercial de La Florida com Mirador Florida, Auto City, vacinatório, serviços para bicicletas e gastronomia.",
+      "bestFor": [
+        "Mirador Florida",
+        "Auto City",
+        "Serviços e gastronomia"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Os horários são publicados por loja e podem variar."
+      ],
+      "metro": null,
+      "recommendedTime": "2-4 horas"
     },
     "mallplaza-vespucio": {
-      description: "Grande shopping da zona sul-leste, com alta variedade e boa conectividade para compras em família ou dia completo.",
-      bestFor: ["Variedade", "Famílias", "Compras de dia completo"],
-      notIdealFor: ["Experiência boutique ou premium"],
-      tips: ["Boa opção se seu roteiro está na zona sul-leste de Santiago."],
-      metro: "Perto da estação Bellavista de La Florida.",
-      recommendedTime: "2–4 horas",
+      "description": "Centro comercial de La Florida com Cinemark, gastronomia, entretenimento e Click & Collect.",
+      "bestFor": [
+        "Cinema",
+        "Gastronomia e entretenimento"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "3-5 horas"
     },
     "mallplaza-norte": {
-      description: "Um dos maiores shoppings de Santiago, bem conectado pelo metrô e com oferta completa de lojas, gastronomia e serviços para um dia de compras.",
-      bestFor: ["Primeiro dia em Santiago", "Famílias", "Turistas sem carro"],
-      notIdealFor: ["Quem busca marcas premium ou boutique"],
-      tips: [
-        "Uma das melhores opções se você chega ao centro ou ao norte da cidade.",
-        "Fácil de combinar com uma visita ao bairro Patronato para roupas no atacado.",
+      "description": "Centro comercial de Huechuraba com Cinemark, gastronomia, entretenimento e Click & Collect.",
+      "bestFor": [
+        "Cinema",
+        "Gastronomia e entretenimento"
       ],
-      metro: "Muito bem conectado, perto da estação Dorsal.",
-      recommendedTime: "2–4 horas",
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "3-5 horas"
     },
     "apumanque": {
-      description: "Centro comercial clássico da zona leste, com lojas de moda, serviços e um formato mais compacto que os grandes shoppings. Localizado no eixo Apoquindo.",
-      bestFor: ["Compras específicas", "Formato compacto", "Zona leste"],
-      notIdealFor: ["Quem busca grande variedade ou gastronomia de destino"],
-      tips: ["Bom complemento se você já está na área de El Golf ou Isidora Goyenechea."],
-      metro: "Muito perto da estação El Golf.",
-      recommendedTime: "1–2 horas",
+      "description": "Centro comercial de Las Condes que se apresenta oficialmente como o primeiro shopping do Chile. Seu diretório organiza ofertas de moda, joias, saúde e beleza, casa, infantil, hobbies e gastronomia.",
+      "bestFor": [
+        "Formato compacto",
+        "Moda, casa e hobbies"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "1-2 horas"
     },
     "portal-la-dehesa": {
-      description: "Shopping confortável na zona alta leste, pensado para famílias com carro. Bom ambiente para compras tranquilas, gastronomia e passeio sem o agito do centro.",
-      bestFor: ["Famílias com carro", "Compras tranquilas", "Zona alta leste"],
-      notIdealFor: ["Turistas que dependem do metrô"],
-      tips: ["Ideal se você está hospedado em La Dehesa ou na zona alta de Las Condes."],
-      metro: "Sem acesso direto de metrô; convém ir de carro ou táxi/Uber.",
-      recommendedTime: "2–3 horas",
+      "description": "Centro comercial de Lo Barnechea com cinema, praça de jogos, estacionamento, bicicletário e sala de amamentação.",
+      "bestFor": [
+        "Cinema",
+        "Praça de jogos",
+        "Compras em lojas âncora"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "2-4 horas"
     },
     "mallplaza-oeste": {
-      description: "Grande shopping da zona oeste, muito bem localizado para turistas que saem ou chegam ao aeroporto. Excelente para últimas compras antes do voo ou compras práticas logo após pousar.",
-      bestFor: ["Antes ou depois do voo", "Famílias", "Compras a caminho do aeroporto"],
-      notIdealFor: ["Quem busca luxo ou boutique"],
-      tips: [
-        "Muito conveniente se você tem tempo livre antes do voo.",
-        "Considere o traslado ao aeroporto: cerca de 15–20 minutos de Uber dependendo do trânsito.",
+      "description": "Centro comercial de Cerrillos com Cinemark, gastronomia, entretenimento e Happyland Park.",
+      "bestFor": [
+        "Cinema",
+        "Happyland Park",
+        "Gastronomia"
       ],
-      metro: "Perto da estação Pudahuel, Linha 5.",
-      recommendedTime: "1–3 horas",
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "2-4 horas"
     },
     "arauco-maipu": {
-      description: "Grande shopping da zona oeste, referência de compras para famílias em Maipú e Cerrillos. Grande variedade de lojas, gastronomia e serviços para um dia completo.",
-      bestFor: ["Famílias", "Variedade", "Zona oeste"],
-      notIdealFor: ["Turistas hospedados na zona leste sem tempo"],
-      tips: ["Conveniente se você está hospedado ou visitando a zona oeste de Santiago."],
-      metro: "Perto da estação Las Parcelas, Linha 5.",
-      recommendedTime: "2–4 horas",
+      "description": "Centro comercial com identidade maipucina e oferta de lojas, serviços, cinema e jogos, apresentado como ponto de encontro familiar.",
+      "bestFor": [
+        "Cinema e jogos",
+        "Ponto de encontro familiar"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "3-5 horas"
     },
     "parque-arauco-oriente": {
-      description: "Setor leste e expansão do Parque Arauco, com ênfase em moda premium, marcas internacionais e um ambiente mais tranquilo para compras sem aglomeração.",
-      bestFor: ["Moda e marcas premium", "Ambiente mais tranquilo", "Complementar visita ao Parque Arauco"],
-      notIdealFor: ["Quem busca grande variedade de categorias", "Orçamento apertado"],
-      tips: ["Conectado ao Parque Arauco principal, ideal para combinar a visita."],
-      metro: "Acesso por ônibus da Tobalaba ou El Golf.",
-      recommendedTime: "1–2 horas",
+      "description": "Esta entrada não corresponde a uma ficha separada vigente: a oferta oficial é apresentada dentro do Parque Arauco. O site oficial identifica ali Piso Diseño, Distrito de Lujo, Bazar Gourmet e Boulevard.",
+      "bestFor": [
+        "Consultar a oferta integrada do Parque Arauco"
+      ],
+      "notIdealFor": [
+        "Quem busca um centro comercial separado"
+      ],
+      "tips": [
+        "Use o diretório oficial do Parque Arauco; não existe uma seção vigente denominada Oriente."
+      ],
+      "metro": null,
+      "recommendedTime": null
     },
     "mallplaza-los-dominicos": {
-      description: "Shopping de tamanho médio na zona alta de Las Condes, perto do bairro Los Domínicos. Boa oferta de lojas, gastronomia e serviços para residentes e visitantes da zona leste.",
-      bestFor: ["Zona Los Domínicos", "Compras variadas", "Visita em família"],
-      notIdealFor: ["Quem busca shopping de grande formato", "Turistas hospedados no centro"],
-      tips: ["Menos lotado que os grandes shoppings da área, boa opção durante a semana."],
-      metro: "Ônibus das estações Las Condes ou Escuela Militar.",
-      recommendedTime: "1–2 horas",
+      "description": "Centro comercial de Las Condes com Cinépolis, gastronomia e entretenimento. Seus serviços incluem FONASA e AFEX.",
+      "bestFor": [
+        "Cinema e entretenimento",
+        "Serviços FONASA e AFEX"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "2-3 horas"
     },
     "vivo-los-trapenses": {
-      description: "Centro comercial de bairro em Lo Barnechea, pensado para residentes locais. Oferta prática de supermercado, serviços, gastronomia e algumas lojas de vestuário.",
-      bestFor: ["Residentes de Lo Barnechea", "Compras rápidas locais", "Serviços cotidianos"],
-      notIdealFor: ["Turistas", "Quem busca grande variedade ou marcas premium"],
-      tips: ["Útil se você está de passagem por Lo Barnechea ou hospedado na área."],
-      metro: "Sem acesso direto ao metrô. Chega-se de carro ou ônibus.",
-      recommendedTime: "1 hora",
+      "description": "Centro comercial com Unimarc, Wi-Fi, estacionamento gratuito, lockers, recarga elétrica e política Pet Friendly. Seu entretenimento inclui Chuck E. Cheese's e Coney Jump.",
+      "bestFor": [
+        "Serviços cotidianos",
+        "Entretenimento familiar"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Dispõe de lockers e recarga para veículos elétricos."
+      ],
+      "metro": null,
+      "recommendedTime": "1-2 horas"
     },
     "paseo-quilin": {
-      description: "Shopping de tamanho médio na comuna de Macul, com boa conectividade pelo metrô linha 4. Prático para compras de bairro, serviços e alimentação rápida para quem se move pela zona sul-leste.",
-      bestFor: ["Zona Quilín", "Conexão metrô L4", "Compras práticas"],
-      notIdealFor: ["Turistas sem metrô L4 ou carro", "Quem busca marcas internacionais"],
-      tips: ["Boa opção de passagem se você usa a linha 4."],
-      metro: "Perto da estação Quilín, Linha 4.",
-      recommendedTime: "1–2 horas",
+      "description": "Centro comercial de Peñalolén com acesso pela estação Quilín da Linha 4. Sua oferta inclui terraços, Cineplanet, boulevard gastronômico e praça de alimentação.",
+      "bestFor": [
+        "Acesso pelo metrô L4",
+        "Compras e gastronomia"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": "Estação Quilín, Linha 4.",
+      "recommendedTime": "1-2 horas"
     },
     "mallplaza-tobalaba": {
-      description: "Shopping moderno no coração da zona Tobalaba-Providencia, com excelente conexão de metrô e proximidade ao Costanera Center. Oferece uma proposta equilibrada de moda, gastronomia e entretenimento em uma das zonas mais dinâmicas de Santiago.",
-      bestFor: ["Turistas em Providencia ou Las Condes", "Conexão com Costanera Center", "Boa gastronomia"],
-      notIdealFor: ["Quem busca outlet ou preços baixos"],
-      tips: ["Ideal para combinar com o Costanera Center por estarem na mesma zona de metrô."],
-      metro: "Sem metrô próximo. Acessível de ônibus, Uber ou carro pela Av. Tobalaba.",
-      recommendedTime: "1–3 horas",
+      "description": "Centro comercial de Puente Alto com Falabella, Pandora e Levi's. Sua oferta de entretenimento inclui Cinemark, Happyland e Rally Kart.",
+      "bestFor": [
+        "Cinema e entretenimento",
+        "Compras em lojas selecionadas"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "2-3 horas"
     },
     "espacio-urbano-gran-avenida": {
-      description: "Centro comercial urbano na Gran Avenida em San Miguel, com acesso conveniente pela linha 2 do metrô. Prático para compras rápidas de serviços, supermercado e vestuário no eixo sul da cidade.",
-      bestFor: ["Residentes de San Miguel", "Compras rápidas na Gran Avenida", "Acesso pelo metrô L2"],
-      notIdealFor: ["Turistas", "Quem busca shopping de grande formato"],
-      tips: ["Bom recurso local, não especialmente orientado a turistas."],
-      metro: "Perto das estações da Linha 2 pela Gran Avenida.",
-      recommendedTime: "1 hora",
+      "description": "Centro comercial de San Miguel com cinema, comida, entretenimento, supermercado e serviços. Conta com oficinas e uma Sala Comunitaria Gran Avenida gratuita.",
+      "bestFor": [
+        "Serviços",
+        "Oficinas",
+        "Sala comunitária"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "1-2 horas"
     },
     "midmall-maipu": {
-      description: "Shopping de tamanho médio em Maipú, voltado para compras práticas com supermercado, praça de alimentação e lojas de vestuário e serviços para os moradores da zona oeste.",
-      bestFor: ["Residentes de Maipú", "Compras de bairro", "Praça de alimentação"],
-      notIdealFor: ["Turistas", "Quem busca grande variedade ou shopping de maior formato"],
-      tips: ["Prático se você está em Maipú e precisa resolver compras rápidas."],
-      metro: "Sem metrô direto. Ônibus ou carro.",
-      recommendedTime: "1 hora",
+      "description": "Outlet de Maipú com salas de cinema, restaurantes e academia. Sua oferta oficial inclui praça de alimentação, Family Park, Coney Jump e Rally Kart.",
+      "bestFor": [
+        "Compras outlet",
+        "Cinema e entretenimento"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "1-2 horas"
     },
     "mallplaza-alameda": {
-      description: "Shopping de grande formato no coração do Santiago Centro, na Alameda Bernardo O'Higgins. Excelente conectividade de metrô com variada oferta de lojas, gastronomia e entretenimento no eixo central da cidade.",
-      bestFor: ["Turistas no Santiago Centro", "Acesso de qualquer ponto pelo metrô", "Compras variadas"],
-      notIdealFor: ["Quem busca shoppings premium ou tranquilos", "Dias de semana no horário de pico"],
-      tips: ["Ótima opção para turistas hospedados no centro. La Moneda fica a poucos minutos a pé."],
-      metro: "Acesso por múltiplas estações da Linha 1, Linha 2 e Linha 3.",
-      recommendedTime: "2–3 horas",
+      "description": "Centro comercial de Estación Central com Ripley, H&M, Tottus e Puma. Também oferece Registro Civil, IntegraMédica, Autoplaza, Happyland e Cineplanet.",
+      "bestFor": [
+        "Serviços",
+        "Cinema e entretenimento",
+        "Acesso pelo metrô L1"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "O acesso é pela estação Estación Central da Linha 1."
+      ],
+      "metro": "Estação Estación Central, Linha 1.",
+      "recommendedTime": "2-4 horas"
     },
     "mall-barrio-independencia": {
-      description: "Shopping moderno em Independencia, um bairro com identidade própria ao norte do centro. Oferece boa variedade de lojas, gastronomia e entretenimento em uma zona cada vez mais popular entre jovens e visitantes.",
-      bestFor: ["Zona norte de Santiago", "Combinar com o bairro Independencia", "Gastronomia variada"],
-      notIdealFor: ["Quem busca marcas premium", "Turistas hospedados na zona leste sem transporte"],
-      tips: ["O bairro tem vida própria além do shopping, vale explorar os arredores."],
-      metro: "Perto das estações da Linha 3 em Independencia.",
-      recommendedTime: "1–2 horas",
+      "description": "Centro comercial de Independencia com cinema, cowork, Fonasa, RedSalud, jogos modulares gratuitos e estacionamentos. A estação Hospitales da Linha 3 fica a 800 metros.",
+      "bestFor": [
+        "Serviços de saúde",
+        "Cinema",
+        "Jogos infantis"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "Conta com bicicletário e estacionamentos."
+      ],
+      "metro": "Estação Hospitales, Linha 3, a 800 m.",
+      "recommendedTime": "2-3 horas"
     },
     "mall-arauco-quilicura": {
-      description: "Shopping Arauco em Quilicura, zona noroeste de Santiago perto do aeroporto. Oferece proposta completa de lojas, gastronomia e entretenimento para residentes da área e quem se move por esse corredor.",
-      bestFor: ["Residentes de Quilicura", "Zona noroeste", "Parada próxima ao aeroporto"],
-      notIdealFor: ["Turistas de outras zonas sem carro", "Quem busca shoppings de luxo"],
-      tips: ["Se você tem um voo com tempo sobrando e quer fazer compras, fica perto do aeroporto."],
-      metro: "Sem metrô direto ao shopping. Acesso de ônibus ou carro.",
-      recommendedTime: "1–2 horas",
+      "description": "Centro comercial de Quilicura apresentado como um ponto de encontro familiar renovado, com cinemas, lojas e serviços. Conta com Cinépolis, bicicletário e serviços acessíveis.",
+      "bestFor": [
+        "Ponto de encontro familiar",
+        "Cinema",
+        "Serviços"
+      ],
+      "notIdealFor": [],
+      "tips": [
+        "O centro declara uma política Pet Friendly."
+      ],
+      "metro": null,
+      "recommendedTime": "2-3 horas"
     },
     "paseo-san-bernardo": {
-      description: "Centro comercial em San Bernardo, cidade independente ao sul da Grande Santiago. Oferece serviços básicos de supermercado, praça de alimentação, vestuário e entretenimento para os moradores do município.",
-      bestFor: ["Residentes de San Bernardo", "Compras cotidianas", "Praça de alimentação local"],
-      notIdealFor: ["Turistas", "Quem visita Santiago a partir do centro ou do leste"],
-      tips: ["Muito longe do centro turístico para ser recomendado como destino de compras."],
-      metro: "Sem metrô direto. Ônibus ou carro de Santiago.",
-      recommendedTime: "1 hora",
+      "description": "Centro comercial de San Bernardo com acessos por Eyzaguirre 650, Urmeneta 661 e San José 672. Inclui Cinépolis, Family Park, academia e praça de alimentação.",
+      "bestFor": [
+        "Cinema",
+        "Family Park",
+        "Compras em lojas selecionadas"
+      ],
+      "notIdealFor": [],
+      "tips": [],
+      "metro": null,
+      "recommendedTime": "1-2 horas"
     },
     "mut-mercado-urbano-tobalaba": {
-      description: "Conceito urbano moderno entre shopping e mercado, com foco em gastronomia, marcas locais, design e lifestyle. Um espaço mais curado e relaxado que os grandes shoppings, muito popular entre jovens e turistas que buscam algo diferente.",
-      bestFor: ["Gastronomia variada", "Design e marcas locais", "Ambiente moderno"],
-      notIdealFor: ["Quem busca grandes redes ou compras em massa"],
-      tips: [
-        "Excelente para comer bem em um ambiente diferente do shopping clássico.",
-        "Combina bem com o Costanera Center por estarem na mesma zona.",
+      "description": "Projeto misto que se apresenta como o primeiro mercado urbano do Chile, com intercâmbio comercial e cultural e foco em sustentabilidade. Tem conexão direta com Tobalaba, linhas 1 e 4.",
+      "bestFor": [
+        "Gastronomia",
+        "Intercâmbio comercial e cultural",
+        "Conexão direta com o metrô"
       ],
-      metro: "Sem metrô próximo. Acessível de carro ou Uber de Providencia/Las Condes.",
-      recommendedTime: "1–2 horas",
-    },
-  },
+      "notIdealFor": [],
+      "tips": [
+        "Dispõe de bicicletários em Roger de Flor 2725 e El Bosque Norte 50."
+      ],
+      "metro": "Conexão direta com a estação Tobalaba, linhas 1 e 4.",
+      "recommendedTime": "1-3 horas"
+    }
+  }
 };
 
-/**
- * Returns the mall object with locale-specific prose fields merged in.
- * Falls back to the original Spanish data for missing entries.
- */
 export function localizeMall(mall, lang) {
   if (!mall) return mall;
   if (lang === "es" || !mallTranslations[lang]?.[mall.id]) return mall;
   const loc = mallTranslations[lang][mall.id];
   return {
     ...mall,
-    description:       loc.description       ?? mall.description,
-    bestFor:           loc.bestFor           ?? mall.bestFor,
-    notIdealFor:       loc.notIdealFor       ?? mall.notIdealFor,
-    tips:              loc.tips              ?? mall.tips,
-    recommendedTime:   loc.recommendedTime   ?? mall.recommendedTime,
-    transport: {
-      ...mall.transport,
-      metro: loc.metro ?? mall.transport?.metro,
-    },
+    description: loc.description,
+    bestFor: loc.bestFor,
+    notIdealFor: loc.notIdealFor,
+    tips: loc.tips,
+    recommendedTime: loc.recommendedTime,
+    transport: { ...mall.transport, metro: loc.metro },
   };
 }

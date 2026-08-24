@@ -15,6 +15,7 @@ const timeWeight = {
 };
 
 function timeBucket(recommendedTime) {
+  if (typeof recommendedTime !== "string" || !recommendedTime.trim()) return null;
   if (recommendedTime.includes("1-2") || recommendedTime.includes("1-3")) return "quick";
   if (recommendedTime.includes("2-4")) return "medium";
   return "long";
@@ -40,14 +41,16 @@ export function haversineKm(lat1, lng1, lat2, lng2) {
 }
 
 export function scoreMall(mall, answers = {}, userCoords = null) {
-  let score = mall.touristScore || 0;
+  let score = Number.isFinite(mall.touristScore) ? mall.touristScore : 0;
   const reasons = [];
+  const mallCategories = Array.isArray(mall.categories) ? mall.categories : [];
+  const mallTypes = Array.isArray(mall.type) ? mall.type : [];
   const categories = (Array.isArray(answers.category) ? answers.category : [answers.category])
     .map(normalize)
     .filter(Boolean);
   const goal = normalize(answers.goal);
 
-  if (categories.some(category => mall.categories.some((item) => normalize(item) === category))) {
+  if (categories.some(category => mallCategories.some((item) => normalize(item) === category))) {
     score += 8;
     reasons.push("Coincide con lo que quieres comprar");
   }
@@ -83,16 +86,16 @@ export function scoreMall(mall, answers = {}, userCoords = null) {
     reasons.push("Queda en una zona conveniente");
   }
 
-  if (answers.transport === "Metro" && mall.type.includes("metro")) {
+  if (answers.transport === "Metro" && mallTypes.includes("metro")) {
     score += 9;
     reasons.push("Buena alternativa usando metro");
   }
 
-  if (answers.transport === "Uber/Taxi" && mall.transport.uber) {
+  if (answers.transport === "Uber/Taxi" && mall.transport?.uber) {
     score += 4;
   }
 
-  if (answers.transport === "Auto" && mall.transport.parking) {
+  if (answers.transport === "Auto" && mall.transport?.parking) {
     score += 5;
     reasons.push("Funciona bien si vas en auto");
   }
@@ -103,8 +106,11 @@ export function scoreMall(mall, answers = {}, userCoords = null) {
   }
 
   if (answers.time) {
-    score += timeWeight[answers.time]?.[timeBucket(mall.recommendedTime)] || 0;
-    if (timeBucket(mall.recommendedTime) === "quick") reasons.push("Sirve para una visita corta");
+    const bucket = timeBucket(mall.recommendedTime);
+    if (bucket) {
+      score += timeWeight[answers.time]?.[bucket] || 0;
+      if (bucket === "quick") reasons.push("Sirve para una visita corta");
+    }
   }
 
   if (goal === "mejor precio" && mall.outlet) {
@@ -122,12 +128,12 @@ export function scoreMall(mall, answers = {}, userCoords = null) {
     reasons.push("Buena experiencia de paseo y comida");
   }
 
-  if (goal === "variedad" && mall.type.includes("variety")) {
+  if (goal === "variedad" && mallTypes.includes("variety")) {
     score += 8;
     reasons.push("Buena variedad de tiendas");
   }
 
-  if (goal === "rapidez" && mall.type.includes("quick")) {
+  if (goal === "rapidez" && mallTypes.includes("quick")) {
     score += 10;
     reasons.push("Pensado para resolver en poco tiempo");
   }
@@ -156,19 +162,21 @@ export function getRecommendations(malls, answers, userCoords = null) {
 }
 
 export function matchesMallFilters(mall, filters) {
-  const text = normalize(`${mall.name} ${mall.commune} ${mall.description} ${mall.categories.join(" ")}`);
+  const mallCategories = Array.isArray(mall.categories) ? mall.categories : [];
+  const mallTypes = Array.isArray(mall.type) ? mall.type : [];
+  const text = normalize([mall.name, mall.commune, mall.description, ...mallCategories].filter(Boolean).join(" "));
   const queryOk = !filters.query || text.includes(normalize(filters.query));
   const communeOk = filters.commune === "Todas" || mall.commune === filters.commune;
-  const categoryOk = filters.category === "Todas" || mall.categories.includes(filters.category);
+  const categoryOk = filters.category === "Todas" || mallCategories.includes(filters.category);
   const togglesOk =
     (!filters.outlet || mall.outlet) &&
     (!filters.premium || mall.premium) &&
     (!filters.family || mall.familyFriendly) &&
-    (!filters.metro || mall.type.includes("metro")) &&
+    (!filters.metro || mallTypes.includes("metro")) &&
     (!filters.food || mall.foodExperience) &&
     (!filters.gastronomico || mall.foodLevel === "gastronomico") &&
-    (!filters.quick || mall.type.includes("quick") || timeBucket(mall.recommendedTime) === "quick") &&
-    (!filters.tourist || mall.type.includes("tourist") || mall.touristScore >= 8);
+    (!filters.quick || mallTypes.includes("quick") || timeBucket(mall.recommendedTime) === "quick") &&
+    (!filters.tourist || mallTypes.includes("tourist") || (Number.isFinite(mall.touristScore) && mall.touristScore >= 8));
 
   return queryOk && communeOk && categoryOk && togglesOk;
 }

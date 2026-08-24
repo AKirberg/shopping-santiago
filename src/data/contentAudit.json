@@ -1,0 +1,2805 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-08-24",
+  "entries": [
+    {
+      "id": "costanera-center",
+      "kind": "mall",
+      "sources": [
+        "https://www.cencomalls.cl/costanera",
+        "https://www.cencomalls.cl/costanera/tiendas",
+        "https://www.skycostanera.cl/"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera/tiendas",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "confirmado",
+          "source": "https://www.skycostanera.cl/",
+          "note": "Sky Costanera está dentro del complejo."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4175,-70.6055",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "parque-arauco",
+      "kind": "mall",
+      "sources": [
+        "https://www.parquearauco.cl/",
+        "https://www.parquearauco.cl/tiendas",
+        "https://metro.cl/noticias/finalizan-obras-de-piques-galerias-y-tuneles-en-estacion-de-nueva-linea-7-de-metro-en-el-parque-araucano"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "confirmado",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Estacionamiento confirmado por fuente oficial."
+        },
+        "stores": {
+          "status": "pendiente",
+          "source": null,
+          "note": "El directorio no entregó nombres verificables; se publica una lista vacía."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4023,-70.5773",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "alto-las-condes",
+      "kind": "mall",
+      "sources": [
+        "https://www.cencomalls.cl/altolascondes",
+        "https://www.cencomalls.cl/altolascondes/tiendas"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/altolascondes",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/altolascondes",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/altolascondes",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/altolascondes",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/altolascondes",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/altolascondes/tiendas",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3909,-70.5461",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "casacostanera",
+      "kind": "mall",
+      "sources": [
+        "https://www.casacostanera.cl/conocenos/",
+        "https://www.casacostanera.cl/tiendas/"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.casacostanera.cl/conocenos/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.casacostanera.cl/conocenos/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.casacostanera.cl/conocenos/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.casacostanera.cl/conocenos/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.casacostanera.cl/conocenos/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "confirmado",
+          "source": "https://www.casacostanera.cl/conocenos/",
+          "note": "Estacionamiento confirmado por fuente oficial."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.casacostanera.cl/tiendas/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3984,-70.5986",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mall-sport",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallsport.cl/",
+        "https://www.mallsport.cl/tiendas-2/"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.mallsport.cl/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.mallsport.cl/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallsport.cl/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallsport.cl/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallsport.cl/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.mallsport.cl/tiendas-2/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3706,-70.5067",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "easton-outlet-mall",
+      "kind": "outlet",
+      "sources": [
+        "https://www.eastonmallsantiago.cl/",
+        "https://www.eastonmallsantiago.cl/tiendas/"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "pendiente",
+          "source": null,
+          "note": "La comuna no quedó confirmada en la evidencia extraída; se publica null."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "confirmado",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "Estacionamiento confirmado por fuente oficial."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.eastonmallsantiago.cl/tiendas/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3348,-70.7122",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "arauco-premium-outlet-buenaventura",
+      "kind": "outlet",
+      "sources": [
+        "https://www.araucopremiumoutletbuenaventura.cl/sobre-nosotros",
+        "https://www.araucopremiumoutletbuenaventura.cl/tiendas",
+        "https://www.araucopremiumoutletbuenaventura.cl/servicios"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.araucopremiumoutletbuenaventura.cl/sobre-nosotros",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.araucopremiumoutletbuenaventura.cl/sobre-nosotros",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.araucopremiumoutletbuenaventura.cl/sobre-nosotros",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.araucopremiumoutletbuenaventura.cl/sobre-nosotros",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.araucopremiumoutletbuenaventura.cl/sobre-nosotros",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "confirmado",
+          "source": "https://www.araucopremiumoutletbuenaventura.cl/sobre-nosotros",
+          "note": "Estacionamiento confirmado por fuente oficial."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.araucopremiumoutletbuenaventura.cl/tiendas",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3321,-70.704",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mallplaza-egana",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallplaza.com/cl/egana/index.html",
+        "https://www.mallplaza.com/cl/egana/tiendas",
+        "https://www.metro.cl/el-viaje/estaciones/?estacion=PEG",
+        "https://www.metro.cl/el-viaje/estaciones/?estacion=PZE"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/egana/index.html",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/egana/index.html",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/egana/index.html",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/egana/index.html",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/egana/index.html",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "confirmado",
+          "source": "https://www.metro.cl/el-viaje/estaciones/?estacion=PEG",
+          "note": "Relación de estación y línea expresamente confirmada."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "pendiente",
+          "source": null,
+          "note": "El directorio no entregó nombres verificables; se publica una lista vacía."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4527278,-70.5698297",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "florida-center",
+      "kind": "mall",
+      "sources": [
+        "https://www.cencomalls.cl/florida",
+        "https://www.cencomalls.cl/florida/tiendas"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/florida",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/florida",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/florida",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/florida",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/florida",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/florida/tiendas",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.5104,-70.6066",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mallplaza-vespucio",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallplaza.com/cl/vespucio/index.html",
+        "https://www.mallplaza.com/cl/vespucio/tiendas"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/vespucio/index.html",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/vespucio/index.html",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/vespucio/index.html",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/vespucio/index.html",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/vespucio/index.html",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "pendiente",
+          "source": null,
+          "note": "El directorio no entregó nombres verificables; se publica una lista vacía."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.5176,-70.5984",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mallplaza-norte",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallplaza.com/cl/norte/index.html",
+        "https://www.mallplaza.com/cl/norte/tiendas/index.html"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/norte/index.html",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/norte/index.html",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/norte/index.html",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/norte/index.html",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/norte/index.html",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "pendiente",
+          "source": null,
+          "note": "El directorio no entregó nombres verificables; se publica una lista vacía."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3658358,-70.6798569",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "apumanque",
+      "kind": "mall",
+      "sources": [
+        "https://apumanque.cl/",
+        "https://apumanque.cl/tiendas/",
+        "https://apumanque.cl/locales/mirax/"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://apumanque.cl/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://apumanque.cl/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://apumanque.cl/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://apumanque.cl/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://apumanque.cl/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://apumanque.cl/tiendas/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4098751,-70.567896",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "portal-la-dehesa",
+      "kind": "mall",
+      "sources": [
+        "https://www.cencomalls.cl/ladehesa",
+        "https://www.cencomalls.cl/ladehesa/servicios"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/ladehesa",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/ladehesa",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/ladehesa",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/ladehesa",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/ladehesa",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "confirmado",
+          "source": "https://www.cencomalls.cl/ladehesa",
+          "note": "Estacionamiento confirmado por fuente oficial."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/ladehesa",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3579,-70.5156",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mallplaza-oeste",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallplaza.com/cl/oeste",
+        "https://www.mallplaza.com/cl/oeste/tiendas"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/oeste",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/oeste",
+          "note": "Comuna corregida según la ficha oficial."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/oeste",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/oeste",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/oeste",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "pendiente",
+          "source": null,
+          "note": "El directorio no entregó nombres verificables; se publica una lista vacía."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4502,-70.7563",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "arauco-maipu",
+      "kind": "mall",
+      "sources": [
+        "https://www.araucomaipu.cl/sobre-nosotros",
+        "https://www.araucomaipu.cl/tiendas"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://www.araucomaipu.cl/sobre-nosotros",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.araucomaipu.cl/sobre-nosotros",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.araucomaipu.cl/sobre-nosotros",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.araucomaipu.cl/sobre-nosotros",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.araucomaipu.cl/sobre-nosotros",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.araucomaipu.cl/tiendas",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4824,-70.7512",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "parque-arauco-oriente",
+      "kind": "mall",
+      "sources": [
+        "https://www.parquearauco.cl/",
+        "https://www.parquearauco.cl/oriente"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "retirado",
+          "source": null,
+          "note": "El directorio no entregó nombres verificables; se publica una lista vacía."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "retirado",
+          "source": null,
+          "note": "La ficha integrada no tiene geolocalización independiente; se publican lat y lng null."
+        },
+        "entityStatus": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/",
+          "note": "La oferta se identifica como parte de Parque Arauco y no como una entidad independiente."
+        },
+        "integratedInto": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/",
+          "note": "La ficha queda integrada en la entidad canónica parque-arauco."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación retirada porque la entrada no es un destino independiente.",
+        "categories": "Categorías retiradas porque la entrada no es un destino independiente.",
+        "familyFriendly": "Desactivado para evitar clasificar una entidad integrada como destino.",
+        "premium": "Desactivado para evitar clasificar una entidad integrada como destino.",
+        "foodExperience": "Desactivado para evitar clasificar una entidad integrada como destino.",
+        "foodLevel": "Retirado porque la entrada no tiene oferta gastronómica independiente.",
+        "touristZone": "Retirado porque la entrada no es un destino independiente.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Retirado porque la entrada no admite una duración de visita independiente.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mallplaza-los-dominicos",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallplaza.com/cl/losdominicos",
+        "https://www.mallplaza.com/cl/losdominicos/tiendas/fonasa",
+        "https://www.mallplaza.com/cl/losdominicos/tiendas/afex"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/losdominicos",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/losdominicos",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/losdominicos",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/losdominicos",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/losdominicos",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "pendiente",
+          "source": null,
+          "note": "El directorio no entregó nombres verificables; se publica una lista vacía."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4155,-70.5408",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "vivo-los-trapenses",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/",
+        "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/servicios-disponibles/",
+        "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/tiendas/"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "pendiente",
+          "source": null,
+          "note": "La comuna no quedó expresamente confirmada por la fuente oficial; se publica null."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "confirmado",
+          "source": "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/",
+          "note": "Estacionamiento confirmado por fuente oficial."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.mallsyoutletsvivo.cl/vivo-los-trapenses/tiendas/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3571,-70.5401",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "paseo-quilin",
+      "kind": "mall",
+      "sources": [
+        "https://www.paseoquilin.cl/",
+        "https://www.paseoquilin.cl/como-llegar/",
+        "https://www.paseoquilin.cl/tiendas/"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://www.paseoquilin.cl/",
+          "note": "Nombre corregido a Mall Paseo Quilín según la fuente oficial."
+        },
+        "commune": {
+          "status": "corregido",
+          "source": "https://www.paseoquilin.cl/",
+          "note": "Comuna corregida según la ficha oficial."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.paseoquilin.cl/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.paseoquilin.cl/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.paseoquilin.cl/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "confirmado",
+          "source": "https://www.paseoquilin.cl/como-llegar/",
+          "note": "Relación de estación y línea expresamente confirmada."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.paseoquilin.cl/tiendas/",
+          "note": "Inventario reducido a una muestra de cinco locales del directorio oficial."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4878429,-70.5769684",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mallplaza-tobalaba",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallplaza.com/cl/tobalaba",
+        "https://www.mallplaza.com/cl/tobalaba/tiendas/falabella",
+        "https://www.mallplaza.com/cl/tobalaba/tiendas/cinemark"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/tobalaba",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/tobalaba",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallplaza.com/cl/tobalaba",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/tobalaba",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/tobalaba",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.mallplaza.com/cl/tobalaba/tiendas/falabella",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.5693029,-70.5574865",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "espacio-urbano-gran-avenida",
+      "kind": "mall",
+      "sources": [
+        "https://www.espaciourbano.cl/centro-comercial/gran-avenida",
+        "https://www.espaciourbano.cl/centro-comercial/gran-avenida/tiendas",
+        "https://web.sanmiguel.cl/dimos-el-vamos-a-sala-comunitaria-gratuita-en-espacio-urbano/"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.espaciourbano.cl/centro-comercial/gran-avenida",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.espaciourbano.cl/centro-comercial/gran-avenida",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.espaciourbano.cl/centro-comercial/gran-avenida",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.espaciourbano.cl/centro-comercial/gran-avenida",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.espaciourbano.cl/centro-comercial/gran-avenida",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.espaciourbano.cl/centro-comercial/gran-avenida/tiendas",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.5125768,-70.6559244",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "midmall-maipu",
+      "kind": "mall",
+      "sources": [
+        "https://www.midmall.cl/",
+        "http://www.midmall.cl/tiendas/",
+        "https://pertinencia.sea.gob.cl/sea-pertinence-web/services/public/document/3FCEA76E-6066-4BF8-842C-87FFA59A53D1"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://www.midmall.cl/",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.midmall.cl/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.midmall.cl/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.midmall.cl/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.midmall.cl/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "http://www.midmall.cl/tiendas/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.5388514,-70.7711881",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mallplaza-alameda",
+      "kind": "mall",
+      "sources": [
+        "https://corporativo.mallplaza.com/portfolio/mallplaza-alameda/",
+        "https://www.mallplaza.com/cl/alameda/index.html",
+        "https://www.metro.cl/el-viaje/estaciones/EL"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://corporativo.mallplaza.com/portfolio/mallplaza-alameda/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "corregido",
+          "source": "https://corporativo.mallplaza.com/portfolio/mallplaza-alameda/",
+          "note": "Comuna corregida según la ficha oficial."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://corporativo.mallplaza.com/portfolio/mallplaza-alameda/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://corporativo.mallplaza.com/portfolio/mallplaza-alameda/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://corporativo.mallplaza.com/portfolio/mallplaza-alameda/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "confirmado",
+          "source": "https://www.metro.cl/el-viaje/estaciones/EL",
+          "note": "Relación de estación y línea expresamente confirmada."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://corporativo.mallplaza.com/portfolio/mallplaza-alameda/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4529572,-70.6822093",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mall-barrio-independencia",
+      "kind": "mall",
+      "sources": [
+        "https://www.mallbarrioindependencia.cl/servicio-al-cliente/como-llegar/",
+        "https://www.mallbarrioindependencia.cl/servicio-al-cliente/servicios/",
+        "https://www.mallbarrioindependencia.cl/tiendas",
+        "https://www.metro.cl/el-viaje/estaciones/HOS"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.mallbarrioindependencia.cl/servicio-al-cliente/como-llegar/",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.mallbarrioindependencia.cl/servicio-al-cliente/como-llegar/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.mallbarrioindependencia.cl/servicio-al-cliente/como-llegar/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.mallbarrioindependencia.cl/servicio-al-cliente/como-llegar/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.mallbarrioindependencia.cl/servicio-al-cliente/como-llegar/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "confirmado",
+          "source": "https://www.metro.cl/el-viaje/estaciones/HOS",
+          "note": "Relación de estación y línea expresamente confirmada."
+        },
+        "transport.parking": {
+          "status": "confirmado",
+          "source": "https://www.mallbarrioindependencia.cl/servicio-al-cliente/como-llegar/",
+          "note": "Estacionamiento confirmado por fuente oficial."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.mallbarrioindependencia.cl/tiendas",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.424704,-70.6536873",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mall-arauco-quilicura",
+      "kind": "mall",
+      "sources": [
+        "https://www.araucoquilicura.cl/sobre-nosotros",
+        "https://www.araucoquilicura.cl/tiendas"
+      ],
+      "fields": {
+        "name": {
+          "status": "confirmado",
+          "source": "https://www.araucoquilicura.cl/sobre-nosotros",
+          "note": "Nombre contrastado con la fuente oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://www.araucoquilicura.cl/sobre-nosotros",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://www.araucoquilicura.cl/sobre-nosotros",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://www.araucoquilicura.cl/sobre-nosotros",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://www.araucoquilicura.cl/sobre-nosotros",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://www.araucoquilicura.cl/tiendas",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.3681337,-70.7300472",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "paseo-san-bernardo",
+      "kind": "mall",
+      "sources": [
+        "https://paseosanbernardo.cl/",
+        "https://paseosanbernardo.cl/tiendas/"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://paseosanbernardo.cl/",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://paseosanbernardo.cl/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://paseosanbernardo.cl/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://paseosanbernardo.cl/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://paseosanbernardo.cl/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin relación oficial suficiente; se publica null."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://paseosanbernardo.cl/tiendas/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.5954891,-70.7074791",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "mut-mercado-urbano-tobalaba",
+      "kind": "mall",
+      "sources": [
+        "https://mut.cl/es/",
+        "https://mut.cl/es/como-llegar/",
+        "https://territoria.cl/proyectos/mut-mercado-urbano-tobalaba/"
+      ],
+      "fields": {
+        "name": {
+          "status": "corregido",
+          "source": "https://mut.cl/es/",
+          "note": "Nombre normalizado según la marca oficial."
+        },
+        "commune": {
+          "status": "confirmado",
+          "source": "https://mut.cl/es/",
+          "note": "Comuna conservada tras revisión."
+        },
+        "mapsQuery": {
+          "status": "confirmado",
+          "source": "https://mut.cl/es/",
+          "note": "Consulta normalizada con el nombre o la dirección confirmada disponible."
+        },
+        "officialUrl": {
+          "status": "corregido",
+          "source": "https://mut.cl/es/",
+          "note": "URL oficial vigente y específica cuando estaba disponible."
+        },
+        "description": {
+          "status": "corregido",
+          "source": "https://mut.cl/es/",
+          "note": "Reescrita únicamente con hechos extraídos de fuentes primarias."
+        },
+        "transport.metro": {
+          "status": "confirmado",
+          "source": "https://mut.cl/es/como-llegar/",
+          "note": "Relación de estación y línea expresamente confirmada."
+        },
+        "transport.parking": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Sin confirmación suficiente; se publica null."
+        },
+        "stores": {
+          "status": "corregido",
+          "source": "https://mut.cl/es/",
+          "note": "Inventario reducido a una muestra explícitamente confirmada."
+        },
+        "nearbyAttractions": {
+          "status": "retirado",
+          "source": null,
+          "note": "Se retiraron cercanías no acreditadas."
+        },
+        "airportRoute": {
+          "status": "retirado",
+          "source": null,
+          "note": "Campo eliminado; no se publican relaciones aeroportuarias no respaldadas."
+        },
+        "priceLevel": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "touristScore": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "transport.uber": {
+          "status": "retirado",
+          "source": null,
+          "note": "No es un hecho confirmado; se publica null."
+        },
+        "coordinates": {
+          "status": "confirmado",
+          "source": "https://www.google.com/maps?q=-33.4172801,-70.6011321",
+          "note": "Coordenadas revisadas como destino cartográfico de esta entidad independiente."
+        }
+      },
+      "editorialFields": {
+        "type": "Clasificación editorial conservada; se retiraron etiquetas evidentemente falsas cuando el informe lo indicó.",
+        "categories": "Clasificación editorial conservada.",
+        "familyFriendly": "Criterio editorial sobre adecuación para visitas familiares.",
+        "premium": "Criterio editorial sobre el posicionamiento premium de la experiencia.",
+        "foodExperience": "Criterio editorial sobre el peso de la experiencia gastronómica.",
+        "foodLevel": "Nivel editorial de la oferta gastronómica.",
+        "touristZone": "Clasificación editorial de interés o ubicación turística.",
+        "checkOfficialHours": "Recomendación editorial de consultar horarios oficiales.",
+        "recommendedTime": "Sugerencia editorial conservada.",
+        "bestFor": "Recomendaciones limitadas a diferenciadores confirmados.",
+        "notIdealFor": "Recomendaciones genéricas o no sustentadas retiradas.",
+        "tips": "Consejos limitados a información específica confirmada o pendientes transparentes."
+      }
+    },
+    {
+      "id": "primera-vez-santiago",
+      "kind": "route",
+      "sources": [
+        "https://www.cencomalls.cl/costanera",
+        "https://www.skycostanera.cl/"
+      ],
+      "fields": {
+        "title": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Título ajustado para no prometer relaciones no verificadas."
+        },
+        "summary": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Resumen limitado a la oferta confirmada de las paradas."
+        },
+        "duration": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Duración no respaldada; se publica null."
+        },
+        "stops": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Se conservaron los mallId y se reescribieron las notas con hechos confirmados."
+        },
+        "tips": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Se retiraron traslados, cercanías, hora punta y políticas no respaldadas."
+        }
+      },
+      "editorialFields": {
+        "bestFor": "Recomendación editorial derivada de la oferta confirmada.",
+        "tips": "Consejo editorial limitado a fuentes oficiales y naturaleza volátil de directorios u horarios."
+      }
+    },
+    {
+      "id": "compras-premium",
+      "kind": "route",
+      "sources": [
+        "https://www.parquearauco.cl/sobre-nosotros",
+        "https://www.casacostanera.cl/conocenos/"
+      ],
+      "fields": {
+        "title": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/sobre-nosotros",
+          "note": "Título ajustado para no prometer relaciones no verificadas."
+        },
+        "summary": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/sobre-nosotros",
+          "note": "Resumen limitado a la oferta confirmada de las paradas."
+        },
+        "duration": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Duración no respaldada; se publica null."
+        },
+        "stops": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/sobre-nosotros",
+          "note": "Se conservaron los mallId y se reescribieron las notas con hechos confirmados."
+        },
+        "tips": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/sobre-nosotros",
+          "note": "Se retiraron traslados, cercanías, hora punta y políticas no respaldadas."
+        }
+      },
+      "editorialFields": {
+        "bestFor": "Recomendación editorial derivada de la oferta confirmada.",
+        "tips": "Consejo editorial limitado a fuentes oficiales y naturaleza volátil de directorios u horarios."
+      }
+    },
+    {
+      "id": "outlet-day",
+      "kind": "route",
+      "sources": [
+        "https://www.eastonmallsantiago.cl/",
+        "https://www.araucopremiumoutletbuenaventura.cl/sobre-nosotros"
+      ],
+      "fields": {
+        "title": {
+          "status": "corregido",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "Título ajustado para no prometer relaciones no verificadas."
+        },
+        "summary": {
+          "status": "corregido",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "Resumen limitado a la oferta confirmada de las paradas."
+        },
+        "duration": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Duración no respaldada; se publica null."
+        },
+        "stops": {
+          "status": "corregido",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "Se conservaron los mallId y se reescribieron las notas con hechos confirmados."
+        },
+        "tips": {
+          "status": "corregido",
+          "source": "https://www.eastonmallsantiago.cl/",
+          "note": "Se retiraron traslados, cercanías, hora punta y políticas no respaldadas."
+        }
+      },
+      "editorialFields": {
+        "bestFor": "Recomendación editorial derivada de la oferta confirmada.",
+        "tips": "Consejo editorial limitado a fuentes oficiales y naturaleza volátil de directorios u horarios."
+      }
+    },
+    {
+      "id": "familia-con-ninos",
+      "kind": "route",
+      "sources": [
+        "https://www.parquearauco.cl/sobre-nosotros",
+        "https://www.mallsport.cl/"
+      ],
+      "fields": {
+        "title": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/sobre-nosotros",
+          "note": "Título ajustado para no prometer relaciones no verificadas."
+        },
+        "summary": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/sobre-nosotros",
+          "note": "Resumen limitado a la oferta confirmada de las paradas."
+        },
+        "duration": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Duración no respaldada; se publica null."
+        },
+        "stops": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/sobre-nosotros",
+          "note": "Se conservaron los mallId y se reescribieron las notas con hechos confirmados."
+        },
+        "tips": {
+          "status": "corregido",
+          "source": "https://www.parquearauco.cl/sobre-nosotros",
+          "note": "Se retiraron traslados, cercanías, hora punta y políticas no respaldadas."
+        }
+      },
+      "editorialFields": {
+        "bestFor": "Recomendación editorial derivada de la oferta confirmada.",
+        "tips": "Consejo editorial limitado a fuentes oficiales y naturaleza volátil de directorios u horarios."
+      }
+    },
+    {
+      "id": "dia-de-lluvia",
+      "kind": "route",
+      "sources": [
+        "https://www.cencomalls.cl/costanera",
+        "https://www.cencomalls.cl/altolascondes"
+      ],
+      "fields": {
+        "title": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Título ajustado para no prometer relaciones no verificadas."
+        },
+        "summary": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Resumen limitado a la oferta confirmada de las paradas."
+        },
+        "duration": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Duración no respaldada; se publica null."
+        },
+        "stops": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Se conservaron los mallId y se reescribieron las notas con hechos confirmados."
+        },
+        "tips": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Se retiraron traslados, cercanías, hora punta y políticas no respaldadas."
+        }
+      },
+      "editorialFields": {
+        "bestFor": "Recomendación editorial derivada de la oferta confirmada.",
+        "tips": "Consejo editorial limitado a fuentes oficiales y naturaleza volátil de directorios u horarios."
+      }
+    },
+    {
+      "id": "compras-rapidas-cerca-de-hotel",
+      "kind": "route",
+      "sources": [
+        "https://www.cencomalls.cl/costanera",
+        "https://www.mallsport.cl/",
+        "https://www.casacostanera.cl/conocenos/"
+      ],
+      "fields": {
+        "title": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Título ajustado para no prometer relaciones no verificadas."
+        },
+        "summary": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Resumen limitado a la oferta confirmada de las paradas."
+        },
+        "duration": {
+          "status": "pendiente",
+          "source": null,
+          "note": "Duración no respaldada; se publica null."
+        },
+        "stops": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Se conservaron los mallId y se reescribieron las notas con hechos confirmados."
+        },
+        "tips": {
+          "status": "corregido",
+          "source": "https://www.cencomalls.cl/costanera",
+          "note": "Se retiraron traslados, cercanías, hora punta y políticas no respaldadas."
+        }
+      },
+      "editorialFields": {
+        "bestFor": "Recomendación editorial derivada de la oferta confirmada.",
+        "tips": "Consejo editorial limitado a fuentes oficiales y naturaleza volátil de directorios u horarios."
+      }
+    }
+  ]
+}

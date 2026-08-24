@@ -4,9 +4,9 @@ import { fmtMin } from "../utils/timeCalc";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function parseMinHours(str) {
-  if (!str) return 99;
+  if (typeof str !== "string") return null;
   const match = str.match(/^(\d+)/);
-  return match ? parseInt(match[1]) : 99;
+  return match ? parseInt(match[1]) : null;
 }
 
 function fmtHrs(hours) {
@@ -70,7 +70,10 @@ export default function LastMinutePanel({
   const eligibleMalls = useMemo(() => {
     if (!availableHours || availableHours <= 0) return [];
     return malls
-      .filter(m => parseMinHours(m.recommendedTime) <= Math.max(availableHours, 0.5) + 0.5)
+      .filter(m => {
+        const minHours = parseMinHours(m.recommendedTime);
+        return minHours !== null && minHours <= Math.max(availableHours, 0.5) + 0.5;
+      })
       .sort((a, b) => parseMinHours(a.recommendedTime) - parseMinHours(b.recommendedTime))
       .slice(0, status === "tight" ? 3 : 4);
   }, [availableHours, malls, status]);
@@ -316,10 +319,16 @@ export default function LastMinutePanel({
                 >
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
-                    <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
-                      {mall.commune}
-                      <span className={`ml-1.5 font-bold ${th.timeColor}`}>{mall.recommendedTime}</span>
-                    </p>
+                    {(mall.commune || mall.recommendedTime) && (
+                      <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
+                        {mall.commune}
+                        {mall.recommendedTime && (
+                          <span className={`${mall.commune ? "ml-1.5" : ""} font-bold ${th.timeColor}`}>
+                            {mall.recommendedTime}
+                          </span>
+                        )}
+                      </p>
+                    )}
                   </div>
                   <ChevronRight size={13} className="shrink-0 text-ink/20 transition group-hover:text-leaf" />
                 </button>

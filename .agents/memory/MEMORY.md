@@ -8,3 +8,4 @@
 - [Downtown galleries presentation](downtown-galleries.md) — galleries stay collapsed in a compact banner until visitors choose to explore them.
 - [Managed review schema publishing](managed-review-schema.md) — shared-review schema changes use Replit’s development-to-production Publish flow, not startup DDL.
 - [Community rating source](community-rating-source.md) — mall ratings shown to visitors are built only from Shopeando community reviews, never Google Maps ratings.
+- [Integrated historical mall URLs](integrated-historical-mall-urls.md) — preserve historical URLs as informational WebPages, never as duplicate ShoppingCenter entities.

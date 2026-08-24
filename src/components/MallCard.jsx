@@ -13,8 +13,8 @@ function accentColor(mall) {
 }
 
 function parseMinHours(timeStr) {
-  const match = timeStr?.match(/(\d+)/);
-  return match ? parseInt(match[1]) : 2;
+  const match = typeof timeStr === "string" ? timeStr.match(/(\d+)/) : null;
+  return match ? parseInt(match[1]) : null;
 }
 
 /** Returns the canonical SEO path for a mall (used by crawlable links) */
@@ -30,7 +30,18 @@ function MallCard({ mall, onCompare, isComparing, availableHours }) {
   const mapsUrl = mallMapsUrl(mall);
   const canonicalHref = mallCanonicalHref(mall);
   const minHours = parseMinHours(mall.recommendedTime);
-  const tooLong = availableHours !== null && availableHours !== undefined && availableHours < minHours;
+  const tooLong = minHours !== null && availableHours !== null && availableHours !== undefined && availableHours < minHours;
+  const mallTypes = Array.isArray(mall.type) ? mall.type : [];
+  const priceLabel = mall.priceLevel
+    ? (t.priceLabels?.[mall.priceLevel] ?? mall.priceLevel)
+    : null;
+  const transportLabel = mall.transport?.metro
+    ? "Metro"
+    : mall.transport?.parking
+      ? "Auto"
+      : mall.transport?.uber
+        ? "Uber"
+        : null;
 
   return (
     <article className={`group self-start overflow-hidden rounded-2xl border bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft ${
@@ -57,7 +68,9 @@ function MallCard({ mall, onCompare, isComparing, availableHours }) {
           <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
           <div className="absolute bottom-3 left-4 right-4">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
+              {mall.commune && (
+                <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
+              )}
               <h3 className="mt-0.5 font-display text-xl font-extrabold leading-tight text-white drop-shadow">
                 {mall.name}
               </h3>
@@ -91,7 +104,7 @@ function MallCard({ mall, onCompare, isComparing, availableHours }) {
               ✈ {mc.airportRoute}
             </span>
           )}
-          {mall.type.slice(0, 3).map(tag => (
+          {mallTypes.slice(0, 3).map(tag => (
             <span key={tag} className="tag capitalize">{t.typeLabels?.[tag] ?? tag}</span>
           ))}
         </div>
@@ -108,14 +121,20 @@ function MallCard({ mall, onCompare, isComparing, availableHours }) {
         </div>
 
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-ink/45">
-          <span className={`flex items-center gap-1 ${tooLong ? "font-extrabold text-coral" : ""}`}>
-            <Clock size={12} /> {lm.recommendedTime}
-          </span>
-          <span className="flex items-center gap-1"><MapPin size={12} /> {t.priceLabels?.[mall.priceLevel] ?? mall.priceLevel}</span>
-          <span className="flex items-center gap-1">
-            {mall.type.includes("metro") ? <TrainFront size={12} /> : <Car size={12} />}
-            {mall.type.includes("metro") ? "Metro" : "Auto/Uber"}
-          </span>
+          {mall.recommendedTime && (
+            <span className={`flex items-center gap-1 ${tooLong ? "font-extrabold text-coral" : ""}`}>
+              <Clock size={12} /> {lm.recommendedTime}
+            </span>
+          )}
+          {priceLabel && (
+            <span className="flex items-center gap-1"><MapPin size={12} /> {priceLabel}</span>
+          )}
+          {transportLabel && (
+            <span className="flex items-center gap-1">
+              {transportLabel === "Metro" ? <TrainFront size={12} /> : <Car size={12} />}
+              {transportLabel}
+            </span>
+          )}
           {mall.foodLevel && (
             <span className={`flex items-center gap-1 font-bold ${
               mall.foodLevel === "gastronomico" ? "text-gold" : "text-ink/40"

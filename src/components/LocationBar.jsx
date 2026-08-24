@@ -515,10 +515,16 @@ export default function LocationBar({ address, setAddress, userCoords, setUserCo
                               }`}>{i + 1}</span>
                               <div className="min-w-0 flex-1">
                                 <p className="truncate text-xs font-extrabold text-ink leading-tight">{mall.name}</p>
-                                <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
-                                  {mall.commune}
-                                  <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
-                                </p>
+                                {(mall.commune || mall.distanceKm != null) && (
+                                  <p className="text-[10px] font-semibold text-ink/45 mt-0.5">
+                                    {mall.commune}
+                                    {mall.distanceKm != null && (
+                                      <span className={`${mall.commune ? "ml-1.5" : ""} font-bold text-leaf`}>
+                                        {mall.distanceKm} {lb.distLabel}
+                                      </span>
+                                    )}
+                                  </p>
+                                )}
                               </div>
                               <ChevronRight size={13} className="shrink-0 text-ink/25" />
                             </button>
@@ -592,14 +598,18 @@ function MallDetail({ mall, userCoords, lb, onBack, onQuiz }) {
       <div className="mb-2 flex items-start justify-between gap-2">
         <div>
           <h3 className="text-base font-extrabold text-ink leading-tight">{mall.name}</h3>
-          <p className="mt-0.5 text-xs font-semibold text-ink/45">
-            {mall.commune}
-            {mall.distanceKm && (
-              <span className="ml-1.5 font-bold text-leaf">{mall.distanceKm} {lb.distLabel}</span>
-            )}
-          </p>
+          {(mall.commune || mall.distanceKm != null) && (
+            <p className="mt-0.5 text-xs font-semibold text-ink/45">
+              {mall.commune}
+              {mall.distanceKm != null && (
+                <span className={`${mall.commune ? "ml-1.5" : ""} font-bold text-leaf`}>
+                  {mall.distanceKm} {lb.distLabel}
+                </span>
+              )}
+            </p>
+          )}
         </div>
-        {lm.recommendedTime && (
+        {mall.recommendedTime && lm.recommendedTime && (
           <span className="shrink-0 rounded-xl border border-ink/10 bg-ink/3 px-2.5 py-1 text-[10px] font-extrabold text-ink/50">
             ⏱ {lm.recommendedTime}
           </span>
@@ -623,9 +633,9 @@ function MallDetail({ mall, userCoords, lb, onBack, onQuiz }) {
       )}
 
       {/* Type badges */}
-      {mall.type?.length > 0 && (
+      {(mall.type?.length > 0 || mall.transport?.metro) && (
         <div className="mb-4 flex flex-wrap gap-1.5">
-          {mall.type.filter(t => typeIcons[t]).map(t => (
+          {(Array.isArray(mall.type) ? mall.type : []).filter(t => typeIcons[t]).map(t => (
             <span key={t} className="rounded-full border border-ink/8 bg-ink/3 px-2 py-0.5 text-[10px] font-bold text-ink/50">
               {typeIcons[t]}
             </span>

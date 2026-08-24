@@ -7,10 +7,10 @@ function CompareMalls({ malls, selectedIds, setSelectedIds }) {
   const c = t.compare;
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const rows = [
-    [c.rows[0], m => m.type.slice(0, 2).join(", ")],
-    [c.rows[1], m => m.bestFor.slice(0, 2).join(", ")],
-    [c.rows[2], m => m.type.includes("metro") ? m.transport.metro : c.carOrUber],
+  const rowDefinitions = [
+    [c.rows[0], m => m.type?.slice(0, 2).join(", ") ?? ""],
+    [c.rows[1], m => m.bestFor?.slice(0, 2).join(", ") ?? ""],
+    [c.rows[2], m => m.type?.includes("metro") ? m.transport?.metro : c.carOrUber],
     [c.rows[3], m => m.recommendedTime],
     [c.rows[4], m => m.priceLevel],
     [c.rows[5], m => m.familyFriendly],
@@ -18,6 +18,12 @@ function CompareMalls({ malls, selectedIds, setSelectedIds }) {
     [c.rows[7], m => m.premium],
     [c.rows[8], m => m.foodExperience],
   ];
+  const rows = rowDefinitions.filter(([, getter]) =>
+    malls.some((mall) => {
+      const value = getter(mall);
+      return value !== null && value !== undefined && value !== "";
+    }),
+  );
 
   const selected = selectedIds.map(id => malls.find(m => m.id === id)).filter(Boolean);
 

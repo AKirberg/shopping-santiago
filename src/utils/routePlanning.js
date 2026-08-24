@@ -7,10 +7,11 @@ const timeWindows = {
 };
 
 function parseRecommendedTime(value) {
-  const values = String(value || "").match(/\d+(?:[.,]\d+)?/g)?.map(Number) || [];
+  if (typeof value !== "string" || !value.trim()) return null;
+  const values = value.match(/\d+(?:[.,]\d+)?/g)?.map(part => Number(part.replace(",", "."))) || [];
   if (values.length >= 2) return [values[0] * 60, values[1] * 60];
   if (values.length === 1) return [values[0] * 60, values[0] * 60];
-  return [60, 120];
+  return null;
 }
 
 function permutations(items) {
@@ -48,9 +49,13 @@ function estimateTravelMinutes(distanceKm, legs) {
 }
 
 export function analyzeMallRoute(malls, origin, timeKey) {
+  const shoppingTimes = malls.map(mall => parseRecommendedTime(mall.recommendedTime));
+  const hasUnknownShoppingTime = shoppingTimes.some(time => time === null);
   const shopping = malls.reduce(
     (total, mall) => {
-      const [min, max] = parseRecommendedTime(mall.recommendedTime);
+      const time = parseRecommendedTime(mall.recommendedTime);
+      if (!time) return total;
+      const [min, max] = time;
       return { min: total.min + min, max: total.max + max };
     },
     { min: 0, max: 0 }
@@ -73,10 +78,10 @@ export function analyzeMallRoute(malls, origin, timeKey) {
   };
 
   return {
-    shoppingTime: formatRange(shopping.min, shopping.max),
+    shoppingTime: hasUnknownShoppingTime ? null : formatRange(shopping.min, shopping.max),
     travelTime: formatMinutes(travelMinutes),
-    totalTime: formatRange(total.min, total.max),
-    fitsTime: total.max <= (timeWindows[timeKey] || Infinity),
+    totalTime: hasUnknownShoppingTime ? null : formatRange(total.min, total.max),
+    fitsTime: hasUnknownShoppingTime ? null : total.max <= (timeWindows[timeKey] || Infinity),
     orderRecommended,
     recommendedOrderIds: bestOrder.map(mall => mall.id),
     orderDistanceKm: Math.round(orderDistanceKm * 10) / 10,

@@ -1,200 +1,212 @@
 /**
- * Locale-specific prose for each route.
- * ES content lives in routes.json — only EN and PT are here.
- * localizeRoute() merges this with the raw route object.
+ * Locale-specific prose for each route. ES content lives in routes.json.
  */
-
 const routeTranslations = {
-  en: {
+  "en": {
     "primera-vez-santiago": {
-      title: "First time in Santiago",
-      summary:
-        "A simple route to combine shopping, city views and food in an area that's easy for visitors to find their way around.",
-      duration: "3–5 hours",
-      bestFor: ["Tourists", "First visit", "Shopping + strolling"],
-      stops: {
-        "costanera-center":
-          "Start with varied shopping and leave time to go up to Sky Costanera if you'd like to add a panoramic view.",
+      "title": "First time in Santiago",
+      "summary": "Shopping, dining and panoramic-view route at Cenco Costanera.",
+      "bestFor": [
+        "Shopping",
+        "Dining",
+        "Panoramic view"
+      ],
+      "stops": {
+        "costanera-center": "Cenco Costanera combines shopping and food with Sky Costanera, a 360° viewpoint inside the complex."
       },
-      tips: ["Works really well if you're staying in Providencia or Las Condes."],
+      "tips": [
+        "Consider Sky Costanera if you want to add a panoramic view to the route."
+      ]
     },
     "compras-premium": {
-      title: "Premium shopping",
-      summary:
-        "A circuit for those looking for brands, dining and a more sophisticated experience in the eastern sector.",
-      duration: "4–7 hours",
-      bestFor: ["Premium", "Fashion", "Dining"],
-      stops: {
-        "parque-arauco": "Main base for fashion, food and a complete experience.",
-        casacostanera:
-          "Boutique stop to combine with Nueva Costanera or Alonso de Córdova.",
+      "title": "Premium shopping",
+      "summary": "Route combining Parque Arauco's international fashion, Distrito de Lujo and Boulevard with Casacostanera's boutique experience.",
+      "bestFor": [
+        "International fashion",
+        "Boutique shopping",
+        "Dining"
+      ],
+      "stops": {
+        "parque-arauco": "Parque Arauco offers international fashion, Distrito de Lujo and a dining Boulevard.",
+        "casacostanera": "Casacostanera brings together more than 80 stores with fashion, beauty, décor and dining in a boutique format."
       },
-      tips: ["It's best to use a taxi/Uber between points if you're short on time."],
+      "tips": [
+        "Check the official directories because the store offer may change."
+      ]
     },
     "outlet-day": {
-      title: "Outlet Day",
-      summary:
-        "A day focused on discounts, ideal for going with a shopping list and planned transport.",
-      duration: "5–8 hours",
-      bestFor: ["Discounts", "Outlet", "Planned shopping"],
-      stops: {
-        "easton-outlet-mall": "Start by comparing brands and sizes without rushing.",
-        "arauco-premium-outlet-buenaventura":
-          "Round out your price search and check each store's exchange policy.",
-      },
-      tips: [
-        "Consider taxi/Uber or a car, and confirm official opening hours before heading out.",
+      "title": "Outlet day",
+      "summary": "Route through two outlet centres for discounted fashion and sportswear.",
+      "bestFor": [
+        "Outlets",
+        "Discounts",
+        "Fashion and sportswear"
       ],
+      "stops": {
+        "easton-outlet-mall": "Easton includes brands such as Nike, Adidas, Puma and Skechers.",
+        "arauco-premium-outlet-buenaventura": "Buenaventura states that it has a mix of discounted fashion, sports and homeware."
+      },
+      "tips": [
+        "Check official hours and directories, as inventory and offers are volatile."
+      ]
     },
     "familia-con-ninos": {
-      title: "Family with kids",
-      summary:
-        "A comfortable route to mix shopping, food and a more active experience for children.",
-      duration: "4–6 hours",
-      bestFor: ["Families", "Kids", "Shopping + activity"],
-      stops: {
-        "parque-arauco": "A good base for shopping, food and strolling.",
-        "mall-sport":
-          "Adds a sports focus and activities to change up the pace of the day.",
+      "title": "Family with children",
+      "summary": "Route combining Parque Arauco's family experience with Mall Sport's sports focus, events and Laguna Mall Sport.",
+      "bestFor": [
+        "Families",
+        "Sports",
+        "Events"
+      ],
+      "stops": {
+        "parque-arauco": "Parque Arauco presents a family experience with shopping and dining.",
+        "mall-sport": "Mall Sport adds sports stores, events and Laguna Mall Sport."
       },
-      tips: ["Avoid rush hour if you're driving through the eastern sector."],
+      "tips": [
+        "Check Mall Sport's current programme before visiting."
+      ]
     },
     "dia-de-lluvia": {
-      title: "Rainy day",
-      summary:
-        "Covered options to handle shopping, food and strolling without depending on the weather.",
-      duration: "3–5 hours",
-      bestFor: ["Rain", "Families", "Comfortable shopping"],
-      stops: {
-        "costanera-center": "Practical if you prioritise metro access and a central location.",
-        "alto-las-condes":
-          "Convenient if you're in the eastern sector and travelling by car or taxi/Uber.",
+      "title": "Shopping and dining",
+      "summary": "Route combining Cenco Costanera's variety with Alto Diseño and Mirador at Cenco Alto las Condes.",
+      "bestFor": [
+        "Shopping",
+        "Dining",
+        "Store variety"
+      ],
+      "stops": {
+        "costanera-center": "Cenco Costanera offers shopping and dining.",
+        "alto-las-condes": "Cenco Alto las Condes features Alto Diseño, Mirador and stores such as Falabella, Jumbo and Paris."
       },
-      tips: ["Choose based on where you're staying to avoid wasting time on transfers."],
+      "tips": []
     },
     "compras-rapidas-cerca-de-hotel": {
-      title: "Quick shopping near your hotel",
-      summary:
-        "A flexible route to get your shopping done in a few hours depending on where you're staying.",
-      duration: "1–3 hours",
-      bestFor: ["Short on time", "Hotels", "Practical shopping"],
-      stops: {
-        "costanera-center":
-          "Providencia or Las Condes: a direct option that's easy to explain.",
-        "mall-sport":
-          "Las Condes / Kennedy: Mall Sport covers the Kennedy corridor well.",
-        casacostanera: "Vitacura: a brief stop for boutique shopping or food.",
+      "title": "Specialised shopping selection",
+      "summary": "Route featuring variety at Cenco Costanera, sports at Mall Sport and a boutique experience at Casacostanera.",
+      "bestFor": [
+        "Variety",
+        "Sports",
+        "Boutique shopping"
+      ],
+      "stops": {
+        "costanera-center": "Cenco Costanera offers stores and dining.",
+        "mall-sport": "Mall Sport specialises in sports categories and equipment.",
+        "casacostanera": "Casacostanera offers fashion, beauty, décor and dining in a boutique format."
       },
-      tips: ["Prioritise the nearest mall if you only have 3 hours or less."],
-    },
+      "tips": [
+        "Choose stops according to the shopping category you are looking for."
+      ]
+    }
   },
-
-  pt: {
+  "pt": {
     "primera-vez-santiago": {
-      title: "Primeira vez em Santiago",
-      summary:
-        "Uma rota simples para combinar compras, vista urbana e comida em uma área fácil de localizar para os visitantes.",
-      duration: "3–5 horas",
-      bestFor: ["Turistas", "Primeira visita", "Compras + passeio"],
-      stops: {
-        "costanera-center":
-          "Comece com compras variadas e reserve tempo para subir ao Sky Costanera se quiser incluir uma vista panorâmica.",
+      "title": "Primeira vez em Santiago",
+      "summary": "Rota de compras, gastronomia e vista panorâmica no Cenco Costanera.",
+      "bestFor": [
+        "Compras",
+        "Gastronomia",
+        "Vista panorâmica"
+      ],
+      "stops": {
+        "costanera-center": "O Cenco Costanera combina compras e comida com o Sky Costanera, um mirante 360° dentro do complexo."
       },
-      tips: ["Funciona muito bem se você estiver hospedado em Providencia ou Las Condes."],
+      "tips": [
+        "Considere o Sky Costanera se quiser acrescentar uma vista panorâmica à rota."
+      ]
     },
     "compras-premium": {
-      title: "Compras premium",
-      summary:
-        "Um circuito para quem busca marcas, gastronomia e uma experiência mais sofisticada no setor oriente.",
-      duration: "4–7 horas",
-      bestFor: ["Premium", "Moda", "Gastronomia"],
-      stops: {
-        "parque-arauco": "Base principal para moda, comida e uma experiência completa.",
-        casacostanera:
-          "Parada boutique para combinar com Nueva Costanera ou Alonso de Córdova.",
+      "title": "Compras premium",
+      "summary": "Rota que combina moda internacional, Distrito de Lujo e Boulevard do Parque Arauco com a experiência boutique do Casacostanera.",
+      "bestFor": [
+        "Moda internacional",
+        "Compras boutique",
+        "Gastronomia"
+      ],
+      "stops": {
+        "parque-arauco": "O Parque Arauco oferece moda internacional, Distrito de Lujo e Boulevard gastronômico.",
+        "casacostanera": "O Casacostanera reúne mais de 80 lojas com moda, beleza, decoração e gastronomia em formato boutique."
       },
-      tips: ["Vale a pena usar táxi/Uber entre os pontos se você tiver pouco tempo."],
+      "tips": [
+        "Consulte os diretórios oficiais, pois a oferta de lojas pode mudar."
+      ]
     },
     "outlet-day": {
-      title: "Dia de Outlet",
-      summary:
-        "Um dia voltado para descontos, ideal para ir com lista de compras e transporte planejado.",
-      duration: "5–8 horas",
-      bestFor: ["Descontos", "Outlet", "Compras planejadas"],
-      stops: {
-        "easton-outlet-mall": "Comece comparando marcas e tamanhos sem pressa.",
-        "arauco-premium-outlet-buenaventura":
-          "Complemente a busca por preços e verifique as políticas de troca de cada loja.",
-      },
-      tips: [
-        "Considere táxi/Uber ou carro e confirme os horários oficiais antes de sair.",
+      "title": "Dia de outlets",
+      "summary": "Rota por dois centros outlet de moda e esporte com descontos.",
+      "bestFor": [
+        "Outlets",
+        "Descontos",
+        "Moda e esporte"
       ],
+      "stops": {
+        "easton-outlet-mall": "O Easton inclui marcas como Nike, Adidas, Puma e Skechers.",
+        "arauco-premium-outlet-buenaventura": "Buenaventura declara uma mistura de moda, esporte e casa com descontos."
+      },
+      "tips": [
+        "Consulte horários e diretórios oficiais, pois o inventário e as ofertas são voláteis."
+      ]
     },
     "familia-con-ninos": {
-      title: "Família com crianças",
-      summary:
-        "Uma rota confortável para misturar compras, comida e uma experiência mais ativa para as crianças.",
-      duration: "4–6 horas",
-      bestFor: ["Famílias", "Crianças", "Compras + atividade"],
-      stops: {
-        "parque-arauco": "Boa base para compras, comida e passeio.",
-        "mall-sport":
-          "Adiciona um foco esportivo e atividades para mudar o ritmo do dia.",
+      "title": "Família com crianças",
+      "summary": "Rota que combina a experiência familiar do Parque Arauco com o foco esportivo, os eventos e a Laguna Mall Sport.",
+      "bestFor": [
+        "Famílias",
+        "Esporte",
+        "Eventos"
+      ],
+      "stops": {
+        "parque-arauco": "O Parque Arauco apresenta uma experiência familiar com compras e gastronomia.",
+        "mall-sport": "O Mall Sport acrescenta lojas esportivas, eventos e Laguna Mall Sport."
       },
-      tips: ["Evite os horários de pico se for de carro pelo setor oriente."],
+      "tips": [
+        "Consulte a programação vigente do Mall Sport antes da visita."
+      ]
     },
     "dia-de-lluvia": {
-      title: "Dia de chuva",
-      summary:
-        "Opções cobertas para resolver compras, comida e passeio sem depender do clima.",
-      duration: "3–5 horas",
-      bestFor: ["Chuva", "Famílias", "Compras confortáveis"],
-      stops: {
-        "costanera-center": "Prático se você priorizar o metrô e uma localização central.",
-        "alto-las-condes":
-          "Confortável se você estiver no setor oriente e for de carro ou táxi/Uber.",
+      "title": "Compras e gastronomia",
+      "summary": "Rota que combina a variedade do Cenco Costanera com Alto Diseño e Mirador no Cenco Alto las Condes.",
+      "bestFor": [
+        "Compras",
+        "Gastronomia",
+        "Variedade de lojas"
+      ],
+      "stops": {
+        "costanera-center": "O Cenco Costanera oferece compras e gastronomia.",
+        "alto-las-condes": "O Cenco Alto las Condes conta com Alto Diseño, Mirador e lojas como Falabella, Jumbo e Paris."
       },
-      tips: ["Escolha de acordo com sua zona de hospedagem para não perder tempo com deslocamentos."],
+      "tips": []
     },
     "compras-rapidas-cerca-de-hotel": {
-      title: "Compras rápidas perto do hotel",
-      summary:
-        "Uma rota flexível para resolver as compras em poucas horas conforme onde você estiver hospedado.",
-      duration: "1–3 horas",
-      bestFor: ["Pouco tempo", "Hotéis", "Compras práticas"],
-      stops: {
-        "costanera-center":
-          "Providencia ou Las Condes: opção direta e fácil de explicar.",
-        "mall-sport":
-          "Las Condes / Kennedy: o Mall Sport cobre bem o eixo Kennedy.",
-        casacostanera: "Vitacura: parada breve para compras boutique ou comida.",
+      "title": "Seleção de compras especializadas",
+      "summary": "Rota com variedade no Cenco Costanera, esporte no Mall Sport e experiência boutique no Casacostanera.",
+      "bestFor": [
+        "Variedade",
+        "Esporte",
+        "Compras boutique"
+      ],
+      "stops": {
+        "costanera-center": "O Cenco Costanera oferece lojas e gastronomia.",
+        "mall-sport": "O Mall Sport é especializado em categorias e equipamentos esportivos.",
+        "casacostanera": "O Casacostanera oferece moda, beleza, decoração e gastronomia em formato boutique."
       },
-      tips: ["Priorize o shopping mais próximo se você tiver apenas 3 horas ou menos."],
-    },
-  },
+      "tips": [
+        "Escolha as paradas de acordo com a categoria de compra que você procura."
+      ]
+    }
+  }
 };
 
-/**
- * Returns the route object with locale-specific prose fields merged in.
- * Preserves ids and stop mallIds. Falls back to the original Spanish data
- * for es/unknown locales or missing entries.
- */
 export function localizeRoute(route, lang) {
   if (!route) return route;
   if (lang === "es" || !routeTranslations[lang]?.[route.id]) return route;
   const loc = routeTranslations[lang][route.id];
   return {
     ...route,
-    title:    loc.title    ?? route.title,
-    summary:  loc.summary  ?? route.summary,
-    duration: loc.duration ?? route.duration,
-    bestFor:  loc.bestFor  ?? route.bestFor,
-    stops: Array.isArray(route.stops)
-      ? route.stops.map((stop) => ({
-          ...stop,
-          note: loc.stops?.[stop.mallId] ?? stop.note,
-        }))
-      : route.stops,
-    tips: loc.tips ?? route.tips,
+    title: loc.title,
+    summary: loc.summary,
+    duration: null,
+    bestFor: loc.bestFor,
+    stops: route.stops.map((stop) => ({ ...stop, note: loc.stops[stop.mallId] })),
+    tips: loc.tips,
   };
 }
