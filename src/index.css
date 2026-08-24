@@ -77,6 +77,16 @@ select {
   @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-extrabold text-white transition hover:bg-leaf;
 }
 
+.hero-primary-button {
+  @apply border border-white/70 bg-white px-8 py-4 font-display text-lg font-bold text-ink shadow-soft sm:px-10 sm:text-xl;
+  letter-spacing: -0.015em;
+}
+
+.hero-primary-button:hover {
+  @apply border-leaf bg-leaf text-white;
+  transform: translateY(-2px);
+}
+
 .secondary-button {
   @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-white px-5 py-3 text-sm font-extrabold text-ink transition hover:border-leaf/40 hover:text-leaf;
 }

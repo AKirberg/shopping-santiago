@@ -60,9 +60,9 @@ function Hero({ onIntent }) {
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <a
               href="#quiz"
-              className="primary-button bg-white text-ink hover:bg-leaf hover:text-white border-transparent"
+              className="primary-button hero-primary-button"
             >
-              {h.primaryAction} <ArrowRight size={16} />
+              {h.primaryAction} <ArrowRight size={20} strokeWidth={2.25} />
             </a>
           </div>
 
