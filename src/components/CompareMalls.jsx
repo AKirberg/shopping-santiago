@@ -17,7 +17,6 @@ function CompareMalls({ malls, selectedIds, setSelectedIds }) {
     [c.rows[6], m => m.outlet],
     [c.rows[7], m => m.premium],
     [c.rows[8], m => m.foodExperience],
-    [c.rows[9], m => `${m.touristScore}/10`],
   ];
 
   const selected = selectedIds.map(id => malls.find(m => m.id === id)).filter(Boolean);

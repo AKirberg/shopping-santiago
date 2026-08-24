@@ -7,7 +7,7 @@
  */
 
 import { useEffect } from "react";
-import { ExternalLink, MapPin, Clock, Car, TrainFront, ShoppingBag, ChevronRight, Star, Route } from "lucide-react";
+import { ExternalLink, MapPin, Clock, Car, TrainFront, ShoppingBag, ChevronRight, Route } from "lucide-react";
 import malls from "../data/malls.json";
 import routes from "../data/routes.json";
 import guides from "../data/guides.json";
@@ -292,20 +292,16 @@ function MallDetailPage({ mall, isOutlet }) {
         <div className="absolute bottom-0 left-0 right-0 p-6">
           <p className="text-xs font-extrabold uppercase tracking-widest text-white/60">{mall.commune}</p>
           <h1 className="mt-1 font-display text-3xl font-extrabold text-white drop-shadow">{mall.name}</h1>
-          <div className="mt-2 flex flex-wrap items-center gap-2">
-            {isOutlet && (
-              <span className="rounded-full bg-coral/80 px-3 py-1 text-xs font-extrabold text-white backdrop-blur-sm">Outlet</span>
-            )}
-            {mall.premium && (
-              <span className="rounded-full bg-gold/80 px-3 py-1 text-xs font-extrabold text-white backdrop-blur-sm">Premium</span>
-            )}
-            <span
-              className="flex items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm"
-              title={`${t.mallCard.shopeandoScore}: ${mall.touristScore}/10`}
-            >
-              <Star size={10} fill="currentColor" /> {t.mallCard.shopeandoScore} · {mall.touristScore}/10
-            </span>
-          </div>
+          {(isOutlet || mall.premium) && (
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              {isOutlet && (
+                <span className="rounded-full bg-coral/80 px-3 py-1 text-xs font-extrabold text-white backdrop-blur-sm">Outlet</span>
+              )}
+              {mall.premium && (
+                <span className="rounded-full bg-gold/80 px-3 py-1 text-xs font-extrabold text-white backdrop-blur-sm">Premium</span>
+              )}
+            </div>
+          )}
         </div>
       </div>
 

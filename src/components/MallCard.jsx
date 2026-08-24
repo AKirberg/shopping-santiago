@@ -1,4 +1,4 @@
-import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, Star, TrainFront, Utensils } from "lucide-react";
+import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, TrainFront, Utensils } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
 import { mallMapsUrl } from "../utils/maps";
@@ -60,20 +60,13 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
             <div className={`h-full w-full ${accentColor(mall)} opacity-20`} />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
-          <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
+          <div className="absolute bottom-3 left-4 right-4">
             <div>
               <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
               <h3 className="mt-0.5 font-display text-xl font-extrabold leading-tight text-white drop-shadow">
                 {mall.name}
               </h3>
             </div>
-            <span
-              className="flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm"
-              title={`${mc.shopeandoScore}: ${mall.touristScore}/10`}
-              aria-label={`${mc.shopeandoScore}: ${mall.touristScore}/10`}
-            >
-              <Star size={10} fill="currentColor" /> {mc.shopeandoScore} · {mall.touristScore}/10
-            </span>
           </div>
           {tooLong && (
             <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-coral px-2 py-1 text-xs font-extrabold text-white shadow">
