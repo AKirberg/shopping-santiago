@@ -64,12 +64,6 @@ function Hero({ onIntent }) {
             >
               {h.primaryAction} <ArrowRight size={16} />
             </a>
-            <a
-              href="#rutas"
-              className="secondary-button border-white/35 bg-white/10 text-white hover:border-white/60 hover:bg-white/20 backdrop-blur-sm"
-            >
-              {h.secondaryAction}
-            </a>
           </div>
 
           {/* Trust badges */}
