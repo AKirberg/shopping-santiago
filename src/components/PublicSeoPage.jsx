@@ -22,7 +22,7 @@ import { localizeComparison } from "../i18n/comparisonContent";
 import { useLanguage } from "../i18n/LanguageContext";
 import Header from "./Header";
 import Footer from "./Footer";
-import ReviewSection, { ReviewSummary } from "./ReviewSection";
+import ReviewSection, { QuickReviewRating } from "./ReviewSection";
 
 const SITE_URL = "https://www.shopeando.cl";
 const HAS_PRERENDERED_HEAD =
@@ -583,30 +583,32 @@ function MallListCard({ mall, href, badge }) {
   const mapsUrl = mallMapsUrl(mall);
   return (
     <article className="group overflow-hidden rounded-2xl border border-ink/8 bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft">
-      <a href={href} className="relative block h-40 w-full overflow-hidden bg-ink/8">
-        {mall.imageUrl ? (
-          <img
-            src={mall.imageUrl}
-            alt={mall.name}
-            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-            loading="lazy"
-          />
-        ) : (
-          <div className="h-full w-full bg-night/20" />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
-        <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
-          <div>
-            <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
-            <h2 className="mt-0.5 font-display text-lg font-extrabold leading-tight text-white drop-shadow">{mall.name}</h2>
-          </div>
-          {badge && (
-            <span className="rounded-full bg-coral/80 px-2 py-1 text-xs font-extrabold text-white">{badge}</span>
+      <div className="relative h-40 w-full overflow-hidden bg-ink/8">
+        <a href={href} className="absolute inset-0 block">
+          {mall.imageUrl ? (
+            <img
+              src={mall.imageUrl}
+              alt={mall.name}
+              className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div className="h-full w-full bg-night/20" />
           )}
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+          <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
+              <h2 className="mt-0.5 font-display text-lg font-extrabold leading-tight text-white drop-shadow">{mall.name}</h2>
+            </div>
+            {badge && (
+              <span className="rounded-full bg-coral/80 px-2 py-1 text-xs font-extrabold text-white">{badge}</span>
+            )}
+          </div>
+        </a>
+        <div className="absolute right-3 top-3 z-10">
+          <QuickReviewRating mallId={mall.id} />
         </div>
-      </a>
-      <div className="border-b border-ink/6 bg-white px-4 py-2.5">
-        <ReviewSummary mallId={mall.id} mall={mall} />
       </div>
       <div className="p-4">
         <p className="text-sm leading-relaxed text-ink/55 line-clamp-2">{mall.description}</p>

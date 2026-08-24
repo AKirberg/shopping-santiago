@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Flag, ShoppingBag, Trash2 } from "lucide-react";
+import { Check, Flag, ShoppingBag, Trash2 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const DELETE_TOKENS_KEY = "shopeando-review-delete-tokens-v1";
@@ -64,9 +64,14 @@ function BagRating({ value, onChange, disabled, labels, inputName }) {
   );
 }
 
-export function ReviewSummary({ mallId }) {
+export function QuickReviewRating({ mallId }) {
   const { t, lang } = useLanguage();
+  const labels = t.reviews;
   const [summary, setSummary] = useState(null);
+  const [hoveredScore, setHoveredScore] = useState(0);
+  const [selectedScore, setSelectedScore] = useState(0);
+  const [quickStatus, setQuickStatus] = useState("ready");
+  const [quickMessage, setQuickMessage] = useState("");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -77,20 +82,99 @@ export function ReviewSummary({ mallId }) {
     return () => controller.abort();
   }, [mallId]);
 
+  async function submitQuickRating(score) {
+    if (quickStatus === "submitting" || quickStatus === "success") return;
+    setSelectedScore(score);
+    setHoveredScore(0);
+    setQuickStatus("submitting");
+    setQuickMessage("");
+    try {
+      const response = await fetch(`/api/reviews/${encodeURIComponent(mallId)}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rating: score, comment: "" }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        const errors = {
+          rate_limited: labels.rateLimited,
+          reviews_unavailable: labels.submitError,
+        };
+        throw new Error(errors[result.error] || labels.submitError);
+      }
+      setSummary(result.summary);
+      if (result.deleteToken) {
+        saveDeleteTokens({
+          ...readDeleteTokens(),
+          [result.review.id]: result.deleteToken,
+        });
+      }
+      setQuickStatus("success");
+      setQuickMessage(labels.quickSuccess);
+    } catch (error) {
+      setSelectedScore(0);
+      setQuickStatus("error");
+      setQuickMessage(error.message || labels.submitError);
+    }
+  }
+
   const average = summary?.average || 0;
   const count = summary?.count || 0;
+  const displayScore = hoveredScore || selectedScore || Math.round(average);
+  const isChoosing = hoveredScore > 0 || selectedScore > 0;
+  const isDisabled = quickStatus === "submitting" || quickStatus === "success";
+
   return (
-    <div
-      className="flex items-center"
-      aria-label={count
-        ? t.reviews.shopeandoSummary.replace("{average}", formatAverage(average, lang)).replace("{count}", count)
-        : t.reviews.shopeandoLabel}
-    >
-      <span className="flex items-center gap-0.5 text-gold" aria-hidden="true">
-        {[1, 2, 3, 4, 5].map((score) => (
-          <ShoppingBag key={score} size={13} fill={score <= Math.round(average) ? "currentColor" : "none"} />
-        ))}
-      </span>
+    <div className="relative">
+      <div
+        className={`flex items-center gap-0.5 rounded-full border p-1 shadow-card backdrop-blur-md transition ${
+          quickStatus === "success"
+            ? "border-leaf/40 bg-white"
+            : quickStatus === "error"
+              ? "border-coral/50 bg-white"
+              : "border-white bg-white"
+        }`}
+        aria-label={count
+          ? t.reviews.shopeandoSummary.replace("{average}", formatAverage(average, lang)).replace("{count}", count)
+          : labels.quickRating}
+      >
+        {[1, 2, 3, 4, 5].map((score) => {
+          const active = score <= displayScore;
+          const activeClass = isChoosing
+            ? "bg-leaf text-white"
+            : "bg-gold text-white";
+          return (
+            <button
+              key={score}
+              type="button"
+              onMouseEnter={() => !isDisabled && setHoveredScore(score)}
+              onMouseLeave={() => setHoveredScore(0)}
+              onFocus={() => !isDisabled && setHoveredScore(score)}
+              onBlur={() => setHoveredScore(0)}
+              onClick={() => submitQuickRating(score)}
+              disabled={isDisabled}
+              className={`flex h-7 w-7 items-center justify-center rounded-full transition focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-1 disabled:cursor-default ${
+                active ? activeClass : "text-gold hover:bg-gold/10"
+              }`}
+              aria-label={labels.ratingOption.replace("{score}", score)}
+              title={labels.ratingOption.replace("{score}", score)}
+            >
+              <ShoppingBag size={14} fill="none" strokeWidth={active ? 2.4 : 2} aria-hidden="true" />
+            </button>
+          );
+        })}
+        {quickStatus === "success" && <Check size={14} className="mx-1 text-leaf" strokeWidth={3} aria-hidden="true" />}
+      </div>
+      {quickMessage && (
+        <p
+          className={`absolute right-0 top-full z-20 mt-1 w-max max-w-56 rounded-lg px-2 py-1 text-right text-[10px] font-extrabold text-white shadow ${
+            quickStatus === "success" ? "bg-leaf" : "bg-coral"
+          }`}
+          role={quickStatus === "error" ? "alert" : "status"}
+        >
+          {quickMessage}
+        </p>
+      )}
     </div>
   );
 }

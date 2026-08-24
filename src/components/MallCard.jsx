@@ -2,7 +2,7 @@ import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, Star, Trai
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
 import { mallMapsUrl } from "../utils/maps";
-import { ReviewSummary } from "./ReviewSection";
+import { QuickReviewRating } from "./ReviewSection";
 
 function accentColor(mall) {
   if (mall.premium) return "bg-gold";
@@ -43,46 +43,47 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
     <article className={`group flex h-full flex-col overflow-hidden rounded-2xl border bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft ${
       tooLong ? "border-coral/30" : "border-ink/8"
     }`}>
-      <a
-        href={canonicalHref}
-        onClick={handleCardClick}
-        className="relative block h-44 w-full overflow-hidden bg-ink/8"
-      >
-        {mall.imageUrl ? (
-          <img
-            src={mall.imageUrl}
-            alt={mall.name}
-            className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-            loading="lazy"
-          />
-        ) : (
-          <div className={`h-full w-full ${accentColor(mall)} opacity-20`} />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
-        <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
-          <div>
-            <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
-            <h3 className="mt-0.5 font-display text-xl font-extrabold leading-tight text-white drop-shadow">
-              {mall.name}
-            </h3>
+      <div className="relative h-44 w-full overflow-hidden bg-ink/8">
+        <a
+          href={canonicalHref}
+          onClick={handleCardClick}
+          className="absolute inset-0 block"
+        >
+          {mall.imageUrl ? (
+            <img
+              src={mall.imageUrl}
+              alt={mall.name}
+              className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div className={`h-full w-full ${accentColor(mall)} opacity-20`} />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+          <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between gap-2">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-wider text-white/70">{mall.commune}</p>
+              <h3 className="mt-0.5 font-display text-xl font-extrabold leading-tight text-white drop-shadow">
+                {mall.name}
+              </h3>
+            </div>
+            <span
+              className="flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm"
+              title={`${mc.shopeandoScore}: ${mall.touristScore}/10`}
+              aria-label={`${mc.shopeandoScore}: ${mall.touristScore}/10`}
+            >
+              <Star size={10} fill="currentColor" /> {mc.shopeandoScore} · {mall.touristScore}/10
+            </span>
           </div>
-          <span
-            className="flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-2 py-1 text-xs font-extrabold text-white backdrop-blur-sm"
-            title={`${mc.shopeandoScore}: ${mall.touristScore}/10`}
-            aria-label={`${mc.shopeandoScore}: ${mall.touristScore}/10`}
-          >
-            <Star size={10} fill="currentColor" /> {mc.shopeandoScore} · {mall.touristScore}/10
-          </span>
+          {tooLong && (
+            <div className="absolute left-3 top-3 flex items-center gap-1 rounded-full bg-coral px-2 py-1 text-xs font-extrabold text-white shadow">
+              <AlertTriangle size={10} /> {mc.timeTight}
+            </div>
+          )}
+        </a>
+        <div className="absolute right-3 top-3 z-10">
+          <QuickReviewRating mallId={mall.id} />
         </div>
-        {tooLong && (
-          <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-coral px-2 py-1 text-xs font-extrabold text-white shadow">
-            <AlertTriangle size={10} /> {mc.timeTight}
-          </div>
-        )}
-      </a>
-
-      <div className="border-b border-ink/6 bg-white px-4 py-2.5">
-        <ReviewSummary mallId={mall.id} mall={mall} />
       </div>
 
       <div className="flex flex-1 flex-col p-4">

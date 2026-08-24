@@ -250,6 +250,7 @@ export const translations = {
        rateLimited: "Has enviado varias opiniones. Intenta de nuevo en unos minutos.", commentTooLong: "La opinión puede tener hasta 600 caracteres.", retry: "Reintentar",
        report: "Reportar", reportPrompt: "¿Por qué reportas esta opinión?", reportReasons: { offensive: "Contenido ofensivo", misleading: "Contenido engañoso", personal_data: "Datos personales" },
        reportSubmit: "Enviar reporte", reportSubmitting: "Enviando…", reportCancel: "Cancelar", reportSuccess: "Gracias por ayudarnos a cuidar la comunidad.", reportHidden: "La opinión fue retirada de la vista pública tras varios reportes.", reportRateLimited: "Has enviado demasiados reportes. Intenta de nuevo más tarde.", reportError: "No pudimos registrar el reporte. Intenta nuevamente.",
+       quickRating: "Valora este lugar con bolsitas", quickSuccess: "¡Gracias por tu valoración!",
        delete: "Eliminar", deleteConfirm: "¿Quieres eliminar tu opinión?", deleteConfirmAction: "Sí, eliminar", deleting: "Eliminando…", deleteCancel: "Cancelar", deleteSuccess: "Tu opinión fue eliminada.", deleteNotAllowed: "No pudimos confirmar que esta opinión sea tuya.", deleteError: "No pudimos eliminar tu opinión. Intenta nuevamente.",
     },
     app: {
@@ -538,6 +539,7 @@ export const translations = {
        rateLimited: "Você enviou várias opiniões. Tente novamente em alguns minutos.", commentTooLong: "A opinião pode ter até 600 caracteres.", retry: "Tentar novamente",
        report: "Denunciar", reportPrompt: "Por que você denuncia esta opinião?", reportReasons: { offensive: "Conteúdo ofensivo", misleading: "Conteúdo enganoso", personal_data: "Dados pessoais" },
        reportSubmit: "Enviar denúncia", reportSubmitting: "Enviando…", reportCancel: "Cancelar", reportSuccess: "Obrigado por ajudar a cuidar da comunidade.", reportHidden: "A opinião foi retirada da exibição pública após várias denúncias.", reportRateLimited: "Você enviou denúncias demais. Tente novamente mais tarde.", reportError: "Não foi possível registrar a denúncia. Tente novamente.",
+       quickRating: "Avalie este lugar com sacolas", quickSuccess: "Obrigado pela sua avaliação!",
        delete: "Excluir", deleteConfirm: "Deseja excluir sua opinião?", deleteConfirmAction: "Sim, excluir", deleting: "Excluindo…", deleteCancel: "Cancelar", deleteSuccess: "Sua opinião foi excluída.", deleteNotAllowed: "Não foi possível confirmar que esta opinião é sua.", deleteError: "Não foi possível excluir sua opinião. Tente novamente.",
     },
     app: {
@@ -826,6 +828,7 @@ export const translations = {
        rateLimited: "You have sent several reviews. Please try again in a few minutes.", commentTooLong: "Reviews can be up to 600 characters.", retry: "Try again",
        report: "Report", reportPrompt: "Why are you reporting this review?", reportReasons: { offensive: "Offensive content", misleading: "Misleading content", personal_data: "Personal data" },
        reportSubmit: "Submit report", reportSubmitting: "Submitting…", reportCancel: "Cancel", reportSuccess: "Thanks for helping keep the community safe.", reportHidden: "This review was removed from public view after multiple reports.", reportRateLimited: "You have sent too many reports. Please try again later.", reportError: "We could not record the report. Please try again.",
+       quickRating: "Rate this place with bags", quickSuccess: "Thanks for your rating!",
        delete: "Delete", deleteConfirm: "Do you want to delete your review?", deleteConfirmAction: "Yes, delete", deleting: "Deleting…", deleteCancel: "Cancel", deleteSuccess: "Your review was deleted.", deleteNotAllowed: "We could not confirm that this review belongs to you.", deleteError: "We could not delete your review. Please try again.",
     },
     app: {
