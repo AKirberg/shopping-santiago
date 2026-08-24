@@ -6,7 +6,7 @@
  *           /comparar/, /comparar/:id, /mall/:id (legacy redirect)
  */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ExternalLink, MapPin, Clock, Car, TrainFront, ShoppingBag, ChevronRight, Route } from "lucide-react";
 import malls from "../data/malls.json";
 import routes from "../data/routes.json";
@@ -576,11 +576,19 @@ function OutletsHub() {
 // ─── Shared mall list card ────────────────────────────────────────────────────
 
 function MallListCard({ mall, href, badge }) {
+  const { t } = useLanguage();
+  const [isExpanded, setIsExpanded] = useState(false);
   const mapsUrl = mallMapsUrl(mall);
   return (
-    <article className="group overflow-hidden rounded-2xl border border-ink/8 bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft">
+    <article className="group self-start overflow-hidden rounded-2xl border border-ink/8 bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft">
       <div className="relative h-40 w-full overflow-hidden bg-ink/8">
-        <a href={href} className="absolute inset-0 block">
+        <button
+          type="button"
+          onClick={() => setIsExpanded((expanded) => !expanded)}
+          className="absolute inset-0 block w-full cursor-pointer text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-white"
+          aria-expanded={isExpanded}
+          aria-label={isExpanded ? t.mallCard.collapseInfo : t.mallCard.expandInfo}
+        >
           {mall.imageUrl ? (
             <img
               src={mall.imageUrl}
@@ -601,23 +609,23 @@ function MallListCard({ mall, href, badge }) {
               <span className="rounded-full bg-coral/80 px-2 py-1 text-xs font-extrabold text-white">{badge}</span>
             )}
           </div>
-        </a>
+        </button>
         <div className="absolute right-3 top-3 z-10">
           <QuickReviewRating mallId={mall.id} />
         </div>
       </div>
-      <div className="p-4">
+      <div className="p-4" hidden={!isExpanded}>
         <p className="text-sm leading-relaxed text-ink/55 line-clamp-2">{mall.description}</p>
         <div className="mt-3 flex items-center gap-2 border-t border-ink/6 pt-3">
           <a href={href} className="primary-button flex-1 py-2 text-xs justify-center">
-            Ver ficha
+            {t.mallCard.viewDetails}
           </a>
           <a
             href={mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/10 text-ink/50 transition hover:border-leaf/40 hover:text-leaf"
-            aria-label="Ver en Google Maps"
+            aria-label={t.mallCard.mapsLabel}
           >
             <ExternalLink size={14} />
           </a>

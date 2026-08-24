@@ -1,7 +1,7 @@
 import MallCard from "./MallCard";
 import { useLanguage } from "../i18n/LanguageContext";
 
-function MallGrid({ malls, compareIds, onCompare, onSelect, availableHours }) {
+function MallGrid({ malls, compareIds, onCompare, availableHours }) {
   const { t } = useLanguage();
   const mg = t.mallGrid;
 
@@ -20,7 +20,6 @@ function MallGrid({ malls, compareIds, onCompare, onSelect, availableHours }) {
         <MallCard
           key={mall.id}
           mall={mall}
-          onSelect={onSelect}
           onCompare={onCompare}
           isComparing={compareIds.includes(mall.id)}
           availableHours={availableHours}

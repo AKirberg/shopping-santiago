@@ -210,6 +210,8 @@ export const translations = {
     mallCard: {
       bestFor: "Mejor para",
       viewDetails: "Ver ficha",
+       expandInfo: "Mostrar información del mall",
+       collapseInfo: "Ocultar información del mall",
       timeTight: "Tiempo justo",
       mapsLabel: "Ver en Google Maps",
       zoneTuristico: "Zona turística",
@@ -498,6 +500,8 @@ export const translations = {
     mallCard: {
       bestFor: "Ideal para",
       viewDetails: "Ver detalhes",
+       expandInfo: "Mostrar informações do mall",
+       collapseInfo: "Ocultar informações do mall",
       timeTight: "Tempo curto",
       mapsLabel: "Ver no Google Maps",
       zoneTuristico: "Zona turística",
@@ -786,6 +790,8 @@ export const translations = {
     mallCard: {
       bestFor: "Best for",
       viewDetails: "View details",
+       expandInfo: "Show mall information",
+       collapseInfo: "Hide mall information",
       timeTight: "Time-tight",
       mapsLabel: "View in Google Maps",
       zoneTuristico: "Tourist zone",

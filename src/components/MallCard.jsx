@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { AlertTriangle, BadgeCheck, Car, Clock, ExternalLink, MapPin, TrainFront, Utensils } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
 import { localizeMall } from "../i18n/mallContent";
@@ -21,8 +22,9 @@ function mallCanonicalHref(mall) {
   return mall.outlet ? `/outlets/${mall.id}/` : `/malls/${mall.id}/`;
 }
 
-function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
+function MallCard({ mall, onCompare, isComparing, availableHours }) {
   const { t, lang } = useLanguage();
+  const [isExpanded, setIsExpanded] = useState(false);
   const mc = t.mallCard;
   const lm = localizeMall(mall, lang);
   const mapsUrl = mallMapsUrl(mall);
@@ -30,24 +32,17 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
   const minHours = parseMinHours(mall.recommendedTime);
   const tooLong = availableHours !== null && availableHours !== undefined && availableHours < minHours;
 
-  function handleCardClick(e) {
-    // If onSelect is provided (home context), open modal and prevent navigation
-    if (onSelect) {
-      e.preventDefault();
-      onSelect(mall);
-    }
-    // Otherwise allow normal <a> navigation to canonical page
-  }
-
   return (
-    <article className={`group flex h-full flex-col overflow-hidden rounded-2xl border bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft ${
+    <article className={`group self-start overflow-hidden rounded-2xl border bg-white shadow-card transition hover:-translate-y-0.5 hover:shadow-soft ${
       tooLong ? "border-coral/30" : "border-ink/8"
     }`}>
       <div className="relative h-44 w-full overflow-hidden bg-ink/8">
-        <a
-          href={canonicalHref}
-          onClick={handleCardClick}
-          className="absolute inset-0 block"
+        <button
+          type="button"
+          onClick={() => setIsExpanded((expanded) => !expanded)}
+          className="absolute inset-0 block w-full cursor-pointer text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-white"
+          aria-expanded={isExpanded}
+          aria-label={isExpanded ? mc.collapseInfo : mc.expandInfo}
         >
           {mall.imageUrl ? (
             <img
@@ -73,13 +68,13 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
               <AlertTriangle size={10} /> {mc.timeTight}
             </div>
           )}
-        </a>
+        </button>
         <div className="absolute right-3 top-3 z-10">
           <QuickReviewRating mallId={mall.id} />
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-4">
+      <div className="p-4" hidden={!isExpanded}>
         <div className="flex flex-wrap items-center gap-1.5">
           {mall.touristZone === "turistico" && (
             <span className="flex items-center gap-1 rounded-full bg-leaf/12 px-2.5 py-0.5 text-xs font-extrabold text-leaf">
@@ -101,7 +96,7 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
           ))}
         </div>
 
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/55 line-clamp-2">
+        <p className="mt-3 text-sm leading-relaxed text-ink/55 line-clamp-2">
           {lm.description}
         </p>
 
@@ -131,10 +126,8 @@ function MallCard({ mall, onSelect, onCompare, isComparing, availableHours }) {
           )}
         </div>
         <div className="mt-4 flex items-center gap-2 border-t border-ink/6 pt-3.5">
-          {/* Canonical crawlable link — opens modal on home via onClick */}
           <a
             href={canonicalHref}
-            onClick={handleCardClick}
             className="primary-button flex-1 py-2 text-xs justify-center"
           >
             {mc.viewDetails}

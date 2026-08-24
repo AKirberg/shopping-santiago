@@ -211,7 +211,6 @@ function App() {
               malls={featuredMalls}
               compareIds={compareIds}
               onCompare={toggleCompare}
-              onSelect={openMall}
               availableHours={availableHours}
             />
           </div>
@@ -238,7 +237,6 @@ function App() {
             malls={filteredMalls}
             compareIds={compareIds}
             onCompare={toggleCompare}
-            onSelect={openMall}
             availableHours={availableHours}
           />
         </section>
