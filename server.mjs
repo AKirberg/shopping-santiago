@@ -2,7 +2,7 @@ import { createServer } from "node:http";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { createHmac } from "node:crypto";
+import { createHmac, timingSafeEqual } from "node:crypto";
 import express from "express";
 import { createServer as createViteServer } from "vite";
 import pg from "pg";
@@ -38,6 +38,21 @@ function submissionHash(req) {
   const secret = process.env.SESSION_SECRET;
   if (!secret) return null;
   return createHmac("sha256", secret).update(requestIp(req)).digest("hex");
+}
+
+function reviewDeleteToken(reviewId, submissionHashValue) {
+  const secret = process.env.SESSION_SECRET;
+  if (!secret) return null;
+  return createHmac("sha256", secret)
+    .update(`review-delete:${reviewId}:${submissionHashValue}`)
+    .digest("base64url");
+}
+
+function deleteTokenMatches(suppliedToken, expectedToken) {
+  if (typeof suppliedToken !== "string" || !expectedToken) return false;
+  const supplied = Buffer.from(suppliedToken);
+  const expected = Buffer.from(expectedToken);
+  return supplied.length === expected.length && timingSafeEqual(supplied, expected);
 }
 
 function reviewResponse(row) {
@@ -205,6 +220,49 @@ function configureReviewsApi(app) {
     }
   });
 
+  app.delete("/api/reviews/:mallId/:reviewId", async (req, res) => {
+    const { mallId, reviewId: rawReviewId } = req.params;
+    const deleteToken = req.body?.deleteToken;
+    if (!validMallIds.has(mallId)) return res.status(404).json({ error: "mall_not_found" });
+    if (!/^\d+$/.test(rawReviewId) || typeof deleteToken !== "string" || deleteToken.length > 128) {
+      return res.status(400).json({ error: "invalid_delete" });
+    }
+    if (!pool) return databaseUnavailable(res);
+
+    const client = await pool.connect();
+    try {
+      await client.query("BEGIN");
+      const { rows } = await client.query(
+        `SELECT id, submission_hash
+         FROM mall_reviews
+         WHERE id = $1 AND mall_id = $2
+         FOR UPDATE`,
+        [rawReviewId, mallId],
+      );
+      if (!rows.length) {
+        await client.query("ROLLBACK");
+        return res.status(404).json({ error: "review_not_found" });
+      }
+
+      const expectedToken = reviewDeleteToken(rows[0].id, rows[0].submission_hash);
+      if (!deleteTokenMatches(deleteToken, expectedToken)) {
+        await client.query("ROLLBACK");
+        return res.status(403).json({ error: "delete_not_allowed" });
+      }
+
+      await client.query("DELETE FROM mall_reviews WHERE id = $1 AND mall_id = $2", [rawReviewId, mallId]);
+      const summary = await getSummaryWithClient(client, mallId);
+      await client.query("COMMIT");
+      return res.json({ deleted: true, summary });
+    } catch (error) {
+      await client.query("ROLLBACK").catch(() => {});
+      console.error("Could not delete review", error);
+      return res.status(500).json({ error: "reviews_failed" });
+    } finally {
+      client.release();
+    }
+  });
+
   app.post("/api/reviews/:mallId", async (req, res) => {
     const { mallId } = req.params;
     const rating = Number(req.body?.rating);
@@ -242,7 +300,12 @@ function configureReviewsApi(app) {
       );
       const summary = await getSummaryWithClient(client, mallId);
       await client.query("COMMIT");
-      return res.status(201).json({ review: reviewResponse(rows[0]), summary });
+      const review = reviewResponse(rows[0]);
+      return res.status(201).json({
+        review,
+        summary,
+        deleteToken: reviewDeleteToken(review.id, fingerprint),
+      });
     } catch (error) {
       await client.query("ROLLBACK").catch(() => {});
       console.error("Could not save review", error);

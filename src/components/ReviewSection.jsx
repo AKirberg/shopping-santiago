@@ -1,6 +1,26 @@
 import { useCallback, useEffect, useState } from "react";
-import { Flag, ShoppingBag } from "lucide-react";
+import { Flag, ShoppingBag, Trash2 } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
+
+const DELETE_TOKENS_KEY = "shopeando-review-delete-tokens-v1";
+
+function readDeleteTokens() {
+  if (typeof window === "undefined") return {};
+  try {
+    const stored = JSON.parse(window.localStorage.getItem(DELETE_TOKENS_KEY) || "{}");
+    return stored && typeof stored === "object" && !Array.isArray(stored) ? stored : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveDeleteTokens(tokens) {
+  try {
+    window.localStorage.setItem(DELETE_TOKENS_KEY, JSON.stringify(tokens));
+  } catch {
+    // Deletion remains available for the current page even if storage is blocked.
+  }
+}
 
 function formatAverage(average, lang) {
   return new Intl.NumberFormat(lang === "pt" ? "pt-BR" : lang === "en" ? "en-US" : "es-CL", {
@@ -84,6 +104,9 @@ export default function ReviewSection({ mallId }) {
   const [reportingReviewId, setReportingReviewId] = useState(null);
   const [reportReason, setReportReason] = useState("");
   const [reportStatus, setReportStatus] = useState(null);
+  const [deleteTokens, setDeleteTokens] = useState(readDeleteTokens);
+  const [confirmingDeleteId, setConfirmingDeleteId] = useState(null);
+  const [deleteStatus, setDeleteStatus] = useState(null);
 
   const loadReviews = useCallback(async (signal) => {
     setStatus("loading");
@@ -130,6 +153,13 @@ export default function ReviewSection({ mallId }) {
         summary: result.summary,
         reviews: [result.review, ...(previous?.reviews || [])],
       }));
+      if (result.deleteToken) {
+        setDeleteTokens((previous) => {
+          const next = { ...previous, [result.review.id]: result.deleteToken };
+          saveDeleteTokens(next);
+          return next;
+        });
+      }
       setRating(0);
       setComment("");
       setStatus("ready");
@@ -190,6 +220,45 @@ export default function ReviewSection({ mallId }) {
     setReportStatus(null);
   }
 
+  async function deleteReview(reviewId) {
+    const deleteToken = deleteTokens[reviewId];
+    if (!deleteToken || deleteStatus?.state === "submitting") return;
+    setDeleteStatus({ reviewId, state: "submitting" });
+    try {
+      const response = await fetch(`/api/reviews/${encodeURIComponent(mallId)}/${encodeURIComponent(reviewId)}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ deleteToken }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        const errors = {
+          delete_not_allowed: labels.deleteNotAllowed,
+          invalid_delete: labels.deleteError,
+          review_not_found: labels.deleteError,
+          reviews_unavailable: labels.deleteError,
+        };
+        throw new Error(errors[result.error] || labels.deleteError);
+      }
+      setData((previous) => previous && ({
+        ...previous,
+        summary: result.summary,
+        reviews: previous.reviews.filter((review) => review.id !== reviewId),
+      }));
+      setDeleteTokens((previous) => {
+        const next = { ...previous };
+        delete next[reviewId];
+        saveDeleteTokens(next);
+        return next;
+      });
+      setConfirmingDeleteId(null);
+      setDeleteStatus(null);
+      setMessage(labels.deleteSuccess);
+    } catch (error) {
+      setDeleteStatus({ reviewId, state: "error", message: error.message || labels.deleteError });
+    }
+  }
+
   const summary = data?.summary;
   return (
     <section className="mt-8 rounded-2xl border border-ink/8 bg-white p-5 sm:p-6" aria-labelledby={`reviews-${mallId}`}>
@@ -233,7 +302,7 @@ export default function ReviewSection({ mallId }) {
       <div className="mt-4 min-h-6" aria-live="polite">
         {status === "loading" && <p className="text-sm font-medium text-ink/45">{labels.loading}</p>}
         {status === "error" && <button type="button" onClick={() => loadReviews()} className="text-sm font-bold text-coral underline">{message} {labels.retry}</button>}
-        {message && status !== "error" && <p className={`text-sm font-bold ${message === labels.success ? "text-leaf" : "text-coral"}`}>{message}</p>}
+        {message && status !== "error" && <p className={`text-sm font-bold ${[labels.success, labels.deleteSuccess, labels.reportHidden].includes(message) ? "text-leaf" : "text-coral"}`}>{message}</p>}
       </div>
 
       {status !== "loading" && data?.reviews?.length === 0 && <p className="mt-2 text-sm text-ink/50">{labels.empty}</p>}
@@ -251,7 +320,48 @@ export default function ReviewSection({ mallId }) {
               </div>
               {review.comment && <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-ink/65">{review.comment}</p>}
               <div className="mt-3 flex justify-end">
-                {reportingReviewId !== review.id ? (
+                {confirmingDeleteId === review.id ? (
+                  <div className="flex w-full flex-wrap items-center justify-end gap-2 rounded-xl bg-coral/5 p-3">
+                    <p className="mr-auto text-xs font-bold text-ink/65">{labels.deleteConfirm}</p>
+                    {deleteStatus?.reviewId === review.id && deleteStatus.state === "error" && (
+                      <p className="w-full text-xs font-bold text-coral" role="alert">{deleteStatus.message}</p>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setConfirmingDeleteId(null);
+                        setDeleteStatus(null);
+                      }}
+                      disabled={deleteStatus?.state === "submitting"}
+                      className="rounded-lg px-2.5 py-1.5 text-xs font-bold text-ink/50 hover:bg-ink/5 disabled:opacity-50"
+                    >
+                      {labels.deleteCancel}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => deleteReview(review.id)}
+                      disabled={deleteStatus?.state === "submitting"}
+                      className="rounded-lg bg-coral px-2.5 py-1.5 text-xs font-bold text-white disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      {deleteStatus?.state === "submitting" ? labels.deleting : labels.deleteConfirmAction}
+                    </button>
+                  </div>
+                ) : reportingReviewId !== review.id ? (
+                  <div className="flex items-center gap-1">
+                    {deleteTokens[review.id] && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setConfirmingDeleteId(review.id);
+                          setDeleteStatus(null);
+                        }}
+                        className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-bold text-ink/45 transition hover:bg-coral/8 hover:text-coral focus:outline-none focus:ring-2 focus:ring-coral/40"
+                        aria-label={`${labels.delete}: ${review.comment || labels.ratingOption.replace("{score}", review.rating)}`}
+                      >
+                        <Trash2 size={13} aria-hidden="true" />
+                        {labels.delete}
+                      </button>
+                    )}
                   <button
                     type="button"
                     onClick={() => openReportForm(review.id)}
@@ -261,6 +371,7 @@ export default function ReviewSection({ mallId }) {
                     <Flag size={13} aria-hidden="true" />
                     {labels.report}
                   </button>
+                  </div>
                 ) : (
                   <form className="w-full rounded-xl bg-coral/5 p-3" onSubmit={(event) => submitReport(event, review.id)}>
                     <fieldset disabled={reportStatus?.state === "submitting"}>
