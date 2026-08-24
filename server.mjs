@@ -16,6 +16,9 @@ const validMallIds = new Set(
 const pool = process.env.DATABASE_URL ? new pg.Pool({ connectionString: process.env.DATABASE_URL }) : null;
 const RATE_WINDOW_MS = 15 * 60 * 1000;
 const MAX_SUBMISSIONS_PER_WINDOW = 4;
+const MAX_REPORTS_PER_WINDOW = 12;
+const REPORT_HIDE_THRESHOLD = 3;
+const REPORT_REASONS = new Set(["offensive", "misleading", "personal_data"]);
 
 function databaseUnavailable(res) {
   return res.status(503).json({ error: "reviews_unavailable" });
@@ -49,8 +52,11 @@ function reviewResponse(row) {
 async function getSummary(mallId) {
   const { rows } = await pool.query(
     `SELECT COUNT(*)::int AS count, COALESCE(ROUND(AVG(rating)::numeric, 1), 0) AS average
-     FROM mall_reviews WHERE mall_id = $1`,
-    [mallId],
+     FROM mall_reviews AS reviews
+     WHERE reviews.mall_id = $1
+       AND (SELECT COUNT(*) FROM mall_review_reports
+            WHERE review_id = reviews.id) < $2`,
+    [mallId, REPORT_HIDE_THRESHOLD],
   );
   return { count: rows[0].count, average: Number(rows[0].average) };
 }
@@ -58,8 +64,11 @@ async function getSummary(mallId) {
 async function getSummaryWithClient(client, mallId) {
   const { rows } = await client.query(
     `SELECT COUNT(*)::int AS count, COALESCE(ROUND(AVG(rating)::numeric, 1), 0) AS average
-     FROM mall_reviews WHERE mall_id = $1`,
-    [mallId],
+     FROM mall_reviews AS reviews
+     WHERE reviews.mall_id = $1
+       AND (SELECT COUNT(*) FROM mall_review_reports
+            WHERE review_id = reviews.id) < $2`,
+    [mallId, REPORT_HIDE_THRESHOLD],
   );
   return { count: rows[0].count, average: Number(rows[0].average) };
 }
@@ -77,8 +86,12 @@ function configureReviewsApi(app) {
     try {
       const { rows } = await pool.query(
         `SELECT mall_id, COUNT(*)::int AS count, ROUND(AVG(rating)::numeric, 1) AS average
-         FROM mall_reviews WHERE mall_id = ANY($1::text[]) GROUP BY mall_id`,
-        [requestedIds],
+         FROM mall_reviews AS reviews
+         WHERE reviews.mall_id = ANY($1::text[])
+           AND (SELECT COUNT(*) FROM mall_review_reports
+                WHERE review_id = reviews.id) < $2
+         GROUP BY reviews.mall_id`,
+        [requestedIds, REPORT_HIDE_THRESHOLD],
       );
       const summaries = Object.fromEntries(requestedIds.map((id) => [id, { count: 0, average: 0 }]));
       rows.forEach((row) => {
@@ -101,15 +114,94 @@ function configureReviewsApi(app) {
         getSummary(mallId),
         pool.query(
           `SELECT id, rating, comment, created_at
-           FROM mall_reviews WHERE mall_id = $1
+           FROM mall_reviews AS reviews
+           WHERE reviews.mall_id = $1
+             AND (SELECT COUNT(*) FROM mall_review_reports
+                  WHERE review_id = reviews.id) < $2
            ORDER BY created_at DESC, id DESC LIMIT 20`,
-          [mallId],
+           [mallId, REPORT_HIDE_THRESHOLD],
         ),
       ]);
       return res.json({ summary, reviews: reviews.rows.map(reviewResponse) });
     } catch (error) {
       console.error("Could not load reviews", error);
       return res.status(500).json({ error: "reviews_failed" });
+    }
+  });
+
+  app.post("/api/reviews/:mallId/:reviewId/report", async (req, res) => {
+    const { mallId, reviewId: rawReviewId } = req.params;
+    const reason = typeof req.body?.reason === "string" ? req.body.reason : "";
+    if (!validMallIds.has(mallId)) return res.status(404).json({ error: "mall_not_found" });
+    if (!/^\d+$/.test(rawReviewId) || !REPORT_REASONS.has(reason)) {
+      return res.status(400).json({ error: "invalid_report" });
+    }
+    if (!pool) return databaseUnavailable(res);
+
+    const fingerprint = submissionHash(req);
+    if (!fingerprint) return databaseUnavailable(res);
+
+    const client = await pool.connect();
+    try {
+      await client.query("BEGIN");
+      await client.query("SELECT pg_advisory_xact_lock(hashtext($1))", [`report:${fingerprint}`]);
+      const { rows: reviewRows } = await client.query(
+        `SELECT reviews.id,
+                EXISTS (
+                  SELECT 1 FROM mall_review_reports AS own_report
+                  WHERE own_report.review_id = reviews.id AND own_report.reporter_hash = $3
+                ) AS already_reported,
+                (SELECT COUNT(*)::int FROM mall_review_reports AS all_reports
+                 WHERE all_reports.review_id = reviews.id) AS report_count
+         FROM mall_reviews AS reviews
+         WHERE reviews.id = $1 AND reviews.mall_id = $2`,
+        [rawReviewId, mallId, fingerprint],
+      );
+      if (!reviewRows.length) {
+        await client.query("ROLLBACK");
+        return res.status(404).json({ error: "review_not_found" });
+      }
+
+      const review = reviewRows[0];
+      if (review.already_reported) {
+        await client.query("ROLLBACK");
+        return res.json({
+          reported: true,
+          alreadyReported: true,
+          hidden: Number(review.report_count) >= REPORT_HIDE_THRESHOLD,
+        });
+      }
+
+      const { rows: recent } = await client.query(
+        `SELECT COUNT(*)::int AS count FROM mall_review_reports
+         WHERE reporter_hash = $1 AND created_at > NOW() - INTERVAL '15 minutes'`,
+        [fingerprint],
+      );
+      if (recent[0].count >= MAX_REPORTS_PER_WINDOW) {
+        await client.query("ROLLBACK");
+        return res.status(429).json({ error: "report_rate_limited" });
+      }
+
+      await client.query(
+        `INSERT INTO mall_review_reports (review_id, reason, reporter_hash)
+         VALUES ($1, $2, $3)`,
+        [rawReviewId, reason, fingerprint],
+      );
+      const { rows: countRows } = await client.query(
+        `SELECT COUNT(*)::int AS count FROM mall_review_reports WHERE review_id = $1`,
+        [rawReviewId],
+      );
+      const reportCount = countRows[0].count;
+      const hidden = reportCount >= REPORT_HIDE_THRESHOLD;
+      const summary = await getSummaryWithClient(client, mallId);
+      await client.query("COMMIT");
+      return res.status(201).json({ reported: true, alreadyReported: false, hidden, summary });
+    } catch (error) {
+      await client.query("ROLLBACK").catch(() => {});
+      console.error("Could not save review report", error);
+      return res.status(500).json({ error: "reviews_failed" });
+    } finally {
+      client.release();
     }
   });
 

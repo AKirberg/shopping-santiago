@@ -22,7 +22,7 @@ import { localizeComparison } from "../i18n/comparisonContent";
 import { useLanguage } from "../i18n/LanguageContext";
 import Header from "./Header";
 import Footer from "./Footer";
-import ReviewSection, { GoogleMapsRating, ReviewSummary } from "./ReviewSection";
+import ReviewSection, { ReviewSummary } from "./ReviewSection";
 
 const SITE_URL = "https://www.shopeando.cl";
 const HAS_PRERENDERED_HEAD =
@@ -374,7 +374,6 @@ function MallDetailPage({ mall, isOutlet }) {
 
             <StoreList stores={mall.stores} />
             <div className="mt-8 grid gap-4">
-              <GoogleMapsRating mall={mall} mapsUrl={mapsUrl} />
               <ReviewSection mallId={mall.id} mall={mall} />
             </div>
 

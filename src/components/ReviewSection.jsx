@@ -1,93 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
-import { ExternalLink, ShoppingBag, Star } from "lucide-react";
+import { Flag, ShoppingBag } from "lucide-react";
 import { useLanguage } from "../i18n/LanguageContext";
-import { loadGoogleMaps } from "../utils/googleMaps";
 
 function formatAverage(average, lang) {
   return new Intl.NumberFormat(lang === "pt" ? "pt-BR" : lang === "en" ? "en-US" : "es-CL", {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   }).format(average);
-}
-
-function formatGoogleRating(rating, lang) {
-  return new Intl.NumberFormat(lang === "pt" ? "pt-BR" : lang === "en" ? "en-US" : "es-CL", {
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 1,
-  }).format(rating);
-}
-
-export function GoogleMapsRating({ mall, mapsUrl }) {
-  const { t, lang } = useLanguage();
-  const labels = t.reviews;
-  const [placeData, setPlaceData] = useState(null);
-  const [status, setStatus] = useState("loading");
-
-  useEffect(() => {
-    let active = true;
-    setStatus("loading");
-    setPlaceData(null);
-    loadGoogleMaps()
-      .then(async (googleMaps) => {
-        const Place = googleMaps?.places?.Place;
-        if (!Place?.searchByText) throw new Error("places_unavailable");
-        const { places = [] } = await Place.searchByText({
-          textQuery: mall.mapsQuery || `${mall.name}, ${mall.commune}, Santiago, Chile`,
-          fields: ["displayName", "rating", "userRatingCount"],
-          maxResultCount: 1,
-        });
-        const place = places[0];
-        if (!active) return;
-        if (typeof place?.rating === "number") {
-          setPlaceData({ rating: place.rating, count: place.userRatingCount || 0 });
-          setStatus("ready");
-        } else {
-          setStatus("unavailable");
-        }
-      })
-      .catch(() => {
-        if (active) setStatus("unavailable");
-      });
-    return () => { active = false; };
-  }, [mall]);
-
-  return (
-    <div id="google-maps-rating" className="rounded-2xl border border-blue-200/70 bg-blue-50/45 p-5" aria-live="polite">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <h2 className="font-display text-xl font-extrabold text-ink">{labels.googleTitle}</h2>
-          <p className="mt-1 text-sm text-ink/50">{labels.googleSubtitle}</p>
-        </div>
-        {status === "ready" && (
-          <div className="rounded-xl bg-white px-3 py-2 text-right shadow-sm">
-            <p className="flex items-center justify-end gap-1 text-lg font-extrabold text-amber-500">
-              <Star size={16} fill="currentColor" aria-hidden="true" />
-              {formatGoogleRating(placeData.rating, lang)} / 5
-            </p>
-            {placeData.count > 0 && (
-              <p className="text-[11px] font-bold text-ink/45">
-                {labels.googleCount.replace("{count}", placeData.count)}
-              </p>
-            )}
-          </div>
-        )}
-      </div>
-      {status === "loading" && <p className="mt-4 text-sm font-medium text-ink/45">{labels.googleLoading}</p>}
-      {status === "unavailable" && (
-        <p className="mt-4 text-sm font-medium text-ink/50">
-          {labels.googleUnavailable}{" "}
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="font-bold text-leaf underline">
-            {labels.googleOpen}
-          </a>
-        </p>
-      )}
-      {status === "ready" && (
-        <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-leaf hover:underline">
-          <ExternalLink size={13} /> {labels.googleOpen}
-        </a>
-      )}
-    </div>
-  );
 }
 
 function BagRating({ value, onChange, disabled, labels, inputName }) {
@@ -162,6 +81,9 @@ export default function ReviewSection({ mallId }) {
   const [comment, setComment] = useState("");
   const [status, setStatus] = useState("loading");
   const [message, setMessage] = useState("");
+  const [reportingReviewId, setReportingReviewId] = useState(null);
+  const [reportReason, setReportReason] = useState("");
+  const [reportStatus, setReportStatus] = useState(null);
 
   const loadReviews = useCallback(async (signal) => {
     setStatus("loading");
@@ -216,6 +138,56 @@ export default function ReviewSection({ mallId }) {
       setStatus("ready");
       setMessage(error.message || labels.submitError);
     }
+  }
+
+  function openReportForm(reviewId) {
+    setReportingReviewId(reviewId);
+    setReportReason("");
+    setReportStatus(null);
+  }
+
+  async function submitReport(event, reviewId) {
+    event.preventDefault();
+    if (!reportReason || reportStatus?.state === "submitting") return;
+    setReportStatus({ reviewId, state: "submitting" });
+    try {
+      const response = await fetch(`/api/reviews/${encodeURIComponent(mallId)}/${encodeURIComponent(reviewId)}/report`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reason: reportReason }),
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        const errors = {
+          report_rate_limited: labels.reportRateLimited,
+          invalid_report: labels.reportError,
+          review_not_found: labels.reportError,
+          reviews_unavailable: labels.reportError,
+        };
+        throw new Error(errors[result.error] || labels.reportError);
+      }
+      setData((previous) => previous && ({
+        ...previous,
+        summary: result.summary || previous.summary,
+        reviews: result.hidden
+          ? previous.reviews.filter((review) => review.id !== reviewId)
+          : previous.reviews,
+      }));
+      setReportStatus({
+        reviewId,
+        state: "success",
+        message: result.hidden ? labels.reportHidden : labels.reportSuccess,
+      });
+      setMessage(result.hidden ? labels.reportHidden : "");
+    } catch (error) {
+      setReportStatus({ reviewId, state: "error", message: error.message || labels.reportError });
+    }
+  }
+
+  function closeReportForm() {
+    setReportingReviewId(null);
+    setReportReason("");
+    setReportStatus(null);
   }
 
   const summary = data?.summary;
@@ -278,6 +250,57 @@ export default function ReviewSection({ mallId }) {
                 </time>
               </div>
               {review.comment && <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-ink/65">{review.comment}</p>}
+              <div className="mt-3 flex justify-end">
+                {reportingReviewId !== review.id ? (
+                  <button
+                    type="button"
+                    onClick={() => openReportForm(review.id)}
+                    className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1 text-xs font-bold text-ink/45 transition hover:bg-coral/8 hover:text-coral focus:outline-none focus:ring-2 focus:ring-coral/40"
+                    aria-label={`${labels.report}: ${review.comment || labels.ratingOption.replace("{score}", review.rating)}`}
+                  >
+                    <Flag size={13} aria-hidden="true" />
+                    {labels.report}
+                  </button>
+                ) : (
+                  <form className="w-full rounded-xl bg-coral/5 p-3" onSubmit={(event) => submitReport(event, review.id)}>
+                    <fieldset disabled={reportStatus?.state === "submitting"}>
+                      <legend className="text-xs font-extrabold text-ink/70">{labels.reportPrompt}</legend>
+                      <div className="mt-2 grid gap-2 sm:grid-cols-3">
+                        {Object.entries(labels.reportReasons).map(([value, label]) => (
+                          <label key={value} className="flex cursor-pointer items-center gap-2 text-xs font-semibold text-ink/65">
+                            <input
+                              type="radio"
+                              name={`report-reason-${review.id}`}
+                              value={value}
+                              checked={reportReason === value}
+                              onChange={() => setReportReason(value)}
+                              className="accent-coral"
+                            />
+                            {label}
+                          </label>
+                        ))}
+                      </div>
+                      <div className="mt-3 flex flex-wrap items-center justify-end gap-2">
+                        {reportStatus?.state === "error" && (
+                          <p className="mr-auto text-xs font-bold text-coral" role="alert">{reportStatus.message}</p>
+                        )}
+                        {reportStatus?.state === "success" ? (
+                          <p className="mr-auto text-xs font-bold text-leaf" role="status">{reportStatus.message}</p>
+                        ) : (
+                          <>
+                            <button type="button" onClick={closeReportForm} className="rounded-lg px-2.5 py-1.5 text-xs font-bold text-ink/50 hover:bg-ink/5">
+                              {labels.reportCancel}
+                            </button>
+                            <button type="submit" disabled={!reportReason || reportStatus?.state === "submitting"} className="rounded-lg bg-coral px-2.5 py-1.5 text-xs font-bold text-white disabled:cursor-not-allowed disabled:opacity-50">
+                              {reportStatus?.state === "submitting" ? labels.reportSubmitting : labels.reportSubmit}
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </fieldset>
+                  </form>
+                )}
+              </div>
             </li>
           ))}
         </ol>
