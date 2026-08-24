@@ -81,18 +81,15 @@ export function ReviewSummary({ mallId }) {
   const count = summary?.count || 0;
   return (
     <div
-      className="flex items-center gap-2"
+      className="flex items-center"
       aria-label={count
         ? t.reviews.shopeandoSummary.replace("{average}", formatAverage(average, lang)).replace("{count}", count)
-        : t.reviews.shopeandoNoReviews}
+        : t.reviews.shopeandoLabel}
     >
       <span className="flex items-center gap-0.5 text-gold" aria-hidden="true">
         {[1, 2, 3, 4, 5].map((score) => (
           <ShoppingBag key={score} size={13} fill={score <= Math.round(average) ? "currentColor" : "none"} />
         ))}
-      </span>
-      <span className="text-xs font-bold text-ink/50">
-        {count ? `${t.reviews.shopeandoLabel}: ${formatAverage(average, lang)} · ${count}` : t.reviews.shopeandoNoReviews}
       </span>
     </div>
   );
