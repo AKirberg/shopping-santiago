@@ -51,7 +51,12 @@ function BagRating({ value, onChange, disabled, labels, inputName }) {
               onChange={() => onChange(score)}
               aria-label={labels.ratingOption.replace("{score}", score)}
             />
-            <ShoppingBag size={17} fill={selected ? "currentColor" : "none"} aria-hidden="true" />
+            <ShoppingBag
+              size={17}
+              fill="none"
+              strokeWidth={selected ? 2.4 : 2}
+              aria-hidden="true"
+            />
           </label>
         );
       })}
