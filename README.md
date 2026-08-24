@@ -36,6 +36,9 @@ src/
   data/
     malls.json
     routes.json
+    stores.json
+    galleries.json
+    touristNeighborhoods.json
   components/
     Header.jsx
     Hero.jsx
@@ -47,6 +50,7 @@ src/
     RecommendationQuiz.jsx
     RouteCard.jsx
     RoutesSection.jsx
+    GalleriesSpecial.jsx
     CompareMalls.jsx
     TouristTips.jsx
     Footer.jsx
@@ -63,6 +67,18 @@ Edita `src/data/malls.json` y agrega un objeto con la misma estructura de los ex
 ## Como agregar nuevas rutas
 
 Edita `src/data/routes.json` y agrega una ruta con `id`, `title`, `summary`, `duration`, `bestFor`, `stops` y `tips`. En `stops`, usa `mallId` para relacionar la ruta con un mall existente.
+
+## Como agregar tiendas por mall
+
+Edita `src/data/stores.json`. Cada bloque usa `mallId` para conectarse con `src/data/malls.json` y contiene un arreglo `stores` con `name` y `category`. Mantiene `status` y `lastReviewed` para saber si el listado ya fue verificado contra el directorio oficial del mall.
+
+## Como editar el especial de galerías
+
+Edita `src/data/galleries.json`. El archivo tiene una sección `meta`, rutas peatonales sugeridas y una lista `items` de galerías de Santiago Centro con dirección, eje, tags y nota turística. Mantén este módulo separado de `malls.json` para no mezclar malls grandes con galerías patrimoniales.
+
+## Como agregar barrios turísticos
+
+Edita `src/data/touristNeighborhoods.json`. Cada barrio tiene `id`, comuna, zona, tags, resumen, foco de compras, malls cercanos, galerías cercanas, metro y tips. Este archivo sirve para futuras rutas desde hoteles y recomendaciones por zona.
 
 ## Proximos pasos sugeridos
 

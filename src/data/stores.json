@@ -1,0 +1,403 @@
+[
+  {
+    "mallId": "costanera-center",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo. Verificar directorio oficial antes de publicar como definitivo.",
+    "stores": [
+      { "name": "Jumbo", "category": "supermercado" },
+      { "name": "Easy", "category": "hogar" },
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "Zara", "category": "moda" },
+      { "name": "Gap", "category": "moda" },
+      { "name": "Abercrombie & Fitch", "category": "moda" },
+      { "name": "Guess", "category": "moda" },
+      { "name": "The North Face", "category": "deporte/outdoor" },
+      { "name": "Calvin Klein", "category": "moda" },
+      { "name": "American Eagle", "category": "moda" },
+      { "name": "Swarovski", "category": "joyeria/accesorios" },
+      { "name": "Lacoste", "category": "moda" },
+      { "name": "Tommy Hilfiger", "category": "moda" },
+      { "name": "Hugo Boss", "category": "moda premium" },
+      { "name": "Old Navy", "category": "moda" },
+      { "name": "H&M", "category": "moda" },
+      { "name": "Nike", "category": "deporte" },
+      { "name": "Forever 21", "category": "moda" },
+      { "name": "Aldo", "category": "calzado/accesorios" },
+      { "name": "Adidas", "category": "deporte" },
+      { "name": "Adidas Originals", "category": "deporte/moda" },
+      { "name": "Columbia", "category": "deporte/outdoor" },
+      { "name": "Victoria's Secret", "category": "moda/belleza" },
+      { "name": "Cineplanet", "category": "entretencion" },
+      { "name": "Hard Rock Cafe", "category": "comida" },
+      { "name": "Sky Costanera", "category": "turismo" }
+    ]
+  },
+  {
+    "mallId": "parque-arauco",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo. Incluye tiendas ancla y marcas del Distrito de Lujo mencionadas en referencias publicas.",
+    "stores": [
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "Cine Hoyts", "category": "entretencion" },
+      { "name": "Teatro Mori", "category": "entretencion" },
+      { "name": "Armani", "category": "lujo" },
+      { "name": "Versace", "category": "lujo" },
+      { "name": "Gucci", "category": "lujo" },
+      { "name": "Burberry", "category": "lujo" },
+      { "name": "Ermenegildo Zegna", "category": "lujo" },
+      { "name": "Omega", "category": "lujo/relojeria" },
+      { "name": "Tiffany & Co.", "category": "lujo/joyeria" },
+      { "name": "Dolce & Gabbana", "category": "lujo" },
+      { "name": "Carolina Herrera", "category": "lujo" },
+      { "name": "Longchamp", "category": "lujo/accesorios" },
+      { "name": "Salvatore Ferragamo", "category": "lujo" },
+      { "name": "Louis Vuitton", "category": "lujo" },
+      { "name": "Tory Burch", "category": "lujo" },
+      { "name": "Tous", "category": "joyeria/accesorios" },
+      { "name": "Jimmy Choo", "category": "lujo/calzado" },
+      { "name": "Ralph Lauren", "category": "moda premium" },
+      { "name": "Michael Kors", "category": "moda premium" },
+      { "name": "Montblanc", "category": "lujo/accesorios" }
+    ]
+  },
+  {
+    "mallId": "parque-arauco-oriente",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial del sector complementario antes conocido como Open Kennedy.",
+    "stores": [
+      { "name": "Tottus", "category": "supermercado" },
+      { "name": "Sodimac Homecenter", "category": "hogar/construccion" },
+      { "name": "Ikea", "category": "hogar" }
+    ]
+  },
+  {
+    "mallId": "alto-las-condes",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en tiendas ancla y servicios destacados.",
+    "stores": [
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "H&M", "category": "moda" },
+      { "name": "Zara", "category": "moda" },
+      { "name": "Forever 21", "category": "moda" },
+      { "name": "Jumbo", "category": "supermercado" },
+      { "name": "Easy", "category": "hogar" },
+      { "name": "Cinemark", "category": "entretencion" },
+      { "name": "IntegraMédica", "category": "salud" },
+      { "name": "Starbucks", "category": "comida/cafe" }
+    ]
+  },
+  {
+    "mallId": "mallplaza-los-dominicos",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en equipamiento publico del centro comercial.",
+    "stores": [
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "H&M", "category": "moda" },
+      { "name": "Sodimac", "category": "hogar/construccion" },
+      { "name": "Tottus", "category": "supermercado" },
+      { "name": "Cinépolis", "category": "entretencion" },
+      { "name": "IntegraMédica", "category": "salud" },
+      { "name": "Biblioteca Viva", "category": "cultura" },
+      { "name": "Happyland", "category": "entretencion" }
+    ]
+  },
+  {
+    "mallId": "casacostanera",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Cargar desde directorio oficial antes de publicar listado completo.",
+    "stores": []
+  },
+  {
+    "mallId": "mall-sport",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Centro especializado en deporte/outdoor. Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "portal-la-dehesa",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial del operador.",
+    "stores": [
+      { "name": "Jumbo", "category": "supermercado", "needsOfficialReview": true },
+      { "name": "Easy", "category": "hogar", "needsOfficialReview": true }
+    ]
+  },
+  {
+    "mallId": "vivo-los-trapenses",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "mallplaza-egana",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en equipamiento publico del centro comercial.",
+    "stores": [
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "Tottus", "category": "supermercado" },
+      { "name": "AutoPlaza", "category": "autos" },
+      { "name": "Happyland", "category": "entretencion" },
+      { "name": "Cinépolis", "category": "entretencion" },
+      { "name": "IntegraMédica", "category": "salud" },
+      { "name": "SCD", "category": "cultura/musica" },
+      { "name": "Biblioteca Viva", "category": "cultura" },
+      { "name": "CasaIdeas", "category": "hogar/diseno" },
+      { "name": "H&M", "category": "moda" },
+      { "name": "Zara", "category": "moda" }
+    ]
+  },
+  {
+    "mallId": "paseo-quilin",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "florida-center",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial de Cencosud Shopping.",
+    "stores": []
+  },
+  {
+    "mallId": "mallplaza-vespucio",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en equipamiento publico del centro comercial.",
+    "stores": [
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Fashion's Park", "category": "moda" },
+      { "name": "Tricot", "category": "moda" },
+      { "name": "Líder", "category": "supermercado" },
+      { "name": "Decathlon", "category": "deporte" },
+      { "name": "Cinemark", "category": "entretencion" },
+      { "name": "AutoPlaza", "category": "autos" },
+      { "name": "SCD", "category": "cultura/musica" },
+      { "name": "Clínica Vespucio", "category": "salud" },
+      { "name": "Biblioteca Viva", "category": "cultura" },
+      { "name": "Duoc UC", "category": "educacion" }
+    ]
+  },
+  {
+    "mallId": "mallplaza-tobalaba",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en equipamiento publico del centro comercial.",
+    "stores": [
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "H&M", "category": "moda" },
+      { "name": "Sodimac", "category": "hogar/construccion" },
+      { "name": "Tottus", "category": "supermercado" },
+      { "name": "Cinemark", "category": "entretencion" },
+      { "name": "IntegraMédica", "category": "salud" },
+      { "name": "AutoPlaza", "category": "autos" },
+      { "name": "Biblioteca Viva", "category": "cultura" },
+      { "name": "Happyland", "category": "entretencion" }
+    ]
+  },
+  {
+    "mallId": "espacio-urbano-puente-alto",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "mall-arauco-el-bosque",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "espacio-urbano-gran-avenida",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "mall-arauco-maipu",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en tiendas ancla y servicios destacados.",
+    "stores": [
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "ABC", "category": "departamental/electronica" },
+      { "name": "H&M", "category": "moda" },
+      { "name": "Jumbo", "category": "supermercado" },
+      { "name": "Easy", "category": "hogar" },
+      { "name": "Cinépolis", "category": "entretencion" },
+      { "name": "Mamut", "category": "comida" },
+      { "name": "Starbucks", "category": "comida/cafe" },
+      { "name": "Reebok", "category": "deporte" },
+      { "name": "Adidas", "category": "deporte" }
+    ]
+  },
+  {
+    "mallId": "mallplaza-oeste",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en equipamiento publico del centro comercial.",
+    "stores": [
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "Cinemark", "category": "entretencion" },
+      { "name": "Tottus", "category": "supermercado" },
+      { "name": "Sodimac Homecenter", "category": "hogar/construccion" },
+      { "name": "Sodimac Constructor", "category": "construccion" },
+      { "name": "Duoc UC", "category": "educacion" },
+      { "name": "Happyland", "category": "entretencion" },
+      { "name": "AutoPlaza", "category": "autos" },
+      { "name": "IntegraMédica", "category": "salud" }
+    ]
+  },
+  {
+    "mallId": "vivo-outlet-maipu",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial de tiendas outlet.",
+    "stores": []
+  },
+  {
+    "mallId": "midmall-maipu",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "mallplaza-alameda",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en equipamiento publico del centro comercial.",
+    "stores": [
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "H&M", "category": "moda" },
+      { "name": "Cineplanet", "category": "entretencion" },
+      { "name": "Tottus", "category": "supermercado" },
+      { "name": "AutoPlaza", "category": "autos" },
+      { "name": "Happyland", "category": "entretencion" },
+      { "name": "IntegraMédica", "category": "salud" }
+    ]
+  },
+  {
+    "mallId": "mall-arauco-estacion",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en equipamiento publico del centro comercial.",
+    "stores": [
+      { "name": "Sodimac Homecenter", "category": "hogar/construccion" },
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Cine Hoyts", "category": "entretencion" },
+      { "name": "Centro Médico UC", "category": "salud" },
+      { "name": "Terminal San Borja", "category": "transporte" }
+    ]
+  },
+  {
+    "mallId": "vivo-imperio",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "apumanque",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Centro comercial tradicional. Completar con directorio oficial actualizado.",
+    "stores": []
+  },
+  {
+    "mallId": "mall-barrio-independencia",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "mallplaza-norte",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en equipamiento publico del centro comercial.",
+    "stores": [
+      { "name": "Falabella", "category": "departamental" },
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Ripley", "category": "departamental" },
+      { "name": "Sodimac", "category": "hogar/construccion" },
+      { "name": "Líder", "category": "supermercado" },
+      { "name": "Cinemark", "category": "entretencion" },
+      { "name": "IntegraMédica", "category": "salud" },
+      { "name": "AutoPlaza", "category": "autos" },
+      { "name": "Biblioteca Viva", "category": "cultura" },
+      { "name": "Happyland", "category": "entretencion" },
+      { "name": "H&M", "category": "moda" },
+      { "name": "Chuck E. Cheese's", "category": "comida/entretencion" }
+    ]
+  },
+  {
+    "mallId": "mall-arauco-quilicura",
+    "status": "seed-public-reference",
+    "lastReviewed": "2026-06-18",
+    "notes": "Listado inicial no exhaustivo basado en tiendas ancla y servicios destacados.",
+    "stores": [
+      { "name": "Paris", "category": "departamental" },
+      { "name": "Hites", "category": "departamental" },
+      { "name": "Fashion's Park", "category": "moda" },
+      { "name": "Abcdin Móvil", "category": "tecnologia" },
+      { "name": "Cine Hoyts", "category": "entretencion" }
+    ]
+  },
+  {
+    "mallId": "easton-outlet-mall",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial de tiendas outlet.",
+    "stores": []
+  },
+  {
+    "mallId": "arauco-premium-outlet-buenaventura",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial de tiendas outlet.",
+    "stores": []
+  },
+  {
+    "mallId": "espacio-urbano-las-rejas",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  },
+  {
+    "mallId": "paseo-san-bernardo",
+    "status": "seed-needs-official-review",
+    "lastReviewed": "2026-06-18",
+    "notes": "Completar con directorio oficial.",
+    "stores": []
+  }
+]
