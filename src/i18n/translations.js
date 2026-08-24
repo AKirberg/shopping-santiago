@@ -174,6 +174,9 @@ export const translations = {
     tips: {
       eyebrow: "Antes de salir",
       title: "Consejos para turistas",
+      subtitle: "Recomendaciones prácticas para comprar y moverte con tranquilidad por Santiago.",
+      expandCta: "Ver consejos",
+      collapseCta: "Ocultar consejos",
       items: [
         { title: "Evita horas punta", text: "Si usas auto, planifica traslados fuera del horario de mayor flujo vehicular." },
         { title: "Confirma horarios", text: "Revisa canales oficiales antes de ir, especialmente en feriados nacionales." },
@@ -186,6 +189,9 @@ export const translations = {
     compare: {
       eyebrow: "Decisión rápida",
       title: "Comparador",
+      subtitle: "Compara hasta 3 malls lado a lado antes de elegir.",
+      expandCta: "Comparar malls",
+      collapseCta: "Ocultar comparador",
       addMall: "+ Agregar mall",
       empty: "Selecciona 2 o 3 malls para comparar",
       criterion: "Criterio",
@@ -456,6 +462,9 @@ export const translations = {
     tips: {
       eyebrow: "Antes de sair",
       title: "Dicas para turistas",
+      subtitle: "Recomendações práticas para comprar e circular com tranquilidade por Santiago.",
+      expandCta: "Ver dicas",
+      collapseCta: "Ocultar dicas",
       items: [
         { title: "Evite horários de pico", text: "Se usar carro, planeje os traslados fora dos horários de maior tráfego." },
         { title: "Confirme os horários", text: "Verifique os canais oficiais antes de ir, especialmente em feriados nacionais." },
@@ -468,6 +477,9 @@ export const translations = {
     compare: {
       eyebrow: "Decisão rápida",
       title: "Comparador",
+      subtitle: "Compare até 3 malls lado a lado antes de escolher.",
+      expandCta: "Comparar malls",
+      collapseCta: "Ocultar comparador",
       addMall: "+ Adicionar mall",
       empty: "Selecione 2 ou 3 malls para comparar",
       criterion: "Critério",
@@ -738,6 +750,9 @@ export const translations = {
     tips: {
       eyebrow: "Before you go",
       title: "Tips for tourists",
+      subtitle: "Practical advice for shopping and getting around Santiago with confidence.",
+      expandCta: "View tips",
+      collapseCta: "Hide tips",
       items: [
         { title: "Avoid rush hour", text: "If driving, plan your trips outside peak traffic hours." },
         { title: "Confirm opening hours", text: "Check official channels before visiting, especially on national holidays." },
@@ -750,6 +765,9 @@ export const translations = {
     compare: {
       eyebrow: "Quick decision",
       title: "Compare malls",
+      subtitle: "Compare up to 3 malls side by side before choosing.",
+      expandCta: "Compare malls",
+      collapseCta: "Hide comparison",
       addMall: "+ Add mall",
       empty: "Select 2 or 3 malls to compare",
       criterion: "Criterion",
