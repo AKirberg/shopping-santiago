@@ -127,13 +127,7 @@ export function QuickReviewRating({ mallId }) {
   return (
     <div className="relative">
       <div
-        className={`flex items-center gap-0.5 rounded-full border p-1 shadow-card backdrop-blur-md transition ${
-          quickStatus === "success"
-            ? "border-leaf/40 bg-white"
-            : quickStatus === "error"
-              ? "border-coral/50 bg-white"
-              : "border-white bg-white"
-        }`}
+        className="flex items-center gap-0.5 rounded-full bg-transparent p-1 transition"
         aria-label={count
           ? t.reviews.shopeandoSummary.replace("{average}", formatAverage(average, lang)).replace("{count}", count)
           : labels.quickRating}
@@ -142,7 +136,7 @@ export function QuickReviewRating({ mallId }) {
           const active = score <= displayScore;
           const activeClass = isChoosing
             ? "bg-leaf text-white"
-            : "bg-gold text-white";
+            : "text-gold";
           return (
             <button
               key={score}
@@ -153,8 +147,8 @@ export function QuickReviewRating({ mallId }) {
               onBlur={() => setHoveredScore(0)}
               onClick={() => submitQuickRating(score)}
               disabled={isDisabled}
-              className={`flex h-7 w-7 items-center justify-center rounded-full transition focus:outline-none focus:ring-2 focus:ring-leaf focus:ring-offset-1 disabled:cursor-default ${
-                active ? activeClass : "text-gold hover:bg-gold/10"
+              className={`flex h-7 w-7 items-center justify-center rounded-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.65)] transition focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-1 focus:ring-offset-transparent disabled:cursor-default ${
+                active ? activeClass : "text-white/95 hover:bg-white/15"
               }`}
               aria-label={labels.ratingOption.replace("{score}", score)}
               title={labels.ratingOption.replace("{score}", score)}
@@ -163,7 +157,7 @@ export function QuickReviewRating({ mallId }) {
             </button>
           );
         })}
-        {quickStatus === "success" && <Check size={14} className="mx-1 text-leaf" strokeWidth={3} aria-hidden="true" />}
+        {quickStatus === "success" && <Check size={14} className="mx-1 text-white drop-shadow" strokeWidth={3} aria-hidden="true" />}
       </div>
       {quickMessage && (
         <p
