@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Building2, ChevronDown, MapPin, Navigation, Footprints } from "lucide-react";
-import galleries from "../data/galleries.json";
+import galleries from "../data/curatedGalleries.json";
 import { useLanguage } from "../i18n/LanguageContext";
 import GalleriesMap from "./GalleriesMap";
 import GalleryCard from "./GalleryCard";
