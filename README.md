@@ -38,6 +38,7 @@ src/
     routes.json
     stores.json
     galleries.json
+    touristNeighborhoods.json
   components/
     Header.jsx
     Hero.jsx
@@ -74,6 +75,10 @@ Edita `src/data/stores.json`. Cada bloque usa `mallId` para conectarse con `src/
 ## Como editar el especial de galerías
 
 Edita `src/data/galleries.json`. El archivo tiene una sección `meta`, rutas peatonales sugeridas y una lista `items` de galerías de Santiago Centro con dirección, eje, tags y nota turística. Mantén este módulo separado de `malls.json` para no mezclar malls grandes con galerías patrimoniales.
+
+## Como agregar barrios turísticos
+
+Edita `src/data/touristNeighborhoods.json`. Cada barrio tiene `id`, comuna, zona, tags, resumen, foco de compras, malls cercanos, galerías cercanas, metro y tips. Este archivo sirve para futuras rutas desde hoteles y recomendaciones por zona.
 
 ## Proximos pasos sugeridos
 
